@@ -1,6 +1,6 @@
 ---
-title             : "Replication Studies in Linguistics Journals"
-shorttitle        : "Preregistration"
+title             : "Preregistration: Replication Studies in Linguistics Journals"
+shorttitle        : "Preregistration of Replication Ling"
 
 author: 
   - name          : "Kristina Kobrock"
@@ -28,22 +28,6 @@ authornote: |
 
   Enter author note here.
 
-abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
-  
-  <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "keywords"
 wordcount         : "X"
@@ -75,8 +59,10 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
 # Introduction
-Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications across the psychological sciences (Open Science Community 2015), economics (Camerer et al. 2016), and social sciences (Camerer et al. 2018). As many research practices of these quantitative disciplines that have been shown to decrease the replicability of findings are shared with experimental linguistics, there are raising concerns about a similarly low number of replication studies conducted and published in this field (e.g. Marsden et al. 2018, Roettger & Baer-Henney 2019). A number of failed replication attempts in various subfields of linguistics like language comprehension (e.g. Papesh 2015) and predictive processing (e.g. Nieuwland et al. 2018) among many others (e.g. Chen 2007, Stack et al. 2018 & Westbury 2018) provide already some evidence for this increasing worry. 
+Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications across the psychological sciences [@open_science_collaboration_estimating_2015], economics (Camerer et al. 2016), and social sciences (Camerer et al. 2018). As many research practices of these quantitative disciplines that have been shown to decrease the replicability of findings are shared with experimental linguistics, there are raising concerns about a similarly low number of replication studies conducted and published in this field (e.g. Marsden et al. 2018, Roettger & Baer-Henney 2019). A number of failed replication attempts in various subfields of linguistics like language comprehension (e.g. Papesh 2015) and predictive processing (e.g. Nieuwland et al. 2018) among many others (e.g. Chen 2007, Stack et al. 2018 & Westbury 2018) provide already some evidence for this increasing worry. 
 But in order to thoroughly understand and be able to address this problem, it is important to not only evaluate the number of replication attempts conducted in the field, but also reasons and factors contributing to the (presumably low) number. In our eyes, one crucial factor for this phenomenon is the asymmetric incentive system of publication that rewards novel confirmatory findings over replications and null results.
+
+ <!-- TR: refs need to be integrated like above for open science collab, there are a few missing in the bib file, please add and double check: camerer 2018, makel 2016.-->
 
 In order to evaluate the replication rate in linguistics, the present study aims at assessing the frequency and typology of replication studies that are published in a representative sample of linguistic journals. 
 The present study consists of two parts: First, we will assess the frequency of self-reported replication attempts across 100 linguistic journals and relate the replication rate to factors related to journal policy, impact factor and publication type. Second, we will assess the type of replication studies (direct, partial, conceptual) published in a subset of 20 journals and relate their frequency to factors related to year of publication, and the citation and publication year of the original study.
