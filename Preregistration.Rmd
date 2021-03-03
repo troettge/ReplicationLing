@@ -82,7 +82,7 @@ In order to relate the rate of replication mention to journal policies, we furth
 (1) Journals which stated that they accepted replications;
 (2) Journals which did not state they accepted replications but did not discourage replications either;
 (3) Journals which implicitly discouraged replications through the use of emphasis on the scientific originality of submissions,
-(4) Journals which actively discouraged replications by stating explicitly that they did not accept replications for publication.
+(4) Journals which actively discouraged replications by stating explicitly that they did not accept replications for publication [@martinclarke_policies_2017, p. 3].
 
 Journal impact factors are extracted via Journal Citation Reports (https://jcr.clarivate.com). The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018.
 The open access category is assessed via Web of Science. We distinguish three categories: journals which are listed on the Directory of Open Access Journals (DOAJ) ("DOAJ gold"), journals with some articles being published as open access articles ("partial") and journals with no openly accessible articles ("no").
