@@ -1,5 +1,5 @@
 ---
-title             : "Preregistration: Replication Studies in Linguistics Journals"
+title             : "Preregistration: Replication Studies in Linguistic Journals"
 shorttitle        : "Preregistration of ReplicationLing"
 
 author: 
@@ -63,7 +63,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 # Introduction
 Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications across the psychological sciences [@open_science_collaboration_estimating_2015], economics [@camerer_economics_2016], and social sciences [@camerer_socscience_2018]. 
 Experimental linguistics shares research practices that have been shown to decrease the replicability of findings. Thus, there are raising concerns about a similarly low number of replication studies conducted and published in this field [e.g. @marsden_replication_2018; @roettger2019toward]. 
-A number of failed replication attempts in various subfields of linguistics indicate that these concerns warrant attention [e.g. in language comprehension: @papesh_just_2015; predictive processing: @nieuwland_large-scale_2018, among others: e.g. @chen_chinese_2007; @stack_failure_2018; @westbury_implicit_2018]. 
+A number of failed replication attempts in various subfields of linguistics indicate that these concerns warrant attention [e.g. in language comprehension: @papesh_just_2015; predictive processing: @nieuwland_large-scale_2018; among others: e.g. @chen_chinese_2007; @stack_failure_2018; @westbury_implicit_2018]. 
 One driving factor for this phenomenon is an asymmetric incentive system that rewards novel confirmatory findings more than direct replications and null results.
 This leads to an abundance of positive findings in the absence of possible conflicting negative evidence. 
 In order to thoroughly understand and be able to address this problem, it is important to assess the number of replication attempts and their contributing factors. 
@@ -85,13 +85,13 @@ How did the rate change over time and how does it relate to journal policy, impa
 
 ### Sample
 To obtain a representative sample of journals relevant for the field of experimental linguistics, we follow the procedure presented here: 
-First, using the Web of Science advanced search on the "Web of Science Core Collection" database, we filter for the category "Linguistics" (WC=(Linguistics)) that lists the articles of every journal covered by Web of Science that was assigned to the subject category of Linguistics (see a [list of categories here] (http://images.webofknowledge.com/WOKRS535R111/help/WOS/hp_subject_category_terms_tasca.html)). 
+First, using the Web of Science advanced search on the "Web of Science Core Collection" database, we filter for the category "Linguistics" (WC=(Linguistics)) that lists the articles of every journal covered by Web of Science that was assigned to the subject category of Linguistics (see a [list of categories here](http://images.webofknowledge.com/WOKRS535R111/help/WOS/hp_subject_category_terms_tasca.html)). 
 All English language articles from the full available range of complete years (1945-2020) are taken into account. 
 From the resulting set (159002) only those articles are selected which contain the search term "experiment\*" in their title, abstract or keywords using TS="experiment\*" in order to filter for experimental linguistic studies. This search results in 11093 articles. The relevant journals are selected based on the obtained article counts. 
 From all journals that include at least one experimental linguistic study according to our criterium (418), journals with less than 100 published articles are excluded, yielding 259 remaining journals. 
 Because we are interested in journals with a high proportion of experimental studies, we calculate the ratio of studies that contained the search term "experiment\*" by the total amount of articles per journal and sort the results in descending order. 
 Our sample constitutes the first 100 journals of that list. 
-Counts have been obtained on the 21st February 2021. See [osf-link] for more details.
+Counts have been obtained on the 21st February 2021. See [here](https://osf.io/q2e9k/) for more details: https://osf.io/q2e9k/
  <!-- TR: in the final paper, we will have to add several caveats here, acknowledging that these are all rough proxies and likely overlooking many relevant studies, but we don't need to bother with it now-->
 
 ### Procedure
@@ -119,7 +119,7 @@ We will use weakly informative Cauchy priors centered on zero (scale = 2.5) for 
 These priors are what is referred to as regularizing [@gelman_weakly_2008], i.e. our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation. 
 Four sampling chains with 2000 iterations each will be run for each model, with a warm-up period of 1000 iterations.
 For relevant predictor levels and contrasts between predictor levels, we will report the posterior probability for the rate of replication mention. 
-We summarize these distributions by reporting the posterior mean and the 95% credible intervals (henceforth CrIs, calculated as the highest posterior density interval). 
+We summarize these distributions by reporting the posterior mean and the 95% credible intervals (calculated as the highest posterior density interval). 
 
 # Detailed Analysis: Types and Contributing Factors
 
@@ -135,25 +135,24 @@ We are further interested in the relationship of direct replications and whether
 ### Sample
 From the superset of 100 journals obtained above, the first 20 journals (i.e. those journals with the highest proportion of experimental studies) are selected for a more detailed analysis. 
 We exclude those journals for which less than 2 hits (TS=(replicat\*)) can be obtained. 
-This method yields a total number of 274 articles. 
-Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals), we randomly select 50 out of the 114 articles for the Journal of Memory and Language to achieve a more balanced distribution of papers across journals.
- <!-- TR: how is this random selection performed?-->
+This method yields a total number of 274 articles (see [here](https://osf.io/f3yp8/) for a list of article counts per journal: https://osf.io/f3yp8/). 
+Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals), we randomly select 50 out of the 114 articles for the Journal of Memory and Language to achieve a more balanced distribution of papers across journals by drawing from a uniform distribution in R without replacement.
 
 ### Procedure
 The sampling procedure above results in 210 possible self-labeled replication studies. 
 In a first step, we will identify whether the article indeed presents a replication study or not. 
 By reading title and abstract of the paper a first intuition of what the article is about can be obtained. 
 The main task is to assess whether the authors claim that their underlying aim was to replicate or reproduce findings or methods of another study (henceforth initial study). 
-A search for occurrences of the search term "replicat" in the text and an assessment of the paragraph before the Methods section as well as the first paragraph of the Discussion section (following the procedure specified by [@makel_replications_2016]) helps to further identify the intention communicated by the authors regarding their use of the term replication. 
+A search for occurrences of the search term "replicat" in the text and an assessment of the paragraph before the Methods section as well as the first paragraph of the Discussion section (following the procedure specified by Makel et al. [-@makel_replications_2016]) helps to further identify the intention communicated by the authors regarding their use of the term replication. 
 If the authors communicate that (one of) the underlying aim(s) was to replicate an original study, this article can be treated as a replication. 
-It then qualifies for further analysis after the coding scheme that can be viewed here: [osf-link]. 
+It then qualifies for further analysis after the coding scheme that can be viewed [here](https://osf.io/ct2xj/): https://osf.io/ct2xj/. 
 
 Assuming that the authors did not make any drastic changes to the initial study *without* reporting them, number and type of changes made by the replication study are extracted. 
 The replication studies are classified according to three types: direct replication (0 changes), partial replication (1 change) and conceptual replication (2 or more changes), following Marsden et al. [-@marsden_replication_2018]. 
 We note the nature of the change as one of the following categories (yes/no): experimental paradigm, sample, materials/experimental set-up, dependent variable, independent variable, and control.
 Coding the articles also involves examining the factors open access of that article (yes/no), years between initial study and replication attempt, author overlap of initial study and replication attempt (yes/no), citation counts of both studies and the language under investigation. 
 The information on whether the article is open access as well as citation counts and years of publication for both studies can be obtained from Web of Science.
-An author overlap is attested when one of the authors is a (co-)author on both both articles.
+An author overlap is attested when one of the authors is a (co-)author on both articles.
 
 ### Data Analysis
 We will use Bayesian parameter estimation based on generalized linear regression models with a logit link function in order to estimate the rate of direct replications relative to the following predictors: 
