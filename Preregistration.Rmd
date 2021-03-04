@@ -136,7 +136,7 @@ We are further interested in the relationship of direct replications and whether
 From the superset of 100 journals obtained above, the first 20 journals (i.e. those journals with the highest proportion of experimental studies) are selected for a more detailed analysis. 
 We exclude those journals for which less than 2 hits (TS=(replicat\*)) can be obtained. 
 This method yields a total number of 274 articles (see [here](https://osf.io/f3yp8/) for a list of article counts per journal: https://osf.io/f3yp8/). 
-Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals), we randomly select 50 out of the 114 articles for the Journal of Memory and Language to achieve a more balanced distribution of papers across journals by drawing from a uniform distribution in R without replacement.
+Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals), we randomly select 50 out of the 114 articles for the Journal of Memory and Language to achieve a more balanced distribution of papers across journals by drawing from a uniform distribution in R without replacement (see [here](https://osf.io/6vfpe/) for details).
 
 ### Procedure
 The sampling procedure above results in 210 possible self-labeled replication studies. 
