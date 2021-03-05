@@ -85,13 +85,13 @@ How did the rate change over time and how does it relate to journal policy, impa
 
 ### Sample
 To obtain a representative sample of journals relevant for the field of experimental linguistics, we follow the procedure presented here: 
-First, using the Web of Science advanced search on the "Web of Science Core Collection" database, we filter for the category "Linguistics" (WC=(Linguistics)) that lists the articles of every journal covered by Web of Science that was assigned to the subject category of Linguistics (see a [list of categories here] (http://images.webofknowledge.com/WOKRS535R111/help/WOS/hp_subject_category_terms_tasca.html)). 
+First, using the Web of Science advanced search on the "Web of Science Core Collection" database, we filter for the category "Linguistics" (WC=(Linguistics)) that lists the articles of every journal covered by Web of Science that was assigned to the subject category of Linguistics (see a [list of categories here](http://images.webofknowledge.com/WOKRS535R111/help/WOS/hp_subject_category_terms_tasca.html)). 
 All English language articles from the full available range of complete years (1945-2020) are taken into account. 
 From the resulting set (159002) only those articles are selected which contain the search term "experiment\*" in their title, abstract or keywords using TS="experiment\*" in order to filter for experimental linguistic studies. This search results in 11093 articles. The relevant journals are selected based on the obtained article counts. 
-From all journals that include at least one experimental linguistic study according to our criterium (418), journals with less than 100 published articles are excluded, yielding 259 remaining journals. 
+From all journals that include at least one experimental linguistic study according to our criteria (418), journals with less than 100 published articles are excluded, yielding 259 remaining journals. 
 Because we are interested in journals with a high proportion of experimental studies, we calculate the ratio of studies that contained the search term "experiment\*" by the total amount of articles per journal and sort the results in descending order. 
 Our sample constitutes the first 100 journals of that list. 
-Counts have been obtained on the 21st February 2021. See [osf-link] for more details.
+Counts have been obtained on the 21st February 2021. More details are given here: https://osf.io/5u6bx/.
  <!-- TR: in the final paper, we will have to add several caveats here, acknowledging that these are all rough proxies and likely overlooking many relevant studies, but we don't need to bother with it now-->
 
 ### Procedure
@@ -114,8 +114,7 @@ We distinguish between three categories: journals which are listed on the Direct
 ### Data Analysis
 We will use Bayesian parameter estimation based on generalized linear regression models with a binomial link function in order to estimate the rate of replication mention relative to the following predictors: journal impact factors (continuous), open access (binary: open access journal or not), and replication policies (binary: either explicitly encourage or not). 
 The model will be fitted to the proportion of replication mentions per journal using the R package brms [@burkner_brms_2016]. 
-We will use (weakly) informative normal priors centered on -2.1973 (corresponding to a 10% base rate, sd = 2.5) for the intercept since we expect very low base rates [e.g. @makel_replications_2012]. 
-We will use weakly informative Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
+We will use weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
 These priors are what is referred to as regularizing [@gelman_weakly_2008], i.e. our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation. 
 Four sampling chains with 2000 iterations each will be run for each model, with a warm-up period of 1000 iterations.
 For relevant predictor levels and contrasts between predictor levels, we will report the posterior probability for the rate of replication mention. 
@@ -146,7 +145,7 @@ By reading title and abstract of the paper a first intuition of what the article
 The main task is to assess whether the authors claim that their underlying aim was to replicate or reproduce findings or methods of another study (henceforth initial study). 
 A search for occurrences of the search term "replicat" in the text and an assessment of the paragraph before the Methods section as well as the first paragraph of the Discussion section (following the procedure specified by [@makel_replications_2016]) helps to further identify the intention communicated by the authors regarding their use of the term replication. 
 If the authors communicate that (one of) the underlying aim(s) was to replicate an original study, this article can be treated as a replication. 
-It then qualifies for further analysis after the coding scheme that can be viewed here: [osf-link]. 
+It then qualifies for further analysis after the coding scheme that can be viewed here: https://osf.io/5u6bx/. 
 
 Assuming that the authors did not make any drastic changes to the initial study *without* reporting them, number and type of changes made by the replication study are extracted. 
 The replication studies are classified according to three types: direct replication (0 changes), partial replication (1 change) and conceptual replication (2 or more changes), following Marsden et al. [-@marsden_replication_2018]. 
@@ -160,7 +159,7 @@ We will use Bayesian parameter estimation based on generalized linear regression
 year of publication (continuous), open access (binary: open access article or not), time lag between publication of initial study and replication attempt (continuous) and number of citations of initial study (continuous). 
 The model will be fitted to whether the replication mention was a direct replication or not using the R package brms [@burkner_brms_2016]. 
 The model further includes random intercepts for individual journals to account for varying rates of direct replications across journals.
-We will use (weakly) informative normal priors centered on -2.1973 (corresponding to 10% base rate, sd = 2.5) for the intercept (since we expect very low base rates) and weakly informative Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
+We will use weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
 Four sampling chains with 2000 iterations each will be run for each model, with a warm-up period of 1000 iterations. 
 For relevant predictor levels and contrasts between predictor levels, we will report the posterior probability for the rate of direct replication. 
 We summarize these distributions by reporting the posterior mean and the 95% credible intervals (calculated as the highest posterior density interval). 
