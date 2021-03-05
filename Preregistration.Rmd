@@ -63,7 +63,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 # Introduction
 Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications across the psychological sciences [@open_science_collaboration_estimating_2015], economics [@camerer_economics_2016], and social sciences [@camerer_socscience_2018]. 
 Experimental linguistics shares research practices that have been shown to decrease the replicability of findings. Thus, there are raising concerns about a similarly low number of replication studies conducted and published in this field [e.g. @marsden_replication_2018; @roettger2019toward]. 
-A number of failed replication attempts in various subfields of linguistics indicate that these concerns warrant attention [e.g. in language comprehension: @papesh_just_2015; predictive processing: @nieuwland_large-scale_2018; among others: e.g. @chen_chinese_2007; @stack_failure_2018; @westbury_implicit_2018]. 
+A number of failed replication attempts in various subfields of linguistics indicate that these concerns warrant attention [e.g. in language comprehension: @papesh_just_2015; predictive processing: @nieuwland_large-scale_2018; among others: @chen_chinese_2007; @stack_failure_2018; @westbury_implicit_2018]. 
 One driving factor for this phenomenon is an asymmetric incentive system that rewards novel confirmatory findings more than direct replications and null results.
 This leads to an abundance of positive findings in the absence of possible conflicting negative evidence. 
 In order to thoroughly understand and be able to address this problem, it is important to assess the number of replication attempts and their contributing factors. 
