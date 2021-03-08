@@ -1,0 +1,329 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  man]{apa6}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Preregistration: Replication Studies in Linguistic Journals},
+  pdfauthor={Kristina Kobrock1 \& Timo B. Roettger2},
+  pdflang={en-EN},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{Preregistration of ReplicationLing}
+\keywords{keywords\newline\indent Word count: X}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
+
+\title{Preregistration: Replication Studies in Linguistic Journals}
+\author{Kristina Kobrock\textsuperscript{1} \& Timo B. Roettger\textsuperscript{2}}
+\date{}
+
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} University of Osnabrück\\\textsuperscript{2} University of Oslo}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications across the psychological sciences (Open Science Collaboration, 2015), economics (Camerer et al., 2016), and social sciences (Camerer et al., 2018).
+Experimental linguistics shares research practices that have been shown to decrease the replicability of findings. Thus, there are raising concerns about a similarly low number of replication studies conducted and published in this field (e.g.~Marsden, Morgan‐Short, Thompson, \& Abugaber, 2018; Roettger \& Baer-Henney, 2019).
+A number of failed replication attempts in various subfields of linguistics indicate that these concerns warrant attention (e.g.~in language comprehension: Papesh, 2015; predictive processing: Nieuwland et al., 2018; among others: Chen, 2007; Stack, James, \& Watson, 2018; Westbury, 2018).
+One driving factor for this phenomenon is an asymmetric incentive system that rewards novel confirmatory findings more than direct replications and null results.
+This leads to an abundance of positive findings in the absence of possible conflicting negative evidence.
+In order to thoroughly understand and be able to address this problem, it is important to assess the number of replication attempts and their contributing factors.
+Other fields such as psychology (Makel, Plucker, \& Hegarty, 2012), eudcation science (Makel \& Plucker, 2014), and special education research (Makel et al., 2016) have assessed the amount of direct replications in their respective field and report alarmingly low replication rates (0.13\% - 1.07\%).
+
+In order to evaluate the replication rate in linguistics, the present study aims at assessing the frequency and typology of replication studies that are published in a representative sample of linguistic journals.
+The study consists of two parts:
+First, we will assess the frequency of self-reported replication attempts across 100 linguistic journals and relate the replication rate to factors related to journal policy, impact factor and publication type.
+Second, we will assess the type of replication studies (direct, partial, conceptual) published in a subset of 20 journals and relate their frequency to factors like the year of publication, and the citation and publication year of the original study.
+
+\hypertarget{overview-analysis-rate-of-replication-mention}{%
+\section{Overview Analysis: Rate of Replication Mention}\label{overview-analysis-rate-of-replication-mention}}
+
+The key dependent variable of the first part of this study is the rate of replication mention for journals relevant to the field of experimental linguistics.
+In order to determine these rates for the individual journals, we will draw on a method introduced by Makel et al.~(2012).
+We will use the search engine \enquote{Web of Science} (\url{https://webofknowledge.com}) for journal articles that contain the search term "replicat*" in title, abstract or keywords and compute the rate of replication mention.
+
+\hypertarget{research-questions}{%
+\subsubsection{Research Questions}\label{research-questions}}
+
+We intend to answer the following research questions: How many replication studies have been published in journals representative for experimental linguistic research?
+How did the rate change over time and how does it relate to journal policy, impact factor, and publication type?
+
+\hypertarget{sample}{%
+\subsubsection{Sample}\label{sample}}
+
+To obtain a representative sample of journals relevant for the field of experimental linguistics, we follow the procedure presented here:
+First, using the Web of Science advanced search on the \enquote{Web of Science Core Collection} database, we filter for the category \enquote{Linguistics} (WC=(Linguistics)) that lists the articles of every journal covered by Web of Science that was assigned to the subject category of Linguistics (see a \href{http://images.webofknowledge.com/WOKRS535R111/help/WOS/hp_subject_category_terms_tasca.html}{list of categories here}).
+All English language articles from the full available range of complete years (1945-2020) are taken into account.
+From the resulting set (159002) only those articles are selected which contain the search term \enquote{experiment*} in their title, abstract or keywords using TS=\enquote{experiment*} in order to filter for experimental linguistic studies. This search results in 11093 articles. The relevant journals are selected based on the obtained article counts.
+From all journals that include at least one experimental linguistic study according to our criteria (418), journals with less than 100 published articles are excluded, yielding 259 remaining journals.
+Because we are interested in journals with a high proportion of experimental studies, we calculate the ratio of studies that contained the search term \enquote{experiment*} by the total amount of articles per journal and sort the results in descending order.
+Our sample constitutes the first 100 journals of that list.
+Counts have been obtained on the 21st February 2021. See \href{https://osf.io/q2e9k/}{here} for more details: \url{https://osf.io/q2e9k/}
+
+\hypertarget{procedure}{%
+\subsubsection{Procedure}\label{procedure}}
+
+The total number of articles containing the search term \enquote{replicat*} in title, abstract or keywords is obtained via Web of Science search for the 100 sampled journals.
+This number and and the total number of experimental studies described above serve as a baseline for calculating the rates of replication mention, following the method used by Makel et al.~(2012).
+The rates of replication mention are calculated by dividing the number of articles containing the term \enquote{replicat*} by the number of articles that contain the term \enquote{experiment*} for each journal, respectively.
+
+In order to relate the rate of replication mention to journal policies, we further examine the journals' submission guidelines adopting the procedure used by Martin and Clarke (2017).
+They grouped psychology journals into four classes determined by what was stated in the \enquote{instructions to authors} and \enquote{aims and scope} sections on the websites of the respective journals:
+(1) Journals which stated that they accepted replications;
+(2) Journals which did not state they accepted replications but did not discourage replications either;
+(3) Journals which implicitly discouraged replications through the use of emphasis on the scientific originality of submissions,
+(4) Journals which actively discouraged replications by stating explicitly that they did not accept replications for publication (Martin \& Clarke, 2017, p. 3).
+
+Journal impact factors are extracted via Journal Citation Reports (\url{https://jcr.clarivate.com}).
+The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018.
+The open access category of journals is assessed via Web of Science.
+We distinguish between three categories: journals which are listed on the Directory of Open Access Journals (DOAJ) (\enquote{DOAJ gold}), journals with some articles being published as open access articles (\enquote{partial}) and journals with no openly accessible articles (\enquote{no}).
+
+\hypertarget{data-analysis}{%
+\subsubsection{Data Analysis}\label{data-analysis}}
+
+We will use Bayesian parameter estimation based on generalized linear regression models with a binomial link function in order to estimate the rate of replication mention relative to the following predictors: journal impact factors (continuous), open access (binary: open access journal or not), and replication policies (binary: either explicitly encourage or not).
+The model will be fitted to the proportion of replication mentions per journal using the R package brms (Bürkner, 2016).
+We will use weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients.
+These priors are what is referred to as regularizing (Gelman, Jakulin, Pittau, Su, \& others, 2008), i.e.~our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation.
+Four sampling chains with 2000 iterations each will be run for each model, with a warm-up period of 1000 iterations.
+For relevant predictor levels and contrasts between predictor levels, we will report the posterior probability for the rate of replication mention.
+We summarize these distributions by reporting the posterior mean and the 95\% credible intervals (calculated as the highest posterior density interval).
+
+\hypertarget{detailed-analysis-types-and-contributing-factors}{%
+\section{Detailed Analysis: Types and Contributing Factors}\label{detailed-analysis-types-and-contributing-factors}}
+
+\hypertarget{methods}{%
+\subsection{Methods}\label{methods}}
+
+The second part of the analysis aims at obtaining a better understanding of the underlying mechanisms of replication attempts published in the field of experimental linguistics.
+Because the term \enquote{replication} is commonly used in ambiguous ways, the articles that contain the search term \enquote{replicat*} require further analysis to determine whether the articles in question indeed report a replication study or use the term in a different way.
+
+\hypertarget{research-questions-1}{%
+\subsubsection{Research Questions}\label{research-questions-1}}
+
+We are interested in which kinds of replication studies are published and which factors contribute to their publication.
+We aim at investigating what types of replication studies are prevalent in the field.
+We are further interested in the relationship of direct replications and whether the paper was published as open access or not, the number of citations of the initial study and the years between publication of the initial study and the replication attempt.
+
+\hypertarget{sample-1}{%
+\subsubsection{Sample}\label{sample-1}}
+
+From the superset of 100 journals obtained above, the first 20 journals (i.e.~those journals with the highest proportion of experimental studies) are selected for a more detailed analysis.
+We exclude those journals for which less than 2 hits (TS=(replicat*)) can be obtained.
+This method yields a total number of 274 articles (see \href{https://osf.io/f3yp8/}{here} for a list of article counts per journal: \url{https://osf.io/f3yp8/}).
+Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals), we randomly select 50 out of the 114 articles for the Journal of Memory and Language to achieve a more balanced distribution of papers across journals by drawing from a uniform distribution in R without replacement (see \href{https://osf.io/6vfpe/}{here} for details).
+
+\hypertarget{procedure-1}{%
+\subsubsection{Procedure}\label{procedure-1}}
+
+The sampling procedure above results in 210 possible self-labeled replication studies.
+In a first step, we will identify whether the article indeed presents a replication study or not.
+By reading title and abstract of the paper a first intuition of what the article is about can be obtained.
+The main task is to assess whether the authors claim that their underlying aim was to replicate or reproduce findings or methods of another study (henceforth initial study).
+A search for occurrences of the search term \enquote{replicat} in the text and an assessment of the paragraph before the Methods section as well as the first paragraph of the Discussion section (following the procedure specified by Makel et al.~(2016)) helps to further identify the intention communicated by the authors regarding their use of the term replication.
+If the authors communicate that (one of) the underlying aim(s) was to replicate an original study, this article can be treated as a replication.
+It then qualifies for further analysis after the coding scheme that can be viewed \href{https://osf.io/ct2xj/}{here}: \url{https://osf.io/ct2xj/}.
+
+Assuming that the authors did not make any drastic changes to the initial study \emph{without} reporting them, number and type of changes made by the replication study are extracted.
+The replication studies are classified according to three types: direct replication (0 changes), partial replication (1 change) and conceptual replication (2 or more changes), following Marsden et al.~(2018).
+We note the nature of the change as one of the following categories (yes/no): experimental paradigm, sample, materials/experimental set-up, dependent variable, independent variable, and control.
+Coding the articles also involves examining the factors open access of that article (yes/no), years between initial study and replication attempt, author overlap of initial study and replication attempt (yes/no), citation counts of both studies and the language under investigation.
+The information on whether the article is open access as well as citation counts and years of publication for both studies can be obtained from Web of Science.
+An author overlap is attested when one of the authors is a (co-)author on both articles.
+
+\hypertarget{data-analysis-1}{%
+\subsubsection{Data Analysis}\label{data-analysis-1}}
+
+We will use Bayesian parameter estimation based on generalized linear regression models with a logit link function in order to estimate the rate of direct replications relative to the following predictors:
+year of publication (continuous), open access (binary: open access article or not), time lag between publication of initial study and replication attempt (continuous) and number of citations of initial study (continuous).
+The model will be fitted to whether the replication mention was a direct replication or not using the R package brms (Bürkner, 2016).
+The model further includes random intercepts for individual journals to account for varying rates of direct replications across journals.
+We will use weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients.
+Four sampling chains with 2000 iterations each will be run for each model, with a warm-up period of 1000 iterations.
+For relevant predictor levels and contrasts between predictor levels, we will report the posterior probability for the rate of direct replication.
+We summarize these distributions by reporting the posterior mean and the 95\% credible intervals (calculated as the highest posterior density interval).
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-burkner_brms_2016}{}%
+Bürkner, P.-C. (2016). Brms: An R package for Bayesian multilevel models using Stan. \emph{Journal of Statistical Software}, \emph{80}(1), 1--28.
+
+\leavevmode\hypertarget{ref-camerer_economics_2016}{}%
+Camerer, C. F., Dreber, A., Forsell, E., Ho, T.-H., Huber, J., Johannesson, M., \ldots{} Wu, H. (2016). Evaluating replicability of laboratory experiments in economics. \emph{Science}, \emph{351}(6280), 1433--1436. \url{https://doi.org/10.1126/science.aaf0918}
+
+\leavevmode\hypertarget{ref-camerer_socscience_2018}{}%
+Camerer, C. F., Dreber, A., Holzmeister, F., Ho, T.-H., Huber, J., Johanesson, M., \ldots{} Wu, H. (2018). Evaluating the replicability of social science experiments in nature and science between 2010 and 2015. \emph{Nature}, \emph{2}, 637--644. \url{https://doi.org/10.1038/s41562-018-0399-z}
+
+\leavevmode\hypertarget{ref-chen_chinese_2007}{}%
+Chen, J.-Y. (2007). Do Chinese and English speakers think about time differently? Failure of replicating Boroditsky (2001). \emph{Cognition}, \emph{104}(2), 427--436.
+
+\leavevmode\hypertarget{ref-gelman_weakly_2008}{}%
+Gelman, A., Jakulin, A., Pittau, M. G., Su, Y.-S., \& others. (2008). A weakly informative default prior distribution for logistic and other regression models. \emph{The Annals of Applied Statistics}, \emph{2}(4), 1360--1383.
+
+\leavevmode\hypertarget{ref-makel2014facts}{}%
+Makel, M. C., \& Plucker, J. A. (2014). Facts are more important than novelty: Replication in the education sciences. \emph{Educational Researcher}, \emph{43}(6), 304--316.
+
+\leavevmode\hypertarget{ref-makel_replications_2016}{}%
+Makel, M. C., Plucker, J. A., Freeman, J., Lombardi, A., Simonsen, B., \& Coyne, M. (2016). Replication of special education research: Necessary but far too rare. \emph{Remedial and Special Education}, \emph{37}(4), 205--212.
+
+\leavevmode\hypertarget{ref-makel_replications_2012}{}%
+Makel, M. C., Plucker, J. A., \& Hegarty, B. (2012). Replications in psychology research: How often do they really occur? \emph{Perspectives on Psychological Science}, \emph{7}(6), 537--542.
+
+\leavevmode\hypertarget{ref-marsden_replication_2018}{}%
+Marsden, E., Morgan‐Short, K., Thompson, S., \& Abugaber, D. (2018). Replication in Second Language Research: Narrative and Systematic Reviews and Recommendations for the Field. \emph{Language Learning}, \emph{68}(2), 321--391. \url{https://doi.org/10/gc3h3b}
+
+\leavevmode\hypertarget{ref-martinclarke_policies_2017}{}%
+Martin, G. N., \& Clarke, R. M. (2017). Are psychology journals anti-replication? A snapshot of editorial practices. \emph{Frontiers in Psychology}, \emph{8}. \url{https://doi.org/10.3389/fpsyg.2017.00523}
+
+\leavevmode\hypertarget{ref-nieuwland_large-scale_2018}{}%
+Nieuwland, M. S., Politzer-Ahles, S., Heyselaar, E., Segaert, K., Darley, E., Kazanina, N., \ldots{} Huettig, F. (2018). Large-scale replication study reveals a limit on probabilistic prediction in language comprehension. \emph{eLife}, \emph{7}, e33468. \url{https://doi.org/10.7554/eLife.33468.001}
+
+\leavevmode\hypertarget{ref-open_science_collaboration_estimating_2015}{}%
+Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. \emph{Science}, \emph{349}(6251). \url{https://doi.org/10.1126/science.aac4716}
+
+\leavevmode\hypertarget{ref-papesh_just_2015}{}%
+Papesh, M. H. (2015). Just out of reach: On the reliability of the action-sentence compatibility effect. \emph{Journal of Experimental Psychology: General}, \emph{144}(6), e116--e141. \url{https://doi.org/10.1037/xge0000125}
+
+\leavevmode\hypertarget{ref-roettger2019toward}{}%
+Roettger, T. B., \& Baer-Henney, D. (2019). Toward a replication culture: Speech production research in the classroom. \emph{Phonological Data and Analysis}, \emph{1}(4), 1--23.
+
+\leavevmode\hypertarget{ref-stack_failure_2018}{}%
+Stack, C. M. H., James, A. N., \& Watson, D. G. (2018). A failure to replicate rapid syntactic adaptation in comprehension. \emph{Memory \& Cognition}, \emph{46}(6), 864--877. \url{https://doi.org/10.3758/s13421-018-0808-6}
+
+\leavevmode\hypertarget{ref-westbury_implicit_2018}{}%
+Westbury, C. (2018). Implicit sound symbolism effect in lexical access, revisited: A requiem for the interference task paradigm. \emph{Journal of Articles in Support of the Null Hypothesis}, \emph{15}(1), 1--12.
+
+\endgroup
+
+
+\end{document}

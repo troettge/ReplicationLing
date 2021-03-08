@@ -91,11 +91,7 @@ From the resulting set (159002) only those articles are selected which contain t
 From all journals that include at least one experimental linguistic study according to our criteria (418), journals with less than 100 published articles are excluded, yielding 259 remaining journals. 
 Because we are interested in journals with a high proportion of experimental studies, we calculate the ratio of studies that contained the search term "experiment\*" by the total amount of articles per journal and sort the results in descending order. 
 Our sample constitutes the first 100 journals of that list. 
-<<<<<<< HEAD
-Counts have been obtained on the 21st February 2021. More details are given here: https://osf.io/5u6bx/.
-=======
 Counts have been obtained on the 21st February 2021. See [here](https://osf.io/q2e9k/) for more details: https://osf.io/q2e9k/
->>>>>>> ac90942f0e565d674f238ce0d72e6106c2e54abb
  <!-- TR: in the final paper, we will have to add several caveats here, acknowledging that these are all rough proxies and likely overlooking many relevant studies, but we don't need to bother with it now-->
 
 ### Procedure
@@ -148,11 +144,7 @@ By reading title and abstract of the paper a first intuition of what the article
 The main task is to assess whether the authors claim that their underlying aim was to replicate or reproduce findings or methods of another study (henceforth initial study). 
 A search for occurrences of the search term "replicat" in the text and an assessment of the paragraph before the Methods section as well as the first paragraph of the Discussion section (following the procedure specified by Makel et al. [-@makel_replications_2016]) helps to further identify the intention communicated by the authors regarding their use of the term replication. 
 If the authors communicate that (one of) the underlying aim(s) was to replicate an original study, this article can be treated as a replication. 
-<<<<<<< HEAD
-It then qualifies for further analysis after the coding scheme that can be viewed here: https://osf.io/5u6bx/. 
-=======
 It then qualifies for further analysis after the coding scheme that can be viewed [here](https://osf.io/ct2xj/): https://osf.io/ct2xj/. 
->>>>>>> ac90942f0e565d674f238ce0d72e6106c2e54abb
 
 Assuming that the authors did not make any drastic changes to the initial study *without* reporting them, number and type of changes made by the replication study are extracted. 
 The replication studies are classified according to three types: direct replication (0 changes), partial replication (1 change) and conceptual replication (2 or more changes), following Marsden et al. [-@marsden_replication_2018]. 
