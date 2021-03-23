@@ -157,8 +157,8 @@ ggplot(data = predicted_values, aes(x = jif, y = pred_m)) +
 ggsave(filename = "../plots/mention_jif.png",
                plot = mention_jif,
                device = "png",
-               width = 150, 
-               height = 120,
+               width = 120, 
+               height = 96,
                units = "mm",
                #bg = "transparent",
                dpi = 300)
