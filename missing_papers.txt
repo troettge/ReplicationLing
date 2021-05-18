@@ -1,0 +1,712 @@
+﻿% This file was created with Citavi 6.8.0.0
+
+@article{Afalg.2012,
+ author = {A{\ss}falg, Andr{\'e} and Bernstein, Daniel M.},
+ year = {2012},
+ title = {Puzzles produce strangers: A puzzling result for revelation-effect theories},
+ keywords = {no (legal) access},
+ pages = {86--92},
+ volume = {67},
+ number = {1},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2011.12.011}
+}
+
+
+@article{Moreton.2004,
+ author = {Moreton, Elliott},
+ year = {2004},
+ title = {Realization of the English postvocalic [voice] contrast in F1 and F2},
+ keywords = {no (legal) access},
+ pages = {1--33},
+ volume = {32},
+ number = {1},
+ issn = {00954470},
+ journal = {Journal of Phonetics},
+ doi = {10.1016/S0095-4470(03)00004-4}
+}
+
+
+@article{Nenadic.2020,
+ author = {Nenadi{\'c}, Filip and Tucker, Benjamin V.},
+ year = {2020},
+ title = {Computational modelling of an auditory lexical decision experiment using jTRACE and TISK},
+ keywords = {no (legal) access},
+ pages = {1326--1354},
+ volume = {35},
+ number = {10},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/23273798.2020.1764600},
+ file = {391b41fe-a84c-4b40-aac7-ef727f6590aa:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\391b41fe-a84c-4b40-aac7-ef727f6590aa.pdf:pdf}
+}
+
+
+@article{New.2014,
+ author = {New, Boris and Nazzi, Thierry},
+ year = {2014},
+ title = {The time course of consonant and vowel processing during word recognition},
+ keywords = {no (legal) access},
+ pages = {147--157},
+ volume = {29},
+ number = {2},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/01690965.2012.735678},
+ file = {89281b81-5600-4c07-b4a8-13f5e89a1169:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\89281b81-5600-4c07-b4a8-13f5e89a1169.pdf:pdf}
+}
+
+
+@article{Nishiyama.2013,
+ author = {Nishiyama, Ryoji and Ukita, Jun},
+ year = {2013},
+ title = {Articulation of phonologically similar items disrupts free recall of nonwords},
+ keywords = {no (legal) access},
+ pages = {1--9},
+ volume = {68},
+ number = {1},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2012.09.002}
+}
+
+
+@article{Nordmeyer.2018,
+ author = {Nordmeyer, Ann E. and Frank, Michael C.},
+ year = {2018},
+ title = {Early Understanding of Pragmatic Principles in Children's Judgments of Negative Sentences},
+ keywords = {no (legal) access},
+ pages = {262--278},
+ volume = {14},
+ number = {4},
+ issn = {1547-5441},
+ journal = {Language learning and development : the official journal of the Society for Language Development},
+ doi = {10.1080/15475441.2018.1463850}
+}
+
+
+@article{Patson.2014,
+ author = {Patson, Nikole D. and Warren, Tessa},
+ year = {2014},
+ title = {Comparing the roles of referents and event structures in parsing preferences},
+ keywords = {no (legal) access},
+ pages = {408--423},
+ volume = {29},
+ number = {4},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/01690965.2013.788197},
+ file = {4813a58e-bed4-43d5-b125-a4d9fa47f80f:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\4813a58e-bed4-43d5-b125-a4d9fa47f80f.pdf:pdf}
+}
+
+
+@article{Perea.2008,
+ author = {Perea, Manuel and Du{\~n}abeitia, Jon Andoni and Carreiras, Manuel},
+ year = {2008},
+ title = {Masked associative/semantic priming effects across languages with highly proficient bilinguals},
+ keywords = {no (legal) access},
+ pages = {916--930},
+ volume = {58},
+ number = {4},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2008.01.003}
+}
+
+
+@article{Pham.2015,
+ author = {Pham, Hien and Baayen, Harald},
+ year = {2015},
+ title = {Vietnamese compounds show an anti-frequency effect in visual lexical decision},
+ keywords = {no (legal) access},
+ pages = {1077--1095},
+ volume = {30},
+ number = {9},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/23273798.2015.1054844},
+ file = {dab23df8-782d-4f19-9e40-8c022328cfdc:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\dab23df8-782d-4f19-9e40-8c022328cfdc.pdf:pdf}
+}
+
+
+@article{Phillips.2004,
+ author = {Phillips, Natalie A. and Segalowitz, Norman and O'Brien, Irena and Yamasaki, Naomi},
+ year = {2004},
+ title = {Semantic priming in a first and second language: evidence from reaction time variability and event-related brain potentials},
+ keywords = {no (legal) access},
+ pages = {237--262},
+ volume = {17},
+ number = {2-3},
+ issn = {09116044},
+ journal = {Journal of Neurolinguistics},
+ doi = {10.1016/S0911-6044(03)00055-1}
+}
+
+
+@article{Rawson.2019,
+ author = {Rawson, Katherine A. and Zamary, Amanda},
+ year = {2019},
+ title = {Why is free recall practice more effective than recognition practice for enhancing memory? Evaluating the relational processing hypothesis},
+ keywords = {no (legal) access},
+ pages = {141--152},
+ volume = {105},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2019.01.002}
+}
+
+
+@article{Lipinski.2005,
+ author = {Lipinski, John and Gupta, Prahlad},
+ year = {2005},
+ title = {Does neighborhood density influence repetition latency for nonwords? Separating the effects of density and duration},
+ keywords = {no (legal) access},
+ pages = {171--192},
+ volume = {52},
+ number = {2},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2004.10.004}
+}
+
+
+@article{Reinisch.2016,
+ author = {Reinisch, Eva and Mitterer, Holger},
+ year = {2016},
+ title = {Exposure modality, input variability and the categories of perceptual recalibration},
+ keywords = {no (legal) access},
+ pages = {96--108},
+ volume = {55},
+ issn = {00954470},
+ journal = {Journal of Phonetics},
+ doi = {10.1016/j.wocn.2015.12.004}
+}
+
+
+@article{Shimada.2012,
+ author = {Shimada, Michihiro and Kanda, Takayuki},
+ year = {2012},
+ title = {What is the appropriate speech rate for a communication robot?},
+ keywords = {no (legal) access},
+ pages = {408--435},
+ volume = {13},
+ number = {3},
+ issn = {1572-0373},
+ journal = {Interaction Studies. Social Behaviour and Communication in Biological and Artificial Systems},
+ doi = {10.1075/is.13.3.05shi}
+}
+
+
+@article{Shosted.2011,
+ author = {Shosted, Ryan K.},
+ year = {2011},
+ title = {An articulatory--aerodynamic approach to stop excrescence},
+ keywords = {no (legal) access},
+ pages = {660--667},
+ volume = {39},
+ number = {4},
+ issn = {00954470},
+ journal = {Journal of Phonetics},
+ doi = {10.1016/j.wocn.2011.07.001}
+}
+
+
+@article{Sturm.2016,
+ author = {{\v{S}}turm, Pavel and Vol{\'i}n, Jan},
+ year = {2016},
+ title = {P-centres in natural disyllabic Czech words in a large-scale speech-metronome synchronization experiment},
+ keywords = {no (legal) access},
+ pages = {38--52},
+ volume = {55},
+ issn = {00954470},
+ journal = {Journal of Phonetics},
+ doi = {10.1016/j.wocn.2015.11.003}
+}
+
+
+@article{Tabor.2004,
+ author = {Tabor, Whitney and Galantucci, Bruno and Richardson, Daniel},
+ year = {2004},
+ title = {Effects of merely local syntactic coherence on sentence processing},
+ keywords = {no (legal) access},
+ pages = {355--370},
+ volume = {50},
+ number = {4},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2004.01.001}
+}
+
+
+@article{Tieu.2016,
+ author = {Tieu, L. and Yatsushiro, K. and Cremers, A. and Romoli, J. and Sauerland, U. and Chemla, E.},
+ year = {2016},
+ title = {On the Role of Alternatives in the Acquisition of Simple and Complex Disjunctions in French and Japanese},
+ keywords = {no (legal) access},
+ pages = {ffw010},
+ issn = {0167-5133},
+ journal = {Journal of Semantics},
+ doi = {10.1093/jos/ffw010},
+ file = {67f90755-a01f-452d-ae24-af746104320f:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\67f90755-a01f-452d-ae24-af746104320f.pdf:pdf}
+}
+
+
+@article{Tomoschuk.2020,
+ author = {Tomoschuk, Brendan and Ferreira, Victor S. and Gollan, Tamar H.},
+ year = {2020},
+ title = {Translation distractors facilitate production in single- and mixed-language picture naming},
+ keywords = {no (legal) access},
+ pages = {1--13},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/23273798.2020.1852291}
+}
+
+
+@article{Viebahn.2020,
+ author = {Viebahn, Malte C. and Luce, Paul A.},
+ year = {2020},
+ title = {Where is the disadvantage for reduced pronunciation variants in spoken-word recognition? On the neglected role of the decision stage in the processing of word-form variation},
+ keywords = {no (legal) access},
+ pages = {339--359},
+ volume = {35},
+ number = {3},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/23273798.2019.1659987}
+}
+
+
+@article{Vieth.2015,
+ author = {Vieth, H. E. and McMahon, K. L. and Cunnington, R. and de Zubicaray, G. I.},
+ year = {2015},
+ title = {Interference from object part relations in spoken word production: Behavioural and fMRI evidence},
+ keywords = {no (legal) access},
+ pages = {56--71},
+ volume = {36},
+ issn = {09116044},
+ journal = {Journal of Neurolinguistics},
+ doi = {10.1016/j.jneuroling.2015.05.002}
+}
+
+
+@article{Walker.2014,
+ author = {Walker, Esther J. and Bergen, Benjamin K. and N{\'u}{\~n}ez, Rafael},
+ year = {2014},
+ title = {Disentangling Spatial Metaphors for Time Using Non-spatial Responses and Auditory Stimuli},
+ keywords = {no (legal) access},
+ pages = {316--327},
+ volume = {29},
+ number = {4},
+ issn = {1092-6488},
+ journal = {Metaphor and Symbol},
+ doi = {10.1080/10926488.2014.948801}
+}
+
+
+@article{Xiang.2016,
+ author = {Xiang, Ming and Grove, Julian and Giannakidou, Anastasia},
+ year = {2016},
+ title = {Semantic and pragmatic processes in the comprehension of negation: An event related potential study of negative polarity sensitivity},
+ keywords = {no (legal) access},
+ pages = {71--88},
+ volume = {38},
+ issn = {09116044},
+ journal = {Journal of Neurolinguistics},
+ doi = {10.1016/j.jneuroling.2015.11.001}
+}
+
+
+@article{Saito.2004,
+ author = {Saito, Satoru and Miyake, Akira},
+ year = {2004},
+ title = {On the nature of forgetting and the processing--storage relationship in reading span performance},
+ keywords = {no (legal) access},
+ pages = {425--443},
+ volume = {50},
+ number = {4},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2003.12.003}
+}
+
+
+@article{Yamasaki.2018,
+ author = {Yamasaki, Brianna L. and Stocco, Andrea and Prat, Chantel S.},
+ year = {2018},
+ title = {Relating individual differences in bilingual language experiences to executive attention},
+ keywords = {no (legal) access},
+ pages = {1128--1151},
+ volume = {33},
+ number = {9},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/23273798.2018.1448092},
+ file = {8002672f-b4d3-46c3-8e03-f789dfabe344:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\8002672f-b4d3-46c3-8e03-f789dfabe344.pdf:pdf}
+}
+
+
+@article{LaHeij.2010,
+ author = {{La Heij}, Wido and Boelens, Harrie and Kuipers, Jan-Rouke},
+ year = {2010},
+ title = {Object interference in children's colour and position naming: Lexical interference or task-set competition?},
+ keywords = {no (legal) access},
+ pages = {568--588},
+ volume = {25},
+ number = {4},
+ issn = {0169-0965},
+ journal = {Language and Cognitive Processes},
+ doi = {10.1080/01690960903381174},
+ file = {ff993de2-c575-4bf4-995e-45ab82f0a9c6:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\ff993de2-c575-4bf4-995e-45ab82f0a9c6.pdf:pdf}
+}
+
+
+@article{Hernandez.2013,
+ author = {Hern{\'a}ndez, Mireia and Martin, Clara D. and Barcel{\'o}, Francisco and Costa, Albert},
+ year = {2013},
+ title = {Where is the bilingual advantage in task-switching?},
+ keywords = {no (legal) access},
+ pages = {257--276},
+ volume = {69},
+ number = {3},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2013.06.004}
+}
+
+
+@article{Badin.2014,
+ author = {Badin, Pierre and Bo{\"e}, Louis-Jean and Sawallis, Thomas R. and Schwartz, Jean-Luc},
+ year = {2014},
+ title = {Keep the lips to free the larynx: Comments on de Boer's articulatory model (2010)},
+ keywords = {no (legal) access},
+ pages = {161--167},
+ volume = {46},
+ issn = {00954470},
+ journal = {Journal of Phonetics},
+ doi = {10.1016/j.wocn.2014.07.002}
+}
+
+
+@article{Bailey.2003,
+ author = {Bailey, K.},
+ year = {2003},
+ title = {Disfluencies affect the parsing of garden-path sentences},
+ keywords = {no (legal) access},
+ pages = {183--200},
+ volume = {49},
+ number = {2},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/S0749-596X(03)00027-5}
+}
+
+
+@article{Basso.2004,
+ author = {Basso, Anna and Caporali, Alessandra},
+ year = {2004},
+ title = {Targeted intervention for multiple language disorders: a case study},
+ keywords = {no (legal) access},
+ pages = {383--401},
+ volume = {17},
+ number = {5},
+ issn = {09116044},
+ journal = {Journal of Neurolinguistics},
+ doi = {10.1016/j.jneuroling.2004.01.001}
+}
+
+
+@article{Belke.2013,
+ author = {Belke, Eva},
+ year = {2013},
+ title = {Long-lasting inhibitory semantic context effects on object naming are necessarily conceptually mediated: Implications for models of lexical-semantic encoding},
+ keywords = {no (legal) access},
+ pages = {228--256},
+ volume = {69},
+ number = {3},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2013.05.008}
+}
+
+
+@article{Birdsong.2001,
+ author = {Birdsong, David and Molis, Michelle},
+ year = {2001},
+ title = {On the Evidence for Maturational Constraints in Second-Language Acquisition},
+ keywords = {no (legal) access},
+ pages = {235--249},
+ volume = {44},
+ number = {2},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1006/jmla.2000.2750}
+}
+
+
+@article{Brand.2003,
+ author = {Brand, Muriele and Rey, Arnaud and Peereman, Ronald},
+ year = {2003},
+ title = {Where is the syllable priming effect in visual word recognition?},
+ keywords = {no (legal) access},
+ pages = {435--443},
+ volume = {48},
+ number = {2},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/S0749-596X(02)00522-3}
+}
+
+
+@article{Branigan.2011,
+ author = {Branigan, Holly P. and Catchpole, Ciara M. and Pickering, Martin J.},
+ year = {2011},
+ title = {What makes dialogues easy to understand?},
+ keywords = {no (legal) access},
+ pages = {1667--1686},
+ volume = {26},
+ number = {10},
+ issn = {0169-0965},
+ journal = {Language and Cognitive Processes},
+ doi = {10.1080/01690965.2010.524765},
+ file = {78c02012-bc07-4cb7-ab43-559d2461e285:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\78c02012-bc07-4cb7-ab43-559d2461e285.pdf:pdf}
+}
+
+
+@article{BrownSchmidt.2005,
+ author = {Brown-Schmidt, Sarah and Byron, Donna K. and Tanenhaus, Michael K.},
+ year = {2005},
+ title = {Beyond salience: Interpretation of personal and demonstrative pronouns☆},
+ keywords = {no (legal) access},
+ pages = {292--313},
+ volume = {53},
+ number = {2},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2005.03.003}
+}
+
+
+@article{Campbell.2006,
+ author = {Campbell, John D. and Katz, Albert N.},
+ year = {2006},
+ title = {On Reversing the Topics and Vehicles of Metaphor},
+ keywords = {no (legal) access},
+ pages = {1--22},
+ volume = {21},
+ number = {1},
+ issn = {1092-6488},
+ journal = {Metaphor and Symbol},
+ doi = {10.1207/s15327868ms2101{\textunderscore }1}
+}
+
+
+@article{Chang.2019,
+ author = {Chang, Claire H.C. and Lin, Tzu-Hui and Kuo, Wen-Jui},
+ year = {2019},
+ title = {Does phonological rule of tone substitution modulate mismatch negativity?},
+ keywords = {no (legal) access},
+ pages = {63--75},
+ volume = {51},
+ issn = {09116044},
+ journal = {Journal of Neurolinguistics},
+ doi = {10.1016/j.jneuroling.2019.01.001}
+}
+
+
+@article{Janssen.2003,
+ author = {Janssen, N.},
+ year = {2003},
+ title = {The selection of closed-class words in noun phrase production: The case of Dutch determiners},
+ keywords = {no (legal) access},
+ pages = {635--652},
+ volume = {48},
+ number = {3},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/S0749-596X(02)00531-4}
+}
+
+
+@article{Chateau.2003,
+ author = {Chateau, Dan and Jared, Debra},
+ year = {2003},
+ title = {Spelling--sound consistency effects in disyllabic word naming},
+ keywords = {no (legal) access},
+ pages = {255--280},
+ volume = {48},
+ number = {2},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/S0749-596X(02)00521-1}
+}
+
+
+@article{Dilley.2010,
+ author = {Dilley, Laura C. and Mattys, Sven L. and Vinke, Louis},
+ year = {2010},
+ title = {Potent prosody: Comparing the effects of distal prosody, proximal prosody, and semantic context on word segmentation☆},
+ keywords = {no (legal) access},
+ pages = {274--294},
+ volume = {63},
+ number = {3},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2010.06.003}
+}
+
+
+@article{Dunabeitia.2011,
+ author = {Du{\~n}abeitia, Jon Andoni and Kinoshita, Sachiko and Carreiras, Manuel and Norris, Dennis},
+ year = {2011},
+ title = {Is morpho-orthographic decomposition purely orthographic? Evidence from masked priming in the same--different task},
+ keywords = {no (legal) access},
+ pages = {509--529},
+ volume = {26},
+ number = {4-6},
+ issn = {0169-0965},
+ journal = {Language and Cognitive Processes},
+ doi = {10.1080/01690965.2010.499215},
+ file = {ae9deff8-e2e4-4618-a46a-4d3e2b4c6af9:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\ae9deff8-e2e4-4618-a46a-4d3e2b4c6af9.pdf:pdf}
+}
+
+
+@article{Dupuis.2015,
+ author = {Dupuis, Amanda and Berent, Iris},
+ year = {2015},
+ title = {Signs are symbols: evidence from the Stroop task},
+ keywords = {no (legal) access},
+ pages = {1339--1344},
+ volume = {30},
+ number = {10},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/23273798.2015.1069363},
+ file = {4195286b-87bd-4f03-ab97-e61e2f90acd7:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\4195286b-87bd-4f03-ab97-e61e2f90acd7.pdf:pdf}
+}
+
+
+@article{Duyck.2003,
+ author = {Duyck, W.},
+ year = {2003},
+ title = {Verbal working memory is involved in associative word learning unless visual codes are available},
+ keywords = {no (legal) access},
+ pages = {527--541},
+ volume = {48},
+ number = {3},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/S0749-596X(02)00533-8}
+}
+
+
+@article{Dwivedi.2017,
+ author = {Dwivedi, Veena D. and Gibson, Raechelle M.},
+ year = {2017},
+ title = {An ERP investigation of quantifier scope ambiguous sentences: Evidence for number in events},
+ keywords = {no (legal) access},
+ pages = {63--82},
+ volume = {42},
+ issn = {09116044},
+ journal = {Journal of Neurolinguistics},
+ doi = {10.1016/j.jneuroling.2016.11.006}
+}
+
+
+@article{Feiman.2017,
+ author = {Feiman, Roman and Mody, Shilpa and Sanborn, Sophia and Carey, Susan},
+ year = {2017},
+ title = {What Do You Mean, No? Toddlers' Comprehension of Logical ``No'' and ``Not''},
+ keywords = {no (legal) access},
+ pages = {430--450},
+ volume = {13},
+ number = {4},
+ issn = {1547-5441},
+ journal = {Language learning and development : the official journal of the Society for Language Development},
+ doi = {10.1080/15475441.2017.1317253}
+}
+
+
+@article{Finley.2017,
+ author = {Finley, Jason R. and Sungkhasettee, Victor W. and Roediger, Henry L. and Balota, David A.},
+ year = {2017},
+ title = {Relative contributions of semantic and phonological associates to over-additive false recall in hybrid DRM lists},
+ keywords = {no (legal) access},
+ pages = {154--168},
+ volume = {93},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2016.07.006}
+}
+
+
+@article{Flusberg.2020,
+ author = {Flusberg, Stephen J. and Lauria, Mark and Balko, Samuel and Thibodeau, Paul H.},
+ year = {2020},
+ title = {Effects of Communication Modality and Speaker Identity on Metaphor Framing},
+ keywords = {no (legal) access},
+ pages = {136--152},
+ volume = {35},
+ number = {2},
+ issn = {1092-6488},
+ journal = {Metaphor and Symbol},
+ doi = {10.1080/10926488.2020.1767336}
+}
+
+
+@article{Fraga.2017,
+ author = {Fraga, Isabel and Padr{\'o}n, Isabel and Acu{\~n}a-Fari{\~n}a, Carlos and D{\'i}az-Lago, Marcos},
+ year = {2017},
+ title = {Processing gender agreement and word emotionality: New electrophysiological and behavioural evidence},
+ keywords = {no (legal) access},
+ pages = {203--222},
+ volume = {44},
+ issn = {09116044},
+ journal = {Journal of Neurolinguistics},
+ doi = {10.1016/j.jneuroling.2017.06.002}
+}
+
+
+@article{Hartsuiker.2005,
+ author = {Hartsuiker, Robert J. and Corley, Martin and Martensen, Heike},
+ year = {2005},
+ title = {The lexical bias effect is modulated by context, but the standard monitoring account doesn't fly: Related beply to Baars et al. (1975)},
+ keywords = {no (legal) access},
+ pages = {58--70},
+ volume = {52},
+ number = {1},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2004.07.006}
+}
+
+
+@article{Croot.2017,
+ author = {Croot, Karen and Lalas, George and Biedermann, Britta and Rastle, Kathleen and Jones, Kelly and Cholin, Joana},
+ year = {2017},
+ title = {Syllable frequency effects in immediate but not delayed syllable naming in English},
+ keywords = {no (legal) access},
+ pages = {1119--1132},
+ volume = {32},
+ number = {9},
+ issn = {2327-3798},
+ journal = {Language, Cognition and Neuroscience},
+ doi = {10.1080/23273798.2017.1284340},
+ file = {55b17125-c58d-4677-8b59-0db0365c34ea:C\:\\Users\\Kristina\\AppData\\Local\\Swiss Academic Software\\Citavi 6\\ProjectCache\\eaw4q21olqpoxt3jjwgv95uz9pqgaguoiivm4ho2pjm5e0b\\Citavi Attachments\\55b17125-c58d-4677-8b59-0db0365c34ea.pdf:pdf}
+}
+
+
+@article{Yan.2014,
+ author = {Yan, Ming and Luo, Yingyi and Inhoff, Albrecht W.},
+ year = {2014},
+ title = {Syllable articulation influences foveal and parafoveal processing of words during the silent reading of Chinese sentences},
+ keywords = {no (legal) access},
+ pages = {93--103},
+ volume = {75},
+ issn = {0749-596X},
+ journal = {Journal of Memory and Language},
+ doi = {10.1016/j.jml.2014.05.007}
+}
+
+
