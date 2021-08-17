@@ -32,10 +32,12 @@ col_lightGreen = "#a6dba0"
 current_path = rstudioapi::getActiveDocumentContext()$path 
 setwd(dirname(current_path))
 
-mention = read.csv("../data/mention.csv")
-guidelines = read.csv("../data/guidelines.csv")
+mention <-  read.csv("../data/mention.csv")
+guidelines  <-  read.csv("../data/guidelines.csv")
+replication  <-  read.csv("../data/Coding_Articles.csv")  
 
-## wrangle data-----------------------------------------------------------------
+
+## wrangle data mention and guideline--------------------------------------------
 
 # merge dfs
 df <- full_join(mention, guidelines)
@@ -162,3 +164,71 @@ ggsave(filename = "../plots/mention_jif.png",
                units = "mm",
                #bg = "transparent",
                dpi = 300)
+
+
+## could this effect be driven by the number experimental findings?
+# plot exp-ratio vs. jif
+ggplot(data = df_plot, aes(x = exp_ratio, y = jif,
+                             size = no_exp)) +
+  geom_point(alpha = 0.7, color = col_green) +
+  ylab("Predicted rate of replication mention") +
+  ylim(0, 4) +
+  xlim(0, 75) +
+  labs(title = "Rate of mentioning the term 'replicat*'",
+       subtitle = "   ",
+       y = "Journal Impact Factor\n",
+       x = "\n% of experimental studies") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# yeah, as I though, highly correlated
+df_red <- df[!is.na(df$jif),]
+cor(df_red$exp_ratio, df_red$jif)
+
+## wrangle data replication----------------------------------------------------
+
+# how many really experimental
+sum(replication$experimental.) / nrow(replication)
+# 0.95
+
+#subset only those
+replication_sub <- replication %>% 
+  filter(experimental. == 1)
+
+# of those how many replications
+sum(replication_sub$Replication.) / nrow(replication_sub)
+# 0.58
+
+#subset only those
+replication_sub_repli <- replication_sub %>% 
+  filter(Replication. == 1)
+
+# of those what types of replications
+xtabs(~type.of.replication, replication_sub_repli) / nrow(replication_sub_repli)
+# 0.57 conceptual
+# 0.07 direct
+# 0.36 partial
+
+# of those author overlap
+xtabs(~type.of.replication + author.overlap, replication_sub_repli) / nrow(replication_sub_repli)
+
+# plot years distance for those categories
+ggplot(replication_sub_repli,
+       aes(x = type.of.replication, 
+           y = years.between.initial.and.replication.study,
+           color = as.factor(author.overlap))) +
+  geom_point(alpha = 0.5, size = 3,
+             position = position_jitter(0.05)) + 
+  facet_grid(~as.factor(author.overlap))
+
+
+# plot publication year
+ggplot(replication_sub,
+       aes(x = Publication.Year, 
+           #y = Replication.,
+           fill = type.of.replication)
+       ) +
+  geom_histogram(alpha = 0.5) + 
+  facet_grid(type.of.replication ~ .)
+
+
