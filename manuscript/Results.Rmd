@@ -1,0 +1,115 @@
+---
+title             : "Assessing replication rates in experimental linguistics"
+shorttitle        : "ReplicationLing"
+
+author: 
+  - name          : "Kristina Kobrock"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    email         : "kkobrock@uni-osnabrueck.de"
+    #role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+     # - Conceptualization
+     # - Writing - original draft preparation
+     # - Writing - review & editing
+     # - Data curation
+     # - Methodology
+     # - Formal analysis
+     
+      
+  - name          : "Timo B. Roettger"
+    affiliation   : "2"
+    #role:
+      #- Writing - review & editing
+      #- Methodology
+      #- Formal analysis
+      #- Supervision
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Osnabrück"
+  - id            : "2"
+    institution   : "University of Oslo"
+
+  
+keywords          : "replication rate, experimental linguistics, ..." # up to 6
+wordcount         : "X" # no more than 13.000
+
+abstract : Abstract (to be written) # no more than 250 words
+
+bibliography      : ["r-references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+r_refs("r-references.bib")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+
+# Introduction
+
+# Overview analysis: Rate of replication mention
+## Research questions
+## Sample
+## Procedure
+## Data Analysis
+## Results
+
+# Detailed analysis: Types and contributing factors
+## Research questions
+## Sample
+## Procedure
+## Data Analysis
+```{r loading data, echo=FALSE}
+# loading the data
+coded_articles = read.csv("../data/Coding_Articles.csv", sep="|")
+```
+## Results
+
+# Discussion
+
+# Conclusion
+
+<!--
+# Abbreviations (mandatory if applicable) {#abbrev .unnumbered}
+
+# Data availability/Supplementary files (optional) {#data-availabilitysupplementary-files-optional .unnumbered}
+
+# Ethics and consent (optional) {#ethics-and-consent-optional .unnumbered}
+
+# Funding information (optional) {#funding-information-optional .unnumbered}
+
+# Acknowledgements (optional) {#acknowledgements-optional .unnumbered}
+
+# Competing interests (mandatory) {#competing-interests-mandatory .unnumbered}
+
+# Authors' contributions (optional) {#contrib .unnumbered}
+-->
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
