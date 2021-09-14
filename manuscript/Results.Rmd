@@ -62,7 +62,7 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
-```{r}
+```{r warning=FALSE}
 ## load in library
 library(tidyverse)
 library(truncnorm)
@@ -76,8 +76,17 @@ library(ggstream)
 library(tidybayes)
 library(bayesplot)
 ```
-
-
+```{r}
+## global color scheme / non-optimized
+### purple
+col_purple = "#7b3294"
+### light purple
+col_lightPurple = "#c2a5cf"
+### green
+col_green = "#008837"
+### light green
+col_lightGreen = "#a6dba0"
+```
 
 # Introduction
 
@@ -96,7 +105,6 @@ library(bayesplot)
 ```{r loading data, echo=FALSE}
 # loading the data
 coded_articles = read.csv("../data/Coding_Articles.csv", sep="|")
-head(coded_articles) # don't include when knitting
 nr_replications = coded_articles %>% filter(replication == "1") %>% count() # 117 are replications
 ```
 ```{r success, echo=FALSE}
@@ -106,17 +114,131 @@ success_reps = coded_articles %>% filter(type_replication == "direct") %>% filte
 success_rate = (success_reps / direct_reps) * 100
 # --> 87,5%
 ```
-```{r years between, echo=FALSE}
-
+```{r years between, echo=FALSE, include=FALSE}
+# What is the mean and median number of years between an initial and a replication study?
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(mean_years = mean(years_between, na.rm = TRUE)) # ~ 8,81 years
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(median_years = median(years_between, na.rm = TRUE)) # 7 years
 ```
-```{r citation, echo=FALSE}
+```{r citation, echo=FALSE, include=FALSE}
+# What is the mean and median citation count of initial studies before a replication study was published?
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(mean_cit_init = mean(init_cit_til_rep, na.rm = TRUE)) # ~ 41,1 citations
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(median_cit_init = median(init_cit_til_rep, na.rm = TRUE)) # 19,5 citations
+```
+```{r plot cit&years direct, echo=FALSE, include=FALSE}
+# preparing data for plot
 
+# wrangling citation data
+cit_data <- coded_articles %>% 
+  filter(type_replication == "direct") %>% # only include direct replications
+  mutate(
+    obs_nr = c(1:8)
+  ) %>% 
+  select(obs_nr, rep_citation, init_cit_til_rep) %>% 
+  pivot_longer(cols = c(rep_citation, init_cit_til_rep), values_to = "citation") %>% 
+  mutate(
+    study_kind = ifelse(name == "rep_citation", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, citation)
+
+# wrangling year of publication data
+pub_data <- coded_articles %>% 
+  filter(type_replication == "direct") %>% # only include direct replications
+  mutate(
+    obs_nr = c(1:8)
+  ) %>%
+  select(obs_nr, pub_year, year_init_study) %>% 
+  pivot_longer(cols = c(pub_year, year_init_study), values_to = "years") %>% 
+  mutate(
+    study_kind = ifelse(name == "pub_year", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, years)
+
+# creating one data frame for plotting
+plot_data <- full_join(cit_data, pub_data) %>% 
+  print()
+
+# creating a plot
+plot_data %>% 
+  ggplot(aes(x = years, y = citation, color = study_kind, group = obs_nr)) +
+  geom_point() +
+  geom_line(color = "lightgrey") +
+  labs(
+    x = "years",
+    y = "citations",
+    title = "After how many years and how many citations do replication studies get published?"
+  )
+```
+```{r plot cit&years all, echo=FALSE, include=FALSE}
+# preparing data for plot
+
+# wrangling citation data
+cit_data <- coded_articles %>% 
+  filter(replication == "1") %>% # only include replications
+  mutate(
+    obs_nr = c(1:117)
+  ) %>% 
+  select(obs_nr, rep_citation, init_cit_til_rep) %>% 
+  pivot_longer(cols = c(rep_citation, init_cit_til_rep), values_to = "citation") %>% 
+  mutate(
+    study_kind = ifelse(name == "rep_citation", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, citation)
+
+# wrangling year of publication data
+pub_data <- coded_articles %>% 
+  filter(replication == "1") %>% # only include replications
+  mutate(
+    obs_nr = c(1:117)
+  ) %>%
+  select(obs_nr, pub_year, year_init_study) %>% 
+  pivot_longer(cols = c(pub_year, year_init_study), values_to = "years") %>% 
+  mutate(
+    study_kind = ifelse(name == "pub_year", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, years)
+
+# creating one data frame for plotting
+plot_data <- full_join(cit_data, pub_data) %>% 
+  print()
+
+# creating a plot
+plot_data %>% 
+  ggplot(aes(x = years, y = citation, color = study_kind, group = obs_nr)) +
+  geom_point() +
+  geom_line(color = "lightgrey") +
+  labs(
+    x = "years",
+    y = "citations",
+    title = "After how many years and how many citations do replication studies get published?"
+  )
 ```
 ```{r inner paper, echo=FALSE}
-
+# How many replication studies were inner-paper replications?
+reps_inner_paper = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(cit_init_study == "same") %>% 
+  count() 
+# --> 37
+inner_paper = (reps_inner_paper / nr_replications) * 100
+# --> ~ 31,62 %
 ```
 ```{r language rep, echo=FALSE}
-
+# How many replication studies were replications in a different language?
+reps_diff_lang = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(str_detect(comments, "replication in a different language")) %>% 
+  count()
+# --> 18
+diff_lang = (reps_diff_lang / nr_replications) * 100
+# --> ~ 15,38 %
 ```
 ```{r same journal, echo=FALSE}
 # How many replication studies were published in the same journal?
