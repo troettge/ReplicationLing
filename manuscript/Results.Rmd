@@ -62,6 +62,22 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
+```{r}
+## load in library
+library(tidyverse)
+library(truncnorm)
+library(brms)
+library(rstudioapi)
+library(ggdist)
+library(distributional)
+library(ggstream)
+
+## package for visualization
+library(tidybayes)
+library(bayesplot)
+```
+
+
 
 # Introduction
 
@@ -80,7 +96,40 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```{r loading data, echo=FALSE}
 # loading the data
 coded_articles = read.csv("../data/Coding_Articles.csv", sep="|")
+head(coded_articles) # don't include when knitting
+nr_replications = coded_articles %>% filter(replication == "1") %>% count() # 117 are replications
 ```
+```{r success, echo=FALSE}
+# How many of the direct replications were (self-labeled) successful?
+direct_reps = coded_articles %>% filter(type_replication == "direct") %>% count() # 8 direct replications
+success_reps = coded_articles %>% filter(type_replication == "direct") %>% filter(success == "1") %>% count() # 7 successful
+success_rate = (success_reps / direct_reps) * 100
+# --> 87,5%
+```
+```{r years between, echo=FALSE}
+
+```
+```{r citation, echo=FALSE}
+
+```
+```{r inner paper, echo=FALSE}
+
+```
+```{r language rep, echo=FALSE}
+
+```
+```{r same journal, echo=FALSE}
+# How many replication studies were published in the same journal?
+journal_init = factor(coded_articles$journal_init_study, levels = levels(coded_articles$journal)) # set levels equal
+reps_same_journal = coded_articles %>% 
+  filter(journal == journal_init) %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper studies
+  count()
+# --> 16 (52 without exclusion)
+same_journal = (reps_same_journal / nr_replications) * 100
+# --> ~ 13,68 %
+```
+
 ## Results
 
 # Discussion
