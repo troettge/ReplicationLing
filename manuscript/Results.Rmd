@@ -56,12 +56,6 @@ library("papaja")
 r_refs("r-references.bib")
 ```
 
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
-```
-
 ```{r warning=FALSE}
 ## load in library
 library(tidyverse)
@@ -132,7 +126,7 @@ coded_articles %>%
   filter(cit_init_study != "same") %>% # exclude inner-paper replications
   summarise(median_cit_init = median(init_cit_til_rep, na.rm = TRUE)) # 19,5 citations
 ```
-```{r plot cit&years direct, echo=FALSE, include=FALSE}
+```{r plot cit&years direct}
 # preparing data for plot
 
 # wrangling citation data
@@ -162,8 +156,7 @@ pub_data <- coded_articles %>%
   select(obs_nr, study_kind, years)
 
 # creating one data frame for plotting
-plot_data <- full_join(cit_data, pub_data) %>% 
-  print()
+plot_data <- full_join(cit_data, pub_data)
 
 # creating a plot
 plot_data %>% 
@@ -176,7 +169,7 @@ plot_data %>%
     title = "After how many years and how many citations do replication studies get published?"
   )
 ```
-```{r plot cit&years all, echo=FALSE, include=FALSE}
+```{r plot cit&years all}
 # preparing data for plot
 
 # wrangling citation data
@@ -206,8 +199,7 @@ pub_data <- coded_articles %>%
   select(obs_nr, study_kind, years)
 
 # creating one data frame for plotting
-plot_data <- full_join(cit_data, pub_data) %>% 
-  print()
+plot_data <- full_join(cit_data, pub_data)
 
 # creating a plot
 plot_data %>% 
@@ -250,6 +242,48 @@ reps_same_journal = coded_articles %>%
 # --> 16 (52 without exclusion)
 same_journal = (reps_same_journal / nr_replications) * 100
 # --> ~ 13,68 %
+```
+```{r jml}
+# having a closer look at jml
+jml_data <- coded_articles %>% 
+  filter(journal == "JOURNAL OF MEMORY AND LANGUAGE")
+
+## how many really experimental
+jml_exp <- jml_data %>% 
+  filter(experimental == "1") 
+jml_exp_ratio = count(jml_exp)/count(jml_data) 
+# ---> 50 = 100%
+
+## of those how many actual replications
+jml_reps <- jml_exp %>% 
+  filter(replication == "1")
+jml_rep_ratio = count(jml_reps)/count(jml_exp)
+# ---> 34 = 68%
+
+## of those what types of replications
+round(xtabs(~type_replication, jml_reps) / nrow(jml_reps), 2)
+### 0.44 conceptual
+### 0.09 direct --> compared to 7% over all journals
+### 0.47 partial
+
+## of those author overlap
+round(xtabs(~type_replication + auth_overlap, jml_reps) / nrow(jml_reps), 2)
+###            no   yes 
+### conceptual 0.18 0.26
+### direct     0.06 0.03
+### partial    0.24 0.24
+
+# all journals:
+###            no   yes 
+### conceptual 0.26 0.30
+### direct     0.03 0.04
+### partial    0.15 0.21
+
+## overall direct independent replication rate 
+round(nrow(jml_data[jml_data$replication == 1 &
+                jml_data$type_replication == "direct" &
+                jml_data$auth_overlap == 0,]) / nrow(jml_data), 3)
+### 0.04 = 4% compared to 0.015 = 1,5%
 ```
 
 ## Results
