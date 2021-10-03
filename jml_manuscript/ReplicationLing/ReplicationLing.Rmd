@@ -1,0 +1,273 @@
+---
+title: Assessing replication rates in journals of experimental linguistics
+author:
+  - name: Kristina Kobrock
+    email: kkobrock@uni-osnabrueck.de
+    affiliation: University of Osnabrück
+    footnote: 1
+  - name: Timo B. Roettger
+    #email: bob@example.com
+    affiliation: University of Oslo
+address:
+  - code: University of Osnabrück
+    address: Department, Street, City, State, Zip
+  - code: University of Oslo
+    address: Department, Street, City, State, Zip
+footnote:
+  - code: 1
+    text: "Corresponding Author"
+abstract: |
+  This is the abstract.
+
+  It consists of two paragraphs.
+
+journal: "Journal of Memory and Language"
+date: "`r Sys.Date()`"
+bibliography: mybibfile.bib
+#linenumbers: true
+#numbersections: true
+csl: elsevier-harvard.csl
+output: rticles::elsevier_article
+---
+# Introduction
+state the objectives of the work and provide an adequate background, avoiding a detailed literature survey or a summary of the results
+
+# Material and methods
+provide sufficient details to allow the work to be reproduced by an independent researcher, describe any modifications to existing methods
+
+# Results
+clear and concise, include tables and figures
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+## load in library
+library(tidyverse)
+library(truncnorm)
+library(brms)
+library(rstudioapi)
+library(ggdist)
+library(distributional)
+library(ggstream)
+
+## package for visualization
+library(tidybayes)
+library(bayesplot)
+```
+```{r echo=FALSE}
+## global color scheme / non-optimized
+### purple
+col_purple = "#7b3294"
+### light purple
+col_lightPurple = "#c2a5cf"
+### green
+col_green = "#008837"
+### light green
+col_lightGreen = "#a6dba0"
+```
+
+```{r loading data, echo=FALSE}
+# loading the data
+coded_articles = read.csv("../../data/Coding_Articles.csv", sep="|")
+nr_replications = coded_articles %>% filter(replication == "1") %>% count() # 117 are replications
+```
+```{r success, echo=FALSE}
+# How many of the direct replications were (self-labeled) successful?
+direct_reps = coded_articles %>% filter(type_replication == "direct") %>% count() # 8 direct replications
+success_reps = coded_articles %>% filter(type_replication == "direct") %>% filter(success == "1") %>% count() # 7 successful
+success_rate = (success_reps / direct_reps) * 100
+# --> 87,5%
+```
+```{r years between, echo=FALSE}
+# What is the mean and median number of years between an initial and a replication study?
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(mean_years = mean(years_between, na.rm = TRUE)) # ~ 8,81 years
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(median_years = median(years_between, na.rm = TRUE)) # 7 years
+```
+```{r citation, echo=FALSE}
+# What is the mean and median citation count of initial studies before a replication study was published?
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(mean_cit_init = mean(init_cit_til_rep, na.rm = TRUE)) # ~ 41,1 citations
+coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(median_cit_init = median(init_cit_til_rep, na.rm = TRUE)) # 19,5 citations
+```
+```{r plot cit and years direct, echo=FALSE, message=FALSE}
+# preparing data for plot
+
+# wrangling citation data
+cit_data <- coded_articles %>% 
+  filter(type_replication == "direct") %>% # only include direct replications
+  mutate(
+    obs_nr = c(1:8)
+  ) %>% 
+  select(obs_nr, rep_citation, init_cit_til_rep) %>% 
+  pivot_longer(cols = c(rep_citation, init_cit_til_rep), values_to = "citation") %>% 
+  mutate(
+    study_kind = ifelse(name == "rep_citation", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, citation)
+
+# wrangling year of publication data
+pub_data <- coded_articles %>% 
+  filter(type_replication == "direct") %>% # only include direct replications
+  mutate(
+    obs_nr = c(1:8)
+  ) %>%
+  select(obs_nr, pub_year, year_init_study) %>% 
+  pivot_longer(cols = c(pub_year, year_init_study), values_to = "years") %>% 
+  mutate(
+    study_kind = ifelse(name == "pub_year", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, years)
+
+# creating one data frame for plotting
+plot_data <- full_join(cit_data, pub_data)
+
+# creating a plot
+plot_data %>% 
+  ggplot(aes(x = years, y = citation, color = study_kind, group = obs_nr)) +
+  geom_point() +
+  geom_line(color = "lightgrey") +
+  labs(
+    x = "years",
+    y = "citations",
+    title = "After how many years and how many citations do replication studies get published?"
+  )
+```
+```{r plot cit and years all, echo=FALSE, message=FALSE, warning=FALSE}
+# preparing data for plot
+
+# wrangling citation data
+cit_data <- coded_articles %>% 
+  filter(replication == "1") %>% # only include replications
+  mutate(
+    obs_nr = c(1:117)
+  ) %>% 
+  select(obs_nr, rep_citation, init_cit_til_rep) %>% 
+  pivot_longer(cols = c(rep_citation, init_cit_til_rep), values_to = "citation") %>% 
+  mutate(
+    study_kind = ifelse(name == "rep_citation", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, citation)
+
+# wrangling year of publication data
+pub_data <- coded_articles %>% 
+  filter(replication == "1") %>% # only include replications
+  mutate(
+    obs_nr = c(1:117)
+  ) %>%
+  select(obs_nr, pub_year, year_init_study) %>% 
+  pivot_longer(cols = c(pub_year, year_init_study), values_to = "years") %>% 
+  mutate(
+    study_kind = ifelse(name == "pub_year", "replication", "initial")
+  ) %>% 
+  select(obs_nr, study_kind, years)
+
+# creating one data frame for plotting
+plot_data <- full_join(cit_data, pub_data)
+
+# creating a plot
+plot_data %>% 
+  ggplot(aes(x = years, y = citation, color = study_kind, group = obs_nr)) +
+  geom_point() +
+  geom_line(color = "lightgrey") +
+  labs(
+    x = "years",
+    y = "citations",
+    title = "After how many years and how many citations do replication studies get published?"
+  )
+```
+```{r inner paper, echo=FALSE}
+# How many replication studies were inner-paper replications?
+reps_inner_paper = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(cit_init_study == "same") %>% 
+  count() 
+# --> 37
+inner_paper = (reps_inner_paper / nr_replications) * 100
+# --> ~ 31,62 %
+```
+```{r language rep, echo=FALSE}
+# How many replication studies were replications in a different language?
+reps_diff_lang = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(str_detect(comments, "replication in a different language")) %>% 
+  count()
+# --> 18
+diff_lang = (reps_diff_lang / nr_replications) * 100
+# --> ~ 15,38 %
+```
+```{r same journal, echo=FALSE}
+# How many replication studies were published in the same journal?
+journal_init = factor(coded_articles$journal_init_study, levels = levels(coded_articles$journal)) # set levels equal
+reps_same_journal = coded_articles %>% 
+  filter(journal == journal_init) %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper studies
+  count()
+# --> 16 (52 without exclusion)
+same_journal = (reps_same_journal / nr_replications) * 100
+# --> ~ 13,68 %
+```
+```{r jml}
+# having a closer look at jml
+jml_data <- coded_articles %>% 
+  filter(journal == "JOURNAL OF MEMORY AND LANGUAGE")
+
+## how many really experimental
+jml_exp <- jml_data %>% 
+  filter(experimental == "1") 
+jml_exp_ratio = count(jml_exp)/count(jml_data) 
+# ---> 50 = 100%
+
+## of those how many actual replications
+jml_reps <- jml_exp %>% 
+  filter(replication == "1")
+jml_rep_ratio = count(jml_reps)/count(jml_exp)
+# ---> 34 = 68%
+
+## of those what types of replications
+round(xtabs(~type_replication, jml_reps) / nrow(jml_reps), 2)
+### 0.44 conceptual
+### 0.09 direct --> compared to 7% over all journals
+### 0.47 partial
+
+## of those author overlap
+round(xtabs(~type_replication + auth_overlap, jml_reps) / nrow(jml_reps), 2)
+###            no   yes 
+### conceptual 0.18 0.26
+### direct     0.06 0.03
+### partial    0.24 0.24
+
+# all journals:
+###            no   yes 
+### conceptual 0.26 0.30
+### direct     0.03 0.04
+### partial    0.15 0.21
+
+## overall direct independent replication rate 
+round(nrow(jml_data[jml_data$replication == 1 &
+                jml_data$type_replication == "direct" &
+                jml_data$auth_overlap == 0,]) / nrow(jml_data), 3)
+### 0.04 = 4% compared to 0.015 = 1,5%
+```
+
+# Discussion
+
+# Appendices
+identified as A, B, etc.
+
+Bibliography styles
+===================
+
+There are various bibliography styles available. You can select the
+style of your choice in the preamble of this document. These styles are
+Elsevier styles based on standard styles like Harvard and Vancouver.
+Please use BibTeX to generate your bibliography and include DOIs
+whenever available.
+
+Here are two sample references: @Feynman1963118 [@Dirac1953888].
+
+References {#references .unnumbered}
+==========
