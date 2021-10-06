@@ -32,46 +32,6 @@
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \bibliographystyle{elsarticle-harv}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{graphicx}
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
@@ -199,9 +159,9 @@ subset of 20 journals was investigated and their frequency was related
 to factors like the year of publication, and the citation and
 publication year of the initial study.
 
-\hypertarget{overview-analysis-rate-of-replication-mention}{%
-\section{Overview analysis: rate of replication
-mention}\label{overview-analysis-rate-of-replication-mention}}
+\hypertarget{overview-analysis-how-often-do-articles-mention-the-term-replicat}{%
+\section{Overview analysis: how often do articles mention the term
+replicat*?}\label{overview-analysis-how-often-do-articles-mention-the-term-replicat}}
 
 The key dependent variable of the first part of this study was the rate
 of replication mention for journals relevant to the field of
@@ -214,9 +174,9 @@ factor, and publication type?
 \hypertarget{material-and-methods}{%
 \subsubsection{Material and methods}\label{material-and-methods}}
 
-The material and methods have been preregistered on Open Science
-Framework and can be inspected \href{https://osf.io/9ceas/}{here:
-https://osf.io/9ceas/}.
+The material and methods have been preregistered at DATA at the Open
+Science Framework and can be inspected
+\href{https://osf.io/9ceas/}{here: https://osf.io/9ceas/}.
 
 In order to determine the rates of replication mention for individual
 journals, we drew on a method introduced by Makel et al. (2012). First,
@@ -226,24 +186,21 @@ linguistics has been identified by making use of the search engine
 (https://webofknowledge.com)}. We restricted the search results to
 journals in the web of science category ``Linguistics'' which had at
 least 100 articles published and a high ratio of articles containing the
-term ``experiment*'' in title, abstract or keywords. All English
+term ``experiment*'' in title, abstract or keywords . All English
 language articles from the full available range of complete years
 (1945-2020) were taken into account. We selected the top 100 journals
 according to their ratio of experimental studies. The full list of
 journals can be inspected \href{https://osf.io/q2e9k/}{here:
 https://osf.io/q2e9k/}. The procedure described above helped us to
-identify journals relevant for the field of experimental linguistics.
-But this procedure can only yield a rough approximation of relevant
-articles published in the field and several articles might thus have
-been overlooked and not been included in the analysis. As a second step,
-the total number of articles containing the search term ``replicat*'' in
-title, abstract or keywords was obtained via Web of Science search for
-the 100 sampled journals. Following the method used by Makel et al.
-(2012) the rates of replication mention are calculated by dividing the
-number of articles containing the term ``replicat*'' by the total number
-of articles for each journal. As we were only interested in experimental
-linguistic studies, we only included articles containing the search term
-``experiment*'' in this formula.
+identify journals relevant for the field of experimental linguistics. As
+a second step, the total number of articles containing the search term
+``replicat*'' in title, abstract or keywords was obtained via Web of
+Science search for the 100 sampled journals. Following the method used
+by Makel et al. (2012) the rates of replication mention are calculated
+by dividing the number of articles containing the term ``replicat*'' by
+the total number of articles for each journal. As we were only
+interested in experimental linguistic studies, we only included articles
+containing the search term ``experiment*'' in this formula.
 
 In order to relate the rate of replication mention to journal policies,
 we further examined the journals' submission guidelines adopting a
@@ -257,8 +214,8 @@ which implicitly discouraged replications through the use of emphasis on
 the scientific originality of submissions, (4) Journals which actively
 discouraged replications by stating explicitly that they did not accept
 replications for publication (Martin and Clarke, 2017, p. 3). For our
-analysis, it was only relevant whether journals explicitly encouraged
-replication studies or not. So we grouped (2)-(4) together.
+analysis, we only distinguished between those journals explicitly
+encouraging replication studies (1) and those that do not (2-4).
 
 Journal impact factors were extracted via Journal Citation Reports
 (https://jcr.clarivate.com). The 2019 journal impact factors are
@@ -275,41 +232,90 @@ access (``no'').
 \hypertarget{results}{%
 \subsubsection{Results}\label{results}}
 
+Out of the 51272 articles in our sample, 8006 mentioned the term
+experiment* in title, abstract, or keywords. Out of these articles, 347
+contained the term replic* in either abstract or title. Thus the rate of
+mentioning the term replic* is 0.043.
+
+The distribution of the mention rate substantially varied across
+journals ranging from 0 to 0.128. 43 journals did not mention the term
+in any of their articles. The median mention rate across journals is
+0.016 (SD = 0.033).
+
+Following preregistered protocol, we estimated the mention rate as
+predicted relative to the following factors: journal impact factors
+(continuous), open access (binary: open access journal or not), and
+replication policies (binary: either explicitly encourage or not). We
+used Bayesian parameter estimation based on generalized linear
+regression models with a binomial link function. The model will be
+fitted to the proportion of replication mentions per journal using the R
+package brms (Bürkner, 2016). We used weakly informative normal priors
+centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on
+zero (scale = 2.5) for all population-level regression coefficients.
+These priors are what is referred to as regularizing (Gelman et al.,
+2008), i.e.~our prior assumption is agnostic as to whether the
+predictors affect the dependent variable, thus making our model
+conservative with regards to the predictors under investigation. Four
+sampling chains with 2000 iterations each will be run for each model,
+with a warm-up period of 1000 iterations. For relevant predictor levels
+and contrasts between predictor levels, we will report the posterior
+probability for the rate of replication mention. We summarize these
+distributions by reporting the posterior mean and the 95\% credible
+intervals (calculated as the highest posterior density interval).
+
+The model estimates a replication mention rate of 0.03 {[}0.02, 0.04{]}
+at a JIF of 0 and estimates a rather robust increase of the rate with
+each unit of JIF (log odds = 0.39 {[}0.29, 0.49{]}). FigureX illustrates
+this relationship.
+
+(ref:plot\_mention\_jif) Rate of mentioning the term 'replic*' across
+sampled journals plotted against journal impact factor. Each point
+represents one journal. Point size indicates the ratio of papers
+categorized as experimental (i.e.~larger points indicate journals with
+more experimental articles. Line and shading indicate model predictions
+and 95\% credible intervals.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/plot_mention_jif-1}
+
+\}
+
+\textbackslash caption\{(ref:plot\_mention\_jif)\}\label{fig:plot_mention_jif}
+\textbackslash end\{figure\}
+
+Given the small number of journals that explicitly encourage direct
+replications (2 out of 98),
+
 \begin{verbatim}
 ##                               Journals Ratio of experimental studies
 ## 1       JOURNAL OF MEMORY AND LANGUAGE                         60.34
-## 2     LANGUAGE AND COGNITIVE PROCESSES                         50.96
-## 3                       MENTAL LEXICON                         45.71
-## 4                 LANGUAGE ACQUISITION                         39.61
-## 5  LANGUAGE COGNITION AND NEUROSCIENCE                         38.81
-## 6                 LABORATORY PHONOLOGY                         37.42
-## 7    LANGUAGE LEARNING AND DEVELOPMENT                         36.17
-## 8         NATURAL LANGUAGE ENGINEERING                         32.05
-## 9    LECTURE NOTES IN COMPUTER SCIENCE                         30.67
-## 10              LANGUAGE AND COGNITION                         29.17
+## 2                       MENTAL LEXICON                         45.71
+## 3                 LANGUAGE ACQUISITION                         39.61
+## 4  LANGUAGE COGNITION AND NEUROSCIENCE                         38.81
+## 5                 LABORATORY PHONOLOGY                         37.42
+## 6    LANGUAGE LEARNING AND DEVELOPMENT                         36.17
+## 7         NATURAL LANGUAGE ENGINEERING                         32.05
+## 8    LECTURE NOTES IN COMPUTER SCIENCE                         30.67
+## 9               LANGUAGE AND COGNITION                         29.17
+## 10                 INTERACTION STUDIES                         27.88
 ##    Rate of replication mention
 ## 1                         9.39
-## 2                         8.52
-## 3                         2.08
-## 4                         1.22
-## 5                         6.99
-## 6                         5.17
-## 7                        11.76
-## 8                         1.00
-## 9                         0.00
-## 10                        4.76
+## 2                         2.08
+## 3                         1.22
+## 4                         6.99
+## 5                         5.17
+## 6                        11.76
+## 7                         1.00
+## 8                         0.00
+## 9                         4.76
+## 10                        2.30
 \end{verbatim}
 
 \begin{verbatim}
 ##                                        Journals Rate of replication mention
 ## 1 HUMOR INTERNATIONAL JOURNAL OF HUMOR RESEARCH                       12.82
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{(guidelines)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##                                                                               journals
@@ -341,15 +347,6 @@ access (``no'').
 ## 5             0           0.440    partial
 ## 6             0           3.893    partial
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{no\_encourage }\OtherTok{\textless{}{-}}\NormalTok{ guidelines }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{filter}\NormalTok{(binary\_policy }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{count}\NormalTok{() }
-\CommentTok{\# {-}{-}\textgreater{} only 2 out of 100 journals explicitly encourage submission of replication studies}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{discussion}{%
 \subsubsection{Discussion}\label{discussion}}
@@ -458,14 +455,13 @@ attested when one of the authors was a (co-)author on both articles.
 
 \begin{verbatim}
 ## type_replication
-##            conceptual     direct    partial 
-##       0.00       0.44       0.09       0.47
+## conceptual     direct    partial 
+##       0.44       0.09       0.47
 \end{verbatim}
 
 \begin{verbatim}
 ##                 auth_overlap
 ## type_replication    0    1
-##                  0.00 0.00
 ##       conceptual 0.18 0.26
 ##       direct     0.06 0.03
 ##       partial    0.24 0.24
@@ -488,6 +484,14 @@ attested when one of the authors was a (co-)author on both articles.
   fields --\textgreater{} broader picture
 \end{itemize}
 
+\hypertarget{caveats}{%
+\subsubsection{Caveats}\label{caveats}}
+
+This procedure is necessarily only a rough proxy of relevant
+experimental linguistic articles published in the field and several
+articles might thus have been overlooked and not been included in the
+analysis.
+
 \hypertarget{appendices}{%
 \section{Appendices}\label{appendices}}
 
@@ -499,7 +503,11 @@ identified as A, B, etc.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-camerer_economics_2016}{}}%
+\leavevmode\hypertarget{ref-burkner_brms_2016}{}%
+Bürkner, P.-C., 2016. Brms: {An} {R} package for {Bayesian} multilevel
+models using {Stan}. Journal of Statistical Software 80, 1--28.
+
+\leavevmode\hypertarget{ref-camerer_economics_2016}{}%
 Camerer, C.F., Dreber, A., Forsell, E., Ho, T.-H., Huber, J.,
 Johannesson, M., Kirchler, M., Almenberg, J., Altmejd, A., Chan, T.,
 Heikensten, E., Holzmeister, F., Imai, T., Isaksson, S., Nave, G.,
@@ -507,7 +515,7 @@ Pfeiffer, T., Razen, M., Wu, H., 2016. Evaluating replicability of
 laboratory experiments in economics. Science 351, 1433--1436.
 doi:\href{https://doi.org/10.1126/science.aaf0918}{10.1126/science.aaf0918}
 
-\leavevmode\vadjust pre{\hypertarget{ref-camerer_socscience_2018}{}}%
+\leavevmode\hypertarget{ref-camerer_socscience_2018}{}%
 Camerer, C.F., Dreber, A., Holzmeister, F., Ho, T.-H., Huber, J.,
 Johanesson, M., Kirchler, M., Nave, G., Nosek, B.A., Pfeiffer, T.,
 Altmejd, A., Buttrick, N., Chan, T., Chen, Y., Forsell, E., Gampa, A.,
@@ -517,39 +525,44 @@ social science experiments in nature and science between 2010 and 2015.
 Nature 2, 637--644.
 doi:\href{https://doi.org/10.1038/s41562-018-0399-z}{10.1038/s41562-018-0399-z}
 
-\leavevmode\vadjust pre{\hypertarget{ref-chen_chinese_2007}{}}%
+\leavevmode\hypertarget{ref-chen_chinese_2007}{}%
 Chen, J.-Y., 2007. Do {Chinese} and {English} speakers think about time
 differently? {Failure} of replicating {Boroditsky} (2001). Cognition
 104, 427--436.
 
-\leavevmode\vadjust pre{\hypertarget{ref-makel2014facts}{}}%
+\leavevmode\hypertarget{ref-gelman_weakly_2008}{}%
+Gelman, A., Jakulin, A., Pittau, M.G., Su, Y.-S., others, 2008. A weakly
+informative default prior distribution for logistic and other regression
+models. The Annals of Applied Statistics 2, 1360--1383.
+
+\leavevmode\hypertarget{ref-makel2014facts}{}%
 Makel, M.C., Plucker, J.A., 2014. Facts are more important than novelty:
 Replication in the education sciences. Educational Researcher 43,
 304--316.
 
-\leavevmode\vadjust pre{\hypertarget{ref-makel_replications_2016}{}}%
+\leavevmode\hypertarget{ref-makel_replications_2016}{}%
 Makel, M.C., Plucker, J.A., Freeman, J., Lombardi, A., Simonsen, B.,
 Coyne, M., 2016. Replication of special education research: Necessary
 but far too rare. Remedial and Special Education 37, 205--212.
 
-\leavevmode\vadjust pre{\hypertarget{ref-makel_replications_2012}{}}%
+\leavevmode\hypertarget{ref-makel_replications_2012}{}%
 Makel, M.C., Plucker, J.A., Hegarty, B., 2012. Replications in
 psychology research: {How} often do they really occur? Perspectives on
 Psychological Science 7, 537--542.
 
-\leavevmode\vadjust pre{\hypertarget{ref-marsden_replication_2018}{}}%
+\leavevmode\hypertarget{ref-marsden_replication_2018}{}%
 Marsden, E., Morgan‐Short, K., Thompson, S., Abugaber, D., 2018.
 Replication in {Second} {Language} {Research}: {Narrative} and
 {Systematic} {Reviews} and {Recommendations} for the {Field}. Language
 Learning 68, 321--391. doi:\href{https://doi.org/gc3h3b}{gc3h3b}
 
-\leavevmode\vadjust pre{\hypertarget{ref-martinclarke_policies_2017}{}}%
+\leavevmode\hypertarget{ref-martinclarke_policies_2017}{}%
 Martin, G.N., Clarke, R.M., 2017. Are psychology journals
 anti-replication? A snapshot of editorial practices. Frontiers in
 Psychology 8.
 doi:\href{https://doi.org/10.3389/fpsyg.2017.00523}{10.3389/fpsyg.2017.00523}
 
-\leavevmode\vadjust pre{\hypertarget{ref-nieuwland_large-scale_2018}{}}%
+\leavevmode\hypertarget{ref-nieuwland_large-scale_2018}{}%
 Nieuwland, M.S., Politzer-Ahles, S., Heyselaar, E., Segaert, K., Darley,
 E., Kazanina, N., Zu Wolfsthurn, S.V.G., Bartolozzi, F., Kogan, V., Ito,
 A., Mézière, D., Barr, D.J., Rousselet, G.A., Ferguson, H.J.,
@@ -559,29 +572,29 @@ Large-scale replication study reveals a limit on probabilistic
 prediction in language comprehension. eLife 7, e33468.
 doi:\href{https://doi.org/10.7554/eLife.33468.001}{10.7554/eLife.33468.001}
 
-\leavevmode\vadjust pre{\hypertarget{ref-open_science_collaboration_estimating_2015}{}}%
+\leavevmode\hypertarget{ref-open_science_collaboration_estimating_2015}{}%
 Open Science Collaboration, 2015. Estimating the reproducibility of
 psychological science. Science 349.
 doi:\href{https://doi.org/10.1126/science.aac4716}{10.1126/science.aac4716}
 
-\leavevmode\vadjust pre{\hypertarget{ref-papesh_just_2015}{}}%
+\leavevmode\hypertarget{ref-papesh_just_2015}{}%
 Papesh, M.H., 2015. Just out of reach: {On} the reliability of the
 action-sentence compatibility effect. Journal of Experimental
 Psychology: General 144, e116--e141.
 doi:\href{https://doi.org/10.1037/xge0000125}{10.1037/xge0000125}
 
-\leavevmode\vadjust pre{\hypertarget{ref-roettger2019toward}{}}%
+\leavevmode\hypertarget{ref-roettger2019toward}{}%
 Roettger, T.B., Baer-Henney, D., 2019. Toward a replication culture:
 Speech production research in the classroom. Phonological Data and
 Analysis 1, 1--23.
 
-\leavevmode\vadjust pre{\hypertarget{ref-stack_failure_2018}{}}%
+\leavevmode\hypertarget{ref-stack_failure_2018}{}%
 Stack, C.M.H., James, A.N., Watson, D.G., 2018. A failure to replicate
 rapid syntactic adaptation in comprehension. Memory \& Cognition 46,
 864--877.
 doi:\href{https://doi.org/10.3758/s13421-018-0808-6}{10.3758/s13421-018-0808-6}
 
-\leavevmode\vadjust pre{\hypertarget{ref-westbury_implicit_2018}{}}%
+\leavevmode\hypertarget{ref-westbury_implicit_2018}{}%
 Westbury, C., 2018. Implicit sound symbolism effect in lexical access,
 revisited: {A} requiem for the interference task paradigm. Journal of
 Articles in Support of the Null Hypothesis 15, 1--12.

@@ -78,6 +78,7 @@ xmdl = brm(no_replic | trials(no_exp) ~ jif + openaccess_s + binary_policy_s,
           data = df, 
           prior = priors,
           cores = 4,
+          file  = "../data/repl_mention_mdl.RDS",
           family = binomial(link = "logit"))
 
 ## summary(xmdl)

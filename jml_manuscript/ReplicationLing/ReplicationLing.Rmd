@@ -29,21 +29,24 @@ bibliography: r-references.bib
 csl: elsevier-harvard.csl
 output: rticles::elsevier_article
 ---
-```{r message=FALSE, warning=FALSE, echo=FALSE}
-## load in library
-library(tidyverse)
-library(truncnorm)
-library(brms)
-library(rstudioapi)
-library(ggdist)
-library(distributional)
-library(ggstream)
 
-## package for visualization
-library(tidybayes)
-library(bayesplot)
-```
-```{r echo=FALSE}
+```{r setup, include=FALSE, warning=FALSE, echo=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      cache = TRUE, 
+                      warning = FALSE)
+
+
+# nifty code using the pacman package
+# it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, 
+               ggstream, tidybayes, bayesplot, rticles)
+
+# set the current working directory to the one where this file is
+#current_working_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
+#setwd(current_working_dir)
+
 ## global color scheme / non-optimized
 ### purple
 col_purple = "#7b3294"
@@ -53,6 +56,30 @@ col_lightPurple = "#c2a5cf"
 col_green = "#008837"
 ### light green
 col_lightGreen = "#a6dba0"
+
+# loading the data
+mention <-  read.csv("../../data/mention.csv")
+guidelines  <-  read.csv("../../data/guidelines.csv")
+replication  <-  read.csv("../../data/coded.csv")  
+
+# load models
+mention_model <- readRDS(file = "../../data/repl_mention_mdl.RDS")
+
+# merge dfs
+df <- full_join(mention, guidelines)
+
+# delete older journals that have been renamed
+df <- df %>% 
+  filter(!(journals %in% c("LANGUAGE AND COGNITIVE PROCESSES", "LITERARY AND LINGUISTIC COMPUTING")))
+
+# recode jif
+df$jif <- as.numeric(ifelse(df$jif == "not retrievable", NA, df$jif))
+
+# NAs would be dropped from model. What to do? Either assume 0 or separate models
+
+# recode open access as binary
+df$openaccess <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
+
 ```
 
 # Introduction
@@ -68,9 +95,9 @@ One driving factor for this phenomenon is an asymmetric incentive system that re
 In order to evaluate the replication rate in experimental linguistics, the present study assessed the frequency and typology of replication studies that have been published in a representative sample of experimental linguistic journals from their beginnings until 2020. 
 The study consisted of two parts: 
 First, the frequency of self-reported replication attempts across 100 linguistic journals were assessed and the rate of replication mention was related to factors like journal impact factor, publishing policy and publication access. 
-Second, the type of replication studies (direct, partial, conceptual) published in a subset of 20 journals was investigated and their frequency was related to factors like the year of publication, and the citation and publication year of the initial study.
+Second, the type of replication studies (direct, partial, conceptual) published in a subset of 20 journals was investigated and their frequency was related to factors like the year of publication, and the citation and publication year of the initial study. 
 
-# Overview analysis: rate of replication mention
+# Overview analysis: how often do articles mention the term replicat*?
 The key dependent variable of the first part of this study was the rate of replication mention for journals relevant to the field of experimental linguistics. 
 We intended to answer the following research questions: How many replication studies have been published in journals representative for experimental linguistic research? 
 How did the rate change over time <!--KK: oops, we don't have any data by years--> and how does it relate to journal policy, impact factor, and publication type?
@@ -78,11 +105,11 @@ How did the rate change over time <!--KK: oops, we don't have any data by years-
 ### Material and methods
 <!--provide sufficient details to allow the work to be reproduced by an independent researcher, describe any modifications to existing methods-->
 
-The material and methods have been preregistered on Open Science Framework and can be inspected [here: https://osf.io/9ceas/](https://osf.io/9ceas/). 
+The material and methods have been preregistered at DATA at the Open Science Framework and can be inspected [here: https://osf.io/9ceas/](https://osf.io/9ceas/). 
 
 In order to determine the rates of replication mention for individual journals, we drew on a method introduced by @makel_replications_2012. 
-First, a sample of 100 journals relevant to the field of experimental linguistics has been identified by making use of the search engine ["Web of Science" (https://webofknowledge.com)](https://webofknowledge.com). We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term "experiment\*" in title, abstract or keywords. All English language articles from the full available range of complete years (1945-2020) were taken into account. We selected the top 100 journals according to their ratio of experimental studies. The full list of journals can be inspected [here: https://osf.io/q2e9k/](https://osf.io/q2e9k/). <!--KK: include in appendix?-->
-The procedure described above helped us to identify journals relevant for the field of experimental linguistics. But this procedure can only yield a rough approximation of relevant articles published in the field and several articles might thus have been overlooked and not been included in the analysis.
+First, a sample of 100 journals relevant to the field of experimental linguistics has been identified by making use of the search engine ["Web of Science" (https://webofknowledge.com)](https://webofknowledge.com). We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term "experiment\*" in title, abstract or keywords <!--TR: We might need to be more specific and add the full procedure either here or in an appendix or refer to prereg link-->. All English language articles from the full available range of complete years (1945-2020) were taken into account. We selected the top 100 journals according to their ratio of experimental studies. The full list of journals can be inspected [here: https://osf.io/q2e9k/](https://osf.io/q2e9k/). <!--KK: include in appendix?-->
+The procedure described above helped us to identify journals relevant for the field of experimental linguistics. 
 As a second step, the total number of articles containing the search term "replicat\*" in title, abstract or keywords was obtained via Web of Science search for the 100 sampled journals. 
 Following the method used by Makel et al. [-@makel_replications_2012] the rates of replication mention are calculated by dividing the number of articles containing the term "replicat\*" by the total number of articles for each journal. As we were only interested in experimental linguistic studies, we only included articles containing the search term "experiment\*" in this formula.
 
@@ -92,23 +119,152 @@ They grouped psychology journals into four classes determined by what was stated
 (2) Journals which did not state they accepted replications but did not discourage replications either;
 (3) Journals which implicitly discouraged replications through the use of emphasis on the scientific originality of submissions,
 (4) Journals which actively discouraged replications by stating explicitly that they did not accept replications for publication [@martinclarke_policies_2017, p. 3].
-For our analysis, it was only relevant whether journals explicitly encouraged replication studies or not. So we grouped (2)-(4) together.
+For our analysis, we only distinguished between those journals explicitly encouraging replication studies (1) and those that do not (2-4). 
 
 Journal impact factors were extracted via Journal Citation Reports (https://jcr.clarivate.com). 
-The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018.
+The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018. <!--TR: explanation of JIF can go in foot note-->
 
 Furthermore, we assessed via Web of Science whether journals published open access. 
 We distinguished between three categories: journals which are listed in the Directory of Open Access Journals (DOAJ) ("DOAJ gold"), journals with some articles being published as open access articles ("partial") and journals with no option to publish open access ("no").
 
 ### Results
 <!--clear and concise, include tables and figures-->
-```{r load data, echo=FALSE}
-# loading the data
-mention <-  read.csv("../../data/mention.csv")
-guidelines  <-  read.csv("../../data/guidelines.csv")
+
+```{r number_articles, echo=FALSE}
+sum_articles = sum(df$no_ling) # 51272
+sum_exp = sum(df$no_exp) # 8006
+sum_repl = sum(df$no_replic) # 347
+mention_rate = round((sum_repl / sum_exp), 3)#
+
 ```
+
+Out of the `r sum_articles` articles in our sample, `r sum_exp` mentioned the term experiment* in title, abstract, or keywords. 
+Out of these articles, `r sum_repl` contained the term replic* in either abstract or title. 
+Thus the rate of mentioning the term replic* is `r mention_rate`. 
+<!--TR: Compare to Makel and others and relate to the fact that we already filtered non-experimental out-->
+
+```{r mean and variance, echo=FALSE}
+mean_rate = round(mean(df$replic_rate), 3) # ~ 2.7%
+median_rate = round(median(df$replic_rate), 3) # ~ 1.6%
+
+min_rate = round(min(df$replic_rate), 3) #  0%
+max_rate = round(max(df$replic_rate), 3) # ~ 12.8%
+std_rate = round(sd(df$replic_rate), 3) # ~ 3.3%
+```
+
+```{r rep rates of 0, echo=FALSE}
+zero_mention = nrow(df[df$replic_rate == 0,])
+# 43 of 100 journals have rates of replication mention = 0
+encouraged = nrow(df[df$binary_policy == 1,])
+
+```
+
+The distribution of the mention rate substantially varied across journals ranging from `r min_rate` to `r max_rate`. 
+`r zero_mention` journals did not mention the term in any of their articles.
+The median mention rate across journals is `r median_rate` (SD = `r std_rate`). 
+
+Following preregistered protocol, we estimated the mention rate as predicted relative to the following factors: 
+journal impact factors (continuous), open access (binary: open access journal or not), and replication policies (binary: either explicitly encourage or not). 
+We used Bayesian parameter estimation based on generalized linear regression models with a binomial link function. 
+The model will be fitted to the proportion of replication mentions per journal using the R package brms [@burkner_brms_2016]. 
+We used weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
+These priors are what is referred to as regularizing [@gelman_weakly_2008], i.e. our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation. 
+Four sampling chains with 2000 iterations each will be run for each model, with a warm-up period of 1000 iterations.
+For relevant predictor levels and contrasts between predictor levels, we will report the posterior probability for the rate of replication mention. 
+We summarize these distributions by reporting the posterior mean and the 95% credible intervals (calculated as the highest posterior density interval). 
+
+
+```{r mention_model_prep, echo=FALSE}
+
+# extract coefficients
+mention_intercept_est <- round(plogis(fixef(mention_model)[1,1]),2)
+mention_intercept_lb <- round(plogis(fixef(mention_model)[1,3]),2)
+mention_intercept_hb <- round(plogis(fixef(mention_model)[1,4]),2)
+
+mention_jif_est <- round(fixef(mention_model)[2,1],2)
+mention_jif_lb <- round(fixef(mention_model)[2,3],2)
+mention_jif_hb <- round(fixef(mention_model)[2,4],2)
+
+## extract predicted values for JIF
+predicted_values <- mention_model %>%
+  spread_draws(b_Intercept, b_jif) %>%
+  ### make a list of relevant value range of logRT
+  mutate(jif = list(seq(0, 4, 0.1))) %>% 
+  unnest(jif) %>%
+  ### transform into proportion space using the plogis function
+  mutate(pred = plogis(b_Intercept + b_jif*jif)) %>%
+  pivot_longer(cols = pred,
+               names_to = "factors") %>% 
+  group_by(jif) %>%
+  summarise(pred_m = mean(value, na.rm = TRUE),
+            pred_low = quantile(value, prob = 0.025),
+            pred_high = quantile(value, prob = 0.975)) 
+
+```
+
+The model estimates a replication mention rate of `r mention_intercept_est` [`r mention_intercept_lb`, `r mention_intercept_hb`] at a JIF of 0 and estimates a rather robust increase of the rate with each unit of JIF (log odds = `r mention_jif_est` [`r mention_jif_lb`, `r mention_jif_hb`]). FigureX illustrates this relationship.
+
+<!-- FIGURE -->
+(ref:plot_mention_jif) Rate of mentioning the term 'replic*' across sampled journals plotted against journal impact factor. Each point represents one journal. Point size indicates the ratio of papers categorized as experimental (i.e. larger points indicate journals with more experimental articles. Line and shading indicate model predictions and 95% credible intervals.
+
+```{r plot_mention_jif, fig.cap = "(ref:plot_mention_jif)", out.width="100%", fig.align = 'center'}
+
+## plot predicted values against data
+mention_jif <- 
+ggplot(data = predicted_values, 
+       aes(x = jif, 
+           y = pred_m)) +
+  geom_ribbon(aes(ymin = pred_low, 
+                  ymax = pred_high), 
+              alpha = 0.4,
+              fill = "grey") +
+  geom_line(color = "black", 
+            size = 1.5) +
+  geom_point(data = df, 
+             aes(x = jif, 
+                 y = replic_rate,
+                 size = exp_ratio),
+             pch = 21,
+             alpha = 0.7, 
+             color = "white", 
+             fill = col_purple) +
+  scale_fill_manual(values = col_purple) +
+  ylab("Predicted rate of replication mention") +
+  ylim(0, 0.20) +
+  xlim(0, 4) +
+  labs(title = "Rate of mentioning the term 'replicat*'",
+       subtitle = "   ",
+       y = "Predicted rate of replication mention\n",
+       x = "\nJournal Impact Factor") +
+  theme_minimal() +
+  theme(legend.position = "none",
+              legend.key.height = unit(2,"line"),
+              legend.title = element_text(face = "bold", size = 12),
+              legend.text = element_text(size = 12),
+              strip.background = element_blank(),
+              strip.text = element_text(size = 12, face = "bold"),
+              panel.spacing = unit(2, "lines"),
+              panel.border = element_blank(),
+              plot.background = element_rect(fill = "transparent", colour = NA),
+              strip.text.y = element_text(size = 12, hjust = 0),
+              axis.text = element_text(size = 12),
+              axis.line = element_blank(),
+              axis.title = element_text(size = 12, face = "bold"),
+              plot.title = element_text(size = 14, face = "bold"),
+              plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+
+mention_jif
+
+```
+
+<!-- END: FIGURE -->
+
+Given the small number of journals that explicitly encourage direct replications (`r encouraged` out of 98), 
+
+
 ```{r rate of replication mention, echo=FALSE}
-mention_by_exp_ratio <- mention %>% 
+
+mention_by_exp_ratio <- df %>% 
   select(journals, exp_ratio, replic_rate) %>% 
   arrange(desc(exp_ratio)) %>% 
   mutate(
@@ -119,7 +275,8 @@ mention_by_exp_ratio <- mention %>%
   select(Journals, "Ratio of experimental studies", "Rate of replication mention")
 head(mention_by_exp_ratio, 10)
 
-mention_by_rate <- mention %>% 
+
+mention_by_rate <- df %>% 
   select(journals, replic_rate) %>% 
   arrange(desc(replic_rate)) %>% 
   mutate(
@@ -129,24 +286,17 @@ mention_by_rate <- mention %>%
   select(Journals, "Rate of replication mention")
 head(mention_by_rate, 1)
 ```
-```{r mean and variance, echo=FALSE}
-mean_rate = mean(mention$replic_rate) # ~ 2.78%
-median_rate = median(mention$replic_rate) # ~ 2.03%
 
-var_rate = var(mention$replic_rate) # ~ 0.11%
-std_rate = sd(mention$replic_rate) # ~ 3.28%
-```
-```{r rep rates of 0, echo=FALSE}
-zero_mention <- mention %>% 
-  filter(replic_rate == 0) %>% 
-  count() 
-# 43 of 100 journals have rates of replication mention = 0
-```
-```{r}
+
+
+
+
+```{r, echo=FALSE}
 head(guidelines)
 ```
-```{r policy}
-no_encourage <- guidelines %>% 
+
+```{r policy, echo=FALSE}
+no_encourage <- df %>% 
   filter(binary_policy == 1) %>% 
   count() 
 # --> only 2 out of 100 journals explicitly encourage submission of replication studies
@@ -380,6 +530,10 @@ round(nrow(jml_data[jml_data$replication == 1 &
 
 # General discussion
 - compare rate of replication mention to previous studies in different fields --> broader picture
+
+### Caveats
+This procedure is necessarily only a rough proxy of relevant experimental linguistic articles published in the field and several articles might thus have been overlooked and not been included in the analysis.
+
 
 # Appendices
 identified as A, B, etc.
