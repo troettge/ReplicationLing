@@ -234,13 +234,15 @@ access (``no'').
 
 Out of the 51272 articles in our sample, 8006 mentioned the term
 experiment* in title, abstract, or keywords. Out of these articles, 347
-contained the term replic* in either abstract or title. Thus the rate of
-mentioning the term replic* is 0.043.
+contained the term replic* in either abstract or title. Thus 4.3\% of
+all experimental articles in our sample mentioned the term replic*.
 
 The distribution of the mention rate substantially varied across
-journals ranging from 0 to 0.128. 43 journals did not mention the term
-in any of their articles. The median mention rate across journals is
-0.016 (SD = 0.033).
+journals ranging from 0 to 12.8\%. Overall, almost half of all journals
+(n = 43) journals did not mention the term in any of their articles. The
+median mention rate across journals is 0.016 (SD = 0.033).
+
+\begin{center}\includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/topten_plot-1} \end{center}
 
 Following preregistered protocol, we estimated the mention rate as
 predicted relative to the following factors: journal impact factors
@@ -268,85 +270,26 @@ at a JIF of 0 and estimates a rather robust increase of the rate with
 each unit of JIF (log odds = 0.39 {[}0.29, 0.49{]}). FigureX illustrates
 this relationship.
 
-(ref:plot\_mention\_jif) Rate of mentioning the term 'replic*' across
-sampled journals plotted against journal impact factor. Each point
-represents one journal. Point size indicates the ratio of papers
-categorized as experimental (i.e.~larger points indicate journals with
-more experimental articles. Line and shading indicate model predictions
-and 95\% credible intervals.
+However, further explorations indicate that JIF is highly correlated
+with the number of experimental studies reported in a journal (Spearman
+correlation = 0.4274344). This makes intuitively sense. Experimental
+linguistic articles are often associated with psychology adjacent
+fields, possibly attracting a broader audience and being cited more
+widely. Given this correlation, it remains unclear if the term
+"replicat*" is used more often in high impact journals or simply more
+common in journals that generally publish more experimental studies.
 
-\textbackslash begin\{figure\}
+\begin{center}\includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/plot_mention_jif-1} \end{center}
 
-\{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/plot_mention_jif-1}
-
-\}
-
-\textbackslash caption\{(ref:plot\_mention\_jif)\}\label{fig:plot_mention_jif}
-\textbackslash end\{figure\}
-
-Given the small number of journals that explicitly encourage direct
-replications (2 out of 98),
-
-\begin{verbatim}
-##                               Journals Ratio of experimental studies
-## 1       JOURNAL OF MEMORY AND LANGUAGE                         60.34
-## 2                       MENTAL LEXICON                         45.71
-## 3                 LANGUAGE ACQUISITION                         39.61
-## 4  LANGUAGE COGNITION AND NEUROSCIENCE                         38.81
-## 5                 LABORATORY PHONOLOGY                         37.42
-## 6    LANGUAGE LEARNING AND DEVELOPMENT                         36.17
-## 7         NATURAL LANGUAGE ENGINEERING                         32.05
-## 8    LECTURE NOTES IN COMPUTER SCIENCE                         30.67
-## 9               LANGUAGE AND COGNITION                         29.17
-## 10                 INTERACTION STUDIES                         27.88
-##    Rate of replication mention
-## 1                         9.39
-## 2                         2.08
-## 3                         1.22
-## 4                         6.99
-## 5                         5.17
-## 6                        11.76
-## 7                         1.00
-## 8                         0.00
-## 9                         4.76
-## 10                        2.30
-\end{verbatim}
-
-\begin{verbatim}
-##                                        Journals Rate of replication mention
-## 1 HUMOR INTERNATIONAL JOURNAL OF HUMOR RESEARCH                       12.82
-\end{verbatim}
-
-\begin{verbatim}
-##                                                                               journals
-## 1                                        HUMOR INTERNATIONAL JOURNAL OF HUMOR RESEARCH
-## 2                                                    LANGUAGE LEARNING AND DEVELOPMENT
-## 3                                                                           MORPHOLOGY
-## 4 TRANSLATION & INTERPRETING THE INTERNATIONAL JOURNAL OF TRANSLATION AND INTERPRETING
-## 5                                            JOURNAL OF LOGIC LANGUAGE AND INFORMATION
-## 6                                                       JOURNAL OF MEMORY AND LANGUAGE
-##   policy
-## 1      3
-## 2      3
-## 3      3
-## 4      3
-## 5      2
-## 6      3
-##                                                                                    webpage
-## 1                                            http://www.humorstudies.org/JournalCenter.htm
-## 2 https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=hlld20
-## 3                                                   https://www.springer.com/journal/11525
-## 4               http://trans-int.org/index.php/transint/about/submissions#authorGuidelines
-## 5                                    https://www.springer.com/journal/10849/aims-and-scope
-## 6                        https://www.journals.elsevier.com/journal-of-memory-and-language/
-##   binary_policy             jif openaccess
-## 1             0           0.711    partial
-## 2             0           1.651    partial
-## 3             0 not retrievable    partial
-## 4             0 not retrievable  DOAJ gold
-## 5             0           0.440    partial
-## 6             0           3.893    partial
-\end{verbatim}
+The model estimates the impact of whether the journal is open access or
+not and whether replications are explicitly encouraged or not both as
+positive, i.e.~more replication mentions in both open access and
+explicitly encouraging journals, but the uncertainty around these
+estimates is substantial (open access: 0.41 {[}-0.41, 1.14{]}; policy:
+0.24 {[}-0.27, 0.72{]}). The large amount of uncertainty surrounding the
+estimates is not surprising given the small number of journals that
+explicitly encourage direct replications (2 out of 98), and the small
+number of open access journals (11 out of 98).
 
 \hypertarget{discussion}{%
 \subsubsection{Discussion}\label{discussion}}
@@ -395,10 +338,10 @@ journals for which less than 2 hits (TS=(replicat*)) could be obtained
 (see \href{https://osf.io/f3yp8/}{here} for a list of article counts per
 journal: https://osf.io/f3yp8/). Because of the skewed distribution of
 our sample (114 hits for Journal of Memory and Language, and less than
-40 for all other journals), we randomly selected (see
-\href{https://osf.io/6vfpe/}{here} for details) 50 out of the 114
+40 for all other journals), we randomly selected 50 out of the 114
 articles for the Journal of Memory and Language to achieve a more
-balanced distribution of papers across journals. The sampling procedure
+balanced distribution of papers across journals (see
+\href{https://osf.io/6vfpe/}{here} for details). The sampling procedure
 above resulted in 210 possible self-labeled replication studies.
 
 In a first step, we identified whether the article in question indeed
@@ -430,28 +373,33 @@ attested when one of the authors was a (co-)author on both articles.
 \hypertarget{results-1}{%
 \subsubsection{Results}\label{results-1}}
 
-\begin{verbatim}
-##   mean_years
-## 1   8.810127
-\end{verbatim}
+Out of the 210 articles in the subsample, 117 were self-claimed
+replications according to our criteria. The remaining 93 mentions were
+xxx. Out of these replication studies, we categorized 66 as conceptual,
+42 as partial, and only 8 as direct replications which amounts to
+6.83760683760684\% of all coded cases.
 
-\begin{verbatim}
-##   median_years
-## 1            7
-\end{verbatim}
+Looking closer at direct replications, 3 studies were independent
+studies, i.e.~there was no overlap between authors of the original study
+and the replication study. Out of these independent direct replication
+studies, 5 were self-labeled as successful replications. In other words,
+our sample did not include a single independent failed replication
+attempt.
 
-\begin{verbatim}
-##   mean_cit_init
-## 1      41.08108
-\end{verbatim}
+To paint a more general picture by including all types of replications,
+31.6239316239316\% studies are replications within the same multi-study
+paper. One central aspect of linguistic research is the testing the
+generalizability of experimental claims across different target
+languages, however, as it turns out only a minority of replications
+targeted a different language than the initial study
+(15.3846153846154\%). The majority of replication efforts were conducted
+within the same language as the initial study.
 
-\begin{verbatim}
-##   median_cit_init
-## 1            19.5
-\end{verbatim}
-
-\includegraphics{ReplicationLing_files/figure-latex/plot cit and years direct-1.pdf}
-\includegraphics{ReplicationLing_files/figure-latex/plot cit and years all-1.pdf}
+Comparing original study to replication study, 0\% of replications are
+published in the same journal as the initial study. The median number of
+years between an initial and a replication study is 7. Initial studies
+were on average 41.1 times cited before a replication was published
+which amounts to a average mean citation rate of 5.9.
 
 \begin{verbatim}
 ## type_replication
@@ -470,6 +418,10 @@ attested when one of the authors was a (co-)author on both articles.
 \begin{verbatim}
 ## [1] 0.04
 \end{verbatim}
+
+\includegraphics{ReplicationLing_files/figure-latex/plot cit and years direct-1.pdf}
+
+\includegraphics{ReplicationLing_files/figure-latex/plot cit and years all-1.pdf}
 
 \hypertarget{discussion-1}{%
 \subsubsection{Discussion}\label{discussion-1}}

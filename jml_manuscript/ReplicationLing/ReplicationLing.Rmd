@@ -28,6 +28,7 @@ bibliography: r-references.bib
 #numbersections: true
 csl: elsevier-harvard.csl
 output: rticles::elsevier_article
+
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, echo=FALSE}
@@ -36,16 +37,15 @@ knitr::opts_chunk$set(echo = FALSE,
                       cache = TRUE, 
                       warning = FALSE)
 
-
 # nifty code using the pacman package
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, 
-               ggstream, tidybayes, bayesplot, rticles)
+               ggstream, tidybayes, bayesplot, rticles, knitr)
 
 # set the current working directory to the one where this file is
-#current_working_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
-#setwd(current_working_dir)
+# current_working_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
+# setwd(current_working_dir)
 
 ## global color scheme / non-optimized
 ### purple
@@ -60,7 +60,7 @@ col_lightGreen = "#a6dba0"
 # loading the data
 mention <-  read.csv("../../data/mention.csv")
 guidelines  <-  read.csv("../../data/guidelines.csv")
-replication  <-  read.csv("../../data/coded.csv")  
+coded_articles  <-  read.csv("../../data/Coding_Articles.csv", sep="|")  
 
 # load models
 mention_model <- readRDS(file = "../../data/repl_mention_mdl.RDS")
@@ -140,7 +140,7 @@ mention_rate = round((sum_repl / sum_exp), 3)#
 
 Out of the `r sum_articles` articles in our sample, `r sum_exp` mentioned the term experiment* in title, abstract, or keywords. 
 Out of these articles, `r sum_repl` contained the term replic* in either abstract or title. 
-Thus the rate of mentioning the term replic* is `r mention_rate`. 
+Thus `r round(mention_rate * 100, 2)`% of all experimental articles in our sample mentioned the term replic*. 
 <!--TR: Compare to Makel and others and relate to the fact that we already filtered non-experimental out-->
 
 ```{r mean and variance, echo=FALSE}
@@ -154,14 +154,60 @@ std_rate = round(sd(df$replic_rate), 3) # ~ 3.3%
 
 ```{r rep rates of 0, echo=FALSE}
 zero_mention = nrow(df[df$replic_rate == 0,])
+nonzero_mention = nrow(df[df$replic_rate != 0,])
 # 43 of 100 journals have rates of replication mention = 0
 encouraged = nrow(df[df$binary_policy == 1,])
-
+openaccess = nrow(df[df$openaccess == 1,])
 ```
 
-The distribution of the mention rate substantially varied across journals ranging from `r min_rate` to `r max_rate`. 
-`r zero_mention` journals did not mention the term in any of their articles.
+The distribution of the mention rate substantially varied across journals ranging from `r min_rate` to `r round(max_rate * 100, 2)`%. 
+Overall, almost half of all journals (n = `r zero_mention`) journals did not mention the term in any of their articles.
 The median mention rate across journals is `r median_rate` (SD = `r std_rate`). 
+
+```{r topten_plot,  out.width="100%", fig.align = 'center', fig.width = 5, fig.asp = 1.6}
+
+# should make a list of shortened journal names, shortened strings for now
+
+topten <- 
+  df %>% arrange(desc(replic_rate)) %>%
+  select(journals, exp_ratio, replic_rate) %>% 
+  top_n(nonzero_mention, replic_rate) %>% 
+  mutate(journals = fct_reorder(journals, replic_rate)) %>%
+  ggplot(aes(x = replic_rate * 100, 
+             y = journals)) +
+  geom_segment(aes(x = 0, 
+                   xend = replic_rate * 100,
+                   y = journals,
+                   yend = journals),
+               color = col_purple) +
+  geom_point(color = col_purple,
+             size = 3) + 
+ # geom_segment()
+  scale_y_discrete(label = function(x) stringr::str_trunc(x, 12))+
+  xlim(0, 15) +
+  labs(y = " ",
+       x = "\nProportion of mentions in %\n") +
+  theme_minimal() +
+  theme(legend.position = "none",
+              legend.key.height = unit(2,"line"),
+              legend.title = element_text(face = "bold", size = 12),
+              legend.text = element_text(size = 12),
+              strip.background = element_blank(),
+              strip.text = element_text(size = 12, face = "bold"),
+              panel.spacing = unit(2, "lines"),
+              panel.border = element_blank(),
+              plot.background = element_rect(fill = "transparent", colour = NA),
+              strip.text.y = element_text(size = 12, hjust = 0),
+              axis.text.x = element_text(size = 12),
+              axis.text.y = element_text(size = 8),
+              axis.line = element_blank(),
+              axis.title = element_text(size = 12, face = "bold"),
+              plot.title = element_text(size = 14, face = "bold"),
+              plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+
+topten
+
+```
 
 Following preregistered protocol, we estimated the mention rate as predicted relative to the following factors: 
 journal impact factors (continuous), open access (binary: open access journal or not), and replication policies (binary: either explicitly encourage or not). 
@@ -185,6 +231,14 @@ mention_jif_est <- round(fixef(mention_model)[2,1],2)
 mention_jif_lb <- round(fixef(mention_model)[2,3],2)
 mention_jif_hb <- round(fixef(mention_model)[2,4],2)
 
+mention_oa_est <- round(fixef(mention_model)[3,1],2)
+mention_oa_lb <- round(fixef(mention_model)[3,3],2)
+mention_oa_hb <- round(fixef(mention_model)[3,4],2)
+
+mention_poli_est <- round(fixef(mention_model)[4,1],2)
+mention_poli_lb <- round(fixef(mention_model)[4,3],2)
+mention_poli_hb <- round(fixef(mention_model)[4,4],2)
+
 ## extract predicted values for JIF
 predicted_values <- mention_model %>%
   spread_draws(b_Intercept, b_jif) %>%
@@ -202,12 +256,20 @@ predicted_values <- mention_model %>%
 
 ```
 
-The model estimates a replication mention rate of `r mention_intercept_est` [`r mention_intercept_lb`, `r mention_intercept_hb`] at a JIF of 0 and estimates a rather robust increase of the rate with each unit of JIF (log odds = `r mention_jif_est` [`r mention_jif_lb`, `r mention_jif_hb`]). FigureX illustrates this relationship.
+The model estimates a replication mention rate of `r mention_intercept_est` [`r mention_intercept_lb`, `r mention_intercept_hb`] at a JIF of 0 and estimates a rather robust increase of the rate with each unit of JIF (log odds = `r mention_jif_est` [`r mention_jif_lb`, `r mention_jif_hb`]). FigureX illustrates this relationship. 
 
-<!-- FIGURE -->
-(ref:plot_mention_jif) Rate of mentioning the term 'replic*' across sampled journals plotted against journal impact factor. Each point represents one journal. Point size indicates the ratio of papers categorized as experimental (i.e. larger points indicate journals with more experimental articles. Line and shading indicate model predictions and 95% credible intervals.
+```{r correlation_jif_exp_ratio, echo=FALSE}
+cor_jif_exp <- cor(df$exp_ratio, df$jif, use = "complete.obs", method = c("spearman"))
+```
 
-```{r plot_mention_jif, fig.cap = "(ref:plot_mention_jif)", out.width="100%", fig.align = 'center'}
+However, further explorations indicate that JIF is highly correlated with the number of experimental studies reported in a journal (Spearman correlation = `r cor_jif_exp`). 
+This makes intuitively sense. 
+Experimental linguistic articles are often associated with psychology adjacent fields, possibly attracting a broader audience and being cited more widely. 
+Given this correlation, it remains unclear if the term "replicat*" is used more often in high impact journals or simply more common in journals that generally publish more experimental studies. 
+
+<!--TR: fig.cap = "Rate of mentioning the term 'replic*' across sampled journals plotted against their journal impact factor. Each point represents one journal. Point size indicates the proportion of papers categorized as experimental (i.e. larger points indicate journals with more experimental articles). Line and shading indicate model predictions and 95% credible intervals."-->
+
+```{r plot_mention_jif, out.width="100%", fig.align = 'center'}
 
 ## plot predicted values against data
 mention_jif <- 
@@ -257,12 +319,12 @@ mention_jif
 
 ```
 
-<!-- END: FIGURE -->
+The model estimates the impact of whether the journal is open access or not and whether replications are explicitly encouraged or not both as positive, i.e. more replication mentions in both open access and explicitly encouraging journals, but the uncertainty around these estimates is substantial (open access: `r mention_oa_est` [`r mention_oa_lb`, `r mention_oa_hb`]; policy: `r mention_poli_est` [`r mention_poli_lb`, `r mention_poli_hb`]). 
+The large amount of uncertainty surrounding the estimates is not surprising given the 
+small number of journals that explicitly encourage direct replications (`r encouraged` out of 98), and the small number of open access journals (`r openaccess` out of 98).
 
-Given the small number of journals that explicitly encourage direct replications (`r encouraged` out of 98), 
 
-
-```{r rate of replication mention, echo=FALSE}
+```{r rate of replication mention, echo=FALSE, eval=FALSE}
 
 mention_by_exp_ratio <- df %>% 
   select(journals, exp_ratio, replic_rate) %>% 
@@ -287,15 +349,11 @@ mention_by_rate <- df %>%
 head(mention_by_rate, 1)
 ```
 
-
-
-
-
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 head(guidelines)
 ```
 
-```{r policy, echo=FALSE}
+```{r policy, echo=FALSE, eval=FALSE}
 no_encourage <- df %>% 
   filter(binary_policy == 1) %>% 
   count() 
@@ -320,8 +378,10 @@ We were further interested in the relationship of direct replications and whethe
 The material and methods have been preregistered on Open Science Framework and can be inspected [here: https://osf.io/9ceas/](https://osf.io/9ceas/). 
 
 From the superset of 100 journals obtained above, the first 20 journals (i.e. those journals with the highest proportion of experimental studies) were selected for a more detailed analysis while excluding journals for which less than 2 hits (TS=(replicat\*)) could be obtained (see [here](https://osf.io/f3yp8/) for a list of article counts per journal: https://osf.io/f3yp8/). 
-Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals), we randomly selected (see [here](https://osf.io/6vfpe/) for details) 50 out of the 114 articles for the Journal of Memory and Language to achieve a more balanced distribution of papers across journals.
+Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals), we randomly selected 50 out of the 114 articles for the Journal of Memory and Language to achieve a more balanced distribution of papers across journals (see [here](https://osf.io/6vfpe/) for details).
 The sampling procedure above resulted in 210 possible self-labeled replication studies. 
+
+<!--TR: subset analysis of JML?-->
 
 In a first step, we identified whether the article in question indeed presented a replication study or not. The relevant parts of the papers were title and abstract of the paper, sentences around occurrences of the search term "replicat" as well as the paragraph before the Methods section and the first paragraph of the Discussion section (following the procedure specified by Makel et al. [-@makel_replications_2016]).
 If the authors explicitly claimed that (one of) their research aim(s) was to replicate or reproduce findings or methods of an initial study, this article was treated as a replication. 
@@ -336,36 +396,156 @@ An author overlap was attested when one of the authors was a (co-)author on both
 ### Results
 <!--clear and concise, include tables and figures-->
 
-```{r loading data, echo=FALSE}
-# loading the data
-coded_articles = read.csv("../../data/Coding_Articles.csv", sep="|")
-nr_replications = coded_articles %>% filter(replication == "1") %>% count() # 117 are replications
+```{r replication_nos, echo=FALSE}
+
+nr_replications <- coded_articles %>% filter(replication == "1") %>% count() # 117 are replications
+nr_direct <- coded_articles %>% filter(type_replication == "direct") %>% count() # 8 are replications
+prop_direct <- (nr_direct / nr_replications) * 100
+nr_partial <- coded_articles %>% filter(type_replication == "partial") %>% count() # 42
+nr_conceptual <- coded_articles %>% filter(type_replication == "conceptual") %>% count() #66
+
+# what about the remaining 1?
+
 ```
+
+Out of the 210 articles in the subsample, `r nr_replications` were self-claimed replications according to our criteria. The remaining `r 210-nr_replications` mentions were xxx. 
+Out of these replication studies, we categorized `r nr_conceptual` as conceptual, `r nr_partial` as partial, and only `r nr_direct` as direct replications which amounts to `r prop_direct`% of all coded cases.
+
 ```{r success, echo=FALSE}
-# How many of the direct replications were (self-labeled) successful?
-direct_reps = coded_articles %>% filter(type_replication == "direct") %>% count() # 8 direct replications
-success_reps = coded_articles %>% filter(type_replication == "direct") %>% filter(success == "1") %>% count() # 7 successful
-success_rate = (success_reps / direct_reps) * 100
-# --> 87,5%
+
+# How many of the direct replications were independent
+independent_reps = coded_articles %>% filter(type_replication == "direct") %>% filter(auth_overlap == "0") %>% count() # 3 independent
+independent_rate = (independent_reps / nr_direct) * 100
+# --> 37.5%
+
+# How many of these were (self-labeled) successful?
+success_reps = coded_articles %>% 
+  filter(type_replication == "direct",
+         auth_overlap == "1",
+         success == "1") %>% 
+  count() # 5
+
+
 ```
+
+Looking closer at direct replications, `r independent_reps` studies were independent studies, i.e. there was no overlap between authors of the original study and the replication study. 
+Out of these independent direct replication studies, `r success_reps` were self-labeled as successful replications. 
+In other words, our sample did not include a single independent failed replication attempt.
+
+
+
+```{r inner paper, echo=FALSE}
+# How many replication studies were inner-paper replications?
+reps_inner_paper = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(cit_init_study == "same") %>% 
+  count() 
+# --> 37
+inner_paper = round(((reps_inner_paper / nr_replications) * 100),1)
+# --> ~ 31,62 %
+```
+
+```{r language rep, echo=FALSE}
+# How many replication studies were replications in a different language?
+reps_diff_lang = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(str_detect(comments, "replication in a different language")) %>% 
+  count()
+# --> 18
+diff_lang = round(((reps_diff_lang / nr_replications) * 100),1)
+# --> ~ 15,38 %
+```
+
+To paint a more general picture by including all types of replications, `r inner_paper`% studies are replications within the same multi-study paper. 
+One central aspect of linguistic research is the testing the generalizability of experimental claims across different target languages, however, as it turns out only a minority of replications targeted a different language than the initial study (`r diff_lang`%). 
+The majority of replication efforts were conducted within the same language as the initial study.
+
+```{r same journal, echo=FALSE}
+# How many replication studies were published in the same journal?
+journal_init = factor(coded_articles$journal_init_study, levels = levels(coded_articles$journal)) # set levels equal
+reps_same_journal = coded_articles %>% 
+  filter(journal == journal_init) %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper studies
+  count()
+
+# --> 16 (52 without exclusion)
+same_journal = round(((reps_same_journal / nr_replications) * 100),1)
+# --> ~ 13,68 %
+```
+
+
 ```{r years between, echo=FALSE}
-# What is the mean and median number of years between an initial and a replication study?
-coded_articles %>% 
+# What is the median number of years between an initial and a replication study?
+median_year_between <- coded_articles %>% 
   filter(cit_init_study != "same") %>% # exclude inner-paper replications
-  summarise(mean_years = mean(years_between, na.rm = TRUE)) # ~ 8,81 years
-coded_articles %>% 
-  filter(cit_init_study != "same") %>% # exclude inner-paper replications
-  summarise(median_years = median(years_between, na.rm = TRUE)) # 7 years
+  summarise(median_years = round(median(years_between, na.rm = TRUE),1)) # 7 years
+
 ```
+
+
 ```{r citation, echo=FALSE}
 # What is the mean and median citation count of initial studies before a replication study was published?
-coded_articles %>% 
+mean_citation_between <- coded_articles %>% 
   filter(cit_init_study != "same") %>% # exclude inner-paper replications
-  summarise(mean_cit_init = mean(init_cit_til_rep, na.rm = TRUE)) # ~ 41,1 citations
-coded_articles %>% 
+  summarise(mean_cit_init = round(mean(init_cit_til_rep, na.rm = TRUE),1)) # ~ 41.1 citations
+median_citation_between <- coded_articles %>% 
   filter(cit_init_study != "same") %>% # exclude inner-paper replications
-  summarise(median_cit_init = median(init_cit_til_rep, na.rm = TRUE)) # 19,5 citations
+  summarise(median_cit_init = round(median(init_cit_til_rep, na.rm = TRUE),1)) # 19.5 citations
+
+mean_citation_rate <- round(mean_citation_between/median_year_between,1)
+
 ```
+
+Comparing original study to replication study, `r same_journal`% of replications are published in the same journal as the initial study. 
+The median number of years between an initial and a replication study is `r median_year_between`.
+Initial studies were on average `r mean_citation_between` times cited before a replication was published which amounts to a average mean citation rate of `r mean_citation_rate`.
+
+```{r jml, echo=FALSE}
+# having a closer look at jml
+jml_data <- coded_articles %>% 
+  filter(journal == "JOURNAL OF MEMORY AND LANGUAGE")
+
+## how many really experimental
+jml_exp <- jml_data %>% 
+  filter(experimental == "1") 
+jml_exp_ratio = count(jml_exp)/count(jml_data) 
+# ---> 50 = 100%
+
+## of those how many actual replications
+jml_reps <- jml_exp %>% 
+  filter(replication == "1")
+jml_rep_ratio = count(jml_reps)/count(jml_exp)
+# ---> 34 = 68%
+
+## of those what types of replications
+round(xtabs(~type_replication, jml_reps) / nrow(jml_reps), 2)
+### 0.44 conceptual
+### 0.09 direct --> compared to 7% over all journals
+### 0.47 partial
+
+## of those author overlap
+round(xtabs(~type_replication + auth_overlap, jml_reps) / nrow(jml_reps), 2)
+###            no   yes 
+### conceptual 0.18 0.26
+### direct     0.06 0.03
+### partial    0.24 0.24
+
+# all journals:
+###            no   yes 
+### conceptual 0.26 0.30
+### direct     0.03 0.04
+### partial    0.15 0.21
+
+## overall direct independent replication rate 
+round(nrow(jml_data[jml_data$replication == 1 &
+                jml_data$type_replication == "direct" &
+                jml_data$auth_overlap == 0,]) / nrow(jml_data), 3)
+### 0.04 = 4% compared to 0.015 = 1,5%
+```
+
+
+
+
 ```{r plot cit and years direct, echo=FALSE, message=FALSE}
 # preparing data for plot
 
@@ -409,6 +589,7 @@ plot_data %>%
     title = "After how many years and how many citations do replication studies get published?"
   )
 ```
+
 ```{r plot cit and years all, echo=FALSE, message=FALSE, warning=FALSE}
 # preparing data for plot
 
@@ -452,79 +633,7 @@ plot_data %>%
     title = "After how many years and how many citations do replication studies get published?"
   )
 ```
-```{r inner paper, echo=FALSE}
-# How many replication studies were inner-paper replications?
-reps_inner_paper = coded_articles %>% 
-  filter(replication == "1") %>% 
-  filter(cit_init_study == "same") %>% 
-  count() 
-# --> 37
-inner_paper = (reps_inner_paper / nr_replications) * 100
-# --> ~ 31,62 %
-```
-```{r language rep, echo=FALSE}
-# How many replication studies were replications in a different language?
-reps_diff_lang = coded_articles %>% 
-  filter(replication == "1") %>% 
-  filter(str_detect(comments, "replication in a different language")) %>% 
-  count()
-# --> 18
-diff_lang = (reps_diff_lang / nr_replications) * 100
-# --> ~ 15,38 %
-```
-```{r same journal, echo=FALSE}
-# How many replication studies were published in the same journal?
-journal_init = factor(coded_articles$journal_init_study, levels = levels(coded_articles$journal)) # set levels equal
-reps_same_journal = coded_articles %>% 
-  filter(journal == journal_init) %>% 
-  filter(cit_init_study != "same") %>% # exclude inner-paper studies
-  count()
-# --> 16 (52 without exclusion)
-same_journal = (reps_same_journal / nr_replications) * 100
-# --> ~ 13,68 %
-```
-```{r jml, echo=FALSE}
-# having a closer look at jml
-jml_data <- coded_articles %>% 
-  filter(journal == "JOURNAL OF MEMORY AND LANGUAGE")
 
-## how many really experimental
-jml_exp <- jml_data %>% 
-  filter(experimental == "1") 
-jml_exp_ratio = count(jml_exp)/count(jml_data) 
-# ---> 50 = 100%
-
-## of those how many actual replications
-jml_reps <- jml_exp %>% 
-  filter(replication == "1")
-jml_rep_ratio = count(jml_reps)/count(jml_exp)
-# ---> 34 = 68%
-
-## of those what types of replications
-round(xtabs(~type_replication, jml_reps) / nrow(jml_reps), 2)
-### 0.44 conceptual
-### 0.09 direct --> compared to 7% over all journals
-### 0.47 partial
-
-## of those author overlap
-round(xtabs(~type_replication + auth_overlap, jml_reps) / nrow(jml_reps), 2)
-###            no   yes 
-### conceptual 0.18 0.26
-### direct     0.06 0.03
-### partial    0.24 0.24
-
-# all journals:
-###            no   yes 
-### conceptual 0.26 0.30
-### direct     0.03 0.04
-### partial    0.15 0.21
-
-## overall direct independent replication rate 
-round(nrow(jml_data[jml_data$replication == 1 &
-                jml_data$type_replication == "direct" &
-                jml_data$auth_overlap == 0,]) / nrow(jml_data), 3)
-### 0.04 = 4% compared to 0.015 = 1,5%
-```
 
 ### Discussion
 
