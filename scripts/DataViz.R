@@ -337,6 +337,7 @@ xmdl2 = brm(direct ~ year + oa_s + lag + citation_initial,
            data = replication_sub, 
            prior = priors,
            cores = 4,
+           file  = "../data/direct_replication_mdl.RDS",
            family = bernoulli(link = "logit"))
 
 ## summary(xmdl2)
@@ -361,7 +362,7 @@ ggplot(replication_sub_agg, aes(x = year, y = n, fill = type2)) +
   geom_stream(bw = 0.7)  +
   scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
                     name = "") +
-  labs(title = "Number of replication types over the last 32 years",
+  labs(title = "Number of replication types from 1988-2020",
        subtitle = "   ",
        x = "\nYear",
        y = "number of papers in corpus\n") +
@@ -391,9 +392,4 @@ ggsave(filename = "../plots/stream_plot.png",
        dpi = 300)
 
 
-## plot all of this
-
-
-
-
-
+## 

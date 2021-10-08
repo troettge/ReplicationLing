@@ -35,7 +35,8 @@ output: rticles::elsevier_article
 
 knitr::opts_chunk$set(echo = FALSE,
                       cache = TRUE, 
-                      warning = FALSE)
+                      warning = FALSE,
+                      message = FALSE)
 
 # nifty code using the pacman package
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
@@ -400,7 +401,7 @@ An author overlap was attested when one of the authors was a (co-)author on both
 
 nr_replications <- coded_articles %>% filter(replication == "1") %>% count() # 117 are replications
 nr_direct <- coded_articles %>% filter(type_replication == "direct") %>% count() # 8 are replications
-prop_direct <- (nr_direct / nr_replications) * 100
+prop_direct <- round((nr_direct / nr_replications) * 100, 1)
 nr_partial <- coded_articles %>% filter(type_replication == "partial") %>% count() # 42
 nr_conceptual <- coded_articles %>% filter(type_replication == "conceptual") %>% count() #66
 
@@ -421,7 +422,7 @@ independent_rate = (independent_reps / nr_direct) * 100
 # How many of these were (self-labeled) successful?
 success_reps = coded_articles %>% 
   filter(type_replication == "direct",
-         auth_overlap == "1",
+         auth_overlap == "0",
          success == "1") %>% 
   count() # 5
 
@@ -430,20 +431,60 @@ success_reps = coded_articles %>%
 
 Looking closer at direct replications, `r independent_reps` studies were independent studies, i.e. there was no overlap between authors of the original study and the replication study. 
 Out of these independent direct replication studies, `r success_reps` were self-labeled as successful replications. 
-In other words, our sample did not include a single independent failed replication attempt.
+In other words, our sample included a single independent failed replication attempt.
 
+Figure X illustrates the development of replication studies across the time span of our sample. 
+While the overall number of studies increased over the years, the proportion of direct replications remained stable at best. 
+However, it seems as if there is an increasing number of partial and conceptual replications that was published within the last few years.^[Given the small number of direct replications in our sample, both a descriptive assessment and an inferential assessment as preregistered are very uninformative. The reader is directed to the supplementary materials, if they are interested in the model outputs of the preregistered analysis.]. 
 
+```{r steam_plot, out.width="100%", fig.align = 'center', fig.asp = 0.7}
 
-```{r inner paper, echo=FALSE}
-# How many replication studies were inner-paper replications?
-reps_inner_paper = coded_articles %>% 
-  filter(replication == "1") %>% 
-  filter(cit_init_study == "same") %>% 
-  count() 
-# --> 37
-inner_paper = round(((reps_inner_paper / nr_replications) * 100),1)
-# --> ~ 31,62 %
+# subset data
+replication_sub <- coded_articles %>% 
+  filter(experimental == 1)
+
+### let's plot the distribution in stream plot
+replication_sub_agg <- replication_sub %>% 
+  mutate(type2 = ifelse(is.na(type_replication), "no", 
+                        ifelse(type_replication == "", "no", type_replication))) %>% 
+  group_by(type2, pub_year) %>% 
+  summarise(n = n())
+  
+## change level orfer           
+replication_sub_agg$type2 <- factor(replication_sub_agg$type2, 
+                                    levels = c("no", "conceptual", "partial", "direct"))
+
+## stream plot
+stream_plot <- 
+ggplot(replication_sub_agg, aes(x = pub_year, y = n, fill = type2)) +
+  geom_stream(bw = 0.7)  +
+  scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
+                    name = "") +
+  labs(title = "Number of replication types from 1988-2020",
+       subtitle = "   ",
+       x = "\nYear",
+       y = "number of papers in corpus\n") +
+  theme_minimal() +
+  theme(legend.key.height = unit(2,"line"),
+        legend.title = element_text(face = "bold", size = 12),
+        legend.text = element_text(size = 12),
+        strip.background = element_blank(),
+        strip.text = element_text(size = 12, face = "bold"),
+        panel.spacing = unit(2, "lines"),
+        panel.border = element_blank(),
+        plot.background = element_rect(fill = "transparent", colour = NA),
+        strip.text.y = element_text(size = 12, hjust = 0),
+        axis.text = element_text(size = 12),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 10),
+        axis.title.x = element_text(size = 12),
+        plot.title = element_text(size = 14, face = "bold"),
+        plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+stream_plot
+
 ```
+
+
 
 ```{r language rep, echo=FALSE}
 # How many replication studies were replications in a different language?
@@ -456,23 +497,8 @@ diff_lang = round(((reps_diff_lang / nr_replications) * 100),1)
 # --> ~ 15,38 %
 ```
 
-To paint a more general picture by including all types of replications, `r inner_paper`% studies are replications within the same multi-study paper. 
-One central aspect of linguistic research is the testing the generalizability of experimental claims across different target languages, however, as it turns out only a minority of replications targeted a different language than the initial study (`r diff_lang`%). 
+Only a minority of replications targeted a different language than the initial study (`r diff_lang`%). 
 The majority of replication efforts were conducted within the same language as the initial study.
-
-```{r same journal, echo=FALSE}
-# How many replication studies were published in the same journal?
-journal_init = factor(coded_articles$journal_init_study, levels = levels(coded_articles$journal)) # set levels equal
-reps_same_journal = coded_articles %>% 
-  filter(journal == journal_init) %>% 
-  filter(cit_init_study != "same") %>% # exclude inner-paper studies
-  count()
-
-# --> 16 (52 without exclusion)
-same_journal = round(((reps_same_journal / nr_replications) * 100),1)
-# --> ~ 13,68 %
-```
-
 
 ```{r years between, echo=FALSE}
 # What is the median number of years between an initial and a replication study?
@@ -496,9 +522,12 @@ mean_citation_rate <- round(mean_citation_between/median_year_between,1)
 
 ```
 
-Comparing original study to replication study, `r same_journal`% of replications are published in the same journal as the initial study. 
-The median number of years between an initial and a replication study is `r median_year_between`.
-Initial studies were on average `r mean_citation_between` times cited before a replication was published which amounts to a average mean citation rate of `r mean_citation_rate`.
+The median number of years between an initial and a replication study is `r median_year_between` years.
+Initial studies were on average `r mean_citation_between` times cited before a replication was published which amounts to a average yearly citation rate of `r mean_citation_rate` citations.
+
+
+
+### Case study of Journal of Memory and Language
 
 ```{r jml, echo=FALSE}
 # having a closer look at jml
@@ -634,6 +663,36 @@ plot_data %>%
   )
 ```
 
+
+```{r same journal, echo=FALSE}
+### STUFF THAT I'D TOSS
+
+# How many replication studies were published in the same journal?
+coded_articles$journal_init_study <- as.factor(coded_articles$journal_init_study)
+coded_articles$journal <- as.factor(coded_articles$journal)
+journal_init = factor(coded_articles$journal_init_study, levels = levels(coded_articles$journal)) # set levels equal
+reps_same_journal = coded_articles %>% 
+  filter(journal == journal_init) %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper studies
+  count()
+
+# --> 16 (52 without exclusion)
+same_journal = round(((reps_same_journal / nr_replications) * 100),1)
+# --> ~ 13,68 %
+
+# Comparing initial studies to their corresponding replication studies, `r same_journal`% of replications are published in the same journal as the initial study. 
+```
+
+```{r inner paper, echo=FALSE}
+# How many replication studies were inner-paper replications?
+reps_inner_paper = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(cit_init_study == "same") %>% 
+  count() 
+# --> 37
+inner_paper = round(((reps_inner_paper / nr_replications) * 100),1)
+# --> ~ 31,62 %
+```
 
 ### Discussion
 
