@@ -42,11 +42,11 @@ knitr::opts_chunk$set(echo = FALSE,
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, 
-               ggstream, tidybayes, bayesplot, rticles, knitr)
+               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial)
 
 # set the current working directory to the one where this file is
-# current_working_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
-# setwd(current_working_dir)
+ current_working_dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
+ setwd(current_working_dir)
 
 ## global color scheme / non-optimized
 ### purple
@@ -97,7 +97,7 @@ Researchers from fields such as psychology [@makel_replications_2012], education
 
 Experimental linguistics shares research practices that have been shown to decrease the replicability of findings. 
 Thus, there are raising concerns about a similarly low number of replication studies conducted and published in this field [e.g. @marsden_replication_2018; @roettger_toward_2019].
-A number of failed replication attempts reported in various subfields of linguistics indicate that these concerns are warrented [e.g. in language comprehension: @papesh_just_2015; predictive processing: @nieuwland_large-scale_2018; among others: @chen_chinese_2007; @stack_failure_2018; @westbury_implicit_2018].
+A number of failed replication attempts reported in various subfields of linguistics indicate that these concerns are warranted [e.g. in language comprehension: @papesh_just_2015; predictive processing: @nieuwland_large-scale_2018; among others: @chen_chinese_2007; @stack_failure_2018; @westbury_implicit_2018].
 
 In order to thoroughly understand and be able to address this problem, it is important to assess the number of replication attempts and their contributing factors.
 
@@ -500,6 +500,64 @@ stream_plot
 ```
 
 
+
+```{r river plot, echo=FALSE}
+
+myedges <- data.frame(ID = 1:9,
+                   N1 = c("successful", "failure", 
+                          "author overlap", "independent",
+                          "direct", "conceptual", "partial",
+                          #"partial",
+                          "No replications", "Self-claimed replications"),
+                   Value = c(2,1,
+                             5,3,
+                             8,66,42,
+                             94,116))
+
+myedges$N1 <- paste(myedges$N1, "\n", paste0(myedges$Value))
+myedges$N2 <- c(rep("independent \n 3", 2), 
+                rep("direct \n 8", 2), 
+                rep("Self-claimed replications \n 116", 3), 
+                rep(paste("All surveyed papers \n", 210), 2))
+
+
+mynodes <- data.frame(ID=c(myedges$N1, paste("All surveyed papers \n", 210)), 
+                      x = c(1, 1, 2, 2, 3, 3, 3, 4, 4, 5), 
+                      y = c(10,14,
+                            8, 12, 
+                            10, 7.5, 5, 
+                            1, 7.5, 
+                            5))
+
+# styles
+palette <- c("gray", "#AA3377", "gray", 
+             "#AA3377", "grey", "gray", 
+             "gray", "gray", "#AA3377")
+
+#AA3377
+
+mystyles = lapply(mynodes$y, function(n) {
+  list(col = palette[n])
+})
+
+for(i in 1:length(palette)){
+  mystyles[[i]]$col<-palette[i]
+}
+
+names(mystyles) <- mynodes$ID
+
+custom.style <- riverplot::default.style()
+custom.style$textcex <- 1.8
+
+svg("../../plots/River.svg", width=10)
+myriv <- makeRiver(nodes=mynodes, edges=myedges, node_styles=mystyles)
+plot(myriv, default_style=custom.style, nodewidth=1, plot_area = 0.95)
+dev.off()
+dev.off()
+plot(myriv, default_style=custom.style, nodewidth=1, plot_area=.88)
+
+
+```
 
 ```{r language rep, echo=FALSE}
 # How many replication studies were replications in a different language?
