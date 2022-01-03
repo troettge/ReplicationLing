@@ -182,27 +182,32 @@ The median mention rate across journals is `r median_rate` (SD = `r std_rate`).
 This rate is comparable to the 1.6\% that @makel_replications_2012 have reported on in their study on psychology. <!--KK: Shouldn't that be only mentioned in the discussion as it's already (kind of) interpreting?-->
 Figure X illustrates the variation across those journals that exhibited at least one mention of the term.
 
+
 ```{r topten_plot,  out.width="100%", fig.align = 'center', fig.width = 5, fig.asp = 1.6}
 
-# should make a list of shortened journal names, shortened strings for now
+# list of shortened journal names
+journals_abb <- c("Humor", "Lang Learn Dev", "Morphology", "Transl Interpreting", "J Logic Lang Inf", "J Mem Lang", "J East Asian Ling", "Cogn Linguist", "Int J Speech Lang La", "J Spec Transl", "Stud Second Lang Acq", "Lang Cogn Neurosci", "Glossa", "Linguistic Res", "First Lang", "J Neurolinguistics", "Lang Learn Technol", "Biling-Lang Cogn", "J Psycholinguist Res", "3L Lang Linguist Literat", "Lab Phonol", "Lang Teach Res", "Lang Cogn", "Lang Linguist Compass", "Metaphor Symb", "Lang Learn", "J Child Lang", "J Semant", "Aphasiology", "J Lang Soc Psychol", "Int J Lang Comm Dis", "J Phon", "Appl Psycholinguist", "Lang Speech", "Acta Linguist Hung", "J Cogn Sci", "Brain Lang", "Recall", "Int J Biling", "Phonetica", "Mind Lang", "Linguist Approach Bi", "IRAL-Int Rev Appl Li", "J Speech Lang Hear R", "Interact Stud", "Arab World Eng J", "Am J Speech-Lang Pat", "Ment Lex", "Clin Linguist Phonet", "Lang Acquis", "System", "Second Lang Res", "Nat Lang Eng", "Comput Assist Lang L", "Lingua", "Lect Notes Comput Sci", "Comput Linguist", "Lect Notes Artif Int", "Phonology", "Interpreting", "Eurasian J Appl Linguist", "J Lang Educat", "Linguistics Vanguard", "Proces de Leng Nat", "Appl Linguist Res J", "Nat Lang Semant", "J Quant Linguist", "Corpus Linguist Ling", "Rev Cogn Linguist", "Interpret Transl Tra", "Poz Stud Contemp Lin", "Pragmat Cogn", "Syntax-UK", "J Res Appl Linguist", "Digit Scholarsh Hum", "Probus", "Innov Lang Learn Teach", "Int J Eng Linguist", "Across Lang Cult", "Rev Roum Linguist", "Intercult Pragmat", "Child Lang Teach The", "Lang Aware", "Gesture", "J Int Phon Assoc", "Metaphor Symb Act", "Iberica", "Annu Rev Appl Linguist", "Ling Antverp New Ser", "Terminology", "Annu Rev Linguist", "J Fr Lang Stud", "Lang Linguist", "Nord J Linguist", "Lang Lit", "Babel-Amsterdam", "Int J Corpus Linguist", "Int J Appl Linguist")
+
+df$journals_abb <- factor(journals_abb)
 
 topten <- 
   df %>% arrange(desc(replic_rate)) %>%
-  select(journals, exp_ratio, replic_rate) %>% 
+  select(journals_abb, exp_ratio, replic_rate) %>% 
   top_n(nonzero_mention, replic_rate) %>% 
-  mutate(journals = fct_reorder(journals, replic_rate)) %>%
+  #mutate(journals = fct_reorder(journals, replic_rate)) %>%
+  mutate(journals_abb = fct_reorder(journals_abb, replic_rate)) %>% 
   ggplot(aes(x = replic_rate * 100, 
-             y = journals,
+             y = journals_abb,
              color = replic_rate * 100)) +
   geom_segment(aes(x = 0, 
                    xend = replic_rate * 100,
-                   y = journals,
-                   yend = journals)) +
+                   y = journals_abb,
+                   yend = journals_abb)) +
   geom_point(size = 3) + 
   scale_color_gradient(low = col_purple,
                        high = col_green)+
  # geom_segment()
-  scale_y_discrete(label = function(x) stringr::str_trunc(x, 20))+
+  #scale_y_discrete(label = function(x) stringr::str_trunc(x, 20))+
   xlim(0, 15) +
   labs(y = " ",
        x = "\nProportion of mentions in %\n") +
