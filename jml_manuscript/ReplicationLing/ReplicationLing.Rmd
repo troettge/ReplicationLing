@@ -10,7 +10,7 @@ author:
     affiliation: Universitetet i Oslo
 address:
   - code: University of Osnabrück
-    address: Department
+    address: Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück
   - code: Universitetet i Oslo
     address: Department of Linguistics and Scandinavian Studies
 footnote:
@@ -88,7 +88,7 @@ df$openaccess <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
 
 The replication of results is an integral part of cumulative experimental science [e.g., @campbell_reforms_1969; @rosenthal_replication_1990; @zwaan_making_2018]. 
 Yet, various scientific disciplines are currently facing what is often referred to as the "replication crisis", a state of affairs that is characterized by an alarming amount of failed replication attempts [@fidler_reproducibility_2018]. <!--KK: I know you said for the preregistration that we should refrain from these strong words so that we don't scare potential readers and publishers off - but on the other hand these are also buzz words that could lead to our study being found and read, aren't they?-->
-Here, we define replications as studies that arrive at the same scientific conclusions as an initial study, collecting new data and completing new analyses by using the same methodology [see @barba_terminologies_2018 for a comprehensive overview of different terminological uses.].
+Here, we define replications as studies that arrive at the same scientific conclusions as an initial study, collecting new data and completing new analyses by using the same methodology [see @barba_terminologies_2018 for a comprehensive overview of different terminological uses].
 Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications in fields such as psychology [@open_science_collaboration_estimating_2015], economics [@camerer_evaluating_2016] and social sciences [@camerer_evaluating_2018]. <!--KK: footnote? measure: whether the effect size of the replication study fell wihtin the 95% confidence interval of the original-->
 One driving factor of this lack of replicability is an asymmetric incentive system that rewards novel confirmatory findings over direct replications and null results. Replication studies are not very popular because the necessary time and resource investment are not appropriately rewarded in contemporary academic incentive systems [e.g., @koole_rewarding_2012; @nosek_scientific_2012]. Both successful replications [@madden_how_1995] and repeated failures to replicate [e.g., @doyen_behavioral_2012] are rarely published, and if they are published they are usually published in less prestigious outlets than the original findings. 
 These dynamics lead to an abundance of positive findings in the absence of possible conflicting negative evidence [see also e.g. @fanelli_pressures_2010].
@@ -117,10 +117,9 @@ The key dependent variable of the first part of this study was the rate of repli
 
 ### Material and methods
 <!--provide sufficient details to allow the work to be reproduced by an independent researcher, describe any modifications to existing methods-->
-The study design has been preregistered at ####-##-## and can be inspected [here: https://osf.io/9ceas/](https://osf.io/9ceas/). 
+The study design has been preregistered at 2021-03-08 and can be inspected [here: https://osf.io/9ceas/](https://osf.io/9ceas/). 
 In order to determine the rates of replication mention for individual journals, we drew on a method introduced by @makel_replications_2012. 
-First, a sample of 100 journals relevant to the field of experimental linguistics has been identified by making use of the search engine ["Web of Science" (https://webofknowledge.com)](https://webofknowledge.com) at ####-##-##. We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term "experiment\*" in title, abstract or keywords <!--TR: We might need to be more specific and add the full procedure either here or in an appendix or refer to prereg link-->. All articles categorized as written in English between 1945-2020 were taken into account. We selected a subset of those 100 journals that had the highest ratio of mentioning the term "experiment\*".
-<!--TR: remember to mention the exclusion of two journals-->
+First, a sample of 100 journals relevant to the field of experimental linguistics has been identified by making use of the search engine ["Web of Science" (https://webofknowledge.com)](https://webofknowledge.com) at 2021-03-03. We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term "experiment\*" in title, abstract or keywords <!--TR: We might need to be more specific and add the full procedure either here or in an appendix or refer to prereg link-->. All articles categorized as written in English between 1945-2020 were taken into account. We selected a subset of those 100 journals that had the highest ratio of mentioning the term "experiment\*". Two journals, namely "Language and Cognitive Processes" and "Language, Cognition and Neuroscience" had to be excluded because it turned out during analysis that both journals have been renamed in 2013 and that these have already been included in our sample.
 
 ```{r exp_ratio}
 exp_ratio_median = round(median(df$exp_ratio),1) # 11.5
@@ -129,25 +128,20 @@ exp_ratio_max = round(max(df$exp_ratio),1) # 60.3
 
 ```
 
-The ration between overall number of articles and those articles mentioning the term "experiment\*" ranged between `r exp_ratio_min` and `r exp_ratio_max` (with a median of `r exp_ratio_median`).
+The ratio between overall number of articles and those articles mentioning the term "experiment\*" ranged between `r exp_ratio_min` and `r exp_ratio_max` (with a median of `r exp_ratio_median`).
 The full list of journals can be inspected [here: https://osf.io/q2e9k/](https://osf.io/q2e9k/). <!--KK: include in appendix?--> <!--TR: Yes one pretty table!-->
-Albeit a rough proxy, this procedure help us identifying journals relevant to the field of experimental linguistics. 
+Albeit a rough proxy, this procedure helped us identifying journals relevant to the field of experimental linguistics. 
 After journal selection, we obtained the total number of articles containing the search term "replicat\*" in title, abstract or keywords via Web of Science search. 
 Following the method used by Makel et al. [-@makel_replications_2012], the rates of replication mention are calculated by dividing the number of articles containing the term "replicat\*" by the total number of articles for each journal. As we were only interested in experimental linguistic studies, we only included articles containing the search term "experiment\*" in this formula.
 
 Replication mentions are related to three journal properties: Journal policies related to replication studies, journal impact factor and whether the journal is open access or not.
 We examined the journals' submission guidelines adopting a method suggested by Martin and Clarke [-@martin_are_2017]. 
-They grouped psychology journals into four categories dependent on whether they encourage replication studies or not in their "instructions to authors" and "aims and scope" sections on the journal websites. For our analysis, we only distinguished between those journals explicitly encouraging replication studies and those that do not. 
-<!-- (1) Journals which stated that they accepted replications; -->
-<!-- (2) Journals which did not state they accepted replications but did not discourage replications either; -->
-<!-- (3) Journals which implicitly discouraged replications through the use of emphasis on the scientific originality of submissions, -->
-<!-- (4) Journals which actively discouraged replications by stating explicitly that they did not accept replications for publication [@martinclarke_policies_2017, p. 3]. -->
+They grouped psychology journals into four categories dependent on whether they (explicitly) encourage replication studies or not in their "instructions to authors" and "aims and scope" sections on the journal websites. For our analysis, we only distinguished between those journals explicitly encouraging replication studies and those that do not. 
 
-We extracted Journal Impact Factors via Journal Citation Reports (https://jcr.clarivate.com). 
-The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018. <!--TR: explanation of JIF can go in foot note-->
+We extracted Journal Impact Factors via Journal Citation Reports (https://jcr.clarivate.com).^[The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018.]
 
 We assessed whether journals published open access via Web of Science. 
-We distinguished between three categories: journals which are listed in the Directory of Open Access Journals (DOAJ) ("DOAJ gold"), journals with some articles being published as open access articles ("partial") and journals with no option to publish open access ("no"). <!--TR: but we do only use a binary categorization right?-->
+We distinguished between three categories: journals which are listed in the Directory of Open Access Journals (DOAJ) ("DOAJ gold"), journals with some articles being published as open access articles ("partial") and journals with no option to publish open access ("no"). We grouped journals with partial or no option to publish open access together for analysis resulting in a binary categorization of open access.
 
 ### Results
 <!--clear and concise, include tables and figures-->
@@ -184,7 +178,7 @@ openaccess = nrow(df[df$openaccess == 1,])
 The distribution of the mention rate substantially varies across journals ranging from `r min_rate` to `r round(max_rate * 100, 2)`\%. 
 Overall, almost half of all journals (n = `r zero_mention`) did not mention the term in any of their articles.
 The median mention rate across journals is `r median_rate` (SD = `r std_rate`). 
-This mentioning rate is comparable to the 1.6\% that @makel_replications_2012 have reported on in their study on psychology.
+This mentioning rate is comparable to the 1.6\% that @makel_replications_2012 have reported on in their study on psychology. <!--KK: Shouldn't that be only mentioned in the discussion as it's already (kind of) interpreting?-->
 Figure X illustrated the variation across those journals that exhibited at least one mention of the term.
 
 ```{r topten_plot,  out.width="100%", fig.align = 'center', fig.width = 5, fig.asp = 1.6}
@@ -239,8 +233,8 @@ We used Bayesian parameter estimation based on generalized linear regression mod
 The model was fitted to the proportion of replication mentions per journal using the R package brms [@burkner_brms_2016]. 
 We used weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
 These priors are what is referred to as regularizing [@gelman_weakly_2008], i.e. our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation. 
-Four sampling chains with 2000 iterations each will be run for each model, with a warm-up period of 1000 iterations.
-For relevant predictor levels and contrasts between predictor levels, we will report the posterior probability for the rate of replication mention. 
+Four sampling chains with 2000 iterations each have been run for each model, with a warm-up period of 1000 iterations.
+For relevant predictor levels and contrasts between predictor levels, we report the posterior probability for the rate of replication mention. 
 We summarize these distributions by reporting the posterior mean and the 95\% credible intervals (calculated as the highest posterior density interval). 
 
 
@@ -408,6 +402,7 @@ experimental paradigm, sample, materials/experimental set-up, dependent variable
 We also noted the language under investigation.
 The information on whether the article was published open access as well as citation counts and years of publication for both studies were obtained from Web of Science.
 An author overlap was attested when at  least one author was a (co-)author on both articles.
+<!--KK: further things that were not preregistered: took the first mentioned study if there were several self-labeled replications, took the independent study if there were also inner-paper studies, make more clear that the explicit aim to replicate a previous study had to be mentioned-->
 
 ### Results
 <!--clear and concise, include tables and figures-->
@@ -421,6 +416,7 @@ nr_partial <- coded_articles %>% filter(type_replication == "partial") %>% count
 nr_conceptual <- coded_articles %>% filter(type_replication == "conceptual") %>% count() #66
 
 # what about the remaining 1?
+# oops. line 132. coded it as being a replication, but not experimental because it was a replication of a model - need to always also filter for experimental == 1 then (or re-code saying that we didn't have a look at the rest, when it was not experimental)
 
 ```
 
