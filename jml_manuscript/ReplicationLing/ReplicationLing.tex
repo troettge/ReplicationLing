@@ -30,7 +30,6 @@
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \bibliographystyle{elsarticle-harv}
-\usepackage{graphicx}
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -135,8 +134,8 @@ published findings have uncovered surprisingly low rates of successful
 replications in fields such as psychology (Open Science Collaboration,
 2015), economics (Camerer et al., 2016) and social sciences (Camerer et
 al., 2018). Researchers from these fields report low replication rates
-ranging from 0.13\% in the education sciences to 1.07\% in psychology
-publications.
+ranging from 0.13\% in the education sciences to 1.6\% in psychology
+publications (Makel et al., 2012; \textbf{makel\_replications\_2014?}).
 
 One driving factor of this lack of replicability is an asymmetric
 incentive system that rewards novel confirmatory findings over direct
@@ -275,12 +274,18 @@ experimental articles to be replication studies.
 The distribution of the rate of replication mention substantially varies
 across journals ranging from 0 to 12.82\%. Overall, almost half of all
 journals (n = 43) did not mention the term in any of their articles. The
-median mention rate across journals is 1.6 (SD = 3.3). This rate is
-comparable to the 1.6\% that Makel et al. (2012) have reported on in
-their study on psychology. Figure X illustrates the variation across
-those journals that exhibited at least one mention of the term.
+median mention rate across journals is 1.6 (SD = 3.3). Figure X
+illustrates the variation across those journals that exhibited at least
+one mention of the term.
 
-\begin{center}\includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/topten_plot-1} \end{center}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/topten_plot-1} 
+
+}
+
+\caption{Variation in rate of replication mention across those journals that exhibited at least one mention of the term.}\label{fig:topten_plot}
+\end{figure}
 
 Following preregistered protocol, we statistically estimated the rate of
 replication mention as predicted relative to the following factors:
@@ -311,13 +316,10 @@ odds = 0.39 {[}0.29, 0.49{]}). Figure X illustrates this relationship.
 
 However, further explorations indicate that journal impact factor is
 highly correlated with the number of experimental studies reported in a
-journal (Spearman correlation = 0.43). This correlation makes
-intuitively sense. Experimental linguistic articles are often associated
-with psychology adjacent fields, possibly attracting a broader audience
-and being cited more widely. Given this correlation, it remains unclear
-if the term ``replicat*'' is used more often in high impact journals or
-simply more common in journals that generally publish more experimental
-studies.
+journal (Spearman correlation = 0.43). Given this correlation, it
+remains unclear if the term ``replicat*'' is used more often in high
+impact journals or simply more common in journals that generally publish
+more experimental studies.
 
 \begin{figure}
 
@@ -338,6 +340,36 @@ around these estimates is substantial (open access: 0.41 {[}-0.41,
 the small number of journals that explicitly encourage direct
 replications (2 out of 98), and the small number of open access journals
 (11 out of 98).
+
+\hypertarget{discussion}{%
+\subsubsection{Discussion}\label{discussion}}
+
+The articles of almost half of all journals in our sample (n = 43) did
+not mention the term `replicat*' at all. The maximum rate of replication
+mention is 12.82\%, but the median mention rate lies substantially lower
+at 1.6 (SD = 3.3). This rate is comparable to the 1.6\% that Makel et
+al. (2012) have reported in their study on psychology journals.
+
+Our preregistered model estimates an increase in proportion of
+mentioning the term 'replicat*' with increasing journal impact factor.
+But according to further explorations, this effect is likely due to the
+higher number of experimental studies published in journals with higher
+impact factor. This correlation makes sense in our sample because
+experimental linguistic articles are often associated with psychology
+adjacent fields, possibly attracting a broader audience and being cited
+more widely than articles belonging to other subfields of linguistics.
+Given this correlation, we cannot draw any conclusions on the role of
+journal impact factors with regards to publishing replication studies.
+
+The role of open access publishing options and journal policies is
+clearer: According to our model, the term 'replicat*' is mentioned more
+often in both open access journals and journals that explicitly
+encourage direct replications on their websites. Although the
+uncertainty around these estimates is substantial, we can draw the
+tentative conclusion that journals which support open science by
+offering open access publishing and by explicitly encouraging the
+submission of replication studies, also publish replication studies more
+often than other journals.
 
 \hypertarget{how-many-of-these-mentions-are-actual-replications}{%
 \section{How many of these mentions are actual
@@ -404,9 +436,9 @@ independent study for analysis.
 \hypertarget{results-1}{%
 \subsubsection{Results}\label{results-1}}
 
-Out of the 210 articles in the subsample, 200, or 95.2\%, indeed
-presented experimental linguistics research. The remaining 4.8\% have
-not been experimental studies, but rather commented and reflected on the
+Out of the 210 articles in the subsample, 200 (95.2\%) indeed presented
+experimental linguistics research. The remaining 10 (4.8\%) have not
+been experimental studies, but rather commented and reflected on the
 field or presented research using computer simulations and modeling
 techniques. 116 were self-claimed replications according to our
 criteria. The remaining 94 mentions were articles that mentioned the
@@ -419,8 +451,13 @@ term in a very broad sense. In these cases, it was usually not clear
 which specific research methods or aims from previous studies should be
 replicated. We thus decided to handle these cases not as replication
 studies. Out of the replication studies we identified, we categorized 66
-as conceptual, 42 as partial, and only 8 as direct replications which
-amounts to 6.9\% direct replications of all coded cases.
+(56.9\%) as conceptual, 42 (36.2\%) as partial, and only 8 (6.9\%) as
+direct replications.
+
+About one third (31.6\%) of the replications were published in the scope
+of the same paper as the initial study. Publishing multiple experiments
+within one article and replicating one's own previously obtained results
+thus seems to be good practice in the field of experimental linguistics.
 
 Looking closer at direct replications, 3 studies were independent
 studies, i.e.~there was no overlap between authors of the initial study
@@ -438,106 +475,183 @@ years.\footnote{Given the small number of direct replications in our
   sample, both a descriptive assessment and an inferential assessment as
   preregistered are very uninformative. The reader is directed to the
   supplementary materials, if they are interested in the model outputs
-  of the preregistered analysis.}.
+  of the preregistered analysis.}
 
-\begin{center}\includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/steam_plot-1} \end{center}
+\begin{figure}
 
-\begin{verbatim}
-## pdf 
-##   2
-\end{verbatim}
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/stream_plot-1} 
 
-\includegraphics{ReplicationLing_files/figure-latex/river plot-1.pdf}
+}
 
-One possible reason for the absence of increasing (direct) replication
-rates could be that experimental linguistics predominantly replicates
-experimental findings across languages, making it by definition at least
-only a partial replication. However, only a minority of replications
-targeted a different language than the initial study (15.4\%). The
+\caption{Development of amount of replication studies published over time.}\label{fig:stream_plot}
+\end{figure}
+
+One possible reason for the fact that (direct) replication rates are not
+increasing for the field according to our analysis could be that
+experimental linguistics predominantly replicates experimental findings
+across languages, making the replication studies conducted by definition
+only partial replications. However, only one quarter of replications
+targeted a different language than the initial study (24.1\%). The
 majority of replication efforts were conducted within the same language
-as the initial study. In fact, 66.7\% of all replication studies were
-studies on English varieties.
+as the initial study. In fact, 67.2\% of all replication studies in our
+sample had one variety of English as the main language of investigation
+either in the replication or in the corresponding initial study.
 
 The median number of years between an initial and a replication study is
-7 years. Initial studies were on average 41.1 times cited before a
-replication was published which amounts to a average yearly citation
-rate of 5.9 citations. This is average citation rate was well above the
+7 years. Initial studies were on average 41.6 times cited before a
+replication was published which amounts to an average yearly citation
+rate of 5.9 citations. This average citation rate is well above the
 impact factor of journals in publishing experimental studies in
-linguistics (median JIF in superset: 1.1). However, replications were on
-average 17 times cited which amounts to only amounts to an average
-yearly citation rate (calculated up to the time of analysis) of 0.6
-citations. These numbers are in line with Marsden et al. (2018)
-investigated the prevalence of replication studies across second
-language research. They found that replication studies were on average
-conducted after more than six years and over a hundred citations of the
-original study. Thus, replications are either only performed after the
-original study had already impacted the field substantially or is only
-then published if the original study was impactful. The drop in
-citations for replication studies compared to the initial study is in
-line with the lack of perceived prestige of replication studies (e.g.,
-Koole and Lakens, 2012; Nosek et al., 2012).
+linguistics (median journal impact factor in superset: 1.1). However,
+replications were on average 17 times cited which only amounts to an
+average yearly citation rate (calculated up to the time of analysis) of
+0.6 citations.
 
 \hypertarget{case-study-of-journal-of-memory-and-language}{%
 \subsubsection{Case study of Journal of Memory and
 Language}\label{case-study-of-journal-of-memory-and-language}}
 
-\begin{verbatim}
-## type_replication
-## conceptual     direct    partial 
-##       0.44       0.09       0.47
-\end{verbatim}
+When having a closer look at the Journal of Memory and Language which
+accounts for the largest part of our sample compared to other journals
+and is the journal with the highest impact factor (3.9), we find that 34
+(68\%) of the 50 studies in our sample are replication studies. Of
+these, 15 (44.1\%) are conceptual, 16 (47.1\%) are partial, and 3
+(8.8\%) are direct replication studies which is in line with the results
+for the whole sample. When excluding for studies with author overlap and
+only taking into account the independent direct replication studies, 2
+of the studies published in Journal of Memory and Language were
+independent direct replication studies (one of which was successful).
 
-\begin{verbatim}
-##                 auth_overlap
-## type_replication    0    1
-##       conceptual 0.18 0.26
-##       direct     0.06 0.03
-##       partial    0.24 0.24
-\end{verbatim}
+Figure X shows the development of publications in the Journal of Memory
+and Language over time. While there was a peak of direct replication
+studies in 2003, the numbers decreased again after that year. In 2020 no
+direct replication studies have been published in this journal at all.
+However, the proportion of partial replications seems to be increasing
+over the last few years (although we are talking of very small numbers
+here).
 
-\begin{verbatim}
-## [1] 0.04
-\end{verbatim}
+\begin{figure}
 
-\includegraphics{ReplicationLing_files/figure-latex/plot cit and years direct-1.pdf}
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/jml_stream_plot-1} 
 
-\includegraphics{ReplicationLing_files/figure-latex/plot cit and years all-1.pdf}
+}
 
-\hypertarget{discussion}{%
-\subsubsection{Discussion}\label{discussion}}
+\caption{Development of amount of replication studies published over time in the Journal of Memory and Language.}\label{fig:jml_stream_plot}
+\end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  too little replication attempts in experimental linguistics
-\item
-  journals guidelines generally don't encourage replication studies
-\item
-  \ldots{}
-\end{itemize}
+\hypertarget{discussion-1}{%
+\subsubsection{Discussion}\label{discussion-1}}
+
+Only 58\% of the experimental studies in our sample were replication
+studies according to our criteria. Out of these, 66 were categorized as
+conceptual, 42 as partial, and only 8 as direct replications which
+amounts to a direct replication rate of 6.9\% in our sample. This
+clearly indicates that replication attempts, and especially direct
+replication attempts, are very rare in the experimental linguistics
+literature - a fact that compares to other research fields.
+
+The development of publications over time shows that the overall number
+of studies increased, but the proportions of direct replication studies
+remained stable. However, we can speculate that there is an increasing
+number of partial and conceptual replications that have been published
+within the last few years.
+
+Our analysis of the years between the publication of the initial and
+replication study and the citation counts of both is in line with
+Marsden et al. (2018) who investigated the prevalence of replication
+studies across second language research. They found that replication
+studies were on average conducted after more than six years and after
+over a hundred citations of the original study and concluded that
+replications are either only performed or only published after the
+original study had already substantially impacted the field. Our
+findings support this hypothesis from the point of view of experimental
+linguistics research: Replication studies are published after a median
+of 7 years and after 41.6 citations of the initial study. The average
+drop in citations for replication studies compared to the initial study
+is in line with the lack of perceived prestige of replication studies
+(e.g., Koole and Lakens, 2012; Nosek et al., 2012).
+
+The findings for the journal with the highest impact factor from our
+sample, Journal of Memory and Language, are comparable to the full
+sample. The trend over the last few years indicates that partial
+replication studies are more and more being published, but direct
+replication studies are unfortunately still seldomly conducted and/or
+published.
 
 \hypertarget{general-discussion}{%
 \section{General discussion}\label{general-discussion}}
 
-\begin{itemize}
-\tightlist
-\item
-  compare rate of replication mention to previous studies in different
-  fields --\textgreater{} broader picture
-\end{itemize}
+The overall picture our analyses draw for replication attempts in the
+field of experimental linguistics is that they are far too uncommon.
+This relates to other fields of research for which a lack of replication
+studies has been attested (Camerer et al., 2018, 2016; Makel et al.,
+2012; Open Science Collaboration, 2015;
+\textbf{makel\_replications\_2014?}). The median rate of replication
+mention of 1.6 (SD = 3.3)`we find for experimental linguistics is in
+line with the rates found for psychology, social sciences and economics
+to name just a few.
+
+The asymmetric incentive system of publication does not reward
+replication studies and they are also not perceived as being prestiguos
+(e.g., Koole and Lakens, 2012; Nosek et al., 2012). This is reflected in
+the citation counts which are at a median of \ldots{} for the
+replications in our sample and at a median of \ldots{} for the initial
+studies in our sample. The low rates of replications in the field of
+experimental linguistics might be due to replication studies not being
+conducted, but they might also be due to replication studies not being
+\emph{published}.
+
+A reason for this could be that journal guidelines usually do not
+encourage to submit replication studies. But this policy is related to
+the amount of replication studies published in a journal. We thus
+suggest in support of Marsden et al. (2018) and Martin and Clarke (2017)
+that journals should accept replication studies more often and should
+also make more explicit and public that they encourage their submission.
+Journals do not need to fear any negative consequences like a loss of
+reputation because our results indicate that journals which frequently
+mention the term 'replicat*' in fact have a proportionally high impact
+factor. This effect is probably only correlational and not a causation,
+but still indicates that replication studies are frequently published in
+journals with high impact factors. The DOAJ gold standard with respect
+to open access publishing is also positively related to publishing
+replication studies. This might be due to journals which support open
+access are also more open to replication studies, both being important
+tools for the open science movement.
+
+The development of publications over time does not give much cause for
+hope: While the total amount of studies published increased over the
+last few years, the amount of direct replications remained stable at
+best. However, we can speculate that there is an increasing number of
+partial and conceptual replications that have been published within the
+last few years.
+
+On the other hand the vast amount of reproducibility initiatives founded
+in the field during the last few years give hope that the situation is
+likely going to change in the near future. e.g.~many babies, many
+speeches etc.
 
 \hypertarget{caveats}{%
 \subsubsection{Caveats}\label{caveats}}
 
-This procedure is necessarily only a rough proxy of relevant
+The procedure used here is necessarily only a rough proxy of relevant
 experimental linguistic articles published in the field and several
 articles might thus have been overlooked and not been included in the
-analysis.
+analysis. The articles have been coded by only a single person who was
+not an expert in this field.
 
 \hypertarget{appendices}{%
 \section{Appendices}\label{appendices}}
 
 identified as A, B, etc.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/cit-and-years-direct-1} 
+
+}
+
+\caption{Relation between citation counts and years of publication of direct replication studies.}\label{fig:cit-and-years-direct}
+\end{figure}
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
