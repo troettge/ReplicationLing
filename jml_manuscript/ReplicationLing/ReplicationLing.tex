@@ -6,8 +6,6 @@
 
 
 \usepackage{lineno} % add
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \usepackage{graphicx}
 %%%%%%%%%%%%%%%% end my additions to header
@@ -54,11 +52,19 @@
 % Pandoc toggle for numbering sections (defaults to be off)
 \setcounter{secnumdepth}{0}
 
+
+% tightlist command for lists without linebreak
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
 % Pandoc citation processing
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
 % for Pandoc 2.8 to 2.10.1
 \newenvironment{cslreferences}%
   {}%
@@ -68,11 +74,12 @@
  {% don't indent paragraphs
   \setlength{\parindent}{0pt}
   % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
   \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
  }%
  {}
 \usepackage{calc}
@@ -81,11 +88,12 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-% Pandoc header
 
 
 
 \begin{document}
+
+
 \begin{frontmatter}
 
   \title{Assessing replication rates in journals of experimental
@@ -202,10 +210,12 @@ linguistics has been identified by making use of the search engine
 (https://webofknowledge.com)} at 2021-03-03. We restricted the search
 results to journals in the web of science category ``Linguistics'' which
 had at least 100 articles published and a high ratio of articles
-containing the term ``experiment*'' in title, abstract or keywords . All
+containing the term ``experiment*'' in title, abstract or keywords. All
 articles categorized as written in English between 1945-2020 were taken
 into account. We selected a subset of those 100 journals that had the
-highest ratio of mentioning the term ``experiment*.''
+highest ratio of mentioning the term ``experiment*'' in their articles.
+This was done to make sure that the subset comprised journals that are
+relevant for experimental linguistics research.
 
 The ratio between overall number of articles and those articles
 mentioning the term ``experiment*'' ranged between 6.1 and 60.3 (with a
@@ -213,38 +223,37 @@ median of 11.5). Two journals, namely ``Language and Cognitive
 Processes'' and ``Language, Cognition and Neuroscience'' had to be
 excluded because it turned out during analysis that both journals have
 been renamed in 2013 and that they have already been included in our
-sample under the new name.
-
-The full sample of journals can be inspected
+sample under the new name. Our final sample thus included only 98
+journals. The full sample of journals can be inspected
 \href{https://osf.io/q2e9k/}{here: https://osf.io/q2e9k/} or in the
 appendix of this article. Albeit a rough proxy, this procedure helped us
 identifying journals relevant to the field of experimental linguistics.
 
-After journal selection, we obtained the total number of articles
+After journal selection, we obtained the total count of articles
 containing the search term ``replicat*'' in title, abstract or keywords
-via Web of Science search. Following the method used by Makel et al.
-(2012), the rates of replication mention are calculated by dividing the
-number of articles containing the term ``replicat*'' by the total number
-of articles for each journal. As we were only interested in experimental
-linguistic studies, we only included articles containing the search term
-``experiment*'' in this formula.
+for each journal via Web of Science search. Following the method
+presented by Makel et al. (2012), the rates of replication mention are
+calculated by dividing the number of articles containing the term
+``replicat*'' by the total number of articles for each journal. As we
+were only interested in experimental linguistic studies, we only
+included articles containing the search term ``experiment*'' in this
+formula.
 
-Replication mentions are related to three journal properties: Journal
-policies related to replication studies, journal impact factor and
-whether the journal is open access or not. We examined the journals'
-submission guidelines adopting a method suggested by Martin and Clarke
-(2017). They grouped psychology journals into four categories dependent
-on whether they (explicitly) encourage replication studies or not in
-their ``instructions to authors'' and ``aims and scope'' sections on the
+Replication mentions were then related to three journal properties:
+Journal policies with regards to replication studies, journal impact
+factor and whether the journal is an open access publisher or not. To
+gain an understanding of the journal policies with regards to
+replication studies, we examined the journals' submission guidelines
+adopting a method suggested by Martin and Clarke (2017). They grouped
+psychology journals into four categories dependent on whether they
+(explicitly or implicitly) encourage replication studies or not in their
+``instructions to authors'' and ``aims and scope'' sections on the
 journal websites. For our analysis, we only distinguished between those
 journals explicitly encouraging replication studies and those that do
-not.
-
-We extracted Journal Impact Factors via Journal Citation Reports
+not. We extracted journal impact factors via Journal Citation Reports
 (https://jcr.clarivate.com).\footnote{The 2019 journal impact factors
   are calculated by dividing the citations in 2019 to items published in
   2017 and 2018 by the total number of citable items in 2017 and 2018.}
-
 Whether journals offered an open access publication or not was assessed
 via Web of Science. We distinguished between three categories: journals
 which are listed in the Directory of Open Access Journals (DOAJ) (``DOAJ
@@ -258,12 +267,13 @@ categorization of open access.
 \subsubsection{Results}\label{results}}
 
 Out of the 51272 articles in our sample, 8006 mentioned the term
-`experiment*' in title, abstract, or keywords. Out of these articles,
-347 contained the term ``replicat*.'' Thus 4.3\% of all experimental
-articles in our sample mentioned the term ``replicat*.''
+`experiment*' in title, abstract, or keywords and were thus treated as
+articles presenting an experimental investigation. Out of these
+articles, 347 contained the term ``replicat*'' suggesting 4.3\% of all
+experimental articles to be replication studies.
 
 The distribution of the rate of replication mention substantially varies
-across journals ranging from 0 to 1280\%. Overall, almost half of all
+across journals ranging from 0 to 12.82\%. Overall, almost half of all
 journals (n = 43) did not mention the term in any of their articles. The
 median mention rate across journals is 1.6 (SD = 3.3). This rate is
 comparable to the 1.6\% that Makel et al. (2012) have reported on in
@@ -272,42 +282,51 @@ those journals that exhibited at least one mention of the term.
 
 \begin{center}\includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/topten_plot-1} \end{center}
 
-Following preregistered protocol, we statistically estimated the mention
-rate as predicted relative to the following factors: journal impact
-factors (continuous), open access (binary: open access journal or not),
-and replication policies (binary: either explicitly encourage or not).
-We used Bayesian parameter estimation based on generalized linear
-regression models with a binomial link function. The model was fitted to
-the proportion of replication mentions per journal using the R package
-brms (Bürkner, 2016). We used weakly informative normal priors centered
-on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero
-(scale = 2.5) for all population-level regression coefficients. These
-priors are what is referred to as regularizing (Gelman et al., 2008),
-i.e.~our prior assumption is agnostic as to whether the predictors
-affect the dependent variable, thus making our model conservative with
-regards to the predictors under investigation. Four sampling chains with
-2000 iterations each have been run for each model, with a warm-up period
-of 1000 iterations. For relevant predictor levels and contrasts between
-predictor levels, we report the posterior probability for the rate of
-replication mention. We summarize these distributions by reporting the
-posterior mean and the 95\% credible intervals (calculated as the
-highest posterior density interval).
+Following preregistered protocol, we statistically estimated the rate of
+replication mention as predicted relative to the following factors:
+journal impact factors (continuous), open access (binary: open access
+journal or not), and replication policies (binary: either explicitly
+encourage or not). We used Bayesian parameter estimation based on
+generalized linear regression models with a binomial link function. The
+model was fitted to the proportion of replication mentions per journal
+using the R package brms (Bürkner, 2016). We used weakly informative
+normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy
+priors centered on zero (scale = 2.5) for all population-level
+regression coefficients. These priors are what is referred to as
+regularizing (Gelman et al., 2008), i.e.~our prior assumption is
+agnostic as to whether the predictors affect the dependent variable,
+thus making our model conservative with regards to the predictors under
+investigation. Four sampling chains with 2000 iterations each have been
+run for each model, with a warm-up period of 1000 iterations. For
+relevant predictor levels and contrasts between predictor levels, we
+report the posterior probability for the rate of replication mention. We
+summarize these distributions by reporting the posterior mean and the
+95\% credible intervals (calculated as the highest posterior density
+interval).
 
 The model estimates the proportion of replication mentions as 2.7\%
-{[}1.7, 4.2{]} at a journal impact factor (JIF) of 0 and estimates an
-increase of the proportion with each integer unit of JIF (log odds =
-0.39 {[}0.29, 0.49{]}). Figure X illustrates this relationship.
+{[}1.7, 4.2{]} at a journal impact factor of 0 and estimates an increase
+of the proportion with each integer unit of journal impact factor (log
+odds = 0.39 {[}0.29, 0.49{]}). Figure X illustrates this relationship.
 
-However, further explorations indicate that JIF is highly correlated
-with the number of experimental studies reported in a journal (Spearman
-correlation = 0.43). This correlation makes intuitively sense.
-Experimental linguistic articles are often associated with psychology
-adjacent fields, possibly attracting a broader audience and being cited
-more widely. Given this correlation, it remains unclear if the term
-``replicat*'' is used more often in high impact journals or simply more
-common in journals that generally publish more experimental studies.
+However, further explorations indicate that journal impact factor is
+highly correlated with the number of experimental studies reported in a
+journal (Spearman correlation = 0.43). This correlation makes
+intuitively sense. Experimental linguistic articles are often associated
+with psychology adjacent fields, possibly attracting a broader audience
+and being cited more widely. Given this correlation, it remains unclear
+if the term ``replicat*'' is used more often in high impact journals or
+simply more common in journals that generally publish more experimental
+studies.
 
-\begin{center}\includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/plot_mention_jif-1} \end{center}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/plot_mention_jif-1} 
+
+}
+
+\caption{Rate of mentioning the term 'replicat*' across sampled journals plotted against their journal impact factor. Each point represents one journal. Point size indicates the proportion of papers categorized as experimental (i.e. larger points indicate journals with more experimental articles). Line and shading indicate model predictions and 95\% credible intervals.}\label{fig:plot_mention_jif}
+\end{figure}
 
 The model estimates the impact of whether the journal allows for open
 access publishing or not and whether replications are explicitly
@@ -385,19 +404,30 @@ independent study for analysis.
 \hypertarget{results-1}{%
 \subsubsection{Results}\label{results-1}}
 
-Out of the 210 articles in the subsample, 117 were self-claimed
-replications according to our criteria. The remaining 93 mentions were
-articles that mentioned the term in other contexts or studies that did
-not specify the concrete aim of replicating an initial study's design or
-results. Out of these replication studies, we categorized 66 as
-conceptual, 42 as partial, and only 8 as direct replications which
-amounts to 6.8\% of all coded cases.
+Out of the 210 articles in the subsample, 200, or 95.2\%, indeed
+presented experimental linguistics research. The remaining 4.8\% have
+not been experimental studies, but rather commented and reflected on the
+field or presented research using computer simulations and modeling
+techniques. 116 were self-claimed replications according to our
+criteria. The remaining 94 mentions were articles that mentioned the
+term in other contexts or studies that did not specify the concrete aim
+of replicating an initial study's design or results. These articles that
+did not qualify as replication studies according to our predefined
+criteria could also include articles which mentioned that their results
+``replicated'' the results of one or more previous studies using the
+term in a very broad sense. In these cases, it was usually not clear
+which specific research methods or aims from previous studies should be
+replicated. We thus decided to handle these cases not as replication
+studies. Out of the replication studies we identified, we categorized 66
+as conceptual, 42 as partial, and only 8 as direct replications which
+amounts to 6.9\% direct replications of all coded cases.
 
 Looking closer at direct replications, 3 studies were independent
 studies, i.e.~there was no overlap between authors of the initial study
 and the replication study. Out of these independent direct replication
 studies, 2 were self-labeled as successful replications. In other words,
-our sample included only one independent failed replication attempt.
+our sample included only one failed independent and direct replication
+attempt.
 
 Figure X illustrates the development of replication studies across the
 time span of our sample. While the overall number of studies increased
@@ -433,7 +463,7 @@ The median number of years between an initial and a replication study is
 replication was published which amounts to a average yearly citation
 rate of 5.9 citations. This is average citation rate was well above the
 impact factor of journals in publishing experimental studies in
-linguistics (median JIF in superset: 38). However, replications were on
+linguistics (median JIF in superset: 1.1). However, replications were on
 average 17 times cited which amounts to only amounts to an average
 yearly citation rate (calculated up to the time of analysis) of 0.6
 citations. These numbers are in line with Marsden et al. (2018)
@@ -453,14 +483,13 @@ Language}\label{case-study-of-journal-of-memory-and-language}}
 
 \begin{verbatim}
 ## type_replication
-##            conceptual     direct    partial 
-##       0.00       0.44       0.09       0.47
+## conceptual     direct    partial 
+##       0.44       0.09       0.47
 \end{verbatim}
 
 \begin{verbatim}
 ##                 auth_overlap
 ## type_replication    0    1
-##                  0.00 0.00
 ##       conceptual 0.18 0.26
 ##       direct     0.06 0.03
 ##       partial    0.24 0.24
