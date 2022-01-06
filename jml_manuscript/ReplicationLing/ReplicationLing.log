@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.4)  5 JAN 2022 18:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.4)  6 JAN 2022 17:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -483,37 +483,231 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count298
 \calc@Cskip=\skip63
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 93
-.
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/bookta
+bs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
+\@cmidla=\count299
+\@cmidlb=\count300
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
+\@thisruleclass=\count301
+\@lastruleclass=\count302
+\@thisrulewidth=\dimen178
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable
+.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip64
+\LTright=\skip65
+\LTpre=\skip66
+\LTpost=\skip67
+\LTchunksize=\count303
+\LTcapwidth=\dimen179
+\LT@head=\box58
+\LT@firsthead=\box59
+\LT@foot=\box60
+\LT@lastfoot=\box61
+\LT@gbox=\box62
+\LT@cols=\count304
+\LT@rows=\count305
+\c@LT@tables=\count306
+\c@LT@chunks=\count307
+\LT@p@ftn=\toks29
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen180
+\ar@mcellbox=\box63
+\extrarowheight=\dimen181
+\NC@list=\toks30
+\extratabsurround=\skip68
+\backup@length=\skip69
+\ar@cellbox=\box64
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multir
+ow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip70
+\multirow@cntb=\count308
+\multirow@dima=\skip71
+\bigstrutjot=\dimen182
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig
+.sty
+\wrapoverhang=\dimen183
+\WF@size=\dimen184
+\c@WF@wrappedlines=\count309
+\WF@box=\box65
+\WF@everypar=\toks31
+Package: wrapfig 2003/01/31  v 3.6
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count310
+\float@exts=\toks32
+\float@box=\box66
+\@float@everytoks=\toks33
+\@floatcapt=\box67
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colort
+bl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.
+sty
+Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
+
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/co
+lor.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+)
+\everycr=\toks34
+\minrowclearance=\skip72
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdfls
+cape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape
+.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwid
+th.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box68
+\sift@deathcycles=\count311
+\@vwid@loff=\dimen185
+\@vwid@roff=\dimen186
+)
+\c@taburow=\count312
+\tabu@nbcols=\count313
+\tabu@cnt=\count314
+\tabu@Xcol=\count315
+\tabu@alloc=\count316
+\tabu@nested=\count317
+\tabu@target=\dimen187
+\tabu@spreadtarget=\dimen188
+\tabu@naturalX=\dimen189
+\tabucolX=\dimen190
+\tabu@Xsum=\dimen191
+\extrarowdepth=\dimen192
+\abovetabulinesep=\dimen193
+\belowtabulinesep=\dimen194
+\tabustrutrule=\dimen195
+\tabu@thebody=\toks35
+\tabu@footnotes=\toks36
+\tabu@box=\box69
+\tabu@arstrutbox=\box70
+\tabu@hleads=\box71
+\tabu@vleads=\box72
+\tabu@cellskip=\skip73
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/
+threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box73
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex
+/threeparttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ
+.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trim
+spaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip74
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box74
+\UL@hyphenbox=\box75
+\UL@skip=\skip75
+\UL@hook=\toks37
+\UL@height=\dimen196
+\UL@pe=\count318
+\UL@pixel=\dimen197
+\ULC@box=\box76
+Package: ulem 2019/11/18
+\ULdepth=\dimen198
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makece
+ll.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen199
+\c@nlinenum=\count319
+\TeXr@lab=\toks38
+)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.s
+ty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/co
+lor.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
+7.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3bac
 kend-pdftex.def
 File: l3backend-pdftex.def 2021-12-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count299
-\l__pdf_internal_box=\box58
+\l__color_backend_stack_int=\count320
+\l__pdf_internal_box=\box77
 ) (./ReplicationLing.aux)
 \openout1 = `ReplicationLing.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
 
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/ep
 stopdf-base.sty
@@ -526,18 +720,18 @@ topdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 93.
-Package microtype Info: Applying patch `item' on input line 93.
-Package microtype Info: Applying patch `toc' on input line 93.
-Package microtype Info: Applying patch `eqnum' on input line 93.
-Package microtype Info: Applying patch `footnote' on input line 93.
+LaTeX Info: Redefining \microtypecontext on input line 107.
+Package microtype Info: Applying patch `item' on input line 107.
+Package microtype Info: Applying patch `toc' on input line 107.
+Package microtype Info: Applying patch `eqnum' on input line 107.
+Package microtype Info: Applying patch `footnote' on input line 107.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 93.
+LaTeX Info: Redefining \showhyphens on input line 107.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -547,7 +741,7 @@ r.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 93.
+Package hyperref Info: Link coloring OFF on input line 107.
 
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -561,42 +755,42 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 g/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count300
+\c@section@level=\count321
 )
-LaTeX Info: Redefining \ref on input line 93.
-LaTeX Info: Redefining \pageref on input line 93.
-LaTeX Info: Redefining \nameref on input line 93.
+LaTeX Info: Redefining \ref on input line 107.
+LaTeX Info: Redefining \pageref on input line 107.
+LaTeX Info: Redefining \nameref on input line 107.
 (./ReplicationLing.out) (./ReplicationLing.out)
 \@outlinefile=\write4
 \openout4 = `ReplicationLing.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-18.
+32.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-18.
+32.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-118.
+132.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-118.
+132.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 118.
+(Font)              <8> on input line 132.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 118.
+(Font)              <6> on input line 132.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 118.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 118
+(Font)              <5> on input line 132.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 132
 .
 
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.f
@@ -607,7 +801,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 a.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 118
+LaTeX Font Info:    Trying to load font information for U+msb on input line 132
 .
 
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.f
@@ -619,7 +813,7 @@ b.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-18.
+32.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -628,9 +822,9 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 118.
+(Font)              <10> on input line 132.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 118.
+(Font)              <7> on input line 132.
 [1
 
 
@@ -638,95 +832,147 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ftex.map}]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 199.
+(hyperref)                than one, level fixed on input line 213.
 
 [2] [3]
-<ReplicationLing_files/figure-latex/topten_plot-1.pdf, id=98, 313.17pt x 530.98
-375pt>
+<ReplicationLing_files/figure-latex/topten_plot-1.pdf, id=98, 313.17pt x 527.97
+25pt>
 File: ReplicationLing_files/figure-latex/topten_plot-1.pdf Graphic file (type p
 df)
 <use ReplicationLing_files/figure-latex/topten_plot-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/topten_plot-1.pdf  
-used on input line 283.
-(pdftex.def)             Requested size: 345.0pt x 584.97514pt.
+used on input line 297.
+(pdftex.def)             Requested size: 345.0pt x 581.65773pt.
 
-LaTeX Warning: Float too large for page by 63.97514pt on input line 288.
+LaTeX Warning: Float too large for page by 60.65773pt on input line 302.
 
-<ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf, id=99, 436.63126pt 
-x 292.09125pt>
+<rep_mention.png, id=99, 433.62pt x 1045.506pt>
+File: rep_mention.png Graphic file (type png)
+<use rep_mention.png>
+Package pdftex.def Info: rep_mention.png  used on input line 305.
+(pdftex.def)             Requested size: 228.11044pt x 550.0pt.
+
+LaTeX Warning: Float too large for page by 29.0pt on input line 310.
+
+<ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf, id=101, 436.63126pt
+ x 256.96pt>
 File: ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf Graphic file (t
 ype pdf)
 <use ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/plot_mention_jif-1.
-pdf  used on input line 326.
-(pdftex.def)             Requested size: 345.0pt x 230.79411pt.
-[4] [5 <./ReplicationLing_files/figure-latex/topten_plot-1.pdf>] [6 <./Replicat
-ionLing_files/figure-latex/plot_mention_jif-1.pdf>]
+pdf  used on input line 348.
+(pdftex.def)             Requested size: 345.0pt x 203.03537pt.
+[4] [5pdfTeX warning (ext4): destination with the same identifier (name{figure.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.374 
+       <./ReplicationLing_files/figure-latex/topten_plot-1.pdf>] [6pdfTeX warni
+ng (ext4): destination with the same identifier (name{figure.2}) has been alrea
+dy used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.374 
+       <./rep_mention.png>] [7pdfTeX warning (ext4): destination with the same 
+identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.407 
+       <./ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 387.
+(hyperref)                than one, level fixed on input line 409.
 
-[7] [8]
-<ReplicationLing_files/figure-latex/stream_plot-1.pdf, id=153, 430.60875pt x 29
+[8]
+<ReplicationLing_files/figure-latex/stream_plot-1.pdf, id=157, 430.60875pt x 29
 3.095pt>
 File: ReplicationLing_files/figure-latex/stream_plot-1.pdf Graphic file (type p
 df)
 <use ReplicationLing_files/figure-latex/stream_plot-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/stream_plot-1.pdf  
-used on input line 482.
+used on input line 504.
 (pdftex.def)             Requested size: 345.0pt x 234.8296pt.
-[9 <./ReplicationLing_files/figure-latex/stream_plot-1.pdf>]
-<ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf, id=168, 430.60875pt 
+<ReplicationLing_files/figure-latex/river_plot-1.pdf, id=158, 304.13625pt x 201
+.75375pt>
+File: ReplicationLing_files/figure-latex/river_plot-1.pdf Graphic file (type pd
+f)
+<use ReplicationLing_files/figure-latex/river_plot-1.pdf>
+Package pdftex.def Info: ReplicationLing_files/figure-latex/river_plot-1.pdf  u
+sed on input line 518.
+(pdftex.def)             Requested size: 304.1355pt x 201.75325pt.
+[9] [10pdfTeX warning (ext4): destination with the same identifier (name{figure
+.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.535 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.535 
+       <./ReplicationLing_files/figure-latex/stream_plot-1.pdf> <./ReplicationL
+ing_files/figure-latex/river_plot-1.pdf>]
+<ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf, id=186, 430.60875pt 
 x 290.08376pt>
 File: ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf Graphic file (ty
 pe pdf)
 <use ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/jml_stream_plot-1.p
-df  used on input line 535.
+df  used on input line 571.
 (pdftex.def)             Requested size: 345.0pt x 232.41699pt.
-[10] [11 <./ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf>]
+[11] [12pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.638 
+       <./ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 634.
+(hyperref)                than one, level fixed on input line 669.
 
-<ReplicationLing_files/figure-latex/cit-and-years-direct-1.pdf, id=189, 453.695
-pt x 319.1925pt>
-File: ReplicationLing_files/figure-latex/cit-and-years-direct-1.pdf Graphic fil
-e (type pdf)
-<use ReplicationLing_files/figure-latex/cit-and-years-direct-1.pdf>
-Package pdftex.def Info: ReplicationLing_files/figure-latex/cit-and-years-direc
-t-1.pdf  used on input line 649.
-(pdftex.def)             Requested size: 345.0pt x 242.7203pt.
-[12]
-Overfull \hbox (32.22722pt too wide) in paragraph at lines 700--704
+
+Overfull \hbox (733.77856pt too wide) in paragraph at lines 686--891
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 729.91039pt on input line 891.
+
+[13] [14pdfTeX warning (ext4): destination with the same identifier (name{table
+.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.913 
+      ]
+Overfull \hbox (32.22722pt too wide) in paragraph at lines 937--941
 \T1/lmr/m/n/10 (-20) sup-port from US states data. PLoS ONE 5, e10271. doi:[]10
 .1371/journal.pone.0010271[] 
  []
 
-[13 <./ReplicationLing_files/figure-latex/cit-and-years-direct-1.pdf>]
-Overfull \hbox (44.1093pt too wide) in paragraph at lines 739--744
+
+Overfull \hbox (44.1093pt too wide) in paragraph at lines 981--986
 \T1/lmr/m/n/10 (-20) Snap-shot of Ed-i-to-rial Prac-tices. Fron-tiers in Psy-ch
 ol-ogy 8. doi:[]10.3389/fpsyg.2017.00523[] 
  []
 
-
-Overfull \hbox (37.99173pt too wide) in paragraph at lines 791--795
+[15]
+Overfull \hbox (37.99173pt too wide) in paragraph at lines 1033--1037
 \T1/lmr/m/n/10 (-20) main-stream. Be-hav-ioral and Brain Sci-ences 41, E120. do
 i:[]10.1017/S0140525X17001972[] 
  []
 
-[14] (./ReplicationLing.aux)
+[16] (./ReplicationLing.aux)
 Package rerunfilecheck Info: File `ReplicationLing.out' has not changed.
 (rerunfilecheck)             Checksum: 66458F6034A153AE7602CC59E063E35B;2170.
  ) 
 Here is how much of TeX's memory you used:
- 12840 strings out of 480313
- 208933 string characters out of 5895529
- 523887 words of memory out of 5000000
- 30267 multiletter control sequences out of 15000+600000
- 462307 words of font info for 136 fonts, out of 8000000 for 9000
+ 15073 strings out of 480313
+ 245332 string characters out of 5895529
+ 601892 words of memory out of 5000000
+ 32421 multiletter control sequences out of 15000+600000
+ 462638 words of font info for 137 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,9n,76p,1012b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,9n,76p,1012b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
 c.enc}{c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
 lm-mathsy.enc}<c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
@@ -742,11 +988,12 @@ Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:
 /Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.
 pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
 /lmsy7.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
-blic/lm/lmtt8.pfb>
-Output written on ReplicationLing.pdf (14 pages, 390005 bytes).
+blic/lm/lmtt10.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/
+type1/public/lm/lmtt8.pfb>
+Output written on ReplicationLing.pdf (16 pages, 495927 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 267 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 29322 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 29839 words of extra memory for PDF output out of 29859 (max. 10000000)
 

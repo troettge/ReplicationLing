@@ -42,7 +42,7 @@ knitr::opts_chunk$set(echo = FALSE,
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, 
-               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial)
+               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial, formattable, kableExtra)
 
 # set the current working directory to the one where this file is
  #current_working_dir <- dirname(rstudioapi::getActiveDocumentContext()$path) KK: not working when knitting
@@ -63,6 +63,7 @@ col_lightGreen = "#a6dba0"
 mention <-  read.csv("../../data/mention.csv")
 guidelines  <-  read.csv("../../data/guidelines.csv")
 coded_articles  <-  read.csv("../../data/Coding_Articles.csv", sep="|")  
+sample_journals <- read.csv("../../Sample_journals.csv")
 
 # load models
 mention_model <- readRDS(file = "../../data/repl_mention_mdl.RDS")
@@ -82,6 +83,11 @@ df$jif <- ifelse(df$jif == "not retrievable", NA, as.numeric(as.character(df$jif
 # recode open access as binary
 df$openaccess <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
 
+# list of shortened journal names
+journals_abb <- c("Humor", "Lang Learn Dev", "Morphology", "Transl Interpreting", "J Logic Lang Inf", "J Mem Lang", "J East Asian Ling", "Cogn Linguist", "Int J Speech Lang La", "J Spec Transl", "Stud Second Lang Acq", "Lang Cogn Neurosci", "Glossa", "Linguistic Res", "First Lang", "J Neurolinguistics", "Lang Learn Technol", "Biling-Lang Cogn", "J Psycholinguist Res", "3L Lang Linguist Literat", "Lab Phonol", "Lang Teach Res", "Lang Cogn", "Lang Linguist Compass", "Metaphor Symb", "Lang Learn", "J Child Lang", "J Semant", "Aphasiology", "J Lang Soc Psychol", "Int J Lang Comm Dis", "J Phon", "Appl Psycholinguist", "Lang Speech", "Acta Linguist Hung", "J Cogn Sci", "Brain Lang", "Recall", "Int J Biling", "Phonetica", "Mind Lang", "Linguist Approach Bi", "IRAL-Int Rev Appl Li", "J Speech Lang Hear R", "Interact Stud", "Arab World Eng J", "Am J Speech-Lang Pat", "Ment Lex", "Clin Linguist Phonet", "Lang Acquis", "System", "Second Lang Res", "Nat Lang Eng", "Comput Assist Lang L", "Lingua", "Lect Notes Comput Sci", "Comput Linguist", "Lect Notes Artif Int", "Phonology", "Interpreting", "Eurasian J Appl Linguist", "J Lang Educat", "Linguistics Vanguard", "Proces de Leng Nat", "Appl Linguist Res J", "Nat Lang Semant", "J Quant Linguist", "Corpus Linguist Ling", "Rev Cogn Linguist", "Interpret Transl Tra", "Poz Stud Contemp Lin", "Pragmat Cogn", "Syntax-UK", "J Res Appl Linguist", "Digit Scholarsh Hum", "Probus", "Innov Lang Learn Teach", "Int J Eng Linguist", "Across Lang Cult", "Rev Roum Linguist", "Intercult Pragmat", "Child Lang Teach The", "Lang Aware", "Gesture", "J Int Phon Assoc", "Metaphor Symb Act", "Iberica", "Annu Rev Appl Linguist", "Ling Antverp New Ser", "Terminology", "Annu Rev Linguist", "J Fr Lang Stud", "Lang Linguist", "Nord J Linguist", "Lang Lit", "Babel-Amsterdam", "Int J Corpus Linguist", "Int J Appl Linguist")
+# include shortened journal names in dataframe
+df$journals_abb <- factor(journals_abb)
+
 ```
 
 # Introduction
@@ -90,7 +96,7 @@ df$openaccess <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
 The replication of results is an integral part of cumulative experimental science [e.g., @campbell_reforms_1969; @rosenthal_replication_1990; @zwaan_making_2018]. 
 Yet, various scientific disciplines are currently facing what is often referred to as the "replication crisis", a state of affairs that is characterized by an alarming amount of failed replication attempts [@fidler_reproducibility_2018]. <!--KK: I know you said for the preregistration that we should refrain from these strong words so that we don't scare potential readers and publishers off - but on the other hand these are also buzz words that could lead to our study being found and read, aren't they?-->
 Here, we define replications as studies that arrive at the same scientific conclusions as an initial study, collecting new data and completing new analyses by using the same methodology [see @barba_terminologies_2018 for a comprehensive overview of different terminological uses].
-Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications in fields such as psychology [@open_science_collaboration_estimating_2015], economics [@camerer_evaluating_2016] and social sciences [@camerer_evaluating_2018]. Researchers from these fields report low replication rates ranging from 0.13\% in the education sciences to 1.6\% in psychology publications [@makel_replications_2012; @makel_replications_2014].
+Coordinated efforts to replicate published findings have uncovered surprisingly low rates of successful replications in fields such as psychology [@open_science_collaboration_estimating_2015], economics [@camerer_evaluating_2016] and social sciences [@camerer_evaluating_2018]. Researchers from these fields report low replication rates ranging from 0.13\% in the education sciences to 1.6\% in psychology publications [@makel_replications_2012; @makel_facts_2014].
 
 One driving factor of this lack of replicability is an asymmetric incentive system that rewards novel confirmatory findings over direct replications and null results. Replication studies are not very popular because the necessary time and resource investment are not appropriately rewarded in contemporary academic incentive systems [e.g., @koole_rewarding_2012; @nosek_scientific_2012]. Both successful replications [@madden_how_1995] and repeated failures to replicate [e.g., @doyen_behavioral_2012] are rarely published, and even if they are, they usually appear in less prestigious outlets than the original findings. 
 These dynamics lead to an abundance of positive findings in the absence of possible conflicting negative evidence [see also e.g. @fanelli_pressures_2010].
@@ -135,7 +141,7 @@ Following the method presented by Makel et al. [-@makel_replications_2012], the 
 
 Replication mentions were then related to three journal properties: Journal policies with regards to replication studies, journal impact factor and whether the journal is an open access publisher or not.
 To gain an understanding of the journal policies with regards to replication studies, we examined the journals' submission guidelines adopting a method suggested by Martin and Clarke [-@martin_are_2017]. 
-They grouped psychology journals into four categories dependent on whether they (explicitly or implicitly) encourage replication studies or not in their "instructions to authors" and "aims and scope" sections on the journal websites. For our analysis, we only distinguished between those journals explicitly encouraging replication studies and those that do not. <!-- KK: state reason?--> 
+They grouped psychology journals into four categories dependent on whether they (explicitly or implicitly) encourage replication studies or not in their "instructions to authors" and "aims and scope" sections on the journal websites. For our analysis, we only distinguished between those journals explicitly encouraging replication studies and those that do not. <!-- KK: explicitly state reason or is that obvious?--> 
 We extracted journal impact factors via Journal Citation Reports (https://jcr.clarivate.com).^[The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018.]
 Whether journals offered an open access publication or not was assessed via Web of Science. 
 We distinguished between three categories: journals which are listed in the Directory of Open Access Journals (DOAJ) ("DOAJ gold"), journals with some articles being published as open access articles ("partial") and journals with no option to publish open access ("no"). We grouped journals with partial or no option to publish open access together for analysis resulting in a binary categorization of open access.
@@ -177,11 +183,6 @@ Figure X illustrates the variation across those journals that exhibited at least
 
 ```{r topten_plot,  out.width="100%", fig.align = 'center', fig.width = 5, fig.asp = 1.6, fig.cap = "Variation in rate of replication mention across those journals that exhibited at least one mention of the term."}
 
-# list of shortened journal names
-journals_abb <- c("Humor", "Lang Learn Dev", "Morphology", "Transl Interpreting", "J Logic Lang Inf", "J Mem Lang", "J East Asian Ling", "Cogn Linguist", "Int J Speech Lang La", "J Spec Transl", "Stud Second Lang Acq", "Lang Cogn Neurosci", "Glossa", "Linguistic Res", "First Lang", "J Neurolinguistics", "Lang Learn Technol", "Biling-Lang Cogn", "J Psycholinguist Res", "3L Lang Linguist Literat", "Lab Phonol", "Lang Teach Res", "Lang Cogn", "Lang Linguist Compass", "Metaphor Symb", "Lang Learn", "J Child Lang", "J Semant", "Aphasiology", "J Lang Soc Psychol", "Int J Lang Comm Dis", "J Phon", "Appl Psycholinguist", "Lang Speech", "Acta Linguist Hung", "J Cogn Sci", "Brain Lang", "Recall", "Int J Biling", "Phonetica", "Mind Lang", "Linguist Approach Bi", "IRAL-Int Rev Appl Li", "J Speech Lang Hear R", "Interact Stud", "Arab World Eng J", "Am J Speech-Lang Pat", "Ment Lex", "Clin Linguist Phonet", "Lang Acquis", "System", "Second Lang Res", "Nat Lang Eng", "Comput Assist Lang L", "Lingua", "Lect Notes Comput Sci", "Comput Linguist", "Lect Notes Artif Int", "Phonology", "Interpreting", "Eurasian J Appl Linguist", "J Lang Educat", "Linguistics Vanguard", "Proces de Leng Nat", "Appl Linguist Res J", "Nat Lang Semant", "J Quant Linguist", "Corpus Linguist Ling", "Rev Cogn Linguist", "Interpret Transl Tra", "Poz Stud Contemp Lin", "Pragmat Cogn", "Syntax-UK", "J Res Appl Linguist", "Digit Scholarsh Hum", "Probus", "Innov Lang Learn Teach", "Int J Eng Linguist", "Across Lang Cult", "Rev Roum Linguist", "Intercult Pragmat", "Child Lang Teach The", "Lang Aware", "Gesture", "J Int Phon Assoc", "Metaphor Symb Act", "Iberica", "Annu Rev Appl Linguist", "Ling Antverp New Ser", "Terminology", "Annu Rev Linguist", "J Fr Lang Stud", "Lang Linguist", "Nord J Linguist", "Lang Lit", "Babel-Amsterdam", "Int J Corpus Linguist", "Int J Appl Linguist")
-
-df$journals_abb <- factor(journals_abb)
-
 topten <- 
   df %>% arrange(desc(replic_rate)) %>%
   select(journals_abb, exp_ratio, replic_rate) %>% 
@@ -202,7 +203,7 @@ topten <-
   #scale_y_discrete(label = function(x) stringr::str_trunc(x, 20))+
   xlim(0, 15) +
   labs(y = " ",
-       x = "\nProportion of 'replicat*' mentions in %\n") +
+       x = " ") + #\nProportion of 'replicat*' mentions in %\n") +
   theme_minimal() +
   theme(legend.position = "none",
               legend.key.height = unit(2,"line"),
@@ -223,6 +224,41 @@ topten <-
 
 topten
 
+```
+```{r replication_mention, out.height='100%', fig.align = 'center', fig.cap = "Variation in rate of replication mention across those journals that exhibited at least one mention of the term."}
+
+rep_mention <- 
+  df %>% arrange(desc(replic_rate)) %>%
+  select(journals_abb, exp_ratio, replic_rate) %>% 
+  top_n(nonzero_mention, replic_rate) %>% 
+  mutate(journals_abb = fct_reorder(journals_abb, replic_rate)) %>% 
+  mutate(replic_rate = percent(replic_rate), exp_ratio = percent(exp_ratio/100)) %>% 
+  select(Journals = journals_abb, "Ratio of experimental articles" = exp_ratio, "Rate of replication mention" = replic_rate)
+
+# beautiful formattable tables don't seem to work with pdf output
+
+#formattable(rep_mention, list(
+#   area(col = c("Rate of replication mention")) ~ normalize_bar("lightgreen", 0.2),
+#   "Ratio of experimental articles" = color_tile("white", "orange")
+#))
+
+#rep_mention <-
+#  df %>% arrange(desc(replic_rate)) %>%
+#  select(journals_abb, exp_ratio, replic_rate) %>% 
+#  top_n(nonzero_mention, replic_rate) %>% 
+#  mutate(journals_abb = fct_reorder(journals_abb, replic_rate)) %>% 
+#  mutate(replic_rate = percent(replic_rate), exp_ratio = percent(exp_ratio/100)) %>% 
+#  mutate(
+#    "Ratio of experimental articles" = color_tile("white", "orange")(exp_ratio),
+#    "Rate of replication mention" = color_bar("lightgreen")(replic_rate)
+#  ) %>%
+#  select(Journal = journals_abb, "Ratio of experimental articles", "Rate of replication mention") %>%
+#  kbl(escape=FALSE)
+
+#rep_mention
+
+# insert png as workaround:
+knitr::include_graphics('rep_mention.png')
 ```
 
 Following preregistered protocol, we statistically estimated the rate of replication mention as predicted relative to the following factors: 
@@ -307,7 +343,7 @@ ggplot(data = predicted_values,
   ylab("Predicted rate of replication mention") +
   ylim(0, 0.20) +
   xlim(0, 4) +
-  labs(title = "Rate of mentioning the term 'replicat*'",
+  labs(title = " ", #Rate of mentioning the term 'replicat*'",
        subtitle = "   ",
        y = "Predicted rate of replication mention\n",
        x = "\nJournal Impact Factor") +
@@ -498,7 +534,7 @@ stream_plot
 
 ```
 
-```{r river plot, echo=FALSE, include=FALSE}
+```{r river_plot, fig.align = 'center', fig.height=5, fig.cap = "Quantity and quality of replications in experimental linguistics."}
 
 myedges <- data.frame(ID = 1:9,
                    N1 = c("successful", "failure", 
@@ -544,7 +580,7 @@ for(i in 1:length(palette)){
 names(mystyles) <- mynodes$ID
 
 custom.style <- riverplot::default.style()
-custom.style$textcex <- 1.8
+custom.style$textcex <- 0.6 
 
 svg("../../plots/River.svg", width=10)
 myriv <- riverplot::makeRiver(nodes=mynodes, edges=myedges, node_styles=mystyles)
@@ -749,7 +785,7 @@ The average drop in citations for replication studies compared to the initial st
 The findings for the journal with the highest impact factor from our sample, Journal of Memory and Language, are comparable to the full sample. The trend over the last few years indicates that partial replication studies are more and more being published, but direct replication studies are unfortunately still seldomly conducted and/or published.
 
 # General discussion
-The overall picture our analyses draw for replication attempts in the field of experimental linguistics is that they are far too uncommon. This relates to other fields of research for which a lack of replication studies has been attested [@makel_replications_2012; @makel_replications_2014; @open_science_collaboration_estimating_2015; @camerer_evaluating_2016; @camerer_evaluating_2018]. The median rate of replication mention of `r median_rate` (SD = `r std_rate`)`we find for experimental linguistics is in line with the rates found for psychology, social sciences and economics to name just a few.
+The overall picture our analyses draw for replication attempts in the field of experimental linguistics is that they are far too uncommon. This relates to other fields of research for which a lack of replication studies has been attested [@makel_replications_2012; @makel_facts_2014; @open_science_collaboration_estimating_2015; @camerer_evaluating_2016; @camerer_evaluating_2018]. The median rate of replication mention of `r median_rate` (SD = `r std_rate`)`we find for experimental linguistics is in line with the rates found for psychology, social sciences and economics to name just a few.
 
 The asymmetric incentive system of publication does not reward replication studies and they are also not perceived as being prestiguos [e.g., @koole_rewarding_2012; @nosek_scientific_2012]. This is reflected in the citation counts which are at a median of ... for the replications in our sample and at a median of ... for the initial studies in our sample. The low rates of replications in the field of experimental linguistics might be due to replication studies not being conducted, but they might also be due to replication studies not being *published*.
 
@@ -759,14 +795,26 @@ The DOAJ gold standard with respect to open access publishing is also positively
 The development of publications over time does not give much cause for hope: While the total amount of studies published increased over the last few years, the amount of direct replications remained stable at best.
 However, we can speculate that there is an increasing number of partial and conceptual replications that have been published within the last few years.
 
-On the other hand the vast amount of reproducibility initiatives founded in the field during the last few years give hope that the situation is likely going to change in the near future. e.g. many babies, many speeches etc. <!--KK: mention covid year 2020?-->
+On the other hand the increasing amount of reproducibility initiatives founded in the field during the last few years give hope that the situation is likely going to change in the near future. e.g. many babies, many speeches etc. <!--KK: mention covid year 2020?-->
 
 ### Caveats
 The procedure used here is necessarily only a rough proxy of relevant experimental linguistic articles published in the field and several articles might thus have been overlooked and not been included in the analysis. The articles have been coded by only a single person who was not an expert in this field. <!--KK: We could still do sth. about this.--> 
 
 # Appendices
 identified as A, B, etc.
-```{r cit-and-years-direct, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Relation between citation counts and years of publication of direct replication studies."}
+
+```{r journals_sample}
+sample_journals <- sample_journals %>% 
+  mutate(ratio = round(ratio*100, 2)) %>% 
+  rename(Journal = Source.Titles,
+         "Total Number of Articles" = WC..Linguistics.,
+         "Experimental Linguistics Articles" = TS..experiment...AND.WC..Linguistics.,
+         "Ratio of Experimental Linguistics Articles in %" = ratio) %>% 
+  select(Journal, "Total Number of Articles", "Experimental Linguistics Articles", "Ratio of Experimental Linguistics Articles in %")
+kbl(sample_journals, caption = "The full sample of journals sorted by their ratio of experimental linguistics articles.")
+```
+
+```{r cit-and-years-direct, include=FALSE, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Relation between citation counts and years of publication of direct replication studies."}
 # preparing data for plot
 
 # wrangling citation data

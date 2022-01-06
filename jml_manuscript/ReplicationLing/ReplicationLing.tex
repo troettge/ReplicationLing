@@ -87,6 +87,20 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 
 
@@ -135,7 +149,7 @@ replications in fields such as psychology (Open Science Collaboration,
 2015), economics (Camerer et al., 2016) and social sciences (Camerer et
 al., 2018). Researchers from these fields report low replication rates
 ranging from 0.13\% in the education sciences to 1.6\% in psychology
-publications (Makel et al., 2012; \textbf{makel\_replications\_2014?}).
+publications (Makel et al., 2012; Makel and Plucker, 2014).
 
 One driving factor of this lack of replicability is an asymmetric
 incentive system that rewards novel confirmatory findings over direct
@@ -285,6 +299,14 @@ one mention of the term.
 }
 
 \caption{Variation in rate of replication mention across those journals that exhibited at least one mention of the term.}\label{fig:topten_plot}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[height=1\textheight]{rep_mention} 
+
+}
+
+\caption{Variation in rate of replication mention across those journals that exhibited at least one mention of the term.}\label{fig:replication_mention}
 \end{figure}
 
 Following preregistered protocol, we statistically estimated the rate of
@@ -486,6 +508,20 @@ years.\footnote{Given the small number of direct replications in our
 \caption{Development of amount of replication studies published over time.}\label{fig:stream_plot}
 \end{figure}
 
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics{ReplicationLing_files/figure-latex/river_plot-1} 
+
+}
+
+\caption{Quantity and quality of replications in experimental linguistics.}\label{fig:river_plot}
+\end{figure}
+
 One possible reason for the fact that (direct) replication rates are not
 increasing for the field according to our analysis could be that
 experimental linguistics predominantly replicates experimental findings
@@ -585,11 +621,10 @@ The overall picture our analyses draw for replication attempts in the
 field of experimental linguistics is that they are far too uncommon.
 This relates to other fields of research for which a lack of replication
 studies has been attested (Camerer et al., 2018, 2016; Makel et al.,
-2012; Open Science Collaboration, 2015;
-\textbf{makel\_replications\_2014?}). The median rate of replication
-mention of 1.6 (SD = 3.3)`we find for experimental linguistics is in
-line with the rates found for psychology, social sciences and economics
-to name just a few.
+2012; Makel and Plucker, 2014; Open Science Collaboration, 2015). The
+median rate of replication mention of 1.6 (SD = 3.3)`we find for
+experimental linguistics is in line with the rates found for psychology,
+social sciences and economics to name just a few.
 
 The asymmetric incentive system of publication does not reward
 replication studies and they are also not perceived as being prestiguos
@@ -625,10 +660,10 @@ best. However, we can speculate that there is an increasing number of
 partial and conceptual replications that have been published within the
 last few years.
 
-On the other hand the vast amount of reproducibility initiatives founded
-in the field during the last few years give hope that the situation is
-likely going to change in the near future. e.g.~many babies, many
-speeches etc.
+On the other hand the increasing amount of reproducibility initiatives
+founded in the field during the last few years give hope that the
+situation is likely going to change in the near future. e.g.~many
+babies, many speeches etc.
 
 \hypertarget{caveats}{%
 \subsubsection{Caveats}\label{caveats}}
@@ -644,14 +679,216 @@ not an expert in this field.
 
 identified as A, B, etc.
 
-\begin{figure}
+\begin{table}
 
-{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/cit-and-years-direct-1} 
-
-}
-
-\caption{Relation between citation counts and years of publication of direct replication studies.}\label{fig:cit-and-years-direct}
-\end{figure}
+\caption{\label{tab:journals_sample}The full sample of journals sorted by their ratio of experimental linguistics articles.}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+Journal & Total Number of Articles & Experimental Linguistics Articles & Ratio of Experimental Linguistics Articles in \%\\
+\hline
+JOURNAL OF MEMORY AND LANGUAGE & 2012 & 1214 & 60.34\\
+\hline
+LANGUAGE AND COGNITIVE PROCESSES & 783 & 399 & 50.96\\
+\hline
+MENTAL LEXICON & 105 & 48 & 45.71\\
+\hline
+LANGUAGE ACQUISITION & 207 & 82 & 39.61\\
+\hline
+LANGUAGE COGNITION AND NEUROSCIENCE & 590 & 229 & 38.81\\
+\hline
+LABORATORY PHONOLOGY & 155 & 58 & 37.42\\
+\hline
+LANGUAGE LEARNING AND DEVELOPMENT & 141 & 51 & 36.17\\
+\hline
+NATURAL LANGUAGE ENGINEERING & 312 & 100 & 32.05\\
+\hline
+LECTURE NOTES IN COMPUTER SCIENCE & 150 & 46 & 30.67\\
+\hline
+LANGUAGE AND COGNITION & 144 & 42 & 29.17\\
+\hline
+INTERACTION STUDIES & 312 & 87 & 27.88\\
+\hline
+SECOND LANGUAGE RESEARCH & 338 & 93 & 27.51\\
+\hline
+JOURNAL OF PSYCHOLINGUISTIC RESEARCH & 1691 & 454 & 26.85\\
+\hline
+STUDIES IN SECOND LANGUAGE ACQUISITION & 389 & 99 & 25.45\\
+\hline
+COMPUTATIONAL LINGUISTICS & 521 & 130 & 24.95\\
+\hline
+JOURNAL OF COGNITIVE SCIENCE & 114 & 28 & 24.56\\
+\hline
+METAPHOR AND SYMBOL & 278 & 66 & 23.74\\
+\hline
+LECTURE NOTES IN ARTIFICIAL INTELLIGENCE & 113 & 26 & 23.01\\
+\hline
+JOURNAL OF SEMANTICS & 218 & 45 & 20.64\\
+\hline
+LINGUISTIC APPROACHES TO BILINGUALISM & 204 & 41 & 20.10\\
+\hline
+BILINGUALISM LANGUAGE AND COGNITION & 753 & 151 & 20.05\\
+\hline
+COMPUTER ASSISTED LANGUAGE LEARNING & 531 & 101 & 19.02\\
+\hline
+LINGUISTIC RESEARCH & 166 & 31 & 18.67\\
+\hline
+LANGUAGE AND SPEECH & 1521 & 282 & 18.54\\
+\hline
+JOURNAL OF SPECIALISED TRANSLATION & 141 & 26 & 18.44\\
+\hline
+GLOSSA A JOURNAL OF GENERAL LINGUISTICS & 561 & 103 & 18.36\\
+\hline
+JOURNAL OF PHONETICS & 1389 & 252 & 18.14\\
+\hline
+JOURNAL OF NEUROLINGUISTICS & 806 & 138 & 17.12\\
+\hline
+APPLIED PSYCHOLINGUISTICS & 1202 & 202 & 16.81\\
+\hline
+JOURNAL OF LANGUAGE AND SOCIAL PSYCHOLOGY & 711 & 119 & 16.74\\
+\hline
+RECALL & 214 & 35 & 16.36\\
+\hline
+PHONOLOGY & 190 & 31 & 16.32\\
+\hline
+INTERPRETING & 131 & 20 & 15.27\\
+\hline
+EURASIAN JOURNAL OF APPLIED LINGUISTICS & 115 & 17 & 14.78\\
+\hline
+INTERNATIONAL JOURNAL OF SPEECH LANGUAGE AND THE LAW & 171 & 25 & 14.62\\
+\hline
+JOURNAL OF LANGUAGE AND EDUCATION & 145 & 21 & 14.48\\
+\hline
+LINGUISTICS VANGUARD & 146 & 21 & 14.38\\
+\hline
+ARAB WORLD ENGLISH JOURNAL & 952 & 132 & 13.87\\
+\hline
+JOURNAL OF SPEECH LANGUAGE AND HEARING RESEARCH & 3389 & 463 & 13.66\\
+\hline
+INTERNATIONAL JOURNAL OF BILINGUALISM & 542 & 74 & 13.65\\
+\hline
+PHONETICA & 862 & 116 & 13.46\\
+\hline
+JOURNAL OF CHILD LANGUAGE & 1711 & 224 & 13.09\\
+\hline
+PROCESAMIENTO DEL LENGUAJE NATURAL & 107 & 14 & 13.08\\
+\hline
+APPLIED LINGUISTICS RESEARCH JOURNAL & 177 & 23 & 12.99\\
+\hline
+LITERARY AND LINGUISTIC COMPUTING & 247 & 32 & 12.96\\
+\hline
+NATURAL LANGUAGE SEMANTICS & 145 & 18 & 12.41\\
+\hline
+JOURNAL OF QUANTITATIVE LINGUISTICS & 258 & 32 & 12.40\\
+\hline
+BRAIN AND LANGUAGE & 3680 & 449 & 12.20\\
+\hline
+LANGUAGE AND LINGUISTICS COMPASS & 178 & 21 & 11.80\\
+\hline
+LANGUAGE LEARNING & 1314 & 154 & 11.72\\
+\hline
+CORPUS LINGUISTICS AND LINGUISTIC THEORY & 156 & 18 & 11.54\\
+\hline
+REVIEW OF COGNITIVE LINGUISTICS & 182 & 21 & 11.54\\
+\hline
+LANGUAGE TEACHING RESEARCH & 524 & 60 & 11.45\\
+\hline
+INTERPRETER AND TRANSLATOR TRAINER & 231 & 26 & 11.26\\
+\hline
+POZNAN STUDIES IN CONTEMPORARY LINGUISTICS & 322 & 36 & 11.18\\
+\hline
+MIND LANGUAGE & 728 & 80 & 10.99\\
+\hline
+FIRST LANGUAGE & 312 & 34 & 10.90\\
+\hline
+PRAGMATICS COGNITION & 193 & 21 & 10.88\\
+\hline
+ACTA LINGUISTICA HUNGARICA & 243 & 26 & 10.70\\
+\hline
+SYNTAX A JOURNAL OF THEORETICAL EXPERIMENTAL AND INTERDISCIPLINARY RESEARCH & 150 & 16 & 10.67\\
+\hline
+COGNITIVE LINGUISTICS & 443 & 47 & 10.61\\
+\hline
+JOURNAL OF RESEARCH IN APPLIED LINGUISTICS & 283 & 30 & 10.60\\
+\hline
+LANGUAGE LEARNING TECHNOLOGY & 352 & 37 & 10.51\\
+\hline
+APHASIOLOGY & 1999 & 209 & 10.46\\
+\hline
+DIGITAL SCHOLARSHIP IN THE HUMANITIES & 389 & 38 & 9.77\\
+\hline
+PROBUS & 157 & 15 & 9.55\\
+\hline
+INNOVATION IN LANGUAGE LEARNING AND TEACHING & 168 & 16 & 9.52\\
+\hline
+INTERNATIONAL JOURNAL OF ENGLISH LINGUISTICS & 786 & 71 & 9.03\\
+\hline
+TRANSLATION INTERPRETING THE INTERNATIONAL JOURNAL OF TRANSLATION AND INTERPRETING & 114 & 10 & 8.77\\
+\hline
+ACROSS LANGUAGES AND CULTURES & 164 & 14 & 8.54\\
+\hline
+MORPHOLOGY & 106 & 9 & 8.49\\
+\hline
+AMERICAN JOURNAL OF SPEECH LANGUAGE PATHOLOGY & 1132 & 95 & 8.39\\
+\hline
+REVUE ROUMAINE DE LINGUISTIQUE ROMANIAN REVIEW OF LINGUISTICS & 205 & 17 & 8.29\\
+\hline
+INTERCULTURAL PRAGMATICS & 245 & 20 & 8.16\\
+\hline
+CHILD LANGUAGE TEACHING THERAPY & 249 & 20 & 8.03\\
+\hline
+LANGUAGE AWARENESS & 262 & 21 & 8.02\\
+\hline
+GESTURE & 143 & 11 & 7.69\\
+\hline
+JOURNAL OF THE INTERNATIONAL PHONETIC ASSOCIATION & 221 & 17 & 7.69\\
+\hline
+SYSTEM & 1131 & 87 & 7.69\\
+\hline
+METAPHOR AND SYMBOLIC ACTIVITY & 134 & 10 & 7.46\\
+\hline
+IBERICA & 203 & 15 & 7.39\\
+\hline
+LINGUA & 2551 & 187 & 7.33\\
+\hline
+ANNUAL REVIEW OF APPLIED LINGUISTICS & 151 & 11 & 7.28\\
+\hline
+LINGUISTICA ANTVERPIENSIA NEW SERIES THEMES IN TRANSLATION STUDIES & 138 & 10 & 7.25\\
+\hline
+TERMINOLOGY & 127 & 9 & 7.09\\
+\hline
+ANNUAL REVIEW OF LINGUISTICS & 101 & 7 & 6.93\\
+\hline
+JOURNAL OF LOGIC LANGUAGE AND INFORMATION & 146 & 10 & 6.85\\
+\hline
+JOURNAL OF FRENCH LANGUAGE STUDIES & 117 & 8 & 6.84\\
+\hline
+CLINICAL LINGUISTICS PHONETICS & 1480 & 101 & 6.82\\
+\hline
+LANGUAGE AND LINGUISTICS & 281 & 19 & 6.76\\
+\hline
+INTERNATIONAL JOURNAL OF LANGUAGE COMMUNICATION DISORDERS & 1080 & 73 & 6.76\\
+\hline
+NORDIC JOURNAL OF LINGUISTICS & 150 & 10 & 6.67\\
+\hline
+JOURNAL OF EAST ASIAN LINGUISTICS & 338 & 22 & 6.51\\
+\hline
+LANGUAGE AND LITERATURE & 246 & 16 & 6.50\\
+\hline
+3L LANGUAGE LINGUISTICS LITERATURE THE SOUTHEAST ASIAN JOURNAL OF ENGLISH LANGUAGE STUDIES & 293 & 19 & 6.48\\
+\hline
+BABEL REVUE INTERNATIONALE DE LA TRADUCTION INTERNATIONAL JOURNAL OF TRANSLATION & 264 & 17 & 6.44\\
+\hline
+HUMOR INTERNATIONAL JOURNAL OF HUMOR RESEARCH & 607 & 39 & 6.43\\
+\hline
+INTERNATIONAL JOURNAL OF CORPUS LINGUISTICS & 239 & 15 & 6.28\\
+\hline
+IRAL INTERNATIONAL REVIEW OF APPLIED LINGUISTICS IN LANGUAGE TEACHING & 671 & 42 & 6.26\\
+\hline
+INTERNATIONAL JOURNAL OF APPLIED LINGUISTICS & 163 & 10 & 6.13\\
+\hline
+\end{tabular}
+\end{table}
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
@@ -718,6 +955,11 @@ Psychological Science 7, 608--614.
 \leavevmode\vadjust pre{\hypertarget{ref-madden_how_1995}{}}%
 Madden, C.S., Easley, R.W., Dunn, M.G., 1995. How journal editors view
 replication research. Journal of Advertising 24, 77--87.
+
+\leavevmode\vadjust pre{\hypertarget{ref-makel_facts_2014}{}}%
+Makel, M.C., Plucker, J.A., 2014. Facts are more important than novelty:
+{Replication} in the education sciences. Educational Researcher 43,
+304--316.
 
 \leavevmode\vadjust pre{\hypertarget{ref-makel_replication_2016}{}}%
 Makel, M.C., Plucker, J.A., Freeman, J., Lombardi, A., Simonsen, B.,
