@@ -1,5 +1,5 @@
 ---
-title: Assessing replication rates in journals of experimental linguistics
+title: Amount and quality of direct replications in experimental linguistic research
 author:
   - name: Kristina Kobrock
     email: kkobrock@uni-osnabrueck.de
@@ -10,16 +10,16 @@ author:
     affiliation: Universitetet i Oslo
 address:
   - code: University of Osnabrück
-    address: Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück
+    address: University of Osnabrück, Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück
   - code: Universitetet i Oslo
-    address: Department of Linguistics and Scandinavian Studies
+    address: Universitetet i Oslo, Department of Linguistics and Scandinavian Studies
 footnote:
   - code: 1
     text: "Corresponding Author"
 abstract: |
-  This is the abstract. ~150 words, avoid references, optional graphical abstract, keywords (max. 6, avoid abbreviations, AE spelling)
-
-  It consists of two paragraphs. 
+  The replication of research results and methods is central to science. A number of failed replication attempts in the field of experimental linguistics show that the field is not immune to challenges posed by the so-called replication crisis. To assess the amount and quality of replications in experimental linguistic research, we estimated replication rates for 98 journals and conducted a detailed analysis of 210 articles. Across representative experimental linguistic journals, we found a median replication rate of 1.6%. We related the amount of published replication studies to journal submission guidelines, open access publishing and journal impact factor. A detailed analysis of replication studies showed that roughly half of the articles mentioning the term "replicat*" were indeed replication studies. Our sample contained only 8 direct replications. We found a slight increase of partial and conceptual replication studies in recent years.
+  
+  keywords: replication, language, publishing guidelines, journal impact factor, open access
 
 journal: "Journal of Memory and Language"
 date: "`r Sys.Date()`"
@@ -42,7 +42,7 @@ knitr::opts_chunk$set(echo = FALSE,
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, 
-               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial, formattable, kableExtra)
+               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial, formattable, kableExtra, flextable)
 
 # set the current working directory to the one where this file is
  #current_working_dir <- dirname(rstudioapi::getActiveDocumentContext()$path) KK: not working when knitting
@@ -803,7 +803,7 @@ The procedure used here is necessarily only a rough proxy of relevant experiment
 # Appendices
 identified as A, B, etc.
 
-```{r journals_sample}
+```{r journals_sample, tab.cap="The full sample of journals sorted by their ratio of experimental linguistics articles."}
 sample_journals <- sample_journals %>% 
   mutate(ratio = round(ratio*100, 2)) %>% 
   rename(Journal = Source.Titles,
@@ -811,7 +811,7 @@ sample_journals <- sample_journals %>%
          "Experimental Linguistics Articles" = TS..experiment...AND.WC..Linguistics.,
          "Ratio of Experimental Linguistics Articles in %" = ratio) %>% 
   select(Journal, "Total Number of Articles", "Experimental Linguistics Articles", "Ratio of Experimental Linguistics Articles in %")
-kbl(sample_journals, caption = "The full sample of journals sorted by their ratio of experimental linguistics articles.")
+flextable(sample_journals) 
 ```
 
 ```{r cit-and-years-direct, include=FALSE, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Relation between citation counts and years of publication of direct replication studies."}
