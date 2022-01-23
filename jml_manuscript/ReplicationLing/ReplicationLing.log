@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.22)  22 JAN 2022 18:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.22)  23 JAN 2022 12:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -839,32 +839,32 @@ LaTeX Info: Redefining \nameref on input line 110.
 \openout4 = `ReplicationLing.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-48.
+53.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-48.
+53.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-148.
+153.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-148.
+153.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 148.
+(Font)              <8> on input line 153.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 148.
+(Font)              <6> on input line 153.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 148.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 148
+(Font)              <5> on input line 153.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 153
 .
 
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.f
@@ -875,7 +875,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 a.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 148
+LaTeX Font Info:    Trying to load font information for U+msb on input line 153
 .
 
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.f
@@ -887,7 +887,7 @@ b.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-48.
+53.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -896,401 +896,402 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 148.
+(Font)              <10> on input line 153.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 148.
+(Font)              <7> on input line 153.
 [1
 
 
 {c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
-ftex.map}]
+ftex.map}] [2]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 229.
+(hyperref)                than one, level fixed on input line 234.
 
-[2] [3]
-<ReplicationLing_files/figure-latex/topten_plot-1.pdf, id=97, 313.17pt x 527.97
-25pt>
+[3]
+<ReplicationLing_files/figure-latex/topten_plot-1.pdf, id=105, 313.17pt x 527.9
+725pt>
 File: ReplicationLing_files/figure-latex/topten_plot-1.pdf Graphic file (type p
 df)
 <use ReplicationLing_files/figure-latex/topten_plot-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/topten_plot-1.pdf  
-used on input line 313.
+used on input line 327.
 (pdftex.def)             Requested size: 345.0pt x 581.65773pt.
 
-LaTeX Warning: Float too large for page by 60.65773pt on input line 318.
+LaTeX Warning: Float too large for page by 60.65773pt on input line 332.
 
-<rep_mention.png, id=98, 433.62pt x 1045.506pt>
+<rep_mention.png, id=106, 433.62pt x 1045.506pt>
 File: rep_mention.png Graphic file (type png)
 <use rep_mention.png>
-Package pdftex.def Info: rep_mention.png  used on input line 321.
+Package pdftex.def Info: rep_mention.png  used on input line 335.
 (pdftex.def)             Requested size: 228.11044pt x 550.0pt.
 
-LaTeX Warning: Float too large for page by 29.0pt on input line 326.
+LaTeX Warning: Float too large for page by 29.0pt on input line 340.
 
 [4] [5pdfTeX warning (ext4): destination with the same identifier (name{figure.
 1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.361 
-       <./ReplicationLing_files/figure-latex/topten_plot-1.pdf>] [6pdfTeX warni
-ng (ext4): destination with the same identifier (name{figure.2}) has been alrea
-dy used, duplicate ignored
+l.364 T
+       he model estimates the proportion of replication mentions as 2.7\% <./Re
+plicationLing_files/figure-latex/topten_plot-1.pdf>] [6pdfTeX warning (ext4): d
+estination with the same identifier (name{figure.2}) has been already used, dup
+licate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.361 
-       <./rep_mention.png>]
-<ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf, id=124, 436.63126pt
+l.364 T
+       he model estimates the proportion of replication mentions as 2.7\% <./re
+p_mention.png>]
+<ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf, id=134, 436.63126pt
  x 256.96pt>
 File: ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf Graphic file (t
 ype pdf)
 <use ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/plot_mention_jif-1.
-pdf  used on input line 364.
+pdf  used on input line 378.
 (pdftex.def)             Requested size: 345.0pt x 203.03537pt.
 [7pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.401 
+l.404 
        <./ReplicationLing_files/figure-latex/plot_mention_jif-1.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 425.
+(hyperref)                than one, level fixed on input line 439.
 
-[8]
-<ReplicationLing_files/figure-latex/stream_plot-1.pdf, id=156, 430.60875pt x 29
+[8] [9]
+<ReplicationLing_files/figure-latex/stream_plot-1.pdf, id=173, 430.60875pt x 29
 3.095pt>
 File: ReplicationLing_files/figure-latex/stream_plot-1.pdf Graphic file (type p
 df)
 <use ReplicationLing_files/figure-latex/stream_plot-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/stream_plot-1.pdf  
-used on input line 520.
+used on input line 539.
 (pdftex.def)             Requested size: 345.0pt x 234.8296pt.
-[9]
-<ReplicationLing_files/figure-latex/river_plot-1.pdf, id=162, 304.13625pt x 201
+<ReplicationLing_files/figure-latex/river_plot-1.pdf, id=174, 304.13625pt x 201
 .75375pt>
 File: ReplicationLing_files/figure-latex/river_plot-1.pdf Graphic file (type pd
 f)
 <use ReplicationLing_files/figure-latex/river_plot-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/river_plot-1.pdf  u
-sed on input line 534.
+sed on input line 553.
 (pdftex.def)             Requested size: 304.1355pt x 201.75325pt.
 [10pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.561 
-       <./ReplicationLing_files/figure-latex/stream_plot-1.pdf>]
-<ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf, id=178, 430.60875pt 
+l.570 
+       <./ReplicationLing_files/figure-latex/stream_plot-1.pdf>] [11pdfTeX warn
+ing (ext4): destination with the same identifier (name{figure.5}) has been alre
+ady used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.603 
+       <./ReplicationLing_files/figure-latex/river_plot-1.pdf>]
+<ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf, id=203, 430.60875pt 
 x 290.08376pt>
 File: ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf Graphic file (ty
 pe pdf)
 <use ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf>
 Package pdftex.def Info: ReplicationLing_files/figure-latex/jml_stream_plot-1.p
-df  used on input line 587.
+df  used on input line 606.
 (pdftex.def)             Requested size: 345.0pt x 232.41699pt.
-[11pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+[12pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.604 
-       <./ReplicationLing_files/figure-latex/river_plot-1.pdf>] [12pdfTeX warni
-ng (ext4): destination with the same identifier (name{figure.6}) has been alrea
-dy used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.632 
-       <./ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf>]
+l.644 
+       <./ReplicationLing_files/figure-latex/jml_stream_plot-1.pdf>] [13]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 685.
+(hyperref)                than one, level fixed on input line 704.
 
-[13]
-Overfull \hbox (7.80907pt too wide) in paragraph at lines 711--711
+
+Overfull \hbox (7.80907pt too wide) in paragraph at lines 728--728
  []|[]\T1/lmr/m/n/11 (-20) Experimental
  []
 
 
-Overfull \hbox (7.80907pt too wide) in paragraph at lines 719--719
+Overfull \hbox (7.80907pt too wide) in paragraph at lines 736--736
  []|[]\T1/lmr/m/n/11 (-20) Experimental
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 731--731
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 748--748
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 743--743
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 760--760
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 749--749
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 766--766
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (20.9903pt too wide) in paragraph at lines 755--755
+Overfull \hbox (20.9903pt too wide) in paragraph at lines 772--772
 []|[]\T1/lmr/m/n/11 (-20) LABORATORY 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 761--761
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 778--778
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 779--779
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 796--796
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (22.88107pt too wide) in paragraph at lines 785--785
+Overfull \hbox (22.88107pt too wide) in paragraph at lines 802--802
 []|[]\T1/lmr/m/n/11 (-20) INTERACTION 
  []
 
 
-Overfull \hbox (41.86519pt too wide) in paragraph at lines 809--809
+Overfull \hbox (41.86519pt too wide) in paragraph at lines 826--826
 []|[]\T1/lmr/m/n/11 (-20) COMPUTATIONAL 
  []
 
 
-Overfull \hbox (8.36179pt too wide) in paragraph at lines 821--821
+Overfull \hbox (8.36179pt too wide) in paragraph at lines 838--838
 []|[]\T1/lmr/m/n/11 (-20) METAPHOR 
  []
 
 
-Overfull \hbox (9.03421pt too wide) in paragraph at lines 839--839
+Overfull \hbox (9.03421pt too wide) in paragraph at lines 856--856
 []|[]\T1/lmr/m/n/11 (-20) LINGUISTIC 
  []
 
 
-Overfull \hbox (4.55368pt too wide) in paragraph at lines 839--839
+Overfull \hbox (4.55368pt too wide) in paragraph at lines 856--856
 \T1/lmr/m/n/11 (-20) PROACHES 
  []
 
 
-Overfull \hbox (25.44275pt too wide) in paragraph at lines 845--845
+Overfull \hbox (25.44275pt too wide) in paragraph at lines 862--862
 []|[]\T1/lmr/m/n/11 (-20) BILINGUALISM 
  []
 
 
-Overfull \hbox (8.97008pt too wide) in paragraph at lines 851--851
+Overfull \hbox (8.97008pt too wide) in paragraph at lines 868--868
 []|[]\T1/lmr/m/n/11 (-20) COMPUTER 
  []
 
 
-Overfull \hbox (9.03421pt too wide) in paragraph at lines 857--857
+Overfull \hbox (9.03421pt too wide) in paragraph at lines 874--874
 []|[]\T1/lmr/m/n/11 (-20) LINGUISTIC 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 863--863
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 880--880
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (16.22324pt too wide) in paragraph at lines 911--911
+Overfull \hbox (16.22324pt too wide) in paragraph at lines 928--928
 []|[]\T1/lmr/m/n/11 (-20) PHONOLOGY[]|  
  []
 
 
-Overfull \hbox (29.84775pt too wide) in paragraph at lines 917--917
+Overfull \hbox (29.84775pt too wide) in paragraph at lines 934--934
 []|[]\T1/lmr/m/n/11 (-20) INTERPRETING[]|  
  []
 
 
-Overfull \hbox (2.0695pt too wide) in paragraph at lines 923--923
+Overfull \hbox (2.0695pt too wide) in paragraph at lines 940--940
 []|[]\T1/lmr/m/n/11 (-20) EURASIAN 
  []
 
 
-Overfull \hbox (36.74571pt too wide) in paragraph at lines 929--929
+Overfull \hbox (36.74571pt too wide) in paragraph at lines 946--946
 []|[]\T1/lmr/m/n/11 (-20) INTERNATIONAL 
  []
 
 
-Overfull \hbox (14.89853pt too wide) in paragraph at lines 941--941
+Overfull \hbox (14.89853pt too wide) in paragraph at lines 958--958
 []|[]\T1/lmr/m/n/11 (-20) LINGUISTICS 
  []
 
 
-Overfull \hbox (36.74571pt too wide) in paragraph at lines 959--959
+Overfull \hbox (36.74571pt too wide) in paragraph at lines 976--976
 []|[]\T1/lmr/m/n/11 (-20) INTERNATIONAL 
  []
 
 
-Overfull \hbox (11.16286pt too wide) in paragraph at lines 965--965
+Overfull \hbox (11.16286pt too wide) in paragraph at lines 982--982
 []|[]\T1/lmr/m/n/11 (-20) PHONETICA[]|  
  []
 
 
-Overfull \hbox (41.64734pt too wide) in paragraph at lines 977--977
+Overfull \hbox (41.64734pt too wide) in paragraph at lines 994--994
 []|[]\T1/lmr/m/n/11 (-20) PROCESAMIENTO 
  []
 
 
-Overfull \hbox (4.19765pt too wide) in paragraph at lines 977--977
+Overfull \hbox (4.19765pt too wide) in paragraph at lines 994--994
 \T1/lmr/m/n/11 (-20) LENGUAJE 
  []
 
 
-Overfull \hbox (1.07033pt too wide) in paragraph at lines 989--989
+Overfull \hbox (1.07033pt too wide) in paragraph at lines 1006--1006
 []|[]\T1/lmr/m/n/11 (-20) LITERARY 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 1013--1013
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 1030--1030
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 1019--1019
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 1036--1036
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 1037--1037
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 1054--1054
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (24.79512pt too wide) in paragraph at lines 1043--1043
+Overfull \hbox (24.79512pt too wide) in paragraph at lines 1060--1060
 []|[]\T1/lmr/m/n/11 (-20) INTERPRETER 
  []
 
 
-Overfull \hbox (18.24826pt too wide) in paragraph at lines 1067--1067
+Overfull \hbox (18.24826pt too wide) in paragraph at lines 1084--1084
 []|[]\T1/lmr/m/n/11 (-20) PRAGMATICS 
  []
 
 
-Overfull \hbox (8.15837pt too wide) in paragraph at lines 1085--1085
+Overfull \hbox (8.15837pt too wide) in paragraph at lines 1102--1102
 []|[]\T1/lmr/m/n/11 (-20) COGNITIVE 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 1097--1097
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 1114--1114
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (25.5982pt too wide) in paragraph at lines 1103--1103
+Overfull \hbox (25.5982pt too wide) in paragraph at lines 1120--1120
 []|[]\T1/lmr/m/n/11 (-20) APHASIOLOGY[]|  
  []
 
 
-Overfull \hbox (14.6255pt too wide) in paragraph at lines 1121--1121
+Overfull \hbox (14.6255pt too wide) in paragraph at lines 1138--1138
 []|[]\T1/lmr/m/n/11 (-20) INNOVATION 
  []
 
 
-Overfull \hbox (36.74571pt too wide) in paragraph at lines 1127--1127
+Overfull \hbox (36.74571pt too wide) in paragraph at lines 1144--1144
 []|[]\T1/lmr/m/n/11 (-20) INTERNATIONAL 
  []
 
 
-Overfull \hbox (24.04166pt too wide) in paragraph at lines 1133--1133
+Overfull \hbox (24.04166pt too wide) in paragraph at lines 1150--1150
 []|[]\T1/lmr/m/n/11 (-20) TRANSLATION 
  []
 
 
-Overfull \hbox (25.75099pt too wide) in paragraph at lines 1145--1145
+Overfull \hbox (25.75099pt too wide) in paragraph at lines 1162--1162
 []|[]\T1/lmr/m/n/11 (-20) MORPHOLOGY[]|  
  []
 
 
-Overfull \hbox (5.58827pt too wide) in paragraph at lines 1151--1151
+Overfull \hbox (5.58827pt too wide) in paragraph at lines 1168--1168
 []|[]\T1/lmr/m/n/11 (-20) AMERICAN 
  []
 
 
-Overfull \hbox (5.87572pt too wide) in paragraph at lines 1157--1157
+Overfull \hbox (5.87572pt too wide) in paragraph at lines 1174--1174
 \T1/lmr/m/n/11 (-20) ROUMAINE 
  []
 
 
-Overfull \hbox (38.50232pt too wide) in paragraph at lines 1163--1163
+Overfull \hbox (38.50232pt too wide) in paragraph at lines 1180--1180
 []|[]\T1/lmr/m/n/11 (-20) INTERCULTURAL 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 1175--1175
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 1192--1192
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (8.36179pt too wide) in paragraph at lines 1199--1199
+Overfull \hbox (8.36179pt too wide) in paragraph at lines 1216--1216
 []|[]\T1/lmr/m/n/11 (-20) METAPHOR 
  []
 
 
-Overfull \hbox (16.5482pt too wide) in paragraph at lines 1223--1223
+Overfull \hbox (16.5482pt too wide) in paragraph at lines 1240--1240
 []|[]\T1/lmr/m/n/11 (-20) LINGUISTICA 
  []
 
 
-Overfull \hbox (28.97237pt too wide) in paragraph at lines 1229--1229
+Overfull \hbox (28.97237pt too wide) in paragraph at lines 1246--1246
 []|[]\T1/lmr/m/n/11 (-20) TERMINOLOGY[]|  
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 1259--1259
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 1276--1276
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (36.74571pt too wide) in paragraph at lines 1265--1265
+Overfull \hbox (36.74571pt too wide) in paragraph at lines 1282--1282
 []|[]\T1/lmr/m/n/11 (-20) INTERNATIONAL 
  []
 
 
-Overfull \hbox (7.4886pt too wide) in paragraph at lines 1283--1283
+Overfull \hbox (7.4886pt too wide) in paragraph at lines 1300--1300
 []|[]\T1/lmr/m/n/11 (-20) LANGUAGE 
  []
 
 
-Overfull \hbox (36.74571pt too wide) in paragraph at lines 1307--1307
+Overfull \hbox (36.74571pt too wide) in paragraph at lines 1324--1324
 []|[]\T1/lmr/m/n/11 (-20) INTERNATIONAL 
  []
 
 
-Overfull \hbox (36.74571pt too wide) in paragraph at lines 1319--1319
+Overfull \hbox (36.74571pt too wide) in paragraph at lines 1336--1336
 []|[]\T1/lmr/m/n/11 (-20) INTERNATIONAL 
  []
 
 [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
-Overfull \hbox (32.22722pt too wide) in paragraph at lines 1371--1375
+Overfull \hbox (32.22722pt too wide) in paragraph at lines 1388--1392
 \T1/lmr/m/n/10 (-20) sup-port from US states data. PLoS ONE 5, e10271. doi:[]10
 .1371/journal.pone.0010271[] 
  []
 
-
-Overfull \hbox (44.1093pt too wide) in paragraph at lines 1415--1420
+[28]
+Overfull \hbox (44.1093pt too wide) in paragraph at lines 1432--1437
 \T1/lmr/m/n/10 (-20) Snap-shot of Ed-i-to-rial Prac-tices. Fron-tiers in Psy-ch
 ol-ogy 8. doi:[]10.3389/fpsyg.2017.00523[] 
  []
 
-[28]
-Overfull \hbox (37.99173pt too wide) in paragraph at lines 1467--1471
+
+Overfull \hbox (37.99173pt too wide) in paragraph at lines 1484--1488
 \T1/lmr/m/n/10 (-20) main-stream. Be-hav-ioral and Brain Sci-ences 41, E120. do
 i:[]10.1017/S0140525X17001972[] 
  []
 
 [29] (./ReplicationLing.aux)
 Package rerunfilecheck Info: File `ReplicationLing.out' has not changed.
-(rerunfilecheck)             Checksum: 66458F6034A153AE7602CC59E063E35B;2170.
+(rerunfilecheck)             Checksum: 0705BEA5B231D38BC3F1A358C46CCC35;2448.
  ) 
 Here is how much of TeX's memory you used:
- 15261 strings out of 480247
- 248616 string characters out of 5894228
- 693045 words of memory out of 5000000
- 32646 multiletter control sequences out of 15000+600000
- 532187 words of font info for 146 fonts, out of 8000000 for 9000
+ 15271 strings out of 480247
+ 248764 string characters out of 5894228
+ 694862 words of memory out of 5000000
+ 32650 multiletter control sequences out of 15000+600000
+ 532281 words of font info for 147 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,9n,76p,1012b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,9n,76p,1012b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
 c.enc}{c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
 lm-mathsy.enc}<c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
@@ -1308,10 +1309,10 @@ pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
 /lmsy7.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
 blic/lm/lmtt10.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/
 type1/public/lm/lmtt8.pfb>
-Output written on ReplicationLing.pdf (29 pages, 512733 bytes).
+Output written on ReplicationLing.pdf (29 pages, 517286 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 324 compressed objects within 4 object streams
- 97 named destinations out of 1000 (max. 500000)
- 31887 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 414 PDF objects out of 1000 (max. 8388607)
+ 336 compressed objects within 4 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 31903 words of extra memory for PDF output out of 35830 (max. 10000000)
 
