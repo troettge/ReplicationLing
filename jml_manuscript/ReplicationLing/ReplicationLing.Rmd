@@ -800,12 +800,12 @@ The overall picture our analyses draw for replication attempts in the field of e
 The asymmetric incentive system of publication does not reward replication studies and they are also not perceived as being prestiguos [e.g., @koole_rewarding_2012; @nosek_scientific_2012]. This is reflected in the citation counts which are at a median of ... for the replications in our sample and at a median of ... for the initial studies in our sample. The low rates of replications in the field of experimental linguistics might be due to replication studies not being conducted, but they might also be due to replication studies not being *published*.
 
 A reason for this could be that journal guidelines usually do not encourage to submit replication studies. But this policy is related to the amount of replication studies published in a journal. We thus suggest in support of @marsden_replication_2018 and @martin_are_2017 that journals should accept replication studies more often and should also make more explicit and public that they encourage their submission. Journals do not need to fear any negative consequences like a loss of reputation because our results indicate that journals which frequently mention the term 'replicat*' in fact have a proportionally high impact factor. This effect is probably only correlational and not a causation, but still indicates that replication studies are frequently published in journals with high impact factors.
-The DOAJ gold standard with respect to open access publishing is also positively related to publishing replication studies. This might be due to journals which support open access are also more open to replication studies, both being important tools for the open science movement.
+The DOAJ gold standard with respect to open access publishing is also positively related to publishing replication studies. This might be due to journals which support open access are also more open to replication studies, both being important tools for the open science movement. <!--KK: JML also seems to have updated their journal policies in the meantime.-->
 
 The development of publications over time does not give much cause for hope: While the total amount of studies published increased over the last few years, the amount of direct replications remained stable at best.
 However, we can speculate that there is an increasing number of partial and conceptual replications that have been published within the last few years.
 
-On the other hand the increasing amount of reproducibility initiatives founded in the field during the last few years give hope that the situation is likely going to change in the near future. e.g. many babies, many speeches etc. <!--KK: mention covid year 2020?-->
+On the other hand the increasing amount of reproducibility initiatives founded in the field during the last few years give hope that the situation is likely going to change in the near future, e.g. many babies, many speeches etc. More and more journals offer registered reports and special issues dedicated to replications (e.g. Linguistics, Vol. 59: The replication crisis: Implications for linguistics). <!--KK: mention covid year 2020?-->
 
 ### Caveats
 The procedure used here is necessarily only a rough proxy of relevant experimental linguistic articles published in the field and several articles might thus have been overlooked and not been included in the analysis. The articles have been coded by only a single person who was not an expert in this field. <!--KK: We could still do sth. about this.--> 
@@ -821,8 +821,8 @@ sample_journals <- sample_journals %>%
          "Experimental Linguistics Articles" = TS..experiment...AND.WC..Linguistics.,
          "Ratio of Experimental Linguistics Articles in %" = ratio) %>% 
   select(Journal, "Total Number of Articles", "Experimental Linguistics Articles", "Ratio of Experimental Linguistics Articles in %")
-#set_flextable_defaults(fonts_ignore=TRUE)
-flextable(sample_journals)
+set_flextable_defaults(fonts_ignore=TRUE)
+flextable(sample_journals) # sometimes works, sometimes doesn't
 ```
 
 ```{r cit-and-years-direct, include=FALSE, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Relation between citation counts and years of publication of direct replication studies."}
