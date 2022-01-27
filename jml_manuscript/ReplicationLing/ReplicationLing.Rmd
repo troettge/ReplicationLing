@@ -590,8 +590,8 @@ custom.style$textcex <- 0.6
 
 svg("../../plots/River.svg", width=10)
 myriv <- riverplot::makeRiver(nodes=mynodes, edges=myedges, node_styles=mystyles)
-#plot(myriv, default_style=custom.style, nodewidth=1, plot_area = 0.95)
-#dev.off()
+plot(myriv, default_style=custom.style, nodewidth=1, plot_area = 0.95)
+dev.off()
 plot(myriv, default_style=custom.style, nodewidth=1, plot_area=.88)
 
 ```
