@@ -40,22 +40,32 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
-            pdftitle={Amount and quality of direct replications in experimental linguistic research},
+            pdftitle={Assessing replication rates in journals of experimental linguistics},
             colorlinks=false,
             urlcolor=blue,
             linkcolor=magenta,
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{5}
 % Pandoc toggle for numbering sections (defaults to be off)
-\setcounter{secnumdepth}{0}
 
 
 % tightlist command for lists without linebreak
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% From pandoc table feature
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 
 % Pandoc citation processing
 \newlength{\cslhangindent}
@@ -101,9 +111,6 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
-\usepackage{multicol}
-\usepackage{hhline}
-\usepackage{hyperref}
 
 
 
@@ -112,42 +119,19 @@
 
 \begin{frontmatter}
 
-  \title{Amount and quality of direct replications in experimental
-linguistic research}
+  \title{Assessing replication rates in journals of experimental linguistics}
     \author[University of Osnabrück]{Kristina Kobrock\corref{1}}
    \ead{kkobrock@uni-osnabrueck.de} 
     \author[Universitetet i Oslo]{Timo B. Roettger}
-   \ead{timo.b.roettger@gmail.com} 
-      \address[University of Osnabrück]{University of Osnabrück,
-Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück,
-Germany}
-    \address[Universitetet i Oslo]{Universitetet i Oslo, Department of
-Linguistics and Scandinavian Studies, Niels Henrik Abels vei 36, 0313
-Oslo, Norway}
+  
+      \address[University of Osnabrück]{Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück}
+    \address[Universitetet i Oslo]{Department of Linguistics and Scandinavian Studies}
       \cortext[1]{Corresponding Author}
   
   \begin{abstract}
-  The replication of research results and methods is central to science.
-  A number of failed replication attempts in the field of experimental
-  linguistics show that the field is not immune to challenges posed by
-  the so-called replication crisis. To assess the amount and quality of
-  replications in experimental linguistic research, we estimated
-  replication rates for 98 journals and conducted a detailed analysis of
-  210 articles. Across representative experimental linguistic journals,
-  we found a median replication rate of 1.6\%. We related the amount of
-  published replication studies to journal submission guidelines, open
-  access publishing and journal impact factor. A detailed analysis of
-  replication studies showed that roughly half of the articles
-  mentioning the term ``replicat*'' were indeed replication studies. Our
-  sample contained only 8 direct replications. Although the overall
-  numbers are very low, we found a slight increase of partial and
-  conceptual replication studies in recent years.
+  This is the abstract. \textasciitilde150 words, avoid references, optional graphical abstract, keywords (max. 6, avoid abbreviations, AE spelling)
 
-  \textbf{keywords:} replication, language, publishing guidelines,
-  journal impact factor, open access
-
-  \textbf{data availability statement:} All data, analysis code and
-  models used can be inspected at https://osf.io/9ceas/.
+  It consists of two paragraphs.
   \end{abstract}
   
  \end{frontmatter}
@@ -155,392 +139,150 @@ Oslo, Norway}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-The replication of results is an integral part of cumulative
-experimental science (e.g., Campbell, 1969; Rosenthal, 1990; Zwaan et
-al., 2018). Yet, various scientific disciplines are currently facing
-what is often referred to as the ``replication crisis,'' a state of
-affairs that is characterized by an alarming amount of failed
-replication attempts (Fidler and Wilcox, 2018). Here, we define
-replications as studies that arrive at the same scientific conclusions
-as an initial study, collecting new data and completing new analyses by
-using the same methodology (see Barba, 2018 for a comprehensive overview
-of different terminological uses). Coordinated efforts to replicate
-published findings have uncovered surprisingly low rates of successful
-replications in fields such as psychology (Open Science Collaboration,
-2015), economics (Camerer et al., 2016) and social sciences (Camerer et
-al., 2018). Researchers from these fields report low replication rates
-ranging from 0.13\% in the education sciences to 1.6\% in psychology
-publications (Makel et al., 2012; Makel and Plucker, 2014).
+The inner workings of human language and its cognitive underpinnings have been increasingly shaped by experimental data. With a field that builds their theories on a rapidly growing body of experimental evidence, it is of critical importance to evaluate and substantiate existing findings in the literature because evidence provided by a single study is limited (e.g., Amrhein et al., 2019). Scientists are trained to ensure the reliability and generalisability of scientific findings by direct replication studies, i.e.~by studies that arrive at the same scientific conclusions as an initial study, collecting new data and completing new analyses by using the same methodology (see Barba, 2018 for a comprehensive overview of different terminological uses).
 
-One driving factor of this lack of replicability is an asymmetric
-incentive system that rewards novel confirmatory findings over direct
-replications and null results. Replication studies are not very popular
-because the necessary time and resource investment are not appropriately
-rewarded in contemporary academic incentive systems (e.g., Koole and
-Lakens, 2012; Nosek et al., 2012). Both successful replications (Madden
-et al., 1995) and repeated failures to replicate (e.g., Doyen et al.,
-2012) are rarely published, and even if they are, they usually appear in
-less prestigious outlets than the original findings. These dynamics lead
-to an abundance of positive findings in the absence of possible
-conflicting negative evidence (see also e.g. Fanelli, 2010).
+Replications are an integral part of cumulative experimental science (e.g., Campbell, 1969; Rosenthal, 1990; Zwaan et al., 2018). Yet scientific disciplines do not replicate enough. Researchers from diverse fields such as psychology (Makel et al., 2012), educational science (Makel and Plucker, 2014), and economics (Mueller-Langer et al., 2019) report on very low numbers of published replications, ranging from 0.1\% in economics to 1.6\% in psychology.
 
-Experimental linguistics shares research practices that have been shown
-to decrease the replicability of findings. Thus, there are raising
-concerns about a similarly low number of replication studies conducted
-and published in this field (e.g. Marsden et al., 2018; Roettger and
-Baer-Henney, 2019). A number of failed replication attempts reported in
-various subfields of linguistics indicate that these concerns are
-warranted (e.g.~in language comprehension: Papesh, 2015; predictive
-processing: Nieuwland et al., 2018; among others: Chen, 2007; Stack et
-al., 2018; Westbury, 2018). In order to thoroughly understand and be
-able to address this problem, it is important to assess the number of
-replication attempts in the field of experimental linguistics and their
-contributing factors.
+One reason for the observed lack of replication studies is the asymmetric incentive system in academia that rewards novel confirmatory findings over direct replications and null results: Replication studies are not very popular because the necessary time and resource investment are not appropriately rewarded (e.g., Koole and Lakens, 2012; Nosek et al., 2012). Both successful replications (Madden et al., 1995) and repeated failures to replicate (e.g., Doyen et al., 2012) are rarely published. Even if they are, replications usually appear in less prestigious outlets than the original findings. These dynamics lead to an abundance of positive findings in the absence of possible conflicting negative evidence (see also e.g., Fanelli, 2010) and the widely held view that replications lack prestige, originality, or excitement (e.g., Lindsay and Ehrenberg, 1993).
 
-One subfield of experimental linguistics, second language research, has
-already been systematically reviewed. Marsden et al. (2018) coded 67
-self-labeled L2 replication studies for 136 characteristics. Their
-results indicate that for every 400 articles, only one replication study
-is published translating to a replication rate of about 0.25\%. Their
-sample did not include any direct replication attempts. Changes made to
-the initial study were very diverse and numerous. These results motivate
-to assess replication rates and contributing factors for the more
-general field of experimental linguistics.
+These dynamics threaten the very fabric of cumulative progress in experimental sciences because experimental results are often taken for granted without replicating them. Obviously, if we don't try, we won't fail to replicate our studies. However, if we try, we fail more often than we would like: Coordinated efforts to replicate published findings have uncovered alarmingly low rates of successful replications in fields such as psychology (Open Science Collaboration, 2015), economics (Camerer et al., 2016), and social sciences (Camerer et al., 2018), a state of affairs that has been referred to as the ``replication crisis'' (Fidler and Wilcox, 2018).
 
-The present study assessed the frequency and typology of replication
-studies that have been published in a representative sample of
-experimental linguistic journals from 1988 to 2020. Our study aimed at
-answering two main questions: How many direct replications are published
-in experimental linguistics? Are there factors that affect the
-replication rates that are either found at the journal level
-(e.g.~journal policies, open access, journal impact factor, etc.) or at
-the study level (e.g.~composition of authors, investigated language,
-etc.)? The study consisted of two analyses: First, we assessed the rate
-of mentioning the term replication (search string: replicat*) across 100
-linguistic journals. Second, we categorized the type of replication
-studies (direct, partial, conceptual) in a subset of twenty journals. We
-then related their prevalence to factors like the years of publication,
-and the citations of both initial and replication study.
+The replication crisis is not rooted in a singular cause, but pertains to a network of different practices and incentive structures, all of which conjointly lead to an increase in results that are not replicable. Researchers have identified practices that might have contributed to the wide-spread lack of replicability, including but not limited to too small sample sizes (e.g., Button et al., 2013), lack of data and materials sharing (e.g., Nosek et al., 2015), use of anti-conservative statistical methods (e.g., Yarkoni, 2019), large analytical flexibility (e.g., Simmons et al., 2011), and lack of generalisability across diverse contexts and populations (Henrich et al., 2010).
 
-\hypertarget{how-often-do-journals-mention-the-term-replication}{%
-\section{How often do journals mention the term
-replication?}\label{how-often-do-journals-mention-the-term-replication}}
+These limitations are present, and maybe even exacerbated in linguistic research: Access to certain linguistic populations is often limited or too cost-intensive, making it difficult to collect sufficiently large samples. Experimental linguistic research is resource-intensive because of equipment cost and complexity, elaborateness of data collection procedures, and computational requirements of data analysis and curation. This often results in studies with small sample sizes and, consequently, with low statistical power (Casillas, 2021; e.g., Kirby and Sonderegger, 2018). Statistical analyses in linguistics are often ignoring important assumptions (e.g., Winter and Grice, 2021) and are characterized by a large number of researcher degrees of freedom (Roettger, 2019). Moreover, claims about human language are often based on a small set of languages, limiting the generalisability of claims about human language (Levisen, 2019; e.g., Majid and Levinson, 2010).
 
-The key dependent variable of the first part of this study was the rate
-of replication mention for journals relevant to the field of
-experimental linguistics.
+In light of the large overlap in research practices between linguistics and neighboring disciplines, there are raising concerns about both replication rates and replicability in the field of experimental linguistics (e.g., Marsden et al., 2018; Roettger and Baer-Henney, 2019). A number of failed replication attempts reported in various subfields of linguistics indicate that these concerns have to be taken seriously (Chen, 2007; Morey et al., 2021; Nieuwland et al., 2018; e.g., Papesh, 2015; Stack et al., 2018; Westbury, 2018).
 
-\hypertarget{data-availability}{%
-\subsubsection{Data availability}\label{data-availability}}
+Moreover, there might be only very few published direct replications in linguistics. In their detailed assessment of replications in second language (L2) research, Marsden et al. (2018) explored 67 self-labeled L2 replication studies for a wide variety of characteristics. Their results indicate that for every 400 articles, only one replication study is published which translates into a replication rate of 0.25\%. Moreover, their sample did not include a single direct replication study, i.e.~a replication that strictly followed the design of the initial study, a state of affairs that is worrisome and warrants further investigation. To our knowledge, there is no systematic assessment of replication rates across experimental linguistics beyond Marsden et al. (2018). This paper aims at filling this gap. To gauge the past and current replication landscape in experimental linguistics, track progress over time, and calibrate future policy and training initiatives, it will be useful to assess the prevalence of replications across experimental linguistics and explore their contributing factors.
 
-The article counts for all journals in the sample and calculated rates
-of replication mention can be inspected at \url{https://osf.io/yefr8/}.
-The journals coded for the factors journal policy, journal impact
-factors and open access publishing can be retrieved at
-\url{https://osf.io/rukc7/}.
+The present study assesses the frequency and typology of replication studies that have been published in a representative sample of experimental linguistic journals from 1988 to 2020.
+Our study aimed at answering two main questions:
+How many direct replications are published in experimental linguistics?
+Are there factors that affect the replication rates and are they either found at the journal level (e.g.~journal policies, open access, journal impact factor, etc.) or at the study level (e.g.~composition of authors, investigated language, etc.)?
+The study consisted of two analyses:
+First, we assessed the frequency of articles mentioning the term replication (search string: replicat*) across 100 linguistic journals.
+Second, we categorized the type of replication studies (direct, partial, conceptual) in a subset of twenty journals. We then related their rates to factors like the years of publication, and the citations of both initial and replication study.
+
+\hypertarget{how-often-do-journals-mention-the-term-replicat}{%
+\section{How often do journals mention the term replicat*?}\label{how-often-do-journals-mention-the-term-replicat}}
+
+The key dependent variable of the first part of this study was the rate of replication mention for journals relevant to the field of experimental linguistics.
+
+\hypertarget{method}{%
+\subsection{Method}\label{method}}
+
+The study design has been preregistered at 2021-03-08 and can be inspected \href{https://osf.io/9ceas/}{here: https://osf.io/9ceas/}.
+In order to determine the rates of replication mention for individual journals, we drew on a method introduced by Makel et al. (2012).
+First, a sample of 100 journals relevant to the field of experimental linguistics was identified by making use of the search engine \href{https://webofknowledge.com}{``Web of Science'' (https://webofknowledge.com)} (access date: 2021-03-03). We restricted the search results to journals in the web of science category ``Linguistics'' which had at least 100 articles published and a high ratio of articles containing the term experiment* in title, abstract or keywords in order to ensure that the subset contained journals that are relevant for experimental linguistics research. Among those, all articles categorized as written in English between 1945-2020 were taken into account.
+
+The ratio between overall number of articles and those articles mentioning the term experiment* ranged between 6.1 and 60.3 (with a median of 11.5).\footnote{Two journals, namely ``Language and Cognitive Processes'' and ``Language, Cognition and Neuroscience'' had to be excluded because both journals have been renamed in 2013 and had already been included in our sample. Our final sample thus included only 98 journals.}
+The full sample of journals can be inspected \href{https://osf.io/q2e9k/}{here: https://osf.io/q2e9k/} or in the appendix of this article.
+
+After journal selection, we obtained the total count of articles containing the search term replicat* in title, abstract or keywords for each journal via the Web of Science search.
+Following the method presented by Makel et al. (2012), the rates of replication mention are calculated by dividing the number of articles containing the term replicat* by the total number of eligible articles for each journal. As we were only interested in experimental linguistic studies, we only considered articles containing the search term experiment* as eligible.
+
+Replication mentions rates were then related to three journal properties: Journal policies with regards to replication studies, journal impact factor and whether the journal is open access or not.
+To gain an understanding of the journal policies with regards to replication studies, we examined the journals' submission guidelines adopting a method suggested by Martin and Clarke (2017).
+They grouped psychology journals into four categories dependent on whether they (explicitly or implicitly) encourage replication studies or not in their ``instructions to authors'' and ``aims and scope'' sections on the journal websites. For our analysis, we only distinguished between those journals explicitly encouraging replication studies and those that do not.
+We extracted journal impact factors via Journal Citation Reports (https://jcr.clarivate.com).\footnote{The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018.}
+Whether journals offered an open access publication or not was assessed via Web of Science.
+We distinguished between two access categories: those journals which are listed in the Directory of Open Access Journals (DOAJ) (``DOAJ gold''), and either those journals with some articles being published as open access articles (``partial'') or those journals with no option to publish open access (``no'').
+
+\hypertarget{results-and-discussion}{%
+\subsection{Results and Discussion}\label{results-and-discussion}}
+
+Out of the 51272 articles in our sample, 8006 mentioned the term `experiment*' in title, abstract, or keywords and were thus assumed to be articles presenting an experimental investigation.
+Out of these articles, 347 contained the term replicat*, a rate of 4.3\%.
+
+The distribution of the rate of replication mention substantially varies across journals ranging from 0 to 12.82\%. The medium rate of replication mention is as low as 1.6\% (SD = 3.3), a rate that is comparable to that Makel et al. (2012) have reported in their assessment of the psychological sciences.
+Almost half of all journals (n = 43) did not mention the term in any of their articles.
+Figure \ref{fig:topten-plot}. illustrates the variation across those journals that exhibited at least one mention of the term.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/topten-plot-1} 
+
+}
+
+\caption{Variation in rate of replication mention across those journals that exhibited at least one mention of the term. Numeric values on right indicate the observed proportion of articles containing the string experiment* in title, abstract or keywords.}\label{fig:topten-plot}
+\end{figure}
+
+Following preregistered protocol, we statistically estimated the rate of replication mention as predicted relative to the following factors:
+journal impact factors (continuous, henceforth jif), open access (binary: open access journal or not), and replication policies (binary: either explicitly encourage or not).
+We used Bayesian parameter estimation based on generalized linear regression models with a binomial link function.
+The model was fitted to the proportion of replication mentions per journal using the R package brms (Bürkner, 2016).
+We used weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients.
+These priors are what is referred to as regularizing (Gelman et al., 2008), i.e.~our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation.
+Four sampling chains with 2000 iterations each have been run for each model, with a warm-up period of 1000 iterations.
+For relevant predictor levels and contrasts between predictor levels, we report the posterior probability for the rate of replication mention.
+We summarize these distributions by reporting the posterior mean and the 95\% credible intervals (calculated as the highest posterior density interval).
+
+The model estimates the proportion of replication mentions as 2.7\% {[}1.7, 4.2{]} at jif = 0 and estimates an increase of the proportion with each integer unit of jif (log odds = 0.39 {[}0.29, 0.49{]}).
+Figure \ref{fig:plot-mention-jif} illustrates this relationship.
+
+Further explorations, however, indicate that jif is correlated with the number of experimental studies reported in a journal (Spearman correlation = 0.43).\footnote{This exploratory analysis was not preregistered.}
+Given the observed correlation, it remains unclear if the term replicat* is really used more often in high impact journals or simply more common in journals that generally publish more experimental studies (which tend to have higher jifs).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/plot-mention-jif-1} 
+
+}
+
+\caption{Rate of mentioning the term 'replicat*' across sampled journals plotted against their journal impact factor. Each point represents one journal. Point size indicates the proportion of papers categorized as experimental (i.e. larger points indicate journals with more experimental articles). Line and shading indicate model predictions and 95\% credible intervals.}\label{fig:plot-mention-jif}
+\end{figure}
+
+The preregistered model estimated the impact of whether the journal allows for open access publishing or not and whether replications are explicitly encouraged or not both as positive, i.e.~the term replication is mentioned more often in both open access journals and journals that explicitly encourage direct replications. However, the uncertainty around these estimates is substantial (open access: 0.41 {[}-0.41, 1.14{]}; policy: 0.24 {[}-0.27, 0.72{]}) due to the small number of journals that explicitly encourage direct replications (2 out of 98), and the relatively small number of open access journals (11 out of 98) and thus not informative.
+
+\hypertarget{how-many-articles-containing-the-term-replicat-are-actual-replications}{%
+\section{How many articles containing the term replicat* are actual replications?}\label{how-many-articles-containing-the-term-replicat-are-actual-replications}}
+
+The second part of the study aimed at investigating further what types of replication studies are published and whether replications are becoming more frequent over time.
+Because the string replicat* is commonly used in ambiguous ways, the articles that contained the search term required further analysis to determine whether the articles in question indeed reported a replication study or used the term in a different way.
 
 \hypertarget{material-and-methods}{%
-\subsubsection{Material and methods}\label{material-and-methods}}
+\subsection{Material and methods}\label{material-and-methods}}
 
-The study design has been preregistered at 2021-03-08 and can be
-inspected at \url{https://osf.io/9ceas/}.
+From the superset of 100 journals obtained above, the 20 journals with the highest proportion of experimental studies were selected for a more detailed analysis while excluding journals with less than 2 hits (see \href{https://osf.io/f3yp8/}{here} for a list of article counts per journal: https://osf.io/f3yp8/).
+Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals, respectively), we randomly selected 50 out of the 114 articles for the Journal of Memory and Language (see \href{https://osf.io/6vfpe/}{here} for details: https://osf.io/6vfpe/).
+The sampling procedure above resulted in 210 possible self-labeled replication studies.
 
-In order to determine the rates of replication mention for individual
-journals, we drew on a method introduced by Makel et al. (2012). First,
-a sample of 100 journals relevant to the field of experimental
-linguistics has been identified by making use of the search engine
-\href{https://webofknowledge.com}{``Web of Science''
-(https://webofknowledge.com)} at 2021-03-03. We restricted the search
-results to journals in the web of science category ``Linguistics'' which
-had at least 100 articles published and a high ratio of articles
-containing the term ``experiment*'' in title, abstract or keywords. All
-articles categorized as written in English between 1945-2020 were taken
-into account. We selected a subset of those 100 journals that had the
-highest ratio of mentioning the term ``experiment*'' in their articles.
-This was done to make sure that the subset comprised journals that are
-relevant for experimental linguistics research.
+We identified whether the article in question indeed presented a replication study or not.
+Parts of the papers that were examined were title and abstract of the paper, text before and after occurrences of the search term replicat*, the paragraph before the Methods section as well as the first paragraph of the Discussion section (following the procedure specified by Makel et al. (2016)).
+If the authors explicitly claimed that (one of) their research aim(s) was to replicate the result or methods of an initial study, this article was treated as a replication and was submitted to further analysis according to the preregistered coding scheme which can be inspected \href{https://osf.io/ct2xj/}{here: https://osf.io/ct2xj/}.
 
-The ratio between overall number of articles and those articles
-mentioning the term ``experiment*'' ranged between 6.1 and 60.3 (with a
-median of 11.5). Two journals, namely ``Language and Cognitive
-Processes'' and ``Language, Cognition and Neuroscience'' had to be
-excluded because it turned out during analysis that both journals have
-been renamed in 2013 and that they have already been included in our
-sample under the new name. Our final sample thus included only 98
-journals. The full sample of journals can be inspected at
-\url{https://osf.io/q2e9k/} or in the appendix of this article. Albeit a
-rough proxy, this procedure helped us identifying journals relevant to
-the field of experimental linguistics.
+When extracting number and types of changes made to the initial study, we assumed that the authors of a replication study did not make any drastic changes \emph{without} reporting them.
+Following Marsden et al. (2018), replication studies were classified into three categories: direct replication (0 changes), partial replication (1 change) and conceptual replication (2 or more changes).
+We noted the nature of methodological changes as one of the following categories:
+experimental paradigm, sample, materials/experimental set-up, dependent variable, independent variable, and control.
+We also recorded the language under investigation.
+The information on whether the article was published open access as well as citation counts and years of publication for both studies were obtained from Web of Science.
+An author overlap was attested when at least one author was a (co-)author on both articles.
+During the coding procedure of the articles, we encountered edge cases that we did not anticipate in our preregistration: When several self-labeled replication studies were mentioned in one article, we chose the first mentioned study for our analysis. If there were one independent, but also one or more inner-paper replications, i.e.~experiments that replicated previously obtained results from the same article, we chose the independent study for analysis.
 
-After journal selection, we obtained the total count of articles
-containing the search term ``replicat*'' in title, abstract or keywords
-for each journal via Web of Science search. Following the method
-presented by Makel et al. (2012), the rates of replication mention are
-calculated by dividing the number of articles containing the term
-``replicat*'' by the total number of articles for each journal. As we
-were only interested in experimental linguistic studies, we only
-included articles containing the search term ``experiment*'' in this
-formula.
+\hypertarget{results-and-discussion-1}{%
+\subsection{Results and Discussion}\label{results-and-discussion-1}}
 
-Replication mentions were then related to three journal properties:
-Journal policies with regards to replication studies, journal impact
-factor and whether the journal is an open access publisher or not. To
-gain an understanding of the journal policies with regards to
-replication studies, we examined the journals' submission guidelines
-adopting a method suggested by Martin and Clarke (2017). They grouped
-psychology journals into four categories dependent on whether they
-(explicitly or implicitly) encourage replication studies or not in their
-``instructions to authors'' and ``aims and scope'' sections on the
-journal websites. For our analysis, we only distinguished between those
-journals explicitly encouraging replication studies and those that do
-not. We extracted journal impact factors via Journal Citation Reports
-(https://jcr.clarivate.com).\footnote{The 2019 journal impact factors
-  are calculated by dividing the citations in 2019 to items published in
-  2017 and 2018 by the total number of citable items in 2017 and 2018.}
-Whether journals offered an open access publication or not was assessed
-via Web of Science. We distinguished between three categories: journals
-which are listed in the Directory of Open Access Journals (DOAJ) (``DOAJ
-gold''), journals with some articles being published as open access
-articles (``partial'') and journals with no option to publish open
-access (``no''). We grouped journals with partial or no option to
-publish open access together for analysis resulting in a binary
-categorization of open access.
+Out of the 210 articles in the subsample, 200 (95.2\%) indeed presented experimental linguistics research. The remaining 10 (4.8\%) were not experimental in nature, but comments, reviews or computational studies. Out of the 200 experimental studies, 116 were self-claimed replications according to our criteria. The remaining 84 mentions were articles that mentioned the term in other contexts or studies that did not specify the concrete aim of replicating an initial study's design or results. Moreover, many papers used the term ``replicated'' in a broad sense that roughly translates into ``finding a similar result,'' thus not qualifying as a replication study as defined by us.
+Out of the replication studies, we categorized 66 (56.9\%) as conceptual, 42 (36.2\%) as partial, and only 8 (6.9\%) as direct replications.
 
-\hypertarget{results}{%
-\subsubsection{Results}\label{results}}
+About one third (31.9\%) of the replications were published in the scope of the same paper as the initial study. Publishing multiple experiments within one article and replicating one's own previously obtained results thus seems to be common practice in the field of experimental linguistics.
 
-Out of the 51272 articles in our sample, 8006 mentioned the term
-`experiment*' in title, abstract, or keywords and were thus treated as
-articles presenting an experimental investigation. Out of these
-articles, 347 contained the term ``replicat*'' suggesting 4.3\% of all
-experimental articles to be replication studies.
+Looking closer at direct replications, 3 studies were independent studies, i.e.~there was no overlap between authors of the initial study and the replication study.
+Out of these independent direct replication studies, 2 were self-labeled as successful replications.
+In other words, our sample included only one failed independent and direct replication attempt. These low rates indicate that replication attempts, and especially direct replication attempts, are rather rare in the experimental linguistics literature - an observation that is in line with replication rates estimated for other research fields (Makel et al., 2012; Makel and Plucker, 2014; Mueller-Langer et al., 2019).
 
-The distribution of the rate of replication mention substantially varies
-across journals ranging from 0 to 12.82\%. Overall, almost half of all
-journals (n = 43) did not mention the term in any of their articles. The
-median mention rate across journals is 1.6 (SD = 3.3). Figure X
-illustrates the variation across those journals that exhibited at least
-one mention of the term.
+Figure \ref{fig:stream-plot} illustrates the development of replication studies throughout publication years.
+While the overall number of studies increased over the years, the proportion of direct replications remained stable at best.
+However, it seems as if there is an increasing number of partial and conceptual replications that was published within the last few years.\footnote{Given the small number of direct replications in our sample, both a descriptive assessment and an inferential assessment as preregistered are very uninformative. The reader is directed to the supplementary materials, if they are interested in the model outputs of the preregistered analysis.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/topten_plot-1} 
+{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/stream-plot-1} 
 
 }
 
-\caption{Variation in rate of replication mention across those journals that exhibited at least one mention of the term.}\label{fig:topten_plot}
-\end{figure}
-\begin{figure}
-
-{\centering \includegraphics[height=1\textheight]{rep_mention} 
-
-}
-
-\caption{Variation in rate of replication mention across those journals that exhibited at least one mention of the term.}\label{fig:replication_mention}
-\end{figure}
-
-Following preregistered protocol, we statistically estimated the rate of
-replication mention as predicted relative to the following factors:
-journal impact factors (continuous), open access (binary: open access
-journal or not), and replication policies (binary: either explicitly
-encourage or not). We used Bayesian parameter estimation based on
-generalized linear regression models with a binomial link function. The
-model was fitted to the proportion of replication mentions per journal
-using the R package brms (Bürkner, 2016). We used weakly informative
-normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy
-priors centered on zero (scale = 2.5) for all population-level
-regression coefficients. These priors are what is referred to as
-regularizing (Gelman et al., 2008), i.e.~our prior assumption is
-agnostic as to whether the predictors affect the dependent variable,
-thus making our model conservative with regards to the predictors under
-investigation. Four sampling chains with 2000 iterations each have been
-run for each model, with a warm-up period of 1000 iterations. For
-relevant predictor levels and contrasts between predictor levels, we
-report the posterior probability for the rate of replication mention. We
-summarize these distributions by reporting the posterior mean and the
-95\% credible intervals (calculated as the highest posterior density
-interval).
-
-The model estimates the proportion of replication mentions as 2.7\%
-{[}1.7, 4.2{]} at a journal impact factor of 0 and estimates an increase
-of the proportion with each integer unit of journal impact factor (log
-odds = 0.39 {[}0.29, 0.49{]}). Figure X illustrates this relationship.
-
-However, further explorations indicate that journal impact factor is
-highly correlated with the number of experimental studies reported in a
-journal (Spearman correlation = 0.43). Given this correlation, it
-remains unclear if the term ``replicat*'' is used more often in high
-impact journals or simply more common in journals that generally publish
-more experimental studies.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/plot_mention_jif-1} 
-
-}
-
-\caption{Rate of mentioning the term 'replicat*' across sampled journals plotted against their journal impact factor. Each point represents one journal. Point size indicates the proportion of papers categorized as experimental (i.e. larger points indicate journals with more experimental articles). Line and shading indicate model predictions and 95\% credible intervals.}\label{fig:plot_mention_jif}
-\end{figure}
-
-The model estimates the impact of whether the journal allows for open
-access publishing or not and whether replications are explicitly
-encouraged or not both as positive, i.e.~the term replication is
-mentioned more often in both open access journals and journals that
-explicitly encourage direct replications. However, the uncertainty
-around these estimates is substantial (open access: 0.41 {[}-0.41,
-1.14{]}; policy: 0.24 {[}-0.27, 0.72{]}) although not surprising given
-the small number of journals that explicitly encourage direct
-replications (2 out of 98), and the small number of open access journals
-(11 out of 98).
-
-\hypertarget{discussion}{%
-\subsubsection{Discussion}\label{discussion}}
-
-The articles of almost half of all journals in our sample (n = 43) did
-not mention the term `replicat*' at all. The maximum rate of replication
-mention is 12.82\%, but the median mention rate lies substantially lower
-at 1.6 (SD = 3.3). This rate is comparable to the 1.6\% that Makel et
-al. (2012) have reported in their study on psychology journals.
-
-Our preregistered model estimates an increase in proportion of
-mentioning the term 'replicat*' with increasing journal impact factor.
-But according to further explorations, this effect is likely due to the
-higher number of experimental studies published in journals with higher
-impact factor. This correlation makes sense in our sample because
-experimental linguistic articles are often associated with psychology
-adjacent fields, possibly attracting a broader audience and being cited
-more widely than articles belonging to other subfields of linguistics.
-Given this correlation, we cannot draw any conclusions on the role of
-journal impact factors with regards to publishing replication studies.
-
-The role of open access publishing options and journal policies is
-clearer: According to our model, the term 'replicat*' is mentioned more
-often in both open access journals and journals that explicitly
-encourage direct replications on their websites. Although the
-uncertainty around these estimates is substantial, we can draw the
-tentative conclusion that journals which support open science by
-offering open access publishing and by explicitly encouraging the
-submission of replication studies, also publish replication studies more
-often than other journals.
-
-\hypertarget{how-many-of-these-mentions-are-actual-replications}{%
-\section{How many of these mentions are actual
-replications?}\label{how-many-of-these-mentions-are-actual-replications}}
-
-The second part of the study aimed at obtaining a clearer picture about
-what types of replication studies are published and whether direct
-replications are becoming more frequent over time. Because the term
-``replication'' is commonly used in ambiguous ways, the articles that
-contained the search term ``replicat*'' required further analysis to
-determine whether the articles in question indeed reported a replication
-study or used the term in a different way.
-
-\hypertarget{data-availability-1}{%
-\subsubsection{Data availability}\label{data-availability-1}}
-
-The full list of coded articles can be obtained at
-\url{https://osf.io/4rtvh/}.
-
-\hypertarget{material-and-methods-1}{%
-\subsubsection{Material and methods}\label{material-and-methods-1}}
-
-From the superset of 100 journals obtained above, the first 20 journals
-(i.e.~those journals with the highest proportion of experimental
-studies) were selected for a more detailed analysis while excluding
-journals for which less than 2 hits (TS=(replicat*)) could be obtained
-(see at \url{https://osf.io/f3yp8/} for a list of article counts per
-journal). Because of the skewed distribution of our sample (114 hits for
-Journal of Memory and Language, and less than 40 for all other
-journals), we randomly selected 50 out of the 114 articles for the
-Journal of Memory and Language in order to achieve a more balanced
-distribution of papers across journals (see at
-\url{https://osf.io/6vfpe/} for details). The sampling procedure above
-resulted in 210 possible self-labeled replication studies.
-
-We identified whether the article in question indeed presented a
-replication study or not. The relevant parts of the papers were title
-and abstract of the paper, sentences around occurrences of the search
-term ``replicat*'' as well as the paragraph before the Methods section
-and the first paragraph of the Discussion section (following the
-procedure specified by Makel et al. (2016)). If the authors explicitly
-claimed that (one of) their research aim(s) was to replicate the result
-or methods of an initial study, this article was treated as a
-replication and was submitted to further analysis according to the
-preregistered coding scheme which can be inspected at
-\url{https://osf.io/ct2xj/}.
-
-When extracting number and types of changes made to the initial study,
-we assumed that the authors of a replication study did not make any
-drastic changes \emph{without} reporting them. The replication studies
-were classified according to three types: direct replication (0
-changes), partial replication (1 change) and conceptual replication (2
-or more changes), following Marsden et al. (2018). We noted the nature
-of the change as one of the following categories (yes/no): experimental
-paradigm, sample, materials/experimental set-up, dependent variable,
-independent variable, and control. We also noted the language under
-investigation. The information on whether the article was published open
-access as well as citation counts and years of publication for both
-studies were obtained from Web of Science. An author overlap was
-attested when at least one author was a (co-)author on both articles.
-When coding the articles, some cases turned up that could not be
-anticipated when the study was preregistered. When several self-labeled
-replication studies were mentioned in one article, we chose the first
-mentioned study for analysis. If there were one independent, but also
-one or more inner-paper replications, i.e.~experiments that replicated
-previously obtained results from the same article, we chose the
-independent study for analysis.
-
-\hypertarget{results-1}{%
-\subsubsection{Results}\label{results-1}}
-
-Out of the 210 articles in the subsample, 200 (95.2\%) indeed presented
-experimental linguistics research. The remaining 10 (4.8\%) have not
-been experimental studies, but rather commented and reflected on the
-field or presented research using computer simulations and modeling
-techniques. 116 were self-claimed replications according to our
-criteria. The remaining 94 mentions were articles that mentioned the
-term in other contexts or studies that did not specify the concrete aim
-of replicating an initial study's design or results. These articles that
-did not qualify as replication studies according to our predefined
-criteria could also include articles which mentioned that their results
-``replicated'' the results of one or more previous studies using the
-term in a very broad sense. In these cases, it was usually not clear
-which specific research methods or aims from previous studies should be
-replicated. We thus decided to handle these cases not as replication
-studies. Out of the replication studies we identified, we categorized 66
-(56.9\%) as conceptual, 42 (36.2\%) as partial, and only 8 (6.9\%) as
-direct replications.
-
-About one third (31.6\%) of the replications were published in the scope
-of the same paper as the initial study. Publishing multiple experiments
-within one article and replicating one's own previously obtained results
-thus seems to be good practice in the field of experimental linguistics.
-
-Looking closer at direct replications, 3 studies were independent
-studies, i.e.~there was no overlap between authors of the initial study
-and the replication study. Out of these independent direct replication
-studies, 2 were self-labeled as successful replications. In other words,
-our sample included only one failed independent and direct replication
-attempt.
-
-Figure X illustrates the development of replication studies across the
-time span of our sample. While the overall number of studies increased
-over the years, the proportion of direct replications remained stable at
-best. However, it seems as if there is an increasing number of partial
-and conceptual replications that was published within the last few
-years.\footnote{Given the small number of direct replications in our
-  sample, both a descriptive assessment and an inferential assessment as
-  preregistered are very uninformative. The reader is directed to the
-  supplementary materials, if they are interested in the model outputs
-  of the preregistered analysis.}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/stream_plot-1} 
-
-}
-
-\caption{Development of amount of replication studies published over time.}\label{fig:stream_plot}
+\caption{Development of amount of replication studies published over time.}\label{fig:stream-plot}
 \end{figure}
 
 \begin{verbatim}
@@ -550,798 +292,268 @@ years.\footnote{Given the small number of direct replications in our
 
 \begin{figure}
 
-{\centering \includegraphics{ReplicationLing_files/figure-latex/river_plot-1} 
+{\centering \includegraphics{ReplicationLing_files/figure-latex/river-plot-1} 
 
 }
 
-\caption{Quantity and quality of replications in experimental linguistics.}\label{fig:river_plot}
+\caption{Quantity and quality of replications in experimental linguistics.}\label{fig:river-plot}
 \end{figure}
 
-One possible reason for the fact that (direct) replication rates are not
-increasing for the field according to our analysis could be that
-experimental linguistics predominantly replicates experimental findings
-across languages, making the replication studies conducted by definition
-only partial replications. However, only one quarter of replications
-targeted a different language than the initial study (24.1\%). The
-majority of replication efforts were conducted within the same language
-as the initial study. In fact, 67.2\% of all replication studies in our
-sample had one variety of English as the main language of investigation
-either in the replication or in the corresponding initial study.
+One possible reason for the fact that (direct) replication rates are not increasing for the field according to our analysis could be that experimental linguistics predominantly replicates experimental findings across languages, making the studies by definition only partial replications.
+However, only one quarter of replications targeted a different language than the initial study (24.1\%).
+The majority of replication efforts were conducted within the same language as the initial study.
+In fact, 67.2\% of all replication studies in our sample had one variety of English as the main language of investigation either in the replication or in the corresponding initial study.
 
-The median number of years between an initial and a replication study is
-7 years. Initial studies were on average 41.6 times cited before a
-replication was published which amounts to an average yearly citation
-rate of 5.9 citations. This average citation rate is well above the
-impact factor of journals in publishing experimental studies in
-linguistics (median journal impact factor in superset: 1.1). However,
-replications were on average 17 times cited which only amounts to an
-average yearly citation rate (calculated up to the time of analysis) of
-0.6 citations.
+The median number of years between an initial and a replication study is 7 years.
+Initial studies were on average 41.6 times cited before a replication was published which amounts to an average yearly citation rate of 5.9 citations.
+This average citation rate is well above the impact factor of core linguistic journals (median journal impact factor in superset: 1.1).
+Replication studies were on average only 17 times cited which amounts to an average yearly citation rate (calculated up to the time of analysis) of 0.6 citations. These results are in line with Marsden et al. (2018)'s assessment of second language research. They found that replication studies were on average conducted after more than six years and after over a hundred citations of the original study and concluded that replications are either only performed or only published after the original study had already substantially impacted the field. Our findings support this interpretation.
+The observed ``drop'' in the number of citations of replication studies compared to corresponding initial studies is in line with the lack of perceived value of replication studies reported in other fields (e.g., Koole and Lakens, 2012; Nosek et al., 2012).
 
 \hypertarget{case-study-of-journal-of-memory-and-language}{%
-\subsubsection{Case study of Journal of Memory and
-Language}\label{case-study-of-journal-of-memory-and-language}}
+\subsubsection{Case study of Journal of Memory and Language}\label{case-study-of-journal-of-memory-and-language}}
 
-When having a closer look at the Journal of Memory and Language which
-accounts for the largest part of our sample compared to other journals
-and is the journal with the highest impact factor (3.9), we find that 34
-(68\%) of the 50 studies in our sample are replication studies. Of
-these, 15 (44.1\%) are conceptual, 16 (47.1\%) are partial, and 3
-(8.8\%) are direct replication studies which is in line with the results
-for the whole sample. When excluding for studies with author overlap and
-only taking into account the independent direct replication studies, 2
-of the studies published in Journal of Memory and Language were
-independent direct replication studies (one of which was successful).
-
-Figure X shows the development of publications in the Journal of Memory
-and Language over time. While there was a peak of direct replication
-studies in 2003, the numbers decreased again after that year. In 2020 no
-direct replication studies have been published in this journal at all.
-However, the proportion of partial replications seems to be increasing
-over the last few years (although we are talking of very small numbers
-here).
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{ReplicationLing_files/figure-latex/jml_stream_plot-1} 
-
-}
-
-\caption{Development of amount of replication studies published over time in the Journal of Memory and Language.}\label{fig:jml_stream_plot}
-\end{figure}
-
-\hypertarget{discussion-1}{%
-\subsubsection{Discussion}\label{discussion-1}}
-
-Only 58\% of the experimental studies in our sample were replication
-studies according to our criteria. Out of these, 66 were categorized as
-conceptual, 42 as partial, and only 8 as direct replications which
-amounts to a direct replication rate of 6.9\% in our sample. This
-clearly indicates that replication attempts, and especially direct
-replication attempts, are very rare in the experimental linguistics
-literature - a fact that compares to other research fields.
-
-The development of publications over time shows that the overall number
-of studies increased, but the proportions of direct replication studies
-remained stable. However, we can speculate that there is an increasing
-number of partial and conceptual replications that have been published
-within the last few years.
-
-Our analysis of the years between the publication of the initial and
-replication study and the citation counts of both is in line with
-Marsden et al. (2018) who investigated the prevalence of replication
-studies across second language research. They found that replication
-studies were on average conducted after more than six years and after
-over a hundred citations of the original study and concluded that
-replications are either only performed or only published after the
-original study had already substantially impacted the field. Our
-findings support this hypothesis from the point of view of experimental
-linguistics research: Replication studies are published after a median
-of 7 years and after 41.6 citations of the initial study. The average
-drop in citations for replication studies compared to the initial study
-is in line with the lack of perceived prestige of replication studies
-(e.g., Koole and Lakens, 2012; Nosek et al., 2012).
-
-The findings for the journal with the highest impact factor from our
-sample, Journal of Memory and Language, are comparable to the full
-sample. The trend over the last few years indicates that partial
-replication studies are more and more being published, but direct
-replication studies are unfortunately still seldomly conducted and/or
-published.
+Due to the skewed sample, we conducted a subset analysis of articles published in Journal of Memory and Language (JML) which accounts for the largest part of our sample compared to other journals and is the journal with the highest impact factor (3.9). We find that 34 (68\%) of the 50 papers in our sample contain replication studies. Of these, 15 (44.1\%) are conceptual, 16 (47.1\%) are partial, and 3 (8.8\%) are direct replication studies which is in line with the results for the whole sample. Only 2 of the studies published in JML were independent direct replication studies (one of which was successful). We conclude that we have little reason to believe that the large proportion of JML articles substantially skews our results (for the better or worse).
 
 \hypertarget{general-discussion}{%
 \section{General discussion}\label{general-discussion}}
 
-The overall picture our analyses draw for replication attempts in the
-field of experimental linguistics is that they are far too uncommon.
-This relates to other fields of research for which a lack of replication
-studies has been attested (Camerer et al., 2018, 2016; Makel et al.,
-2012; Makel and Plucker, 2014; Open Science Collaboration, 2015). The
-median rate of replication mention of 1.6 (SD = 3.3)`we find for
-experimental linguistics is in line with the rates found for psychology,
-social sciences and economics to name just a few.
-
-The asymmetric incentive system of publication does not reward
-replication studies and they are also not perceived as being prestiguos
-(e.g., Koole and Lakens, 2012; Nosek et al., 2012). This is reflected in
-the citation counts which are at a median of \ldots{} for the
-replications in our sample and at a median of \ldots{} for the initial
-studies in our sample. The low rates of replications in the field of
-experimental linguistics might be due to replication studies not being
-conducted, but they might also be due to replication studies not being
-\emph{published}.
-
-A reason for this could be that journal guidelines usually do not
-encourage to submit replication studies. But this policy is related to
-the amount of replication studies published in a journal. We thus
-suggest in support of Marsden et al. (2018) and Martin and Clarke (2017)
-that journals should accept replication studies more often and should
-also make more explicit and public that they encourage their submission.
-Journals do not need to fear any negative consequences like a loss of
-reputation because our results indicate that journals which frequently
-mention the term 'replicat*' in fact have a proportionally high impact
-factor. This effect is probably only correlational and not a causation,
-but still indicates that replication studies are frequently published in
-journals with high impact factors. The DOAJ gold standard with respect
-to open access publishing is also positively related to publishing
-replication studies. This might be due to journals which support open
-access are also more open to replication studies, both being important
-tools for the open science movement.
-
-The development of publications over time does not give much cause for
-hope: While the total amount of studies published increased over the
-last few years, the amount of direct replications remained stable at
-best. However, we can speculate that there is an increasing number of
-partial and conceptual replications that have been published within the
-last few years.
-
-On the other hand the increasing amount of reproducibility initiatives
-founded in the field during the last few years give hope that the
-situation is likely going to change in the near future, e.g.~many
-babies, many speeches etc. More and more journals offer registered
-reports and special issues dedicated to replications (e.g.~Linguistics,
-Vol. 59: The replication crisis: Implications for linguistics).
-
-\hypertarget{caveats}{%
-\subsubsection{Caveats}\label{caveats}}
-
-The procedure used here is necessarily only a rough proxy of relevant
-experimental linguistic articles published in the field and several
-articles might thus have been overlooked and not been included in the
-analysis. The articles have been coded by only a single person who was
-not an expert in this field.
-
-\hypertarget{appendix}{%
-\section{Appendix}\label{appendix}}
-
-\providecommand{\docline}[3]{\noalign{\global\setlength{\arrayrulewidth}{#1}}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\setlength{\tabcolsep}{2pt}
-
-\renewcommand*{\arraystretch}{1.5}
-
-\begin{longtable}[c]{|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}}
-
-\caption{The full sample of journals sorted by their ratio of experimental linguistics articles.
-}\\
-
-\hhline{>{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}-}
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Journal}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Total\ Number\ of\ Articles}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Experimental\ Linguistics\ Articles}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Ratio\ of\ Experimental\ Linguistics\ Articles\ in\ \%}}} \\
-
-\hhline{>{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}-}
-
-\endfirsthead
-
-\hhline{>{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}-}
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Journal}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Total\ Number\ of\ Articles}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Experimental\ Linguistics\ Articles}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{Ratio\ of\ Experimental\ Linguistics\ Articles\ in\ \%}}} \\
-
-\hhline{>{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}-}\endhead
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ MEMORY\ AND\ LANGUAGE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{2,012}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,214}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{60.34}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ AND\ COGNITIVE\ PROCESSES}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{783}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{399}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{50.96}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{MENTAL\ LEXICON}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{105}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{48}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{45.71}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ ACQUISITION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{207}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{82}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{39.61}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ COGNITION\ AND\ NEUROSCIENCE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{590}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{229}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{38.81}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LABORATORY\ PHONOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{155}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{58}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{37.42}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ LEARNING\ AND\ DEVELOPMENT}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{141}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{51}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{36.17}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{NATURAL\ LANGUAGE\ ENGINEERING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{312}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{100}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{32.05}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LECTURE\ NOTES\ IN\ COMPUTER\ SCIENCE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{150}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{46}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{30.67}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ AND\ COGNITION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{144}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{42}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{29.17}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERACTION\ STUDIES}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{312}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{87}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{27.88}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{SECOND\ LANGUAGE\ RESEARCH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{338}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{93}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{27.51}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ PSYCHOLINGUISTIC\ RESEARCH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,691}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{454}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{26.85}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{STUDIES\ IN\ SECOND\ LANGUAGE\ ACQUISITION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{389}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{99}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{25.45}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{COMPUTATIONAL\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{521}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{130}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{24.95}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ COGNITIVE\ SCIENCE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{114}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{28}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{24.56}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{METAPHOR\ AND\ SYMBOL}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{278}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{66}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{23.74}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LECTURE\ NOTES\ IN\ ARTIFICIAL\ INTELLIGENCE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{113}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{26}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{23.01}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ SEMANTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{218}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{45}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{20.64}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LINGUISTIC\ APPROACHES\ TO\ BILINGUALISM}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{204}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{41}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{20.10}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{BILINGUALISM\ LANGUAGE\ AND\ COGNITION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{753}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{151}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{20.05}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{COMPUTER\ ASSISTED\ LANGUAGE\ LEARNING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{531}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{101}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{19.02}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LINGUISTIC\ RESEARCH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{166}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{31}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{18.67}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ AND\ SPEECH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,521}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{282}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{18.54}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ SPECIALISED\ TRANSLATION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{141}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{26}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{18.44}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{GLOSSA\ A\ JOURNAL\ OF\ GENERAL\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{561}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{103}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{18.36}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ PHONETICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,389}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{252}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{18.14}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ NEUROLINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{806}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{138}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{17.12}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{APPLIED\ PSYCHOLINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,202}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{202}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{16.81}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ LANGUAGE\ AND\ SOCIAL\ PSYCHOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{711}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{119}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{16.74}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{RECALL}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{214}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{35}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{16.36}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{PHONOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{190}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{31}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{16.32}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERPRETING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{131}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{20}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{15.27}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{EURASIAN\ JOURNAL\ OF\ APPLIED\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{115}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{17}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{14.78}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERNATIONAL\ JOURNAL\ OF\ SPEECH\ LANGUAGE\ AND\ THE\ LAW}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{171}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{25}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{14.62}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ LANGUAGE\ AND\ EDUCATION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{145}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{21}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{14.48}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LINGUISTICS\ VANGUARD}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{146}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{21}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{14.38}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{ARAB\ WORLD\ ENGLISH\ JOURNAL}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{952}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{132}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{13.87}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ SPEECH\ LANGUAGE\ AND\ HEARING\ RESEARCH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{3,389}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{463}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{13.66}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERNATIONAL\ JOURNAL\ OF\ BILINGUALISM}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{542}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{74}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{13.65}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{PHONETICA}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{862}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{116}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{13.46}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ CHILD\ LANGUAGE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,711}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{224}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{13.09}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{PROCESAMIENTO\ DEL\ LENGUAJE\ NATURAL}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{107}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{14}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{13.08}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{APPLIED\ LINGUISTICS\ RESEARCH\ JOURNAL}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{177}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{23}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{12.99}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LITERARY\ AND\ LINGUISTIC\ COMPUTING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{247}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{32}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{12.96}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{NATURAL\ LANGUAGE\ SEMANTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{145}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{18}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{12.41}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ QUANTITATIVE\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{258}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{32}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{12.40}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{BRAIN\ AND\ LANGUAGE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{3,680}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{449}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{12.20}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ AND\ LINGUISTICS\ COMPASS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{178}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{21}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11.80}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ LEARNING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,314}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{154}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11.72}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{CORPUS\ LINGUISTICS\ AND\ LINGUISTIC\ THEORY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{156}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{18}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11.54}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{REVIEW\ OF\ COGNITIVE\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{182}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{21}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11.54}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ TEACHING\ RESEARCH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{524}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{60}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11.45}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERPRETER\ AND\ TRANSLATOR\ TRAINER}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{231}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{26}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11.26}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{POZNAN\ STUDIES\ IN\ CONTEMPORARY\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{322}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{36}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11.18}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{MIND\ LANGUAGE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{728}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{80}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.99}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{FIRST\ LANGUAGE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{312}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{34}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.90}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{PRAGMATICS\ COGNITION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{193}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{21}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.88}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{ACTA\ LINGUISTICA\ HUNGARICA}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{243}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{26}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.70}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{SYNTAX\ A\ JOURNAL\ OF\ THEORETICAL\ EXPERIMENTAL\ AND\ INTERDISCIPLINARY\ RESEARCH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{150}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{16}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.67}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{COGNITIVE\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{443}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{47}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.61}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ RESEARCH\ IN\ APPLIED\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{283}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{30}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.60}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ LEARNING\ TECHNOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{352}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{37}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.51}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{APHASIOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,999}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{209}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10.46}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{DIGITAL\ SCHOLARSHIP\ IN\ THE\ HUMANITIES}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{389}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{38}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{9.77}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{PROBUS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{157}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{15}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{9.55}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INNOVATION\ IN\ LANGUAGE\ LEARNING\ AND\ TEACHING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{168}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{16}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{9.52}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERNATIONAL\ JOURNAL\ OF\ ENGLISH\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{786}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{71}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{9.03}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{TRANSLATION\ INTERPRETING\ THE\ INTERNATIONAL\ JOURNAL\ OF\ TRANSLATION\ AND\ INTERPRETING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{114}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.77}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{ACROSS\ LANGUAGES\ AND\ CULTURES}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{164}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{14}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.54}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{MORPHOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{106}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{9}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.49}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{AMERICAN\ JOURNAL\ OF\ SPEECH\ LANGUAGE\ PATHOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,132}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{95}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.39}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{REVUE\ ROUMAINE\ DE\ LINGUISTIQUE\ ROMANIAN\ REVIEW\ OF\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{205}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{17}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.29}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERCULTURAL\ PRAGMATICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{245}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{20}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.16}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{CHILD\ LANGUAGE\ TEACHING\ THERAPY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{249}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{20}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.03}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ AWARENESS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{262}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{21}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8.02}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{GESTURE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{143}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.69}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ THE\ INTERNATIONAL\ PHONETIC\ ASSOCIATION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{221}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{17}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.69}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{SYSTEM}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,131}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{87}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.69}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{METAPHOR\ AND\ SYMBOLIC\ ACTIVITY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{134}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.46}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{IBERICA}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{203}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{15}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.39}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LINGUA}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{2,551}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{187}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.33}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{ANNUAL\ REVIEW\ OF\ APPLIED\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{151}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{11}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.28}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LINGUISTICA\ ANTVERPIENSIA\ NEW\ SERIES\ THEMES\ IN\ TRANSLATION\ STUDIES}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{138}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.25}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{TERMINOLOGY}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{127}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{9}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7.09}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{ANNUAL\ REVIEW\ OF\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{101}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{7}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.93}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ LOGIC\ LANGUAGE\ AND\ INFORMATION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{146}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.85}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ FRENCH\ LANGUAGE\ STUDIES}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{117}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{8}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.84}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{CLINICAL\ LINGUISTICS\ PHONETICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,480}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{101}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.82}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ AND\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{281}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{19}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.76}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERNATIONAL\ JOURNAL\ OF\ LANGUAGE\ COMMUNICATION\ DISORDERS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{1,080}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{73}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.76}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{NORDIC\ JOURNAL\ OF\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{150}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.67}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{JOURNAL\ OF\ EAST\ ASIAN\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{338}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{22}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.51}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{LANGUAGE\ AND\ LITERATURE}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{246}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{16}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.50}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{3L\ LANGUAGE\ LINGUISTICS\ LITERATURE\ THE\ SOUTHEAST\ ASIAN\ JOURNAL\ OF\ ENGLISH\ LANGUAGE\ STUDIES}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{293}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{19}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.48}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{BABEL\ REVUE\ INTERNATIONALE\ DE\ LA\ TRADUCTION\ INTERNATIONAL\ JOURNAL\ OF\ TRANSLATION}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{264}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{17}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.44}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{HUMOR\ INTERNATIONAL\ JOURNAL\ OF\ HUMOR\ RESEARCH}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{607}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{39}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.43}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERNATIONAL\ JOURNAL\ OF\ CORPUS\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{239}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{15}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.28}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{IRAL\ INTERNATIONAL\ REVIEW\ OF\ APPLIED\ LINGUISTICS\ IN\ LANGUAGE\ TEACHING}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{671}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{42}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.26}}} \\
-
-
-
-
-
-\multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedright}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{INTERNATIONAL\ JOURNAL\ OF\ APPLIED\ LINGUISTICS}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{163}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{10}}} & \multicolumn{1}{!{\color[HTML]{000000}\vrule width 0pt}>{\raggedleft}p{\dimexpr 0.75in+0\tabcolsep+0\arrayrulewidth}!{\color[HTML]{000000}\vrule width 0pt}}{\fontsize{11}{11}\selectfont{\textcolor[HTML]{000000}{6.13}}} \\
-
-\hhline{>{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}->{\arrayrulecolor[HTML]{666666}\global\arrayrulewidth=2pt}-}
-
-
-
-\end{longtable}
+The current study aimed at providing a comprehensive survey of published replications in experimental linguistic research.
+By analyzing the publication history of over 50000 articles across 100 journals that publish experimental linguistic research, our study found that 4.3\% of experimental linguistic publications used the term replicat* in title, abstract or key words.
+A more thorough analysis of 210 sampled experimental articles containing the term replicat*, revealed that only around half of the hits represented actual replication studies, reducing the effective replication rate to 2.4\%. This rate is sightly higher than reports of comparable investigations in psychology (1.6\%, Makel et al., 2012), educational science (0.1\%, Makel and Plucker, 2014), and economics (0.1\%, Mueller-Langer et al., 2019). The higher rate might be due to a methodological choice, however. Due to large plurality of methods in linguistics, we calculated the replication rate based on only those articles that contained the term experiment* (as opposed to all articles in the sample), reducing the denominator substantially.
+
+A closer look at the nature of replication studies revealed that the majority of replication studies were studied that diverted from the initial study by at least one design choice. Only 6.9\% were direct replications, i.e.~studies that directly repeated an initial study without self-reported changes to the design and only three of these were replications conducted by an independent team of researchers.
+Taken together, 0.06\% of experimental studies are independent direct replications in the field of linguistics. Or in other words, only 1 in over 1600 experimental linguistic articles is an independent direct replication. This clearly indicates that replication attempts, and especially independent direct replication attempts, are very rare in the experimental linguistics literature.
+
+Before making our recommendations, there are important caveats to our results. If research articles are not framed as experimental, then they were not included in the analysis. If experimental articles are not framed as replications, then they were not categorized as such. While a clear limitation of our method, it also applies more generally: If studies are not framed as replications by using the term replication, readers' ability to connect research to its intellectual precedents is severely limited. To circumvent this methodological problem, the entire sample would have to undergo manual coding which is not feasible for a large scale assessment. Future research using alternative assessment methods or more in-depth investigation of subfields or specific journals might result in different replication rates.
+Moreover, our assessment of replication types relied on two assumptions. First, we assume that the authors disclosed changes to the initial study in a transparent way. Second, we assume that if changes are disclosed, we were able to extract and interpret these changes accurately. Neither of these assumptions must hold entirely, thus any rates that are generated here, are necessarily only a rough proxy of the true replication rate. Nevertheless, given that our findings seem to align well with evidence from other fields as well as an in-depth analysis of a subfield of linguistics (Marsden et al., 2018), we are confident that our conclusion holds.
+
+Although the present study is the first systematic assessment of replication rates in linguistics, our conclusions are hardly surprising. Academic incentive systems do not reward replication studies. Neither journals nor funders encourage them. For example, Martin and Clarke (2017)'s survey results suggest that in 2015 only 3\% of psychology journals explicitly state that they will consider publishing replications. Similarly, out of the 98 journals in our sample, only 2 encouraged direct replications. And even if one manages to publish a replication, replication studies are characterized by much lower yearly citation counts compared to corresponding initial studies, leading to a lack of perceived prestige Marsden et al. (2018). Direct replications simply do not seem worth their costs.
+
+In order to overcome the asymmetry between the cost of direct replication studies and the presently low academic payoff for it, we must re-evaluate the value of direct replications. Funding agencies, journals, but also editors and reviewers, need to start valuing direct replication attempts as much as they value novel findings. For example, we could either dedicate existing journal space to direct replications (e.g.~as its own article type) or create new journals that are specifically dedicated to replication studies.
+Journals could help normalizing replication studies by calls for special issues dedicated to replications of influential findings like the Journal of Memory and Language.\footnote{https://www.journals.elsevier.com/journal-of-memory-and-language/call-for-papers/replicating-influential-findings}
+Another alternative is the Pottery Barn rule, implemented by for example Royal Society Open Science: Once a journal has published a study, it commits to publish all direct replications of this study.\footnote{ https://royalsociety.org/blog/2018/10/reproducibility-meets-accountability/}
+
+At the same time, we should attempt to find more resource-efficient ways to both identify replication targets and conduct replication studies. We believe, most people would agree that not every study is worth replicating. Take for example the McGurk effect, i.e.~perceiving a sound that lies in-between an auditory presented component of one sound and a visually presented component of another one (McGurk and MacDonald, 1976). This phenomenon is probably replicated in dozens of linguistic classrooms every semester across the globe. Finding convenient yet effective tools to identify worthwhile replication targets is an active meta-scientific field at the moment (e.g., Coles et al., 2018; Hardwicke et al., 2018; Isager et al., 2021a) and feasible algorithms are currently actively developed and tested (Isager et al., 2021b).
+When it comes to more accessible ways to conduct replication studies, several authors have suggested involving our students more rigorously (Frank and Saxe, 2012; Grahe et al., 2012; e.g., Leeuw et al., 2019; Roettger and Baer-Henney, 2019), possibly creating a rich learning experience for our students while at the same time reducing the resource costs of replication studies. Alternatively, resources can be pooled across multi-lab replication efforts, effectively reducing the costs for individual researchers and labs (Frank et al., 2017; Nieuwland et al., 2018; e.g., Open Science Collaboration, 2015).
+
+We are confident that the field of linguistics can function as a roll model for neighboring fields. Although major meta-scientific discourses are held in other fields, linguistics has demonstrated quick uptake of methodological reforms time and time again. A point in case is the swift uptake of Registered Reports\footnote{http://cos.io/rr}, a new article form in which a study proposal is reviewed before the research is undertaken. While the uptake across disciplines is slow, linguistics has at least 12 high-impact journal outlets that offer Registered Reports. Moreover, an increasing number of reproducibility initiatives founded in the field during the last few years give hope that the field is continuing to evaluate their past, current, and future practices and succesfully face the challenges ahead. This paper was an attempt to contribute to this development. We hope our assessment allows future efforts to track progress over time and calibrate policies across experimental linguistics.
+
+\hypertarget{appendices}{%
+\section{Appendices}\label{appendices}}
+
+identified as A, B, etc.
+
+\begin{table}
+
+\caption{\label{tab:journals_sample}The full sample of journals sorted by their ratio of experimental linguistics articles.}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+Journal & Total Number of Articles & Experimental Linguistics Articles & Ratio of Experimental Linguistics Articles in \%\\
+\hline
+JOURNAL OF MEMORY AND LANGUAGE & 2012 & 1214 & 60.34\\
+\hline
+LANGUAGE AND COGNITIVE PROCESSES & 783 & 399 & 50.96\\
+\hline
+MENTAL LEXICON & 105 & 48 & 45.71\\
+\hline
+LANGUAGE ACQUISITION & 207 & 82 & 39.61\\
+\hline
+LANGUAGE COGNITION AND NEUROSCIENCE & 590 & 229 & 38.81\\
+\hline
+LABORATORY PHONOLOGY & 155 & 58 & 37.42\\
+\hline
+LANGUAGE LEARNING AND DEVELOPMENT & 141 & 51 & 36.17\\
+\hline
+NATURAL LANGUAGE ENGINEERING & 312 & 100 & 32.05\\
+\hline
+LECTURE NOTES IN COMPUTER SCIENCE & 150 & 46 & 30.67\\
+\hline
+LANGUAGE AND COGNITION & 144 & 42 & 29.17\\
+\hline
+INTERACTION STUDIES & 312 & 87 & 27.88\\
+\hline
+SECOND LANGUAGE RESEARCH & 338 & 93 & 27.51\\
+\hline
+JOURNAL OF PSYCHOLINGUISTIC RESEARCH & 1691 & 454 & 26.85\\
+\hline
+STUDIES IN SECOND LANGUAGE ACQUISITION & 389 & 99 & 25.45\\
+\hline
+COMPUTATIONAL LINGUISTICS & 521 & 130 & 24.95\\
+\hline
+JOURNAL OF COGNITIVE SCIENCE & 114 & 28 & 24.56\\
+\hline
+METAPHOR AND SYMBOL & 278 & 66 & 23.74\\
+\hline
+LECTURE NOTES IN ARTIFICIAL INTELLIGENCE & 113 & 26 & 23.01\\
+\hline
+JOURNAL OF SEMANTICS & 218 & 45 & 20.64\\
+\hline
+LINGUISTIC APPROACHES TO BILINGUALISM & 204 & 41 & 20.10\\
+\hline
+BILINGUALISM LANGUAGE AND COGNITION & 753 & 151 & 20.05\\
+\hline
+COMPUTER ASSISTED LANGUAGE LEARNING & 531 & 101 & 19.02\\
+\hline
+LINGUISTIC RESEARCH & 166 & 31 & 18.67\\
+\hline
+LANGUAGE AND SPEECH & 1521 & 282 & 18.54\\
+\hline
+JOURNAL OF SPECIALISED TRANSLATION & 141 & 26 & 18.44\\
+\hline
+GLOSSA A JOURNAL OF GENERAL LINGUISTICS & 561 & 103 & 18.36\\
+\hline
+JOURNAL OF PHONETICS & 1389 & 252 & 18.14\\
+\hline
+JOURNAL OF NEUROLINGUISTICS & 806 & 138 & 17.12\\
+\hline
+APPLIED PSYCHOLINGUISTICS & 1202 & 202 & 16.81\\
+\hline
+JOURNAL OF LANGUAGE AND SOCIAL PSYCHOLOGY & 711 & 119 & 16.74\\
+\hline
+RECALL & 214 & 35 & 16.36\\
+\hline
+PHONOLOGY & 190 & 31 & 16.32\\
+\hline
+INTERPRETING & 131 & 20 & 15.27\\
+\hline
+EURASIAN JOURNAL OF APPLIED LINGUISTICS & 115 & 17 & 14.78\\
+\hline
+INTERNATIONAL JOURNAL OF SPEECH LANGUAGE AND THE LAW & 171 & 25 & 14.62\\
+\hline
+JOURNAL OF LANGUAGE AND EDUCATION & 145 & 21 & 14.48\\
+\hline
+LINGUISTICS VANGUARD & 146 & 21 & 14.38\\
+\hline
+ARAB WORLD ENGLISH JOURNAL & 952 & 132 & 13.87\\
+\hline
+JOURNAL OF SPEECH LANGUAGE AND HEARING RESEARCH & 3389 & 463 & 13.66\\
+\hline
+INTERNATIONAL JOURNAL OF BILINGUALISM & 542 & 74 & 13.65\\
+\hline
+PHONETICA & 862 & 116 & 13.46\\
+\hline
+JOURNAL OF CHILD LANGUAGE & 1711 & 224 & 13.09\\
+\hline
+PROCESAMIENTO DEL LENGUAJE NATURAL & 107 & 14 & 13.08\\
+\hline
+APPLIED LINGUISTICS RESEARCH JOURNAL & 177 & 23 & 12.99\\
+\hline
+LITERARY AND LINGUISTIC COMPUTING & 247 & 32 & 12.96\\
+\hline
+NATURAL LANGUAGE SEMANTICS & 145 & 18 & 12.41\\
+\hline
+JOURNAL OF QUANTITATIVE LINGUISTICS & 258 & 32 & 12.40\\
+\hline
+BRAIN AND LANGUAGE & 3680 & 449 & 12.20\\
+\hline
+LANGUAGE AND LINGUISTICS COMPASS & 178 & 21 & 11.80\\
+\hline
+LANGUAGE LEARNING & 1314 & 154 & 11.72\\
+\hline
+CORPUS LINGUISTICS AND LINGUISTIC THEORY & 156 & 18 & 11.54\\
+\hline
+REVIEW OF COGNITIVE LINGUISTICS & 182 & 21 & 11.54\\
+\hline
+LANGUAGE TEACHING RESEARCH & 524 & 60 & 11.45\\
+\hline
+INTERPRETER AND TRANSLATOR TRAINER & 231 & 26 & 11.26\\
+\hline
+POZNAN STUDIES IN CONTEMPORARY LINGUISTICS & 322 & 36 & 11.18\\
+\hline
+MIND LANGUAGE & 728 & 80 & 10.99\\
+\hline
+FIRST LANGUAGE & 312 & 34 & 10.90\\
+\hline
+PRAGMATICS COGNITION & 193 & 21 & 10.88\\
+\hline
+ACTA LINGUISTICA HUNGARICA & 243 & 26 & 10.70\\
+\hline
+SYNTAX A JOURNAL OF THEORETICAL EXPERIMENTAL AND INTERDISCIPLINARY RESEARCH & 150 & 16 & 10.67\\
+\hline
+COGNITIVE LINGUISTICS & 443 & 47 & 10.61\\
+\hline
+JOURNAL OF RESEARCH IN APPLIED LINGUISTICS & 283 & 30 & 10.60\\
+\hline
+LANGUAGE LEARNING TECHNOLOGY & 352 & 37 & 10.51\\
+\hline
+APHASIOLOGY & 1999 & 209 & 10.46\\
+\hline
+DIGITAL SCHOLARSHIP IN THE HUMANITIES & 389 & 38 & 9.77\\
+\hline
+PROBUS & 157 & 15 & 9.55\\
+\hline
+INNOVATION IN LANGUAGE LEARNING AND TEACHING & 168 & 16 & 9.52\\
+\hline
+INTERNATIONAL JOURNAL OF ENGLISH LINGUISTICS & 786 & 71 & 9.03\\
+\hline
+TRANSLATION INTERPRETING THE INTERNATIONAL JOURNAL OF TRANSLATION AND INTERPRETING & 114 & 10 & 8.77\\
+\hline
+ACROSS LANGUAGES AND CULTURES & 164 & 14 & 8.54\\
+\hline
+MORPHOLOGY & 106 & 9 & 8.49\\
+\hline
+AMERICAN JOURNAL OF SPEECH LANGUAGE PATHOLOGY & 1132 & 95 & 8.39\\
+\hline
+REVUE ROUMAINE DE LINGUISTIQUE ROMANIAN REVIEW OF LINGUISTICS & 205 & 17 & 8.29\\
+\hline
+INTERCULTURAL PRAGMATICS & 245 & 20 & 8.16\\
+\hline
+CHILD LANGUAGE TEACHING THERAPY & 249 & 20 & 8.03\\
+\hline
+LANGUAGE AWARENESS & 262 & 21 & 8.02\\
+\hline
+GESTURE & 143 & 11 & 7.69\\
+\hline
+JOURNAL OF THE INTERNATIONAL PHONETIC ASSOCIATION & 221 & 17 & 7.69\\
+\hline
+SYSTEM & 1131 & 87 & 7.69\\
+\hline
+METAPHOR AND SYMBOLIC ACTIVITY & 134 & 10 & 7.46\\
+\hline
+IBERICA & 203 & 15 & 7.39\\
+\hline
+LINGUA & 2551 & 187 & 7.33\\
+\hline
+ANNUAL REVIEW OF APPLIED LINGUISTICS & 151 & 11 & 7.28\\
+\hline
+LINGUISTICA ANTVERPIENSIA NEW SERIES THEMES IN TRANSLATION STUDIES & 138 & 10 & 7.25\\
+\hline
+TERMINOLOGY & 127 & 9 & 7.09\\
+\hline
+ANNUAL REVIEW OF LINGUISTICS & 101 & 7 & 6.93\\
+\hline
+JOURNAL OF LOGIC LANGUAGE AND INFORMATION & 146 & 10 & 6.85\\
+\hline
+JOURNAL OF FRENCH LANGUAGE STUDIES & 117 & 8 & 6.84\\
+\hline
+CLINICAL LINGUISTICS PHONETICS & 1480 & 101 & 6.82\\
+\hline
+LANGUAGE AND LINGUISTICS & 281 & 19 & 6.76\\
+\hline
+INTERNATIONAL JOURNAL OF LANGUAGE COMMUNICATION DISORDERS & 1080 & 73 & 6.76\\
+\hline
+NORDIC JOURNAL OF LINGUISTICS & 150 & 10 & 6.67\\
+\hline
+JOURNAL OF EAST ASIAN LINGUISTICS & 338 & 22 & 6.51\\
+\hline
+LANGUAGE AND LITERATURE & 246 & 16 & 6.50\\
+\hline
+3L LANGUAGE LINGUISTICS LITERATURE THE SOUTHEAST ASIAN JOURNAL OF ENGLISH LANGUAGE STUDIES & 293 & 19 & 6.48\\
+\hline
+BABEL REVUE INTERNATIONALE DE LA TRADUCTION INTERNATIONAL JOURNAL OF TRANSLATION & 264 & 17 & 6.44\\
+\hline
+HUMOR INTERNATIONAL JOURNAL OF HUMOR RESEARCH & 607 & 39 & 6.43\\
+\hline
+INTERNATIONAL JOURNAL OF CORPUS LINGUISTICS & 239 & 15 & 6.28\\
+\hline
+IRAL INTERNATIONAL REVIEW OF APPLIED LINGUISTICS IN LANGUAGE TEACHING & 671 & 42 & 6.26\\
+\hline
+INTERNATIONAL JOURNAL OF APPLIED LINGUISTICS & 163 & 10 & 6.13\\
+\hline
+\end{tabular}
+\end{table}
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
@@ -1349,144 +561,155 @@ not an expert in this field.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-barba_terminologies_2018}{}}%
+\leavevmode\hypertarget{ref-amrhein2019inferential}{}%
+Amrhein, V., Trafimow, D., Greenland, S., 2019. Inferential statistics as descriptive statistics: There is no replication crisis if we don't expect replication. The American Statistician 73, 262--270.
+
+\leavevmode\hypertarget{ref-barba_terminologies_2018}{}%
 Barba, L.A., 2018. Terminologies for {Reproducible} {Research}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-burkner_brms_2016}{}}%
-Bürkner, P.-C., 2016. Brms: {An} {R} package for {Bayesian} multilevel
-models using {Stan}. Journal of Statistical Software 80, 1--28.
+\leavevmode\hypertarget{ref-button2013power}{}%
+Button, K.S., Ioannidis, J.P., Mokrysz, C., Nosek, B.A., Flint, J., Robinson, E.S., Munafo, M.R., 2013. Power failure: Why small sample size undermines the reliability of neuroscience. Nature reviews neuroscience 14, 365--376.
 
-\leavevmode\vadjust pre{\hypertarget{ref-camerer_evaluating_2016}{}}%
-Camerer, C.F., Dreber, A., Forsell, E., Ho, T.-H., Huber, J.,
-Johannesson, M., Kirchler, M., Almenberg, J., Altmejd, A., Chan, T.,
-Heikensten, E., Holzmeister, F., Imai, T., Isaksson, S., Nave, G.,
-Pfeiffer, T., Razen, M., Wu, H., 2016. Evaluating replicability of
-laboratory experiments in economics. Science 351, 1433--1436.
-doi:\href{https://doi.org/10.1126/science.aaf0918}{10.1126/science.aaf0918}
+\leavevmode\hypertarget{ref-burkner_brms_2016}{}%
+Bürkner, P.-C., 2016. Brms: {An} {R} package for {Bayesian} multilevel models using {Stan}. Journal of Statistical Software 80, 1--28.
 
-\leavevmode\vadjust pre{\hypertarget{ref-camerer_evaluating_2018}{}}%
-Camerer, C.F., Dreber, A., Holzmeister, F., Ho, T.-H., Huber, J.,
-Johanesson, M., Kirchler, M., Nave, G., Nosek, B.A., Pfeiffer, T.,
-Altmejd, A., Buttrick, N., Chan, T., Chen, Y., Forsell, E., Gampa, A.,
-Heikensten, E., Hummer, L., Imai, T., Isaksson, S., Manfredi, D., Rose,
-J., Wagenmakers, E.-J., Wu, H., 2018. Evaluating the replicability of
-social science experiments in {Nature} and {Science} between 2010 and
-2015. Nature 2, 637--644.
-doi:\href{https://doi.org/10.1038/s41562-018-0399-z}{10.1038/s41562-018-0399-z}
+\leavevmode\hypertarget{ref-camerer_evaluating_2016}{}%
+Camerer, C.F., Dreber, A., Forsell, E., Ho, T.-H., Huber, J., Johannesson, M., Kirchler, M., Almenberg, J., Altmejd, A., Chan, T., Heikensten, E., Holzmeister, F., Imai, T., Isaksson, S., Nave, G., Pfeiffer, T., Razen, M., Wu, H., 2016. Evaluating replicability of laboratory experiments in economics. Science 351, 1433--1436. doi:\href{https://doi.org/10.1126/science.aaf0918}{10.1126/science.aaf0918}
 
-\leavevmode\vadjust pre{\hypertarget{ref-campbell_reforms_1969}{}}%
-Campbell, D.T., 1969. Reforms as experiments. American Psychologist 24,
-409.
+\leavevmode\hypertarget{ref-camerer_evaluating_2018}{}%
+Camerer, C.F., Dreber, A., Holzmeister, F., Ho, T.-H., Huber, J., Johanesson, M., Kirchler, M., Nave, G., Nosek, B.A., Pfeiffer, T., Altmejd, A., Buttrick, N., Chan, T., Chen, Y., Forsell, E., Gampa, A., Heikensten, E., Hummer, L., Imai, T., Isaksson, S., Manfredi, D., Rose, J., Wagenmakers, E.-J., Wu, H., 2018. Evaluating the replicability of social science experiments in {Nature} and {Science} between 2010 and 2015. Nature 2, 637--644. doi:\href{https://doi.org/10.1038/s41562-018-0399-z}{10.1038/s41562-018-0399-z}
 
-\leavevmode\vadjust pre{\hypertarget{ref-chen_chinese_2007}{}}%
-Chen, J.-Y., 2007. Do {Chinese} and {English} speakers think about time
-differently? {Failure} of replicating {Boroditsky} (2001). Cognition
-104, 427--436.
+\leavevmode\hypertarget{ref-campbell_reforms_1969}{}%
+Campbell, D.T., 1969. Reforms as experiments. American Psychologist 24, 409.
 
-\leavevmode\vadjust pre{\hypertarget{ref-doyen_behavioral_2012}{}}%
-Doyen, S., Klein, O., Pichon, C.-L., Cleeremans, A., 2012. Behavioral
-priming: It's all in the mind, but whose mind? PloS one 7, e29081.
+\leavevmode\hypertarget{ref-casillas2021interlingual}{}%
+Casillas, J.V., 2021. Interlingual interactions elicit performance mismatches not {``compromise''} categories in early bilinguals: Evidence from meta-analysis and coronal stops. Languages 6, 9.
 
-\leavevmode\vadjust pre{\hypertarget{ref-fanelli_pressures_2010}{}}%
-Fanelli, D., 2010. Do pressures to publish increase scientists' bias? An
-empirical support from US states data. PLoS ONE 5, e10271.
-doi:\href{https://doi.org/10.1371/journal.pone.0010271}{10.1371/journal.pone.0010271}
+\leavevmode\hypertarget{ref-chen_chinese_2007}{}%
+Chen, J.-Y., 2007. Do {Chinese} and {English} speakers think about time differently? {Failure} of replicating {Boroditsky} (2001). Cognition 104, 427--436.
 
-\leavevmode\vadjust pre{\hypertarget{ref-fidler_reproducibility_2018}{}}%
+\leavevmode\hypertarget{ref-coles2018costs}{}%
+Coles, N.A., Tiokhin, L., Scheel, A.M., Isager, P.M., Lakens, D., 2018. The costs and benefits of replication studies. Behavioral and Brain Sciences 41.
+
+\leavevmode\hypertarget{ref-doyen_behavioral_2012}{}%
+Doyen, S., Klein, O., Pichon, C.-L., Cleeremans, A., 2012. Behavioral priming: It's all in the mind, but whose mind? PloS one 7, e29081.
+
+\leavevmode\hypertarget{ref-fanelli_pressures_2010}{}%
+Fanelli, D., 2010. Do pressures to publish increase scientists' bias? An empirical support from US states data. PLoS ONE 5, e10271. doi:\href{https://doi.org/10.1371/journal.pone.0010271}{10.1371/journal.pone.0010271}
+
+\leavevmode\hypertarget{ref-fidler_reproducibility_2018}{}%
 Fidler, F., Wilcox, J., 2018. Reproducibility of scientific results.
 
-\leavevmode\vadjust pre{\hypertarget{ref-gelman_weakly_2008}{}}%
-Gelman, A., Jakulin, A., Pittau, M.G., Su, Y.-S., others, 2008. A weakly
-informative default prior distribution for logistic and other regression
-models. The Annals of Applied Statistics 2, 1360--1383.
+\leavevmode\hypertarget{ref-frank2017collaborative}{}%
+Frank, M.C., Bergelson, E., Bergmann, C., Cristia, A., Floccia, C., Gervain, J., Hamlin, J.K., Hannon, E.E., Kline, M., Levelt, C., others, 2017. A collaborative approach to infant research: Promoting reproducibility, best practices, and theory-building. Infancy 22, 421--435.
 
-\leavevmode\vadjust pre{\hypertarget{ref-koole_rewarding_2012}{}}%
-Koole, S.L., Lakens, D., 2012. Rewarding replications: {A} sure and
-simple way to improve psychological science. Perspectives on
-Psychological Science 7, 608--614.
+\leavevmode\hypertarget{ref-frank2012teaching}{}%
+Frank, M.C., Saxe, R., 2012. Teaching replication. Perspectives on Psychological Science 7, 600--604.
 
-\leavevmode\vadjust pre{\hypertarget{ref-madden_how_1995}{}}%
-Madden, C.S., Easley, R.W., Dunn, M.G., 1995. How journal editors view
-replication research. Journal of Advertising 24, 77--87.
+\leavevmode\hypertarget{ref-gelman_weakly_2008}{}%
+Gelman, A., Jakulin, A., Pittau, M.G., Su, Y.-S., others, 2008. A weakly informative default prior distribution for logistic and other regression models. The Annals of Applied Statistics 2, 1360--1383.
 
-\leavevmode\vadjust pre{\hypertarget{ref-makel_facts_2014}{}}%
-Makel, M.C., Plucker, J.A., 2014. Facts are more important than novelty:
-{Replication} in the education sciences. Educational Researcher 43,
-304--316.
+\leavevmode\hypertarget{ref-grahe2012harnessing}{}%
+Grahe, J.E., Reifman, A., Hermann, A.D., Walker, M., Oleson, K.C., Nario-Redmond, M., Wiebe, R.P., 2012. Harnessing the undiscovered resource of student research projects. Perspectives on Psychological Science 7, 605--607.
 
-\leavevmode\vadjust pre{\hypertarget{ref-makel_replication_2016}{}}%
-Makel, M.C., Plucker, J.A., Freeman, J., Lombardi, A., Simonsen, B.,
-Coyne, M., 2016. Replication of {Special} {Education} {Research}:
-{Necessary} but {Far} {Too} {Rare}. Remedial and Special Education 37,
-205--212.
+\leavevmode\hypertarget{ref-hardwicke2018bayesian}{}%
+Hardwicke, T.E., Tessler, M.H., Peloquin, B.N., Frank, M.C., 2018. A bayesian decision-making framework for replication. Behavioral and Brain Sciences 41.
 
-\leavevmode\vadjust pre{\hypertarget{ref-makel_replications_2012}{}}%
-Makel, M.C., Plucker, J.A., Hegarty, B., 2012. Replications in
-psychology research: {How} often do they really occur? Perspectives on
-Psychological Science 7, 537--542.
+\leavevmode\hypertarget{ref-henrich2010weirdest}{}%
+Henrich, J., Heine, S.J., Norenzayan, A., 2010. The weirdest people in the world? Behavioral and brain sciences 33, 61--83.
 
-\leavevmode\vadjust pre{\hypertarget{ref-marsden_replication_2018}{}}%
-Marsden, E., Morgan‐Short, K., Thompson, S., Abugaber, D., 2018.
-Replication in {Second} {Language} {Research}: {Narrative} and
-{Systematic} {Reviews} and {Recommendations} for the {Field}. Language
-Learning 68, 321--391. doi:\href{https://doi.org/gc3h3b}{gc3h3b}
+\leavevmode\hypertarget{ref-isager2021deciding}{}%
+Isager, P.M., Aert, R. van, Bahník, Š., Brandt, M.J., DeSoto, K.A., Giner-Sorolla, R., Krueger, J.I., Perugini, M., Ropovik, I., Veer, A.E. van't, others, 2021a. Deciding what to replicate: A decision model for replication study selection under resource and knowledge constraints. Psychological Methods.
 
-\leavevmode\vadjust pre{\hypertarget{ref-martin_are_2017}{}}%
-Martin, G.N., Clarke, R.M., 2017. Are {Psychology} {Journals}
-{Anti}-replication? {A} {Snapshot} of {Editorial} {Practices}. Frontiers
-in Psychology 8.
-doi:\href{https://doi.org/10.3389/fpsyg.2017.00523}{10.3389/fpsyg.2017.00523}
+\leavevmode\hypertarget{ref-isager2021replication}{}%
+Isager, P.M., Veer, A. van't, Lakens, D., 2021b. Replication value as a function of citation impact and sample size.
 
-\leavevmode\vadjust pre{\hypertarget{ref-nieuwland_large-scale_2018}{}}%
-Nieuwland, M.S., Politzer-Ahles, S., Heyselaar, E., Segaert, K., Darley,
-E., Kazanina, N., Zu Wolfsthurn, S.V.G., Bartolozzi, F., Kogan, V., Ito,
-A., Mézière, D., Barr, D.J., Rousselet, G.A., Ferguson, H.J.,
-Bush-Moreno, S., Fu, X., Tuomainen, J., Kulakova, E., Husband, M.E.,
-Donaldson, D.I., Kohút, Z., Rueschemeyer, S.-A., Huettig, F., 2018.
-Large-scale replication study reveals a limit on probabilistic
-prediction in language comprehension. eLife 7, e33468.
-doi:\href{https://doi.org/10.7554/eLife.33468.001}{10.7554/eLife.33468.001}
+\leavevmode\hypertarget{ref-kirby2018mixed}{}%
+Kirby, J., Sonderegger, M., 2018. Mixed-effects design analysis for experimental phonetics. Journal of Phonetics 70, 70--85.
 
-\leavevmode\vadjust pre{\hypertarget{ref-nosek_scientific_2012}{}}%
-Nosek, B.A., Spies, J.R., Motyl, M., 2012. Scientific utopia {II}.
-{Restructuring} incentives and practices to promote truth over
-publishability. Perspectives on Psychological Science 7, 615--631.
+\leavevmode\hypertarget{ref-koole_rewarding_2012}{}%
+Koole, S.L., Lakens, D., 2012. Rewarding replications: {A} sure and simple way to improve psychological science. Perspectives on Psychological Science 7, 608--614.
 
-\leavevmode\vadjust pre{\hypertarget{ref-open_science_collaboration_estimating_2015}{}}%
-Open Science Collaboration, 2015. Estimating the reproducibility of
-psychological science. Science 349.
-doi:\href{https://doi.org/10.1126/science.aac4716}{10.1126/science.aac4716}
+\leavevmode\hypertarget{ref-de2019using}{}%
+Leeuw, J.R. de, Andrews, J., Livingston, K., Franke, M., Hartshorne, J., Hawkins, R., Wagge, J., 2019. Using replication studies to teach research methods in cognitive science. Perspectives on Psychological Science 7, 600--604.
 
-\leavevmode\vadjust pre{\hypertarget{ref-papesh_just_2015}{}}%
-Papesh, M.H., 2015. Just out of reach: {On} the reliability of the
-action-sentence compatibility effect. Journal of Experimental
-Psychology: General 144, e116--e141.
-doi:\href{https://doi.org/10.1037/xge0000125}{10.1037/xge0000125}
+\leavevmode\hypertarget{ref-levisen2019biases}{}%
+Levisen, C., 2019. Biases we live by: Anglocentrism in linguistics and cognitive sciences. Language Sciences 76, 101173.
 
-\leavevmode\vadjust pre{\hypertarget{ref-roettger_toward_2019}{}}%
-Roettger, T.B., Baer-Henney, D., 2019. Toward a replication culture:
-{Speech} production research in the classroom. Phonological Data and
-Analysis 1, 1--23.
+\leavevmode\hypertarget{ref-lindsay1993design}{}%
+Lindsay, R.M., Ehrenberg, A.S., 1993. The design of replicated studies. The American Statistician 47, 217--228.
 
-\leavevmode\vadjust pre{\hypertarget{ref-rosenthal_replication_1990}{}}%
-Rosenthal, R., 1990. Replication in behavioral research. Journal of
-Social Behavior and Personality 5, 1.
+\leavevmode\hypertarget{ref-madden_how_1995}{}%
+Madden, C.S., Easley, R.W., Dunn, M.G., 1995. How journal editors view replication research. Journal of Advertising 24, 77--87.
 
-\leavevmode\vadjust pre{\hypertarget{ref-stack_failure_2018}{}}%
-Stack, C.M.H., James, A.N., Watson, D.G., 2018. A failure to replicate
-rapid syntactic adaptation in comprehension. Memory \& Cognition 46,
-864--877.
-doi:\href{https://doi.org/10.3758/s13421-018-0808-6}{10.3758/s13421-018-0808-6}
+\leavevmode\hypertarget{ref-majid2010language}{}%
+Majid, A., Levinson, S.C., 2010. The language of perception across cultures, in: The XXth Congress of European Chemoreception Research Organization, Symposium on" Senses in Language and Culture".
 
-\leavevmode\vadjust pre{\hypertarget{ref-westbury_implicit_2018}{}}%
-Westbury, C., 2018. Implicit sound symbolism effect in lexical access,
-revisited: {A} requiem for the interference task paradigm. Journal of
-Articles in Support of the Null Hypothesis 15, 1--12.
+\leavevmode\hypertarget{ref-makel_facts_2014}{}%
+Makel, M.C., Plucker, J.A., 2014. Facts are more important than novelty: {Replication} in the education sciences. Educational Researcher 43, 304--316.
 
-\leavevmode\vadjust pre{\hypertarget{ref-zwaan_making_2018}{}}%
-Zwaan, R.A., Etz, A., Lucas, R.E., Donnellan, M.B., 2018. Making
-replication mainstream. Behavioral and Brain Sciences 41, E120.
-doi:\href{https://doi.org/10.1017/S0140525X17001972}{10.1017/S0140525X17001972}
+\leavevmode\hypertarget{ref-makel_replication_2016}{}%
+Makel, M.C., Plucker, J.A., Freeman, J., Lombardi, A., Simonsen, B., Coyne, M., 2016. Replication of {Special} {Education} {Research}: {Necessary} but {Far} {Too} {Rare}. Remedial and Special Education 37, 205--212.
+
+\leavevmode\hypertarget{ref-makel_replications_2012}{}%
+Makel, M.C., Plucker, J.A., Hegarty, B., 2012. Replications in psychology research: {How} often do they really occur? Perspectives on Psychological Science 7, 537--542.
+
+\leavevmode\hypertarget{ref-marsden_replication_2018}{}%
+Marsden, E., Morgan‐Short, K., Thompson, S., Abugaber, D., 2018. Replication in {Second} {Language} {Research}: {Narrative} and {Systematic} {Reviews} and {Recommendations} for the {Field}. Language Learning 68, 321--391. doi:\href{https://doi.org/gc3h3b}{gc3h3b}
+
+\leavevmode\hypertarget{ref-martin_are_2017}{}%
+Martin, G.N., Clarke, R.M., 2017. Are {Psychology} {Journals} {Anti}-replication? {A} {Snapshot} of {Editorial} {Practices}. Frontiers in Psychology 8. doi:\href{https://doi.org/10.3389/fpsyg.2017.00523}{10.3389/fpsyg.2017.00523}
+
+\leavevmode\hypertarget{ref-mcgurk1976hearing}{}%
+McGurk, H., MacDonald, J., 1976. Hearing lips and seeing voices. Nature 264, 746--748.
+
+\leavevmode\hypertarget{ref-morey2021pre}{}%
+Morey, R.D., Kaschak, M.P., Díez-Álamo, A.M., Glenberg, A.M., Zwaan, R.A., Lakens, D., Ibáñez, A., García, A., Gianelli, C., Jones, J.L., others, 2021. A pre-registered, multi-lab non-replication of the action-sentence compatibility effect (ACE). Psychonomic Bulletin \& Review.
+
+\leavevmode\hypertarget{ref-mueller2019replication}{}%
+Mueller-Langer, F., Fecher, B., Harhoff, D., Wagner, G.G., 2019. Replication studies in economics---how many and which papers are chosen for replication, and why? Research Policy 48, 62--83.
+
+\leavevmode\hypertarget{ref-nieuwland_large-scale_2018}{}%
+Nieuwland, M.S., Politzer-Ahles, S., Heyselaar, E., Segaert, K., Darley, E., Kazanina, N., Zu Wolfsthurn, S.V.G., Bartolozzi, F., Kogan, V., Ito, A., Mézière, D., Barr, D.J., Rousselet, G.A., Ferguson, H.J., Bush-Moreno, S., Fu, X., Tuomainen, J., Kulakova, E., Husband, M.E., Donaldson, D.I., Kohút, Z., Rueschemeyer, S.-A., Huettig, F., 2018. Large-scale replication study reveals a limit on probabilistic prediction in language comprehension. eLife 7, e33468. doi:\href{https://doi.org/10.7554/eLife.33468.001}{10.7554/eLife.33468.001}
+
+\leavevmode\hypertarget{ref-nosek2015promoting}{}%
+Nosek, B.A., Alter, G., Banks, G.C., Borsboom, D., Bowman, S.D., Breckler, S.J., Buck, S., Chambers, C.D., Chin, G., Christensen, G., others, 2015. Promoting an open research culture. Science 348, 1422--1425.
+
+\leavevmode\hypertarget{ref-nosek_scientific_2012}{}%
+Nosek, B.A., Spies, J.R., Motyl, M., 2012. Scientific utopia {II}. {Restructuring} incentives and practices to promote truth over publishability. Perspectives on Psychological Science 7, 615--631.
+
+\leavevmode\hypertarget{ref-open_science_collaboration_estimating_2015}{}%
+Open Science Collaboration, 2015. Estimating the reproducibility of psychological science. Science 349. doi:\href{https://doi.org/10.1126/science.aac4716}{10.1126/science.aac4716}
+
+\leavevmode\hypertarget{ref-papesh_just_2015}{}%
+Papesh, M.H., 2015. Just out of reach: {On} the reliability of the action-sentence compatibility effect. Journal of Experimental Psychology: General 144, e116--e141. doi:\href{https://doi.org/10.1037/xge0000125}{10.1037/xge0000125}
+
+\leavevmode\hypertarget{ref-roettger2019researcher}{}%
+Roettger, T.B., 2019. Researcher degrees of freedom in phonetic research. Laboratory Phonology: Journal of the Association for Laboratory Phonology 10.
+
+\leavevmode\hypertarget{ref-roettger_toward_2019}{}%
+Roettger, T.B., Baer-Henney, D., 2019. Toward a replication culture: {Speech} production research in the classroom. Phonological Data and Analysis 1, 1--23.
+
+\leavevmode\hypertarget{ref-rosenthal_replication_1990}{}%
+Rosenthal, R., 1990. Replication in behavioral research. Journal of Social Behavior and Personality 5, 1.
+
+\leavevmode\hypertarget{ref-simmons2011false}{}%
+Simmons, J.P., Nelson, L.D., Simonsohn, U., 2011. False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant. Psychological science 22, 1359--1366.
+
+\leavevmode\hypertarget{ref-stack_failure_2018}{}%
+Stack, C.M.H., James, A.N., Watson, D.G., 2018. A failure to replicate rapid syntactic adaptation in comprehension. Memory \& Cognition 46, 864--877. doi:\href{https://doi.org/10.3758/s13421-018-0808-6}{10.3758/s13421-018-0808-6}
+
+\leavevmode\hypertarget{ref-westbury_implicit_2018}{}%
+Westbury, C., 2018. Implicit sound symbolism effect in lexical access, revisited: {A} requiem for the interference task paradigm. Journal of Articles in Support of the Null Hypothesis 15, 1--12.
+
+\leavevmode\hypertarget{ref-winter2021independence}{}%
+Winter, B., Grice, M., 2021. Independence and generalizability in linguistics. Linguistics 59, 1251--1277.
+
+\leavevmode\hypertarget{ref-yarkoni2019generalizability}{}%
+Yarkoni, T., 2019. The generalizability crisis. Behavioral and Brain Sciences 1--37.
+
+\leavevmode\hypertarget{ref-zwaan_making_2018}{}%
+Zwaan, R.A., Etz, A., Lucas, R.E., Donnellan, M.B., 2018. Making replication mainstream. Behavioral and Brain Sciences 41, E120. doi:\href{https://doi.org/10.1017/S0140525X17001972}{10.1017/S0140525X17001972}
 
 \end{CSLReferences}
 
