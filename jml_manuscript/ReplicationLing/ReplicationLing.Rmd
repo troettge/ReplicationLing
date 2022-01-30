@@ -821,7 +821,7 @@ We are confident that the field of linguistics can function as a roll model for 
 
 # Appendix
 <!--If there is more than one appendix, they should be identified as A, B, etc. -->
-
+<!--
 ```{r journals_sample, tab.cap="The full sample of journals sorted by their ratio of experimental linguistics articles."}
 sample_journals <- sample_journals %>% 
   mutate(ratio = round(ratio*100, 2)) %>% 
@@ -833,7 +833,7 @@ sample_journals <- sample_journals %>%
 set_flextable_defaults(fonts_ignore=TRUE)
 flextable(sample_journals) # sometimes works, sometimes doesn't
 ```
-
+-->
 ```{r cit-and-years-direct, include=FALSE, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Relation between citation counts and years of publication of direct replication studies."}
 # preparing data for plot
 
