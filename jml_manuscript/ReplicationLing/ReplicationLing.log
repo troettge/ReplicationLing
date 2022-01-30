@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.30)  30 JAN 2022 14:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.30)  30 JAN 2022 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -879,7 +879,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 252.
 
 [8]
-<ReplicationLing_files/figure-latex/stream-plot-1.pdf, id=160, 430.60875pt x 27
+<ReplicationLing_files/figure-latex/stream-plot-1.pdf, id=159, 430.60875pt x 27
 7.035pt>
 File: ReplicationLing_files/figure-latex/stream-plot-1.pdf Graphic file (type p
 df)
@@ -887,7 +887,7 @@ df)
 Package pdftex.def Info: ReplicationLing_files/figure-latex/stream-plot-1.pdf  
 used on input line 294.
 (pdftex.def)             Requested size: 345.0pt x 221.96223pt.
-<ReplicationLing_files/figure-latex/river-plot-1.pdf, id=161, 304.13625pt x 201
+<ReplicationLing_files/figure-latex/river-plot-1.pdf, id=160, 304.13625pt x 201
 .75375pt>
 File: ReplicationLing_files/figure-latex/river-plot-1.pdf Graphic file (type pd
 f)
@@ -959,10 +959,10 @@ pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
 /lmsy7.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
 blic/lm/lmtt10.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/
 type1/public/lm/lmtt8.pfb>
-Output written on ReplicationLing.pdf (17 pages, 404366 bytes).
+Output written on ReplicationLing.pdf (17 pages, 404359 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 313 compressed objects within 4 object streams
+ 373 PDF objects out of 1000 (max. 8388607)
+ 312 compressed objects within 4 object streams
  109 named destinations out of 1000 (max. 500000)
  29821 words of extra memory for PDF output out of 29859 (max. 10000000)
 
