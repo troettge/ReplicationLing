@@ -174,14 +174,6 @@ ggplot(data = predicted_values,
               plot.title = element_text(size = 14, face = "bold"),
               plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
 
-## plot
-ggsave(filename = "../plots/mention_jif.png",
-               plot = mention_jif,
-               device = "png",
-               width = 120, 
-               height = 96,
-               units = "mm",
-               dpi = 300)
 
 
 ## could this effect be driven by the number experimental studies?

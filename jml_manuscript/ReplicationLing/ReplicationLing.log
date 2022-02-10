@@ -1,19 +1,16 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.30)  30 JAN 2022 14:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.10)  10 FEB 2022 13:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **ReplicationLing.tex
 (./ReplicationLing.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-01-21> (./elsarticle.cls
+L3 programming layer <2022-02-05> (./elsarticle.cls
 Document Class: elsarticle 2008/05/22, 1.0.1: Elsevier Science
 \@bls=\dimen138
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cl
-s
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
@@ -27,48 +24,32 @@ File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen139
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphi
-cx.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval
-.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphi
-cs.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.s
-ty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/gr
-aphics.cfg
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pd
-ftex.def
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen140
 \Gin@req@width=\dimen141
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/pifont.s
-ty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upzd.fd
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upsy.fd
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
 \c@tnote=\count193
@@ -88,9 +69,7 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \@enLab=\toks18
 \@sep=\skip49
 \@@sep=\skip50
-(./ReplicationLing.spl)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.s
-ty
+(./ReplicationLing.spl) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip51
 \bibsep=\skip52
@@ -100,12 +79,10 @@ LaTeX Info: Redefining \cite on input line 694.
 \splwrite=\write3
 \openout3 = `ReplicationLing.spl'.
 
-) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.s
-ty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count266
 \output=\toks19
@@ -122,12 +99,9 @@ Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \bframesep=\dimen149
 \bframebox=\box54
 LaTeX Info: Redefining \\ on input line 3056.
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.st
-y
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.st
-y
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -161,13 +135,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssym
-b.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfon
-ts.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks20
 \symAMSa=\mathgroup4
@@ -175,30 +145,20 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath
-.sty
+)) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2021/10/15 v2.17l AMS math features
 \@mathmargin=\skip53
 For additional information on amsmath, use the `?' option.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext
-.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.
-sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks21
 \ex@=\dimen150
-))
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.
-sty
+)) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen151
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.
-sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
 \inf@bad=\count273
@@ -238,21 +198,13 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2938.
 LaTeX Info: Redefining \] on input line 2939.
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex
-.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.s
-ty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
-))
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifluate
-x.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.s
-ty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.sty
 Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
 Applying: [2015/01/01] Old fixltx2e package on input line 46.
 
@@ -261,131 +213,53 @@ Package fixltx2e Warning: fixltx2e is not required with releases after 2015
 (fixltx2e)                See the latexrelease package for details.
 
 Already applied: [0000/00/00] Old fixltx2e package on input line 53.
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/upquote/upquote
-.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.s
-ty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-))
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.s
-ty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks26
 \inpenc@posthook=\toks27
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/micro
-type.sty
-Package: microtype 2021/12/10 v3.0b Micro-typographical refinements (RS)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolb
-ox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count285
-)
-\MT@toks=\toks28
-\MT@count=\count286
-\MT@tempbox=\box57
-LaTeX Info: Redefining \leftprotrusion on input line 1010.
-LaTeX Info: Redefining \rightprotrusion on input line 1018.
-LaTeX Info: Redefining \textls on input line 1173.
-\MT@outer@kern=\dimen159
-LaTeX Info: Redefining \textmicrotypecontext on input line 1759.
-\MT@listname@count=\count287
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/micro
-type-pdftex.def
-File: microtype-pdftex.def 2021/12/10 v3.0b Definitions specific to pdftex (RS)
-
-LaTeX Info: Redefining \lsstyle on input line 897.
-LaTeX Info: Redefining \lslig on input line 897.
-\MT@outer@space=\skip56
-)
-Package microtype Info: Loading configuration file microtype.cfg.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/micro
-type.cfg
-File: microtype.cfg 2021/12/10 v3.0b microtype main configuration file (RS)
-))
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperr
-ef.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcm
-ds.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pd
-ftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/inf
-warerr.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvs
-etkeys.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/
-kvdefinekeys.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdf
-escape.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor
-.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/letltxmacro/let
-ltxmacro.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook
-.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvopt
-ions.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen160
-\Hy@linkcounter=\count288
-\Hy@pagecounter=\count289
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc
-.def
+\@linkdim=\dimen159
+\Hy@linkcounter=\count285
+\Hy@pagecounter=\count286
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperr
-ef-langpatches.def
-File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
-nguages
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intca
-lc.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel languages
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etex
-cmds.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count290
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.
-def
+\Hy@SavedSpaceFactor=\count287
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -398,22 +272,17 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count291
+\c@Hy@tempcnt=\count288
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen161
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset
-.sty
+\XeTeXLinkMargin=\dimen160
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bi
-gintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
-)
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count292
-\Field@Width=\dimen162
-\Fld@charsize=\dimen163
+\Fld@menulength=\count289
+\Field@Width=\dimen161
+\Fld@charsize=\dimen162
 Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
@@ -423,43 +292,31 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6101.
 Package hyperref Info: PDF/A mode OFF on input line 6106.
 LaTeX Info: Redefining \ref on input line 6146.
 LaTeX Info: Redefining \pageref on input line 6150.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-l
-tx.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count293
-\c@Item=\count294
-\c@Hfootnote=\count295
+\Hy@abspage=\count290
+\c@Item=\count291
+\c@Hfootnote=\count292
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdfte
-x.def
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-
-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
-kage
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count296
-\c@bookmark@seq@number=\count297
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/
-rerunfilecheck.sty
+\Fld@listcount=\count293
+\c@bookmark@seq@number=\count294
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter
-/uniquecounter.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-86.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
-\Hy@SectionHShift=\skip57
+\Hy@SectionHShift=\skip56
 )
 Package hyperref Info: Option `breaklinks' set `true' on input line 47.
 
@@ -467,210 +324,173 @@ Package hyperref Warning: Option `bookmarks' has already been used,
 (hyperref)                setting the option has no effect on input line 47.
 
 Package hyperref Info: Option `colorlinks' set `false' on input line 47.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable
-.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip58
-\LTright=\skip59
-\LTpre=\skip60
-\LTpost=\skip61
-\LTchunksize=\count298
-\LTcapwidth=\dimen164
-\LT@head=\box58
-\LT@firsthead=\box59
-\LT@foot=\box60
-\LT@lastfoot=\box61
-\LT@gbox=\box62
-\LT@cols=\count299
-\LT@rows=\count300
-\c@LT@tables=\count301
-\c@LT@chunks=\count302
-\LT@p@ftn=\toks29
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/bookta
-bs.sty
+\LTleft=\skip57
+\LTright=\skip58
+\LTpre=\skip59
+\LTpost=\skip60
+\LTchunksize=\count295
+\LTcapwidth=\dimen163
+\LT@head=\box57
+\LT@firsthead=\box58
+\LT@foot=\box59
+\LT@lastfoot=\box60
+\LT@gbox=\box61
+\LT@cols=\count296
+\LT@rows=\count297
+\c@LT@tables=\count298
+\c@LT@chunks=\count299
+\LT@p@ftn=\toks28
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen165
-\lightrulewidth=\dimen166
-\cmidrulewidth=\dimen167
-\belowrulesep=\dimen168
-\belowbottomsep=\dimen169
-\aboverulesep=\dimen170
-\abovetopsep=\dimen171
-\cmidrulesep=\dimen172
-\cmidrulekern=\dimen173
-\defaultaddspace=\dimen174
-\@cmidla=\count303
-\@cmidlb=\count304
-\@aboverulesep=\dimen175
-\@belowrulesep=\dimen176
-\@thisruleclass=\count305
-\@lastruleclass=\count306
-\@thisrulewidth=\dimen177
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count300
+\@cmidlb=\count301
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count302
+\@lastruleclass=\count303
+\@thisrulewidth=\dimen176
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen178
-\ar@mcellbox=\box63
-\extrarowheight=\dimen179
-\NC@list=\toks30
-\extratabsurround=\skip62
-\backup@length=\skip63
-\ar@cellbox=\box64
-) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.st
-y
+\col@sep=\dimen177
+\ar@mcellbox=\box62
+\extrarowheight=\dimen178
+\NC@list=\toks29
+\extratabsurround=\skip61
+\backup@length=\skip62
+\ar@cellbox=\box63
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count307
-\calc@Bcount=\count308
-\calc@Adimen=\dimen180
-\calc@Bdimen=\dimen181
-\calc@Askip=\skip64
-\calc@Bskip=\skip65
+\calc@Acount=\count304
+\calc@Bcount=\count305
+\calc@Adimen=\dimen179
+\calc@Bdimen=\dimen180
+\calc@Askip=\skip63
+\calc@Bskip=\skip64
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count309
-\calc@Cskip=\skip66
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footno
-te.sty
+\calc@Ccount=\count306
+\calc@Cskip=\skip65
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count307
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
-\fn@notes=\box65
-\fn@width=\dimen182
+\fn@notes=\box64
+\fn@width=\dimen181
 )
-\cslhangindent=\skip67
-\csllabelwidth=\skip68
-\cslentryspacingunit=\skip69
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multir
-ow.sty
+\cslhangindent=\skip66
+\csllabelwidth=\skip67
+\cslentryspacingunit=\skip68
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip70
-\multirow@cntb=\count310
-\multirow@dima=\skip71
-\bigstrutjot=\dimen183
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig
-.sty
-\wrapoverhang=\dimen184
-\WF@size=\dimen185
-\c@WF@wrappedlines=\count311
-\WF@box=\box66
-\WF@everypar=\toks31
+\multirow@colwidth=\skip69
+\multirow@cntb=\count308
+\multirow@dima=\skip70
+\bigstrutjot=\dimen182
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen183
+\WF@size=\dimen184
+\c@WF@wrappedlines=\count309
+\WF@box=\box65
+\WF@everypar=\toks30
 Package: wrapfig 2003/01/31  v 3.6
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count312
-\float@exts=\toks32
-\float@box=\box67
-\@float@everytoks=\toks33
-\@floatcapt=\box68
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colort
-bl.sty
+\c@float@type=\count310
+\float@exts=\toks31
+\float@box=\box66
+\@float@everytoks=\toks32
+\@floatcapt=\box67
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.
-sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/co
-lor.cfg
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 )
-\everycr=\toks34
-\minrowclearance=\skip72
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdfls
-cape.sty
+\everycr=\toks33
+\minrowclearance=\skip71
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape
-.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwid
-th.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box69
-\sift@deathcycles=\count313
-\@vwid@loff=\dimen186
-\@vwid@roff=\dimen187
+\@vwid@box=\box68
+\sift@deathcycles=\count311
+\@vwid@loff=\dimen185
+\@vwid@roff=\dimen186
 )
-\c@taburow=\count314
-\tabu@nbcols=\count315
-\tabu@cnt=\count316
-\tabu@Xcol=\count317
-\tabu@alloc=\count318
-\tabu@nested=\count319
-\tabu@target=\dimen188
-\tabu@spreadtarget=\dimen189
-\tabu@naturalX=\dimen190
-\tabucolX=\dimen191
-\tabu@Xsum=\dimen192
-\extrarowdepth=\dimen193
-\abovetabulinesep=\dimen194
-\belowtabulinesep=\dimen195
-\tabustrutrule=\dimen196
-\tabu@thebody=\toks35
-\tabu@footnotes=\toks36
-\tabu@box=\box70
-\tabu@arstrutbox=\box71
-\tabu@hleads=\box72
-\tabu@vleads=\box73
-\tabu@cellskip=\skip73
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/
-threeparttable.sty
+\c@taburow=\count312
+\tabu@nbcols=\count313
+\tabu@cnt=\count314
+\tabu@Xcol=\count315
+\tabu@alloc=\count316
+\tabu@nested=\count317
+\tabu@target=\dimen187
+\tabu@spreadtarget=\dimen188
+\tabu@naturalX=\dimen189
+\tabucolX=\dimen190
+\tabu@Xsum=\dimen191
+\extrarowdepth=\dimen192
+\abovetabulinesep=\dimen193
+\belowtabulinesep=\dimen194
+\tabustrutrule=\dimen195
+\tabu@thebody=\toks34
+\tabu@footnotes=\toks35
+\tabu@box=\box69
+\tabu@arstrutbox=\box70
+\tabu@hleads=\box71
+\tabu@vleads=\box72
+\tabu@cellskip=\skip72
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box74
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex
-/threeparttablex.sty
+\@tempboxb=\box73
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
 Package: threeparttablex 2013/07/23 v0.3 by daleif
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ
-.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trim
-spaces.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip74
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box75
-\UL@hyphenbox=\box76
-\UL@skip=\skip75
-\UL@hook=\toks37
-\UL@height=\dimen197
-\UL@pe=\count320
-\UL@pixel=\dimen198
-\ULC@box=\box77
+\TPTL@width=\skip73
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box74
+\UL@hyphenbox=\box75
+\UL@skip=\skip74
+\UL@hook=\toks36
+\UL@height=\dimen196
+\UL@pe=\count318
+\UL@pixel=\dimen197
+\ULC@box=\box76
 Package: ulem 2019/11/18
-\ULdepth=\dimen199
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makece
-ll.sty
+\ULdepth=\dimen198
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen256
-\c@nlinenum=\count321
-\TeXr@lab=\toks38
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.s
-ty
+\rotheadsize=\dimen199
+\c@nlinenum=\count319
+\TeXr@lab=\toks37
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/co
-lor.cfg
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
@@ -684,285 +504,279 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count320
+\mult@box=\box77
+\multicol@leftmargin=\dimen256
+\c@unbalance=\count321
+\c@collectmore=\count322
+\doublecol@number=\count323
+\multicoltolerance=\count324
+\multicolpretolerance=\count325
+\full@width=\dimen257
+\page@free=\dimen258
+\premulticols=\dimen259
+\postmulticols=\dimen260
+\multicolsep=\skip75
+\multicolbaselineskip=\skip76
+\partial@page=\box78
+\last@line=\box79
+\maxbalancingoverflow=\dimen261
+\mult@rightbox=\box80
+\mult@grightbox=\box81
+\mult@firstbox=\box82
+\mult@gfirstbox=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\c@minrows=\count326
+\c@columnbadness=\count327
+\c@finalcolumnbadness=\count328
+\last@try=\dimen262
+\multicolovershoot=\dimen263
+\multicolundershoot=\dimen264
+\mult@nat@firstbox=\box120
+\colbreak@box=\box121
+\mc@col@check@num=\count329
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/tools/hhline.sty
+Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-7.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 120.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3bac
-kend-pdftex.def
-File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count322
-\l__pdf_internal_box=\box78
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count330
+\l__pdf_internal_box=\box122
 ) (./ReplicationLing.aux)
 \openout1 = `ReplicationLing.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/ep
-stopdf-base.sty
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/eps
-topdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \microtypecontext on input line 117.
-Package microtype Info: Applying patch `item' on input line 117.
-Package microtype Info: Applying patch `toc' on input line 117.
-Package microtype Info: Applying patch `eqnum' on input line 117.
-Package microtype Info: Applying patch `footnote' on input line 117.
-Package microtype Info: Generating PDF output.
-Package microtype Info: Character protrusion enabled (level 2).
-Package microtype Info: Using default protrusion set `alltext'.
-Package microtype Info: Automatic font expansion enabled (level 2),
-(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
-Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 117.
-Package microtype Info: No adjustment of tracking.
-Package microtype Info: No adjustment of interword spacing.
-Package microtype Info: No adjustment of character kerning.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-cm
-r.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
-(RS)
-)
-Package hyperref Info: Link coloring OFF on input line 117.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
-f.sty
+Package hyperref Info: Link coloring OFF on input line 120.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcou
-nt.sty
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestrin
-g/gettitlestring.sty
+) (/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count323
+\c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 117.
-LaTeX Info: Redefining \pageref on input line 117.
-LaTeX Info: Redefining \nameref on input line 117.
+LaTeX Info: Redefining \ref on input line 120.
+LaTeX Info: Redefining \pageref on input line 120.
+LaTeX Info: Redefining \nameref on input line 120.
 (./ReplicationLing.out) (./ReplicationLing.out)
 \@outlinefile=\write4
 \openout4 = `ReplicationLing.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-39.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 142.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-39.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 142.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-139.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 142.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-139.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 142.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 139.
+(Font)              <8> on input line 142.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 139.
+(Font)              <6> on input line 142.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 139.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 139
-.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.f
-d
+(Font)              <5> on input line 142.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 142.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-ms
-a.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 139
-.
-
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.f
-d
+LaTeX Font Info:    Trying to load font information for U+msb on input line 142.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-ms
-b.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-39.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 142.
+(/Users/timoroettger/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 139.
+(Font)              <10> on input line 142.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 139.
+(Font)              <7> on input line 142.
 [1
 
 
-{c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
-ftex.map}] [2]
+{/Users/timoroettger/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (2.3897pt too wide) in paragraph at lines 153--154
+[]\T1/lmr/m/n/10 The lack of repli-ca-tion stud-ies threat-ens the very fab-ric of cu-mu-la-tive progress
+ []
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 174.
-
-[3] [4]
-<ReplicationLing_files/figure-latex/topten-plot-1.pdf, id=101, 315.1775pt x 544
-.0325pt>
-File: ReplicationLing_files/figure-latex/topten-plot-1.pdf Graphic file (type p
-df)
+[2] [3] [4]
+<ReplicationLing_files/figure-latex/topten-plot-1.pdf, id=102, 361.35pt x 542.025pt>
+File: ReplicationLing_files/figure-latex/topten-plot-1.pdf Graphic file (type pdf)
 <use ReplicationLing_files/figure-latex/topten-plot-1.pdf>
-Package pdftex.def Info: ReplicationLing_files/figure-latex/topten-plot-1.pdf  
-used on input line 211.
-(pdftex.def)             Requested size: 345.0pt x 595.54047pt.
+Package pdftex.def Info: ReplicationLing_files/figure-latex/topten-plot-1.pdf  used on input line 212.
+(pdftex.def)             Requested size: 361.34912pt x 542.02367pt.
 
-LaTeX Warning: Float too large for page by 85.59602pt on input line 216.
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 212--213
+ [][] 
+ []
 
-[5] [6pdfTeX warning (ext4): destination with the same identifier (name{figure.
-1}) has been already used, duplicate ignored
+
+LaTeX Warning: Float too large for page by 32.07922pt on input line 217.
+
+[5] [6pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.233 
+l.231 
        <./ReplicationLing_files/figure-latex/topten-plot-1.pdf>]
-<ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf, id=124, 436.63126pt
- x 256.96pt>
-File: ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf Graphic file (t
-ype pdf)
+<ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf, id=122, 436.63126pt x 256.96pt>
+File: ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf Graphic file (type pdf)
 <use ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf>
-Package pdftex.def Info: ReplicationLing_files/figure-latex/plot-mention-jif-1.
-pdf  used on input line 236.
+Package pdftex.def Info: ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf  used on input line 237.
 (pdftex.def)             Requested size: 345.0pt x 203.03537pt.
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
-has been already used, duplicate ignored
+[7pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.250 
-       <./ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf>]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 252.
-
-[8]
-<ReplicationLing_files/figure-latex/stream-plot-1.pdf, id=159, 430.60875pt x 27
-7.035pt>
-File: ReplicationLing_files/figure-latex/stream-plot-1.pdf Graphic file (type p
-df)
+l.251 
+       <./ReplicationLing_files/figure-latex/plot-mention-jif-1.pdf>] [8]
+<ReplicationLing_files/figure-latex/stream-plot-1.pdf, id=157, 430.60875pt x 277.035pt>
+File: ReplicationLing_files/figure-latex/stream-plot-1.pdf Graphic file (type pdf)
 <use ReplicationLing_files/figure-latex/stream-plot-1.pdf>
-Package pdftex.def Info: ReplicationLing_files/figure-latex/stream-plot-1.pdf  
-used on input line 294.
+Package pdftex.def Info: ReplicationLing_files/figure-latex/stream-plot-1.pdf  used on input line 295.
 (pdftex.def)             Requested size: 345.0pt x 221.96223pt.
-<ReplicationLing_files/figure-latex/river-plot-1.pdf, id=160, 304.13625pt x 201
-.75375pt>
-File: ReplicationLing_files/figure-latex/river-plot-1.pdf Graphic file (type pd
-f)
-<use ReplicationLing_files/figure-latex/river-plot-1.pdf>
-Package pdftex.def Info: ReplicationLing_files/figure-latex/river-plot-1.pdf  u
-sed on input line 308.
-(pdftex.def)             Requested size: 304.1355pt x 201.75325pt.
-[9] [10pdfTeX warning (ext4): destination with the same identifier (name{figure
-.3}) has been already used, duplicate ignored
+[9] [10pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.319 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.319 
-       <./ReplicationLing_files/figure-latex/stream-plot-1.pdf> <./ReplicationL
-ing_files/figure-latex/river-plot-1.pdf>] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
-[][][]\T1/lmr/m/n/8 (+20) https://www.journals.elsevier.com/journal-of-memory-a
-nd-language/call-for-
+l.317 
+       <./ReplicationLing_files/figure-latex/stream-plot-1.pdf>] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
+[][][]\T1/lmr/m/n/8 https://www.journals.elsevier.com/journal-of-memory-and-language/call-for-
  []
 
-[12] [13]
-Overfull \hbox (32.22722pt too wide) in paragraph at lines 397--399
-\T1/lmr/m/n/10 (-20) sup-port from US states data. PLoS ONE 5, e10271. doi:[]10
-.1371/journal.pone.0010271[] 
+[12]
+Overfull \hbox (3.44241pt too wide) in alignment at lines 351--362
+ [] [] [] [] 
  []
 
-[14]
-Overfull \hbox (44.1093pt too wide) in paragraph at lines 460--462
-\T1/lmr/m/n/10 (-20) Snap-shot of Ed-i-to-rial Prac-tices. Fron-tiers in Psy-ch
-ol-ogy 8. doi:[]10.3389/fpsyg.2017.00523[] 
+
+Overfull \hbox (3.44241pt too wide) in alignment at lines 362--368
+ [] [] [] [] 
  []
 
-[15]
-Overfull \hbox (37.99173pt too wide) in paragraph at lines 511--513
-\T1/lmr/m/n/10 (-20) main-stream. Be-hav-ioral and Brain Sci-ences 41, E120. do
-i:[]10.1017/S0140525X17001972[] 
+
+Overfull \hbox (3.44241pt too wide) in alignment at lines 368--972
+ [] [] [] [] 
  []
 
-[16] [17] (./ReplicationLing.aux)
+[13] [14] [15] [16]
+Overfull \hbox (12.83992pt too wide) in paragraph at lines 983--985
+[][]\T1/lmr/m/n/10 Barba, L.A., 2018. Ter-mi-nolo-gies for re-pro-ducible re-search. CoRR abs/1802.03311. 
+ []
+
+[17]
+Overfull \hbox (40.14075pt too wide) in paragraph at lines 1013--1015
+\T1/lmr/m/n/10 sup-port from US states data. PLoS ONE 5, e10271. doi:[]10.1371/journal.pone.0010271[] 
+ []
+
+[18]
+Overfull \hbox (0.58pt too wide) in paragraph at lines 1037--1039
+\T1/lmr/m/n/10 Sorolla, R., Krueger, J.I., Pe-rug-ini, M., Ropovik, I., Veer, A.E. van't, Vranka,
+ []
+
+
+Overfull \hbox (5.75063pt too wide) in paragraph at lines 1049--1051
+[][]\T1/lmr/m/n/10 Leeuw, J.R. de, An-drews, J., Liv-ingston, K., Franke, M., Hartshorne, J., Hawkins,
+ []
+
+
+Overfull \hbox (51.58951pt too wide) in paragraph at lines 1076--1078
+\T1/lmr/m/n/10 Snap-shot of Ed-i-to-rial Prac-tices. Fron-tiers in Psy-chol-ogy 8. doi:[]10.3389/fpsyg.2017.00523[] 
+ []
+
+[19]
+Overfull \hbox (45.36526pt too wide) in paragraph at lines 1127--1129
+\T1/lmr/m/n/10 main-stream. Be-hav-ioral and Brain Sci-ences 41, E120. doi:[]10.1017/S0140525X17001972[] 
+ []
+
+[20] (./ReplicationLing.aux)
 Package rerunfilecheck Info: File `ReplicationLing.out' has not changed.
-(rerunfilecheck)             Checksum: 153C15043471B3A87DBF6A5A421EA7CF;2469.
+(rerunfilecheck)             Checksum: 00B06B68E1F7C0F4B1BE5541E99AFB4E;2419.
  ) 
 Here is how much of TeX's memory you used:
- 15144 strings out of 480247
- 246633 string characters out of 5894228
- 557493 words of memory out of 5000000
- 32521 multiletter control sequences out of 15000+600000
- 529077 words of font info for 144 fonts, out of 8000000 for 9000
+ 13395 strings out of 480238
+ 212313 string characters out of 5894516
+ 610444 words of memory out of 5000000
+ 30956 multiletter control sequences out of 15000+600000
+ 525163 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,9n,76p,1143b,370s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
-c.enc}{c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
-lm-mathsy.enc}<c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
-/public/lm/lmbx10.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fon
-ts/type1/public/lm/lmr10.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-d
-ist/fonts/type1/public/lm/lmr12.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/
-texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/Kristina/AppData/Roaming/Ti
-nyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/Kristina/AppData/Roam
-ing/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/Kristina/AppDat
-a/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Kristin
-a/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/
-Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:
-/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.
-pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
-/lmsy7.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
-blic/lm/lmtt10.pfb><c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/fonts/
-type1/public/lm/lmtt8.pfb>
-Output written on ReplicationLing.pdf (17 pages, 404359 bytes).
+ 70i,9n,76p,1177b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></Users/timoroettger/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
+Output written on ReplicationLing.pdf (20 pages, 380407 bytes).
 PDF statistics:
  373 PDF objects out of 1000 (max. 8388607)
- 312 compressed objects within 4 object streams
- 109 named destinations out of 1000 (max. 500000)
- 29821 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 315 compressed objects within 4 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 120 words of extra memory for PDF output out of 10000 (max. 10000000)
 
