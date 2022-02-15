@@ -48,7 +48,7 @@ options(tinytex.verbose = TRUE)
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, 
-               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial,flextable)
+               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial, flextable)
 
 ## global color scheme / non-optimized
 ### purple
@@ -737,17 +737,10 @@ sample_journals_tbl <- sample_journals %>%
 library(flextable)
 appendix <- flextable(sample_journals_tbl)
 
-FitFlextableToPage <- function(ft, pgwidth = 4.6){
+appendix_fitted <- appendix %>% autofit() %>% width(width = dim(appendix)$widths*4.6 /(flextable_dim(appendix)$widths))
 
-  ft_out <- ft %>% autofit()
+appendix_fitted
 
-  ft_out <- width(ft_out, width = dim(ft_out)$widths*pgwidth /(flextable_dim(ft_out)$widths))
-  return(ft_out)
-}
-
-FitFlextableToPage(appendix)
-#set_table_properties(appendix, width = .75, layout = "fixed")
-#appendix
 ```
 
 References {#references .unnumbered}
