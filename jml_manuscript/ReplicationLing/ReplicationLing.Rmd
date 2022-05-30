@@ -23,7 +23,7 @@ abstract: |
   
   **data availability statement:** All data, analysis code and models used can be inspected at https://osf.io/9ceas/.
 
-journal: "Journal of Memory and Language"
+#journal: "Journal of Memory and Language"
 date: "`r Sys.Date()`"
 bibliography: r-references.bib
 #linenumbers: true 
@@ -240,7 +240,7 @@ journal impact factors (continuous, henceforth jif), open access (binary: open a
 We used Bayesian parameter estimation based on generalized linear regression models with a binomial link function. 
 The model was fitted to the proportion of replication mentions per journal using the R package brms [@burkner_brms_2016]. 
 We used weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
-These priors are what is referred to as regularizing [@gelman_weakly_2008], i.e. our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation. 
+These priors are what is referred to as regularizing [@gelman_weakly_2008], thus making our model conservative with regards to the predictors under investigation. 
 Four sampling chains with 2000 iterations each have been run for each model, with a warm-up period of 1000 iterations.
 For relevant predictor levels and contrasts between predictor levels, we report the posterior probability for the rate of replication mention. 
 We summarize these distributions by reporting the posterior mean and the 95\% credible intervals (calculated as the highest posterior density interval). 
@@ -579,7 +579,7 @@ reps_english_rate = round(((reps_english / nr_replications) * 100),1) # --> 67,2
 
 ```
 
-One possible reason for the fact that (direct) replication rates are not increasing for the field according to our analysis could be that experimental linguistics predominantly replicates experimental findings across languages, making the studies by definition only partial replications.
+The stable rate of direct replication is somewhat surprising given that over the last ten years or so the concept of direct replication has received more and more attention. One possible reason for the fact that (direct) replication rates are not increasing for the field according to our analysis could be that experimental linguistics predominantly replicates experimental findings across languages, making the studies by definition only partial replications.
 However, only one quarter of replications targeted a different language than the initial study (`r diff_lang`\%). 
 The majority of replication efforts were conducted within the same language as the initial study.
 In fact, `r reps_english_rate`\% of all replication studies in our sample had one variety of English as the main language of investigation either in the replication or in the corresponding initial study.
