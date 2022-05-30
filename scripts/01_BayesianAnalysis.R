@@ -37,6 +37,10 @@ df$jif <- as.numeric(ifelse(df$jif == "not retrievable", NA, df$jif))
 # recode open access as binary
 df$openaccess_binary <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
 
+### Reviewer 1 remarks that the coding of JIF is off and quotes mean = 38 and median = 38.47,
+# I cannot reproduce these numbers. Descriptives seems fine
+mean(df$jif, na.rm = TRUE)
+median(df$jif, na.rm = TRUE)
 
 # MENTIONS: model--------------------------------------------------------------
 
@@ -98,7 +102,7 @@ replication_selected <- replication %>%
          type = type.of.replication, 
          succesful = if.direct..check.for.success,
          citation_initial = citation.count.until.replication.study.was.published..retrieved..16.08.2021.) %>% 
-  mutate(year_s = year - mean(year))
+  mutate(year_s = year - mean(year, na.rm = TRUE))
 
 
 ## how many really experimental
