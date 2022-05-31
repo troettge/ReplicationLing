@@ -201,10 +201,50 @@ replication_sub_agg <- replication_sub %>%
 replication_sub_agg$type2 <- factor(replication_sub_agg$type2, 
                                     levels = c("no", "conceptual", "partial", "direct"))
 
-## stream plot
-Figure3 <- 
+
+
+## original stream plot
+stream <- 
   ggplot(replication_sub_agg, aes(x = pub_year, y = n, fill = type2)) +
   geom_stream(bw = 0.7)  +
+  scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
+                    name = "") +
+  labs(
+    #title = "Number of replication types from 1988-2020",
+    subtitle = "   ",
+    x = "\nYear",
+    y = "number of papers in corpus\n") +
+  theme_minimal() +
+  theme(legend.key.height = unit(2,"line"),
+        legend.title = element_text(face = "bold", size = 12),
+        legend.text = element_text(size = 12),
+        strip.background = element_blank(),
+        strip.text = element_text(size = 12, face = "bold"),
+        panel.spacing = unit(2, "lines"),
+        panel.border = element_blank(),
+        plot.background = element_rect(fill = "transparent", colour = NA),
+        strip.text.y = element_text(size = 12, hjust = 0),
+        axis.text = element_text(size = 12),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 10),
+        axis.title.x = element_text(size = 12),
+        plot.title = element_text(size = 14, face = "bold"),
+        plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+
+## store plot pdf 
+ggsave(filename = "../plots/stream.pdf",
+       plot = stream,
+       device = "pdf",
+       width = 160, 
+       height = 120,
+       units = "mm",
+       dpi = 300)
+
+
+## revised line plot
+Figure3 <- 
+  ggplot(replication_sub_agg, aes(x = pub_year, y = n, fill = type2)) +
+  geom_line()  +
   scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
                     name = "") +
   labs(

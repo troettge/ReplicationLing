@@ -35,8 +35,12 @@ df$jif <- as.numeric(ifelse(df$jif == "not retrievable", NA, df$jif))
 # NAs would be dropped from model. What to do? Either assume 0 or seperate models
 
 # recode open access as binary
-df$openaccess <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
+df$openaccess_binary <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
 
+### Reviewer 1 remarks that the coding of JIF is off and quotes mean = 38 and median = 38.47,
+# I cannot reproduce these numbers. Descriptives seems fine
+mean(df$jif, na.rm = TRUE)
+median(df$jif, na.rm = TRUE)
 
 # MENTIONS: model--------------------------------------------------------------
 
@@ -49,20 +53,34 @@ priors <- c(
   set_prior("cauchy(0, 2.5)", class = "b")
 )
 
-## contrast-code
-df$openaccess_s <- ifelse(df$openaccess == 0, -0.5, 0.5)
+# set open access reference level to "no" 
+df$openaccess <- as.factor(df$openaccess)
+df$openaccess <- relevel(df$openaccess, ref = "no")
+
+## contrast-code binary factors
+df$openaccess_binary_s <- ifelse(df$openaccess_binary == 0, -0.5, 0.5)
 df$binary_policy_s <- ifelse(df$binary_policy == 0, -0.5, 0.5)
 
-## model
-xmdl = brm(no_replic | trials(no_exp) ~ jif + openaccess_s + binary_policy_s,
+## preregistrated model
+xmdl_mention1 = brm(no_replic | trials(no_exp) ~ jif + openaccess_binary_s + binary_policy_s,
           data = df, 
           prior = priors,
           cores = 4,
-          file  = "../data/repl_mention_mdl.RDS",
+          file  = "../data/repl_mention1_mdl.RDS",
           family = binomial(link = "logit"))
 
- summary(xmdl)
- pp_check(xmdl)
+## revised model with categorical open access factor
+xmdl_mention2 = brm(no_replic | trials(no_exp) ~ jif + openaccess + binary_policy_s,
+                    data = df, 
+                    prior = priors,
+                    cores = 4,
+                    file  = "../data/repl_mention2_mdl.RDS",
+                    family = binomial(link = "logit"))
+
+## summary(xmdl_mention1)
+## summary(xmdl_mention2)
+## pp_check(xmdl_mention1)
+## pp_check(xmdl_mention2)
 
 # REPLICATION: wrangle data replication----------------------------------------------------
 
@@ -83,7 +101,8 @@ replication_selected <- replication %>%
          lag = years.between.initial.and.replication.study,
          type = type.of.replication, 
          succesful = if.direct..check.for.success,
-         citation_initial = citation.count.until.replication.study.was.published..retrieved..16.08.2021.)
+         citation_initial = citation.count.until.replication.study.was.published..retrieved..16.08.2021.) %>% 
+  mutate(year_s = year - mean(year, na.rm = TRUE))
 
 
 ## how many really experimental
@@ -133,6 +152,10 @@ priors <- c(
   set_prior("cauchy(0, 2.5)", class = "b")
 )
 
+## relevel oa factor
+# replication_sub$oa <- as.factor(replication_sub$oa)
+#replication_sub$oa <- relevel(replication_sub$oa, ref = "no")
+
 ## contrast-code
 replication_sub$oa_s <- ifelse(replication_sub$oa == 0, -0.5, 0.5)
 
@@ -140,7 +163,7 @@ replication_sub$oa_s <- ifelse(replication_sub$oa == 0, -0.5, 0.5)
 replication_sub$direct <- ifelse(replication_sub$type == "direct", 1, 0)
 
 ## model
-xmdl2 = brm(direct ~ year + oa_s + lag + citation_initial,
+xmdl_replication = brm(direct ~ year_s + oa_s + lag + citation_initial,
            data = replication_sub, 
            prior = priors,
            cores = 4,
