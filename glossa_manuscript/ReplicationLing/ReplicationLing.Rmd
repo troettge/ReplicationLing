@@ -1,0 +1,748 @@
+---
+title: Assessing the replication landscape in experimental linguistics
+author:
+  - name: Kristina Kobrock
+    email: kkobrock@uni-osnabrueck.de 
+    affiliation: University of Osnabrück
+    footnote: 1
+  - name: Timo B. Roettger
+    email: timo.roettger@iln.uio.no
+    affiliation: Universitetet i Oslo
+address:
+  - code: University of Osnabrück
+    address: University of Osnabrück, Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück, Germany
+  - code: Universitetet i Oslo
+    address: Universitetet i Oslo, Department of Linguistics and Scandinavian Studies, Niels Henrik Abels vei 36, 0313 Oslo, Norway
+footnote:
+  - code: 1
+    text: "Corresponding Author"
+abstract: |
+  Replications are an integral part of cumulative experimental science. Yet many scientific disciplines do not replicate enough because novel confirmatory findings are valued over direct replications. To provide a systematic assessment of the replication landscape in experimental linguistics, the present study estimated replication rates for over 50.000 articles across 98 journals. We used automatic string matching using the Web of Science combined with in-depth manual inspections of 210 papers. The median rate of mentioning the search string "replicat*" was as low as 1.6%. Subsequent manual analyses revealed that only eight of these were direct replications, i.e. studies that arrive at the same scientific conclusions as an initial study by using exactly the same methodology. Moreover, only 1 in 1600 experimental linguistic studies reports a direct replication performed by independent researchers. We conclude that, similar to neighboring disciplines, experimental linguistics does not replicate enough.
+  
+  **keywords:** replication, meta-research, journal impact factor, publishing guidelines
+  
+  **data availability statement:** All data, analysis code and models used can be inspected at https://osf.io/9ceas/.
+
+journal: "Glossa Psycholinguistics"
+date: "`r Sys.Date()`"
+bibliography: r-references.bib
+#linenumbers: true 
+#numbersections: true
+csl: glossa.csl
+output: 
+  bookdown::pdf_book:
+    base_format: rticles::glossa_article
+    latex_engine: xelatex
+
+---
+
+```{r setup-normal, include=FALSE, warning=FALSE, echo=FALSE}
+ 
+knitr::opts_chunk$set(echo = FALSE,
+                      cache = TRUE, 
+                      warning = FALSE,
+                      message = FALSE)
+
+options(tinytex.verbose = TRUE)
+
+# nifty code using the pacman package
+# it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, 
+               ggstream, tidybayes, bayesplot, rticles, knitr, ggalluvial, flextable)
+
+## global color scheme / non-optimized
+### purple
+col_purple = "#7b3294"
+### light purple
+col_lightPurple = "#c2a5cf"
+### green
+col_green = "#008837"
+### light green
+col_lightGreen = "#a6dba0"
+
+# loading the data
+mention <-  read.csv("../../data/mention.csv")
+guidelines  <-  read.csv("../../data/guidelines.csv")
+coded_articles  <-  read.csv("../../data/Coding_Articles.csv", sep="|")  
+sample_journals <- read.csv("../../Sample_journals.csv")
+
+# load models
+mention_model <- readRDS(file = "../../data/repl_mention_mdl.RDS")
+
+# merge dfs
+df <- full_join(mention, guidelines)
+
+# delete older journals that have been renamed
+df <- df %>% 
+  filter(!(journals %in% c("LANGUAGE AND COGNITIVE PROCESSES", "LITERARY AND LINGUISTIC COMPUTING")))
+
+# recode jif
+df$jif <- ifelse(df$jif == "not retrievable", NA, as.numeric(as.character(df$jif)))
+
+# NAs would be dropped from model. What to do? Either assume 0 or separate models
+
+# recode open access as binary
+df$openaccess <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
+
+# list of shortened journal names
+journals_abb <- c("Humor", "Lang Learn Dev", "Morphology", "Transl Interpreting", "J Logic Lang Inf", "J Mem Lang", "J East Asian Ling", "Cogn Linguist", "Int J Speech Lang La", "J Spec Transl", "Stud Second Lang Acq", "Lang Cogn Neurosci", "Glossa", "Linguistic Res", "First Lang", "J Neurolinguistics", "Lang Learn Technol", "Biling-Lang Cogn", "J Psycholinguist Res", "3L Lang Linguist Literat", "Lab Phonol", "Lang Teach Res", "Lang Cogn", "Lang Linguist Compass", "Metaphor Symb", "Lang Learn", "J Child Lang", "J Semant", "Aphasiology", "J Lang Soc Psychol", "Int J Lang Comm Dis", "J Phon", "Appl Psycholinguist", "Lang Speech", "Acta Linguist Hung", "J Cogn Sci", "Brain Lang", "Recall", "Int J Biling", "Phonetica", "Mind Lang", "Linguist Approach Bi", "IRAL-Int Rev Appl Li", "J Speech Lang Hear R", "Interact Stud", "Arab World Eng J", "Am J Speech-Lang Pat", "Ment Lex", "Clin Linguist Phonet", "Lang Acquis", "System", "Second Lang Res", "Nat Lang Eng", "Comput Assist Lang L", "Lingua", "Lect Notes Comput Sci", "Comput Linguist", "Lect Notes Artif Int", "Phonology", "Interpreting", "Eurasian J Appl Linguist", "J Lang Educat", "Linguistics Vanguard", "Proces de Leng Nat", "Appl Linguist Res J", "Nat Lang Semant", "J Quant Linguist", "Corpus Linguist Ling", "Rev Cogn Linguist", "Interpret Transl Tra", "Poz Stud Contemp Lin", "Pragmat Cogn", "Syntax-UK", "J Res Appl Linguist", "Digit Scholarsh Hum", "Probus", "Innov Lang Learn Teach", "Int J Eng Linguist", "Across Lang Cult", "Rev Roum Linguist", "Intercult Pragmat", "Child Lang Teach The", "Lang Aware", "Gesture", "J Int Phon Assoc", "Metaphor Symb Act", "Iberica", "Annu Rev Appl Linguist", "Ling Antverp New Ser", "Terminology", "Annu Rev Linguist", "J Fr Lang Stud", "Lang Linguist", "Nord J Linguist", "Lang Lit", "Babel-Amsterdam", "Int J Corpus Linguist", "Int J Appl Linguist")
+
+# include shortened journal names in dataframe
+df$journals_abb <- factor(journals_abb)
+```
+
+# Introduction
+Understanding the inner workings of human language and its cognitive underpinnings has been increasingly shaped by experimental data. With a field that builds its theories on a rapidly growing body of experimental evidence, it is of critical importance to evaluate and substantiate existing findings in the literature because evidence provided by a single study is limited  [e.g., @amrhein2019inferential]. Scientists are trained to ensure the reliability and generalizability of scientific findings by conducting direct replication studies, i.e. studies that arrive at the same scientific conclusions as an initial study by collecting new data and completing new analyses but using the same methodology [see @barba_terminologies_2018 for a comprehensive overview of different terminological uses]. 
+
+Replications are an integral part of cumulative experimental science [e.g., @campbell_reforms_1969; @rosenthal_replication_1990; @zwaan_making_2018]. Yet many scientific disciplines do not replicate enough. Researchers from diverse fields such as psychology [@makel_replications_2012], educational science [@makel_facts_2014], and economics [@mueller2019replication] report on very low numbers of published replications, ranging from 0.1\% in economics to 1.6\% in psychology. 
+
+One reason for the observed lack of replication studies is the asymmetric incentive system in academia that rewards novel confirmatory findings over direct replications and null results: Replication studies are not very popular because the necessary time and resource investments are not appropriately rewarded [e.g., @koole_rewarding_2012; @nosek_scientific_2012]. Both successful replications [@madden_how_1995] and repeated failures to replicate [e.g., @doyen_behavioral_2012] are rarely published. Even if they are, replications usually appear in less prestigious outlets than the original findings. These dynamics lead to an abundance of positive findings in the absence of possible conflicting negative evidence [see also @fanelli_pressures_2010] and the widely held view that replications lack prestige, originality, or excitement [e.g., @lindsay1993design].
+
+The lack of replication studies threatens the very fabric of cumulative progress in experimental science because experimental results are often taken for granted without them ever being replicated. But this leads to a related problem: If we don't try, we won't fail to replicate our studies. And the recent past has shown that if we try, we fail more often than we would like to: Coordinated efforts to replicate published findings have uncovered alarmingly low rates of successful replications in fields such as psychology [@open_science_collaboration_estimating_2015], economics [@camerer_evaluating_2016], and social sciences [@camerer_evaluating_2018], a state of affairs that has been referred to as the “replication crisis” [@fidler_reproducibility_2018].
+
+The replication crisis is not rooted in a singular cause, but pertains to a network of different practices and incentive structures, all of which conjointly lead to an increase in results that are not replicable. Researchers have identified practices that might have contributed to the wide-spread lack of replicability, including but not limited to too small sample sizes [e.g., @button2013power], lack of data and materials sharing [e.g., @nosek2015promoting], use of anti-conservative statistical methods [e.g., @yarkoni2019generalizability], large analytical flexibility [e.g., @simmons2011false], and lack of generalizability across diverse contexts and populations [@henrich2010weirdest]. 
+
+These limitations are present, and maybe even exacerbated in experimental linguistic research: Access to certain linguistic populations is often limited or too cost-intensive, making it difficult to collect sufficiently large samples. Experimental linguistic research is resource-intensive because of equipment cost and complexity, elaborateness of data collection procedures, and computational requirements of data analysis and curation. This often results in studies with small sample sizes and, consequently, with low statistical power [e.g., @casillas2021interlingual; @kirby2018mixed]. Statistical analyses in linguistics are often ignoring important assumptions [e.g., @winter2021independence] and are characterized by a large number of researcher degrees of freedom [@roettger2019researcher]. Moreover, claims about human language are often based on a small set of languages, limiting the generalizability of claims about human language [e.g., @levisen2019biases; @majid2010language].
+
+In light of the large overlap in research practices between linguistics and neighboring disciplines for which low replication rates and failures of attempts to replicate have been attested, there are raising concerns about both replication rates and replicability in the field of experimental linguistics [e.g., @marsden_replication_2018; @roettger_toward_2019; @sonning2021replication]. A number of failed replication attempts reported in various subfields of linguistics indicate that these concerns have to be taken seriously [e.g., @chen_chinese_2007; @morey2021pre; @nieuwland_large-scale_2018; @papesh_just_2015; @stack_failure_2018; @westbury_implicit_2018].
+
+Despite these known problem, there might be only very few published direct replications in linguistics. In their detailed assessment of replications in second language (L2) research, @marsden_replication_2018 explored 67 self-labeled L2 replication studies for a wide variety of characteristics. Their results indicate that for every 400 articles, only one replication study is published which translates into a replication rate of 0.25\%. Moreover, their sample did not include a single direct replication study, i.e. a replication that strictly followed the design of the initial study. This is a state of affairs that is worrisome and warrants further investigation. To our knowledge, there is no systematic assessment of replication rates across experimental linguistics beyond @marsden_replication_2018. The present paper aims at filling this gap. To gauge the past and current replication landscape in experimental linguistics, track progress over time, and calibrate future policy and training initiatives, it will be useful to assess the prevalence of replications across experimental linguistics and explore their contributing factors.
+
+The present study assesses the frequency and typology of replication studies that have been published in a representative sample of experimental linguistic journals from 1988 to 2020. 
+Our study aimed at answering two main questions: "How many direct replications are published in experimental linguistics?" and "Are there factors that affect the replication rates and are they either found at the journal level (e.g. journal policies, open access, journal impact factor, etc.) or at the study level (e.g. composition of authors, investigated language, etc.)?"
+The study consisted of two analyses: 
+First, we assessed the frequency of articles mentioning the term replication (search string: replicat\*) across 100 linguistic journals. 
+Second, we categorized the type of replication studies (direct, partial, conceptual) in a subset of twenty journals. We then related their replication rates to factors like the years of publication, and the citation counts of both initial and replication study. 
+
+# How often do journals mention the term replicat\*?
+The key dependent variable of the first part of this study was the rate of replication mention for journals relevant to the field of experimental linguistics. 
+
+## Data availability
+<!--Provide a permanent link to your materials, data, analysis code, and any computational models. This link must point to a reputable repository such as the Open Science Framework, Mendeley, or the Journal website (Supplemental Materials). This section should come immediately before the Methods.-->
+The counts for all articles/journals in the sample and calculated rates of replication mention can be inspected at [https://osf.io/yefr8/](https://osf.io/yefr8/). The journals coded for the factors journal policy, journal impact factors and open access publishing can be retrieved at [https://osf.io/rukc7/](https://osf.io/rukc7/). <!--KK: Todo: insert link with analyses-->
+
+## Material and methods
+The study design has been preregistered at 2021-03-08 and can be inspected at [https://osf.io/a5xd7/](https://osf.io/a5xd7/). 
+
+In order to determine the rates of replication mention for individual journals, we drew on a method introduced by @makel_replications_2012. 
+First, a sample of 100 journals relevant to the field of experimental linguistics was identified by making use of the search engine ["Web of Science" (https://webofknowledge.com)](https://webofknowledge.com) (access date: 2021-03-03). We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term experiment\* in title, abstract or keywords in order to ensure that the subset contained journals that are relevant for experimental linguistics research. Among those, all articles categorized as having been published in English and between 1945-2020 were taken into account.
+
+```{r exp_ratio}
+exp_ratio_median = round(median(df$exp_ratio),1) # 11.5
+exp_ratio_min = round(min(df$exp_ratio),1) # 6.1
+exp_ratio_max = round(max(df$exp_ratio),1) # 60.3
+```
+
+The ratio between overall number of articles and those articles mentioning the term "experiment\*" ranged between `r exp_ratio_min`\% and `r exp_ratio_max`\% (with a median of `r exp_ratio_median`\%) across journals.
+The full sample of journals can be inspected at [https://osf.io/q2e9k/](https://osf.io/q2e9k/) or in the appendix of this article. ^[Two journals, namely "Language and Cognitive Processes" and "Language, Cognition and Neuroscience", had to be excluded because it turned out during analysis that both journals have been renamed in 2013 and that they have already been included in our sample under the new name. Our final sample thus included only 98 journals.]
+
+After journal selection, we obtained the total count of articles containing the search term replicat\* in title, abstract or keywords for each journal. 
+Following the method presented by Makel et al. [-@makel_replications_2012], the rates of replication mention were calculated by dividing the number of articles containing the term replicat\* by the total number of eligible articles for each journal. As we were only interested in experimental linguistic studies, we only considered articles containing the search term experiment\* as eligible.
+
+Rates of replication mention were then related to three journal properties: journal policies with regards to replication studies, journal impact factor and whether the journal publishes open access or not.
+To gain an understanding of the journal policies with regards to replication studies, we examined the journals' submission guidelines adopting a method suggested by Martin and Clarke [-@martin_are_2017]. 
+They grouped psychology journals into categories dependent on whether they (explicitly or implicitly) encouraged replication studies or not in their "instructions to authors" and "aims and scope" sections on the journal websites. For our analysis, we only distinguished between those journals explicitly encouraging replication studies and those that do not. 
+We extracted journal impact factors via Journal Citation Reports (https://jcr.clarivate.com).^[The 2019 journal impact factors are calculated by dividing the citations in 2019 to items published in 2017 and 2018 by the total number of citable items in 2017 and 2018.]
+We assessed whether journals offered open access publication or not via Web of Science. 
+We distinguished between two access categories: on the one hand, those journals which are listed in the Directory of Open Access Journals (DOAJ) ("DOAJ gold"), and, on the other hand, those journals which either contained some open access articles ("partial") or those journals with no option to publish open access ("no") whatssoever. 
+
+## Results and Discussion
+
+```{r number_articles}
+sum_articles = sum(df$no_ling) # 51272
+sum_exp = sum(df$no_exp) # 8006
+sum_repl = sum(df$no_replic) # 347
+mention_rate = round((sum_repl / sum_exp), 3)#
+```
+
+Out of the `r sum_articles` articles in our sample, `r sum_exp` mentioned the term 'experiment\*' in title, abstract, or keywords and were thus assumed to be articles presenting an experimental investigation. 
+Out of these articles, `r sum_repl` contained the term replicat\* which results to a mention rate of `r round(mention_rate * 100, 2)`\% across experimental linguistic articles.  
+
+```{r mean and variance, echo=FALSE}
+mean_rate = round(mean(df$replic_rate)*100 , 1) # ~ 2.7%
+median_rate = round(median(df$replic_rate) *100, 1) # ~ 1.6%
+
+min_rate = round(min(df$replic_rate) *100, 1) #  0%
+max_rate = round(max(df$replic_rate) *100, 2) # ~ 12.8%
+std_rate = round(sd(df$replic_rate) *100, 1) # ~ 3.3%
+```
+
+```{r rep rates of 0, echo=FALSE}
+zero_mention = nrow(df[df$replic_rate == 0,])
+nonzero_mention = nrow(df[df$replic_rate != 0,])
+# 43 of 100 journals have rates of replication mention = 0
+encouraged = nrow(df[df$binary_policy == 1,])
+openaccess = nrow(df[df$openaccess == 1,])
+```
+
+The distribution of the rate of replication mention substantially varies across journals ranging from `r min_rate` to `r max_rate`\%. The median rate of replication mention is as low as `r median_rate`\% (SD = `r std_rate`), a rate that is comparable to what @makel_replications_2012 have reported in their assessment of replications in psychology.
+Almost half of all journals (n = `r zero_mention`) did not mention the term in any of their articles.
+Figure \@ref(fig:topten-plot) illustrates the variation across those journals that exhibited at least one mention of the term.
+
+```{r topten-plot, fig.align = 'center', fig.width = 5, fig.height = 7, fig.cap = "Variation in rate of replicat* mention across those journals that exhibited at least one mention of the term. Numeric values on the right indicate the observed proportion of articles containing the string experiment* in title, abstract or keywords."}
+
+topten <- 
+  df %>% arrange(desc(replic_rate)) %>%
+  mutate(exp_ratio = round(exp_ratio,0),
+         exp_rate = paste0(exp_ratio,"%"),
+         replic_rate = percent(replic_rate)) %>% 
+  select(journals_abb, exp_rate, replic_rate) %>% 
+  top_n(nonzero_mention, replic_rate) %>% 
+  #mutate(journals = fct_reorder(journals, replic_rate)) %>%
+  mutate(journals_abb = fct_reorder(journals_abb, replic_rate)) %>% 
+  ggplot(aes(x = replic_rate, 
+             y = journals_abb,
+             color = replic_rate)) +
+  geom_segment(aes(x = 0, 
+                   xend = replic_rate,
+                   y = journals_abb,
+                   yend = journals_abb)) +
+  geom_point(size = 3) + 
+  scale_color_gradient(low = col_purple,
+                       high = col_green) +
+  #scale_y_discrete(label = function(x) stringr::str_trunc(x, 20))+
+  scale_x_continuous(limits = c(0,0.15), 
+                     breaks = c(0,0.05,0.1,0.15),
+                     labels = c("0%","5%","10%","15%")
+  ) +
+  geom_text(aes(label = exp_rate),
+             x = 0.15,
+             color = "#666666",
+            cex = 3,
+            hjust = 1,
+            check_overlap = TRUE) +
+  labs(y = " ",
+       x = "\nProportion of replicat* mentions in %") + #\nProportion of 'replicat*' mentions in %\n") +
+  theme_minimal() +
+  theme(legend.position = "none",
+              legend.key.height = unit(2,"line"),
+              legend.title = element_text(face = "bold", size = 12),
+              legend.text = element_text(size = 12),
+              strip.background = element_blank(),
+              strip.text = element_text(size = 12, face = "bold"),
+              panel.spacing = unit(2, "lines"),
+              panel.border = element_blank(),
+              plot.background = element_rect(fill = "transparent", colour = NA),
+              strip.text.y = element_text(size = 12, hjust = 0),
+              axis.text.x = element_text(size = 12),
+              axis.text.y = element_text(size = 8),
+              axis.line = element_blank(),
+              axis.title = element_text(size = 12, face = "bold"),
+              plot.title = element_text(size = 14, face = "bold"),
+              plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+
+topten
+
+```
+
+Following preregistered protocol, we statistically estimated the rate of replication mention as predicted relative to the following factors: 
+journal impact factors (continuous, henceforth jif), open access (binary: open access journal or not), and replication policies (binary: either explicitly encourage or not). 
+We used Bayesian parameter estimation based on generalized linear regression models with a binomial link function. 
+The model was fitted to the proportion of replication mentions per journal using the R package brms [@burkner_brms_2016]. 
+We used weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
+These priors are what is referred to as regularizing [@gelman_weakly_2008], i.e. our prior assumption is agnostic as to whether the predictors affect the dependent variable, thus making our model conservative with regards to the predictors under investigation. 
+Four sampling chains with 2000 iterations each have been run for each model, with a warm-up period of 1000 iterations.
+For relevant predictor levels and contrasts between predictor levels, we report the posterior probability for the rate of replication mention. 
+We summarize these distributions by reporting the posterior mean and the 95\% credible intervals (calculated as the highest posterior density interval). 
+
+```{r mention_model_prep, echo=FALSE}
+
+# extract coefficients
+mention_intercept_est <- round(plogis(fixef(mention_model)[1,1]) * 100, 1)
+mention_intercept_lb <- round(plogis(fixef(mention_model)[1,3]) * 100, 1)
+mention_intercept_hb <- round(plogis(fixef(mention_model)[1,4]) * 100, 1)
+
+mention_jif_est <- round(fixef(mention_model)[2,1],2)
+mention_jif_lb <- round(fixef(mention_model)[2,3],2)
+mention_jif_hb <- round(fixef(mention_model)[2,4],2)
+
+mention_oa_est <- round(fixef(mention_model)[3,1],2)
+mention_oa_lb <- round(fixef(mention_model)[3,3],2)
+mention_oa_hb <- round(fixef(mention_model)[3,4],2)
+
+mention_poli_est <- round(fixef(mention_model)[4,1],2)
+mention_poli_lb <- round(fixef(mention_model)[4,3],2)
+mention_poli_hb <- round(fixef(mention_model)[4,4],2)
+
+## extract predicted values for JIF
+predicted_values <- mention_model %>%
+  spread_draws(b_Intercept, b_jif) %>%
+  ### make a list of relevant value range of logRT
+  mutate(jif = list(seq(0, 4, 0.1))) %>% 
+  unnest(jif) %>%
+  ### transform into proportion space using the plogis function
+  mutate(pred = plogis(b_Intercept + b_jif*jif)) %>%
+  pivot_longer(cols = pred,
+               names_to = "factors") %>% 
+  group_by(jif) %>%
+  summarise(pred_m = mean(value, na.rm = TRUE),
+            pred_low = quantile(value, prob = 0.025),
+            pred_high = quantile(value, prob = 0.975)) 
+
+```
+
+The model estimates the proportion of replication mentions as `r mention_intercept_est`\% [`r mention_intercept_lb`, `r mention_intercept_hb`] at jif = 0 and estimates an increase of the proportion with each integer unit of jif (log odds = `r mention_jif_est` [`r mention_jif_lb`, `r mention_jif_hb`]).
+Figure \@ref(fig:plot-mention-jif) illustrates this relationship. 
+
+```{r correlation_jif_exp_ratio, echo=FALSE}
+cor_jif_exp <- round(cor(df$exp_ratio, df$jif, use = "complete.obs", method = c("spearman")),2)
+```
+
+Further explorations, however, indicate that jif is correlated with the number of experimental studies reported in a journal (Spearman correlation = `r cor_jif_exp`).^[This exploratory analysis was not preregistered.]
+Given the observed correlation, it remains unclear if the term replicat\* is really used more often in high impact journals or simply more common in journals that generally publish more experimental studies (which tend to have higher jifs). 
+
+```{r plot-mention-jif, out.width="100%", fig.align = 'center', fig.cap = "Rate of mentioning the term 'replicat*' across sampled journals plotted against their journal impact factor. Each point represents one journal. Point size indicates the proportion of papers categorized as experimental (i.e. larger points indicate journals with more experimental articles). Line and shading indicate model predictions and 95\\% credible intervals."}
+
+## plot predicted values against data
+mention_jif <- 
+ggplot(data = predicted_values, 
+       aes(x = jif, 
+           y = pred_m)) +
+  geom_ribbon(aes(ymin = pred_low, 
+                  ymax = pred_high), 
+              alpha = 0.4,
+              fill = "grey") +
+  geom_line(color = "black", 
+            size = 1.5) +
+  geom_point(data = df, 
+             aes(x = jif, 
+                 y = replic_rate,
+                 size = exp_ratio,
+                 fill = replic_rate),
+             pch = 21,
+             alpha = 0.7, 
+             color = "white") +
+  scale_fill_gradient(low = col_purple,
+                       high = col_green) +
+  ylab("Predicted rate of replication mention") +
+  ylim(0, 0.20) +
+  xlim(0, 4) +
+  labs(title = " ", #Rate of mentioning the term 'replicat*'",
+       subtitle = "   ",
+       y = "Predicted rate of replication mention\n",
+       x = "\nJournal Impact Factor") +
+  theme_minimal() +
+  theme(legend.position = "none",
+              legend.key.height = unit(2,"line"),
+              legend.title = element_text(face = "bold", size = 12),
+              legend.text = element_text(size = 12),
+              strip.background = element_blank(),
+              strip.text = element_text(size = 12, face = "bold"),
+              panel.spacing = unit(2, "lines"),
+              panel.border = element_blank(),
+              plot.background = element_rect(fill = "transparent", colour = NA),
+              strip.text.y = element_text(size = 12, hjust = 0),
+              axis.text = element_text(size = 12),
+              axis.line = element_blank(),
+              axis.title = element_text(size = 12, face = "bold"),
+              plot.title = element_text(size = 14, face = "bold"),
+              plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+
+mention_jif
+```
+
+The preregistered model estimates the impact of whether the journal allows for open access publishing or not and whether replications are explicitly encouraged or not both as positive, i.e. the term replication is mentioned more often in both open access journals and  journals that explicitly encourage direct replications. However, the uncertainty around these estimates is substantial (open access: `r mention_oa_est` [`r mention_oa_lb`, `r mention_oa_hb`]; policy: `r mention_poli_est` [`r mention_poli_lb`, `r mention_poli_hb`]) due to the small number of journals that explicitly encourage direct replications (`r encouraged` out of 98), and the relatively small number of open access journals (`r openaccess` out of 98). We thus won't discuss these results further.
+
+```{r rate of replication mention, echo=FALSE, eval=FALSE}
+
+mention_by_exp_ratio <- df %>% 
+  select(journals, exp_ratio, replic_rate) %>% 
+  arrange(desc(exp_ratio)) %>% 
+  mutate(
+    Journals = factor(journals, ordered=T),
+    "Ratio of experimental studies" = exp_ratio,
+    "Rate of replication mention" = round(replic_rate*100, 2)
+  ) %>% 
+  select(Journals, "Ratio of experimental studies", "Rate of replication mention")
+head(mention_by_exp_ratio, 10)
+
+mention_by_rate <- df %>% 
+  select(journals, replic_rate) %>% 
+  arrange(desc(replic_rate)) %>% 
+  mutate(
+    Journals = journals,
+    "Rate of replication mention" = round(replic_rate*100, 2) 
+  ) %>% 
+  select(Journals, "Rate of replication mention")
+head(mention_by_rate, 1)
+```
+
+```{r policy, echo=FALSE, eval=FALSE}
+no_encourage <- df %>% 
+  filter(binary_policy == 1) %>% 
+  count() 
+# --> only 2 out of 100 journals explicitly encourage submission of replication studies
+```
+
+# How many articles containing the term replicat* are actual replications?
+The second part of the study aimed at investigating further what types of replication studies are published and whether replications are becoming more frequent over time.
+Because the string replicat\* is commonly used in ambiguous ways, the articles that contained the search term required further analysis to determine whether the articles in question indeed reported a replication study or whether they used the term in a different way. 
+
+## Data availability
+The full list of coded articles can be obtained at [https://osf.io/4rtvh/](https://osf.io/4rtvh/).
+
+## Material and methods
+From the superset of 98 journals obtained above, the 20 journals with the highest proportion of experimental studies were selected for a more detailed analysis while excluding journals for which less than 2 hits (TS=replicat\*) could be obtained (see at [https://osf.io/f3yp8/](https://osf.io/f3yp8/) for a list of article counts per journal). 
+Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals, respectively), we randomly selected 50 out of the 114 articles for the Journal of Memory and Language (see at [https://osf.io/6vfpe/](https://osf.io/6vfpe/) for details).
+The sampling procedure above resulted in 210 possible self-labeled replication studies. 
+
+We identified whether the article in question indeed presented a replication study or not. 
+Parts of the papers that were examined were title and abstract of the paper, text before and after occurrences of the search term replicat\*, the paragraph before the Methods section as well as the first paragraph of the Discussion section [following and adapting the procedure specified by @makel_replication_2016].
+If the authors explicitly claimed that (one of) their research aim(s) was to replicate the result or methods of an initial study, this article was treated as a replication and was submitted to further analysis according to the preregistered coding scheme which can be inspected at [https://osf.io/ct2xj/](https://osf.io/ct2xj/).
+
+When extracting number and types of changes made to the initial study, we assumed that the authors of a replication study did not make any drastic changes *without* reporting them. 
+Following Marsden et al. [-@marsden_replication_2018], replication studies were classified according to the number of changes made into three categories: direct replication (0 changes), partial replication (1 change) and conceptual replication (2 or more changes).
+We noted the nature of methodological changes as one of the following categories:
+experimental paradigm, sample, materials/experimental set-up, dependent variable, independent variable, and control.
+We also recorded the language under investigation.
+The information on whether the article was published open access as well as citation counts and years of publication for both studies were obtained from Web of Science.
+An author overlap was attested when at least one author was a (co-)author on both studies.
+During the coding procedure of the articles, we encountered edge cases that we did not anticipate in our preregistration: When several self-labeled replication studies were mentioned in one article, we chose the first mentioned study for our analysis. If there were one independent, but also one or more inner-paper replications, i.e. experiments that replicated previously obtained results from the same article, we chose the independent study for analysis.
+
+## Results and Discussion
+
+```{r replication_nos, echo=FALSE}
+
+nr_experimental <- coded_articles %>% filter(experimental == "1") %>% count() # 200 are experimental
+ratio_experimental <- round((nr_experimental / nrow(coded_articles)) * 100, 1) # 95,2% are experimental
+nr_replications <- coded_articles %>% filter(replication == "1" & experimental == "1") %>% count() # 116 are replications
+nr_direct <- coded_articles %>% filter(type_replication == "direct") %>% count() # 8 are replications
+prop_direct <- round((nr_direct / nr_replications) * 100, 1) # 6.9% of replications are direct
+nr_partial <- coded_articles %>% filter(type_replication == "partial") %>% count() # 42
+nr_conceptual <- coded_articles %>% filter(type_replication == "conceptual") %>% count() #66
+
+```
+
+Out of the `r nrow(coded_articles)` articles in the subsample, `r nr_experimental` (`r ratio_experimental`\%) indeed presented experimental linguistics research. The remaining `r nrow(coded_articles)-nr_experimental` (`r 100-ratio_experimental`\%) were not experimental in nature, but rather comments, reviews or computational studies. Out of the `r nr_experimental` experimental studies, `r nr_replications` were self-claimed replications according to our criteria. The remaining `r nr_experimental-nr_replications` mentions were articles that mentioned the term in other contexts or studies that did not specify the concrete aim of replicating an initial study's design or results. Moreover, many papers used the term "replicated" in a broad sense that roughly translates into "finding a similar result", thus not qualifying as a replication study as defined above.
+Out of the replication studies, we categorized `r nr_conceptual` (`r round((nr_conceptual/nr_replications)*100,1)`\%) as conceptual, `r nr_partial` (`r round((nr_partial/nr_replications)*100,1)`\%) as partial, and only `r nr_direct` (`r prop_direct`\%) as direct replications.
+```{r inner paper, echo=FALSE}
+# How many replication studies were inner-paper replications?
+reps_inner_paper = coded_articles %>% 
+  filter(replication == "1") %>% 
+  filter(cit_init_study == "same") %>% 
+  count() 
+# --> 37
+inner_paper = round(((reps_inner_paper / nr_replications) * 100),1)
+# --> ~ 31,62 %
+```
+
+About one third (`r inner_paper`\%) of the replications were published in the scope of the same paper as the initial study. Publishing multiple experiments within one article and replicating one's own previously obtained results thus seems to be common practice in the field of experimental linguistics.
+
+```{r success, echo=FALSE}
+
+# How many of the direct replications were independent
+independent_reps = coded_articles %>% filter(type_replication == "direct") %>% filter(auth_overlap == "0") %>% count() # 3 independent
+independent_rate = (independent_reps / nr_direct) * 100
+# --> 37.5%
+
+# How many of these were (self-labeled) successful?
+success_reps = coded_articles %>% 
+  filter(type_replication == "direct",
+         auth_overlap == "0",
+         success == "1") %>% 
+  count() # 5
+
+```
+
+Looking closer at direct replications, `r independent_reps` studies were independent studies, i.e. there was no overlap between authors of the initial study and the replication study. 
+Out of these independent direct replication studies, `r success_reps` were self-labeled as successful replications.
+In other words, our sample included only one failed, independent, direct replication attempt. These low rates indicate that replication attempts, and especially direct replication attempts, are rather rare in the experimental linguistics literature - an observation that is in line with replication rates estimated for other research fields [@makel_replications_2012; @makel_facts_2014; @mueller2019replication].
+
+Figure \@ref(fig:stream-plot) illustrates the development of replication studies throughout publication years. 
+While the overall number of studies increased over the years, the proportion of direct replications remained stable at best. 
+However, it seems as if there is an increasing number of partial and conceptual replications that was published within the last few years.^[Given the small number of direct replications in our sample, both a descriptive assessment and an inferential assessment as preregistered are very uninformative. The reader is directed to the supplementary materials if they are interested in the model outputs of the preregistered analysis.]
+
+```{r stream-plot, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Development of amount of replication studies published over time."}
+
+# subset data
+replication_sub <- coded_articles %>% 
+  filter(experimental == 1)
+
+### let's plot the distribution in stream plot
+replication_sub_agg <- replication_sub %>% 
+  mutate(type2 = ifelse(is.na(type_replication), "no", 
+                        ifelse(type_replication == "", "no", type_replication))) %>% 
+  group_by(type2, pub_year) %>% 
+  summarise(n = dplyr::n())
+  
+## change level order           
+replication_sub_agg$type2 <- factor(replication_sub_agg$type2, 
+                                    levels = c("no", "conceptual", "partial", "direct"))
+
+## stream plot
+stream_plot <- 
+ggplot(replication_sub_agg, aes(x = pub_year, y = n, fill = type2)) +
+  geom_stream(bw = 0.7)  +
+  scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
+                    name = "") +
+  labs(
+       #title = "Number of replication types from 1988-2020",
+       subtitle = "   ",
+       x = "\nYear",
+       y = "number of papers in corpus\n") +
+  theme_minimal() +
+  theme(legend.key.height = unit(2,"line"),
+        legend.title = element_text(face = "bold", size = 12),
+        legend.text = element_text(size = 12),
+        strip.background = element_blank(),
+        strip.text = element_text(size = 12, face = "bold"),
+        panel.spacing = unit(2, "lines"),
+        panel.border = element_blank(),
+        plot.background = element_rect(fill = "transparent", colour = NA),
+        strip.text.y = element_text(size = 12, hjust = 0),
+        axis.text = element_text(size = 12),
+        axis.line = element_blank(),
+        axis.title.y = element_text(size = 10),
+        axis.title.x = element_text(size = 12),
+        plot.title = element_text(size = 14, face = "bold"),
+        plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+
+stream_plot
+
+```
+
+```{r river-plot, include=FALSE, fig.align = 'center', fig.height=5, fig.cap = "Quantity and quality of replications in experimental linguistics."}
+
+myedges <- data.frame(ID = 1:9,
+                   N1 = c("successful", "failure", 
+                          "author overlap", "independent",
+                          "direct", "conceptual", "partial",
+                          #"partial",
+                          "No replications", "Self-claimed replications"),
+                   Value = c(2,1,
+                             5,3,
+                             8,66,42,
+                             94,116))
+
+myedges$N1 <- paste(myedges$N1, "\n", paste0(myedges$Value))
+myedges$N2 <- c(rep("independent \n 3", 2), 
+                rep("direct \n 8", 2), 
+                rep("Self-claimed replications \n 116", 3), 
+                rep(paste("All surveyed papers \n", 210), 2))
+
+
+mynodes <- data.frame(ID=c(myedges$N1, paste("All surveyed papers \n", 210)), 
+                      x = c(1, 1, 2, 2, 3, 3, 3, 4, 4, 5), 
+                      y = c(10,14,
+                            8, 12, 
+                            10, 7.5, 5, 
+                            1, 7.5, 
+                            5))
+
+# styles
+palette <- c("gray", "#AA3377", "gray", 
+             "#AA3377", "grey", "gray", 
+             "gray", "gray", "#AA3377")
+
+#AA3377
+
+mystyles = lapply(mynodes$y, function(n) {
+  list(col = palette[n])
+})
+
+for(i in 1:length(palette)){
+  mystyles[[i]]$col<-palette[i]
+}
+
+names(mystyles) <- mynodes$ID
+
+custom.style <- riverplot::default.style()
+custom.style$textcex <- 0.6 
+
+svg("../../plots/River.svg", width=10)
+myriv <- riverplot::makeRiver(nodes=mynodes, edges=myedges, node_styles=mystyles)
+plot(myriv, default_style=custom.style, nodewidth=1, plot_area = 0.95)
+dev.off()
+plot(myriv, default_style=custom.style, nodewidth=1, plot_area=.88)
+
+```
+
+```{r language rep, echo=FALSE}
+# How many replication studies were replications in a different language?
+reps_diff_lang = coded_articles %>% 
+  filter(replication == "1", experimental == "1") %>% 
+  filter(str_detect(comments, "replication in a different language") |
+         str_detect(language, "previous") |
+         str_detect(language, "initial")) %>%
+  count() 
+# --> 28
+diff_lang = round(((reps_diff_lang / nr_replications) * 100),1)
+# --> ~ 24,1 %
+
+# number of English studies across replications
+reps_english = coded_articles %>% 
+  filter(replication == "1", experimental == "1",
+         str_detect(language, "English")) %>% 
+  count()  # --> 78
+         
+reps_english_rate = round(((reps_english / nr_replications) * 100),1) # --> 67,2%
+
+```
+
+One possible reason for the fact that (direct) replication rates are not increasing for the field according to our analysis could be that experimental linguistics predominantly replicates experimental findings across languages, making the studies by definition only partial replications.
+However, only one quarter of replications targeted a different language than the initial study (`r diff_lang`\%). 
+The majority of replication efforts were conducted within the same language as the initial study.
+In fact, `r reps_english_rate`\% of all replication studies in our sample had one variety of English as the main language of investigation either in the replication or in the corresponding initial study.
+
+```{r years between, echo=FALSE}
+# What is the median number of years between an initial and a replication study?
+median_year_between <- coded_articles %>% 
+  filter(cit_init_study != "same") %>% # exclude inner-paper replications
+  summarise(median_years = round(median(years_between, na.rm = TRUE),1)) # 7 years
+
+```
+
+```{r citation, echo=FALSE}
+
+coded_articles <- coded_articles %>% 
+  mutate(year_til_today = 2020 - pub_year)
+
+# What is the mean and median citation count of initial studies before a replication study was published?
+mean_citation_between <- coded_articles %>% 
+  filter(cit_init_study != "same", # exclude inner-paper replications
+         replication == 1, experimental == 1) %>% 
+  summarise(mean_cit_init = round(mean(init_cit_til_rep, na.rm = TRUE),1)) # ~ 41.6 citations
+median_citation_between <- coded_articles %>% 
+  filter(cit_init_study != "same", # exclude inner-paper replications
+         replication == 1, experimental == 1) %>% 
+  summarise(median_cit_init = round(median(init_cit_til_rep, na.rm = TRUE),1)) # 20 citations
+
+mean_citation_rate <- round(mean_citation_between/median_year_between,1)
+
+# What is the mean and median citation count of replication studies 
+median_citation_replication <- coded_articles %>% 
+  filter(cit_init_study != "same",
+         replication == 1, experimental == 1) %>% 
+  summarise(median_cit_rep = round(median(rep_citation, na.rm = TRUE), 1), # 17
+            median_cit_rep_rate = round(median(year_til_today / median_cit_rep), 1)) # 0.6
+
+# jif of journals publishing replication and initial study
+median_jif <- df %>% 
+  summarise(median_jif = round(median(jif, na.rm = TRUE), 1)) # 1.1
+
+```
+
+The median number of years between an initial and a replication study is `r median_year_between` years.
+Initial studies were on average `r mean_citation_between` times cited before a replication was published which corresponds to an average yearly citation rate of `r mean_citation_rate` citations. 
+This average citation rate is well above the impact factor of core linguistic journals (median journal impact factor in superset: `r median_jif`). 
+Replication studies were on average only `r median_citation_replication[1]` times cited which corresponds to an average yearly citation rate (calculated up to the time of analysis) of `r median_citation_replication[2]` citations. These results are in line with Marsden et al.'s [-@marsden_replication_2018] assessment of second language research. They found that replication studies were on average conducted after more than six years and after over a hundred citations of the original study and concluded that replications are either only performed or only published after the original study had already substantially impacted the field. Our findings support this interpretation.
+The observed "drop" in the number of citations of replication studies compared to corresponding initial studies is in line with the lack of perceived value of replication studies reported in other fields [e.g., @koole_rewarding_2012; @nosek_scientific_2012].
+
+## Case study of Journal of Memory and Language
+
+```{r jml}
+# having a closer look at jml
+jml_data <- coded_articles %>% 
+  filter(journal == "JOURNAL OF MEMORY AND LANGUAGE")
+
+jml_jif <- df %>% 
+  arrange(desc(jif)) %>% 
+  head(1) %>% 
+  select(jif) %>% 
+  round(1)
+# --> 3.9
+
+## how many really experimental
+jml_exp <- jml_data %>% 
+  filter(experimental == "1") 
+jml_exp_ratio = count(jml_exp)/count(jml_data) 
+# ---> 50 = 100%
+
+## of those how many actual replications
+jml_reps <- jml_exp %>% 
+  filter(replication == "1") 
+jml_rep_ratio = count(jml_reps)/count(jml_exp)
+# ---> 34 = 68%
+
+## of those what types of replications
+jml_types <- round(xtabs(~type_replication, jml_reps), 2)
+jml_types_perc <- round(xtabs(~type_replication, jml_reps) / nrow(jml_reps)*100, 1)
+### 0.44 conceptual
+### 0.09 direct --> compared to 7% over all journals
+### 0.47 partial
+
+## of those author overlap
+jml_authoverl <- round(xtabs(~type_replication + auth_overlap, jml_reps), 2)
+jml_authoverl_perc <- round(xtabs(~type_replication + auth_overlap, jml_reps) / nrow(jml_reps), 2)
+###            no   yes 
+### conceptual 0.18 0.26
+### direct     0.06 0.03
+### partial    0.24 0.24
+
+# all journals:
+###            no   yes 
+### conceptual 0.26 0.30
+### direct     0.03 0.04
+### partial    0.15 0.21
+
+jml_success <- jml_data %>% 
+  filter(replication == 1, type_replication == "direct", auth_overlap == 0, success == 1) %>% 
+  count() # --> 1 successful
+
+## direct independent replication rate 
+jml_indreprate <- round(nrow(jml_data[jml_data$replication == 1 &
+                                        jml_data$type_replication == "direct" &
+                                        jml_data$auth_overlap == 0,]) / nrow(jml_data), 3)
+### 0.04 = 4% compared to 0.015 = 1,5%
+
+## direct replication rate 
+jml_reprate <- round(nrow(jml_data[jml_data$replication == 1 &
+                                        jml_data$type_replication == "direct",]) / nrow(jml_data), 3)
+### 0.06 = 6% compared to 6.9%
+```
+
+Due to the skewed sample, we conducted a subset analysis of articles published in Journal of Memory and Language (JML) which accounts for the largest part of our sample compared to other journals and is the journal with the highest impact factor (`r jml_jif`). We find that `r count(jml_reps)` (`r (count(jml_reps)/count(jml_exp))*100`\%) of the `r count(jml_exp)` papers in our sample contain replication studies. Of these, `r jml_types["conceptual"]` (`r jml_types_perc["conceptual"]`\%) are conceptual, `r jml_types["partial"]` (`r jml_types_perc["partial"]`\%) are partial, and `r jml_types["direct"]` (`r jml_types_perc["direct"]`\%) are direct replication studies which is in line with the results for the whole sample. Only `r jml_authoverl[2]` of the studies published in JML were independent direct replication studies (one of which was successful). We conclude that we have little reason to believe that the large proportion of JML articles substantially skewed our results (for the better or worse).
+
+# General discussion
+<!-- ## summary -->
+The current study aimed at providing a comprehensive survey of published replications in experimental linguistic research. 
+By analyzing the publication history of over 50000 articles across 98 journals that publish experimental linguistic research, our study found that `r round(mention_rate * 100, 2)`\% of experimental linguistic publications used the term replicat* in title, abstract or key words. 
+A more thorough analysis of `r nrow(coded_articles)` sampled experimental articles containing the term replicat\* revealed that only around half of the hits represented actual replication studies, reducing the effective replication rate to `r round(mention_rate * (nr_replications / nrow(coded_articles)),3) * 100`\%. This rate is slightly higher than reports of comparable investigations in psychology [1.6\%, @makel_replications_2012], educational science [0.1\%, @makel_facts_2014], and economics [0.1\%, @mueller2019replication]. The higher rate might be due to a methodological choice, however. Due to large plurality of methods in linguistics, we calculated the replication rate based on only those articles that contained the term experiment\* (as opposed to all articles in the sample), reducing the denominator substantially.
+
+A closer look at the nature of replication studies revealed that the majority of replication studies were studies that diverted from the initial study by at least one design choice. Only `r prop_direct`\% were direct replications, i.e. studies that directly repeated an initial study without self-reported changes to the design, and only three of these were replications conducted by an independent team of researchers.
+Taken together replicat\* mention rate and actual replication rate, `r round((mention_rate * (nr_replications / nrow(coded_articles))) * (independent_reps / nr_replications), 4) * 100`\% of experimental studies are independent direct replications in the field of linguistics. In other words, only 1 in over 1600 experimental linguistic articles is an independent direct replication. This clearly indicates that replication attempts, and especially independent direct replication attempts, are very rare in the experimental linguistics literature.
+
+<!-- ## Caveats -->
+Before making our recommendations, we need to discuss important caveats to our results. If research articles were not framed as experimental, then they were not included in the analysis. If experimental articles were not framed as replications, then they were not categorized as such. While these are clear limitations to our search strategy, it might reflect a more general issue: If studies are not framed as replications by using the term replication, readers' ability to connect research to its intellectual precedents is severely limited. To circumvent this methodological problems, the entire sample would have to undergo manual coding which is not feasible for a large-scale assessment. Future research using alternative assessment methods or more in-depth investigation of subfields or specific journals might result in different replication rates. 
+Moreover, our assessment of replication types relied on two assumptions. First, we assume that the authors disclosed changes to the initial study in a transparent way. Second, we assume that if changes are disclosed, we were able to extract and interpret these changes accurately. Neither of these assumptions must hold entirely, thus any rates that are generated here are necessarily only a rough proxy of the true replication rate. Nevertheless, given that our findings seem to align well with evidence from other fields as well as an in-depth analysis of a subfield of linguistics [@marsden_replication_2018], we are confident that our conclusion holds. 
+
+<!-- ## recommendations -->
+Although the present study is the first systematic assessment of replication rates in linguistics, our conclusions are hardly surprising. Academic incentive systems do not reward replication studies. Neither journals nor funders encourage them. For example, Martin and Clarke's [-@martin_are_2017] survey results suggest that in 2015 only 3\% of psychology journals explicitly state that they will consider publishing replications. Similarly, out of the 98 journals in our sample, only 2 encouraged direct replications. And even if one manages to publish a replication, replication studies are characterized by much lower yearly citation counts compared to corresponding initial studies, leading to a lack of perceived prestige [e.g., @koole_rewarding_2012; @nosek_scientific_2012; @marsden_replication_2018]. Direct replications simply do not seem worth their costs.
+
+In order to overcome the asymmetry between the cost of direct replication studies and the presently low academic payoff for it, we must re-evaluate the value of direct replications. Funding agencies, journals, but also editors and reviewers, need to start valuing direct replication attempts as much as they value novel findings. For example, we could either dedicate existing journal space to direct replications (e.g. as its own article type) or create new journals that are specifically dedicated to replication studies. 
+Journals could help normalizing replication studies by calls for special issues dedicated to replications of influential findings like e.g. the recent call by the Journal of Memory and Language.^[https://www.journals.elsevier.com/journal-of-memory-and-language/call-for-papers/replicating-influential-findings] 
+Another alternative is the Pottery Barn rule, implemented by for example Royal Society Open Science: Once the journal has published a study, it commits to publishing all direct replications of this study.^[ https://royalsociety.org/blog/2018/10/reproducibility-meets-accountability/]
+
+At the same time, we should attempt to find more resource-efficient ways to both identify replication targets and conduct replication studies. We believe, most people would agree that not every study is worth replicating. Take for example the McGurk effect, i.e. perceiving a sound that lies in-between an auditory presented component of one sound and a visually presented component of another one [@mcgurk1976hearing]. This phenomenon is probably replicated in dozens of linguistic classrooms every semester across the globe. Finding convenient yet effective tools to identify worthwhile replication targets is an active meta-scientific field [e.g., @coles2018costs;@isager2021deciding;@hardwicke2018bayesian] and feasible algorithms are currently developed and tested [@isager2021replication].
+When it comes to more accessible ways to conduct replication studies, several authors have suggested involving our students more rigorously [e.g., @de2019using; @frank2012teaching; @grahe2012harnessing; @roettger_toward_2019], possibly creating a rich learning experience for our students while at the same time reducing the resource costs of replication studies. Alternatively, resources can be pooled across multi-lab replication efforts, effectively reducing the costs for individual researchers and labs [e.g., @frank2017collaborative; @nieuwland_large-scale_2018; @open_science_collaboration_estimating_2015]. 
+
+We are confident that the field of linguistics can function as a role model for neighboring fields. Although major meta-scientific discourses are held in other fields, linguistics has demonstrated quick uptake of methodological reforms time and time again. A point in case is the swift uptake of Registered Reports^[http://cos.io/rr], a new article form in which a study proposal is reviewed before the research is undertaken. While the uptake across disciplines is slow, linguistics has already at least 12 high-impact journal outlets that offer Registered Reports. Moreover, an increasing number of reproducibility initiatives founded in the field during the last few years give hope that the field is continuing to evaluate their past, current, and future practices and successfully face the challenges ahead. This paper was an attempt to contribute to this development. We hope our assessment allows future efforts to track progress over time and calibrate policies across experimental linguistics.
+
+<!-- Journals do not need to fear any negative consequences like a loss of reputation because our results indicate that journals which frequently mention the term 'replicat*' in fact have a proportionally high impact factor. This effect is probably only correlational and not a causation, but still indicates that replication studies are frequently published in journals with high impact factors. -->
+<!-- The DOAJ gold standard with respect to open access publishing is also positively related to publishing replication studies. This might be due to journals which support open access are also more open to replication studies, both being important tools for the open science movement. -->
+
+
+# Appendix
+
+```{r journals-sample, tab.cap="The full sample of journals sorted by their ratio of experimental linguistics articles."}
+sample_journals_tbl <- sample_journals %>% 
+  mutate(ratio = round(ratio*100, 2),
+         Source.Titles = str_to_title(Source.Titles)) %>% 
+  dplyr::rename(Journal = Source.Titles,
+         "no. articles" = WC..Linguistics.,
+         "no. exp. articles" = TS..experiment...AND.WC..Linguistics.,
+         "ratio of exp. articles in %" = ratio) %>% 
+  select(Journal, "no. articles", "no. exp. articles", "ratio of exp. articles in %")
+
+#library(flextable)
+#appendix <- flextable(sample_journals_tbl)
+
+#appendix_fitted <- appendix %>% autofit() %>% width(width = dim(appendix)$widths*4.6 /(flextable_dim(appendix)$widths))
+
+#appendix_fitted
+
+```
+
+References {#references .unnumbered}
+==========

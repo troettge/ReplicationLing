@@ -61,8 +61,8 @@ xmdl = brm(no_replic | trials(no_exp) ~ jif + openaccess_s + binary_policy_s,
           file  = "../data/repl_mention_mdl.RDS",
           family = binomial(link = "logit"))
 
-## summary(xmdl)
-## pp_check(xmdl)
+ summary(xmdl)
+ pp_check(xmdl)
 
 # REPLICATION: wrangle data replication----------------------------------------------------
 
