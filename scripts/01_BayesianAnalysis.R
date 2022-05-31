@@ -9,6 +9,7 @@
 library(tidyverse)
 library(brms)
 library(rstudioapi)
+library(emmeans)
 
 # load in data-----------------------------------------------------------------
 ## getting the path of your current open file
@@ -30,7 +31,8 @@ df <- df %>%
   filter(!(journals %in% c("LANGUAGE AND COGNITIVE PROCESSES", "LITERARY AND LINGUISTIC COMPUTING")))
 
 # recode jif
-df$jif <- as.numeric(ifelse(df$jif == "not retrievable", NA, df$jif))
+df$jif <- as.numeric(ifelse(df$jif == "not retrievable", NA, df$jif)) 
+df$jif_s <- df$jif - mean(df$jif, na.rm = TRUE)
 
 # NAs would be dropped from model. What to do? Either assume 0 or seperate models
 
@@ -69,13 +71,33 @@ xmdl_mention1 = brm(no_replic | trials(no_exp) ~ jif + openaccess_binary_s + bin
           file  = "../data/repl_mention1_mdl.RDS",
           family = binomial(link = "logit"))
 
-## revised model with categorical open access factor
-xmdl_mention2 = brm(no_replic | trials(no_exp) ~ jif + openaccess + binary_policy_s,
+## revised model with categorical open access factor and scaled jif
+xmdl_mention2 = brm(no_replic | trials(no_exp) ~ jif_s + openaccess + binary_policy_s,
                     data = df, 
                     prior = priors,
                     cores = 4,
                     file  = "../data/repl_mention2_mdl.RDS",
                     family = binomial(link = "logit"))
+
+predict <- xmdl_mention2 %>% 
+emmeans(spec = ~ jif_s + openaccess + binary_policy_s, # remove predictor if you want 
+  # to marginalize over something
+  at = list(
+    jif_s = c(0, 1), # or whatever you want here
+    openaccess = c("no", "partial", "DOAJ gold"),     # replace with factor levels
+    binary_policy_s = 0 # replace with factor levels
+  ), 
+  re_formula = NA, # change to NA if you dont want to include grouping variable
+  #epred = TRUE,
+  allow_new_levels = TRUE
+) %>% 
+  tidy() %>% 
+  mutate(emmean = plogis(estimate),
+         lower.HPD = plogis(lower.HPD),
+         upper.HPD = plogis(upper.HPD))
+
+predict_diff <- predict %>% 
+  mutate(diff = )
 
 ## summary(xmdl_mention1)
 ## summary(xmdl_mention2)

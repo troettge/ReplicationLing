@@ -67,7 +67,7 @@ coded_articles  <-  read.csv("../../data/Coding_Articles.csv", sep="|")
 sample_journals <- read.csv("../../Sample_journals.csv")
 
 # load models
-mention_model <- readRDS(file = "../../data/repl_mention_mdl.RDS")
+mention_model <- readRDS(file = "../../data/repl_mention2_mdl.RDS")
 
 # merge dfs
 df <- full_join(mention, guidelines)
@@ -89,6 +89,7 @@ journals_abb <- c("Humor", "Lang Learn Dev", "Morphology", "Transl Interpreting"
 
 # include shortened journal names in dataframe
 df$journals_abb <- factor(journals_abb)
+
 ```
 
 # Introduction
