@@ -57,13 +57,13 @@ priors <- c(
 
 # set open access reference level to "no" 
 df$openaccess <- as.factor(df$openaccess)
-df$openaccess <- relevel(df$openaccess, ref = "no")
+df$openaccess <- relevel(df$openaccess, ref = "partial")
 
 ## contrast-code binary factors
 df$openaccess_binary_s <- ifelse(df$openaccess_binary == 0, -0.5, 0.5)
 df$binary_policy_s <- ifelse(df$binary_policy == 0, -0.5, 0.5)
 
-## preregistrated model
+## preregistered model
 xmdl_mention1 = brm(no_replic | trials(no_exp) ~ jif + openaccess_binary_s + binary_policy_s,
           data = df, 
           prior = priors,
@@ -71,17 +71,19 @@ xmdl_mention1 = brm(no_replic | trials(no_exp) ~ jif + openaccess_binary_s + bin
           file  = "../data/repl_mention1_mdl.RDS",
           family = binomial(link = "logit"))
 
-## revised model with categorical open access factor and scaled jif
+## revised model (following reviewer suggestions) with categorical open access factor and scaled jif
 xmdl_mention2 = brm(no_replic | trials(no_exp) ~ jif_s + openaccess + binary_policy_s,
                     data = df, 
                     prior = priors,
                     cores = 4,
+                    iter = 4000,
                     file  = "../data/repl_mention2_mdl.RDS",
                     family = binomial(link = "logit"))
 
 predict <- xmdl_mention2 %>% 
-emmeans(spec = ~ jif_s + openaccess + binary_policy_s, # remove predictor if you want 
-  # to marginalize over something
+emmeans(
+        #spec = ~ jif_s,
+        specs = pairwise ~ jif_s | openaccess,
   at = list(
     jif_s = c(0, 1), # or whatever you want here
     openaccess = c("no", "partial", "DOAJ gold"),     # replace with factor levels
@@ -91,10 +93,16 @@ emmeans(spec = ~ jif_s + openaccess + binary_policy_s, # remove predictor if you
   #epred = TRUE,
   allow_new_levels = TRUE
 ) %>% 
-  tidy() %>% 
+  contrast() %>% 
+  tidy() %>%
   mutate(emmean = plogis(estimate),
          lower.HPD = plogis(lower.HPD),
-         upper.HPD = plogis(upper.HPD))
+         upper.HPD = plogis(upper.HPD)) 
+
+
+emmeans(mod,
+        specs = pairwise ~ factor_of_interest | other_factor
+)
 
 predict_diff <- predict %>% 
   mutate(diff = )

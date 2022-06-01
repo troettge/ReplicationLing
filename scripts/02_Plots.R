@@ -193,7 +193,7 @@ replication_sub <- coded_articles %>%
 ### let's plot the distribution in stream plot
 replication_sub_agg <- replication_sub %>% 
   mutate(type2 = ifelse(is.na(type_replication), "no", 
-                        ifelse(type_replication == "", "no", type_replication))) %>% 
+                        ifelse(type_replication == "", "no", as.character(type_replication)))) %>% 
   group_by(type2, pub_year) %>% 
   summarise(n = n())
 
@@ -241,10 +241,10 @@ ggsave(filename = "../plots/stream.pdf",
        dpi = 300)
 
 
-## revised line plot
+## revised stream plot
 Figure3 <- 
   ggplot(replication_sub_agg, aes(x = pub_year, y = n, fill = type2)) +
-  geom_line()  +
+  geom_stream(bw = 0.7, type = "ridge")  +
   scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
                     name = "") +
   labs(
