@@ -499,7 +499,7 @@ Figure \@ref(fig:stream-plot) illustrates the development of replication studies
 While the overall number of studies increased over the years, the proportion of direct replications remained stable at best. 
 However, it seems as if there is an increasing number of partial and conceptual replications that was published within the last few years.^[Given the small number of direct replications in our sample, both a descriptive assessment and an inferential assessment as preregistered are very uninformative. The reader is directed to the supplementary materials if they are interested in the model outputs of the preregistered analysis.]
 
-```{r stream-plot, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Development of amount of replication studies published over time."}
+```{r stream-plot, out.width="100%", fig.align = 'center', fig.asp = 0.7, fig.cap = "Development of amount of replication studies published over time. Bandwith of kernel density estimation is set to 0.8."}
 
 # subset data
 replication_sub <- coded_articles %>% 
