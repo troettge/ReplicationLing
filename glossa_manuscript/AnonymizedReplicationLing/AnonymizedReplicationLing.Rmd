@@ -76,6 +76,7 @@ mention_model <- readRDS(file = "../../data/repl_mention2_mdl.RDS")
 df <- full_join(mention, guidelines)
 
 # delete older journals that have been renamed
+# ! KK: shouldn't be deleted but rather added to their new journal names (LANGUAGE COGNITION AND NEUROSCIENCE, DIGITAL SCHOLARSHIP IN THE HUMANITIES)
 df <- df %>% 
   filter(!(journals %in% c("LANGUAGE AND COGNITIVE PROCESSES", "LITERARY AND LINGUISTIC COMPUTING")))
 
@@ -135,7 +136,7 @@ exp_ratio_max = round(max(df$exp_ratio),1) # 60.3
 ```
 
 The ratio between overall number of articles and those articles mentioning the term "experiment\*" ranged between `r exp_ratio_min`\% and `r exp_ratio_max`\% (with a median of `r exp_ratio_median`\%) across journals.
-The full sample of journals can be inspected in the appendix of this article. ^[Two journals, namely "Language and Cognitive Processes" and "Language, Cognition and Neuroscience", had to be excluded because it turned out during analysis that both journals have been renamed in 2013 and that they have already been included in our sample under the new name. Our final sample thus included only 98 journals.]
+The full sample of journals can be inspected in the appendix of this article. ^[Two journals, namely "Language and Cognitive Processes" (since 2014: "Language, Cognition and Neuroscience") and "Literary and Linguistic Computing" (since 2015: "Digital Scholarship in the Humanities"), had to be excluded because it turned out during analysis that both journals have been renamed and that they have already been included in our sample under the new name. Our final sample thus included only 98 journals.]
 
 After journal selection, we obtained the total count of articles containing the search term replicat\* in title, abstract or keywords for each journal. 
 Following the method presented by Makel et al. [-@makel_replications_2012], the rates of replication mention were calculated by dividing the number of articles containing the term replicat\* by the total number of eligible articles for each journal. As we were only interested in experimental linguistic studies, we only considered articles containing the search term experiment\* as eligible.
