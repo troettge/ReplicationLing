@@ -463,19 +463,6 @@ nr_conceptual <- coded_articles %>% filter(type_replication == "conceptual") %>%
 Out of the `r nrow(coded_articles)` articles in the subsample, `r nr_experimental` (`r ratio_experimental`\%) indeed presented experimental linguistics research. The remaining `r nrow(coded_articles)-nr_experimental` (`r 100-ratio_experimental`\%) were not experimental in nature, but rather comments, reviews or computational studies. Out of the `r nr_experimental` experimental studies, `r nr_replications` were self-claimed replications according to our criteria. The remaining `r nr_experimental-nr_replications` mentions were articles that mentioned the term in other contexts or studies that did not specify the concrete aim of replicating an initial study's design or results. Moreover, many papers used the term "replicated" in a broad sense that roughly translates into "finding a similar result", thus not qualifying as a replication study as defined above.
 Out of the replication studies, we categorized `r nr_conceptual` (`r round((nr_conceptual/nr_replications)*100,1)`\%) as conceptual, `r nr_partial` (`r round((nr_partial/nr_replications)*100,1)`\%) as partial, and only `r nr_direct` (`r prop_direct`\%) as direct replications.
 
-```{r inner paper, echo=FALSE}
-# How many replication studies were inner-paper replications?
-reps_inner_paper = coded_articles %>% 
-  filter(replication == "1") %>% 
-  filter(cit_init_study == "same") %>% 
-  count() 
-# --> 37
-inner_paper = round(((reps_inner_paper / nr_replications) * 100),1)
-# --> ~ 31,62 %
-```
-
-About one third (`r inner_paper`\%) of the replications were published in the scope of the same paper as the initial study. Publishing multiple experiments within one article and replicating one's own previously obtained results thus seems to be common practice in the field of experimental linguistics.
-
 ```{r success, echo=FALSE}
 
 # How many of the direct replications were independent
