@@ -104,7 +104,31 @@ Replications are an integral part of cumulative experimental science [e.g., @cam
 
 One reason for the observed lack of replication studies is the asymmetric incentive system in academia that rewards novel confirmatory findings over direct replications and null results: Replication studies are not very popular because the necessary time and resource investments are not appropriately rewarded [e.g., @koole_rewarding_2012; @nosek_scientific_2012]. Both successful replications [@madden_how_1995] and repeated failures to replicate [e.g., @doyen_behavioral_2012] are rarely published. Even if they are, replications usually appear in less prestigious outlets than the original findings. These dynamics lead to an abundance of positive findings in the absence of possible conflicting negative evidence [see also @fanelli_pressures_2010] and the widely held view that replications lack prestige, originality, or excitement [e.g., @lindsay1993design].
 
-The lack of replication studies threatens the very fabric of cumulative progress in experimental science because experimental results are often taken for granted without them ever being replicated. But this leads to a related problem: If we don't try, we won't fail to replicate our studies. And the recent past has shown that if we try, we fail more often than we would like to: Coordinated efforts to replicate published findings have uncovered alarmingly low rates of successful replications in fields such as psychology [@open_science_collaboration_estimating_2015], economics [@camerer_evaluating_2016], and social sciences [@camerer_evaluating_2018], a state of affairs that has been referred to as the “replication crisis” [@fidler_reproducibility_2018].
+<!--TR: Beginning of new section -->
+This perceived lack of prestige additionally comes with the sentiment that direct replications are unnecessary and / or uninformative. 
+This sentiment expresses itself in two parts: Direct replications are claimed to be theoretically uninformative and conceptual replications are sufficient to assess the robustness of a field's empirical foundation [e.g., @stroebe2014alleged; @crandall2016scientific]. 
+However, both these assumptions are unfounded [e.g., @zwaan_making_2018]: 
+A repeated demonstration that an effect can not be repeated is an important contribution to the field and aids it in calibrating researchers' (un)certainty in the existence of a phenomenon. 
+Moreover, failed direct replications might uncover important moderators and boundary conditions that explain the discrepancy between an original study and a replication. 
+Moreover, conducting a direct replication operates on the assumption that all critical elements to reproduce the original effect are understood. 
+If the replication fails, that strong assumption was apparently incorrect, thus relevant auxiliary hypotheses must be reconsidered, which might weaken the theory. 
+Finally, additional evidence that a theoretically important finding can be confidently replicated is in itself theoretically relevant knowledge.
+
+Thus direct replications are theoretically informative and a worthwhile endeavor. 
+Conceptual replications on the other hand, i.e. replication attempts that have changed multiple critical design properties of the original study, can introduce interpretational ambiguity. 
+A failed conceptual replication can never be considered evidence against the original claim. 
+It is always possible to attribute a failed conceptual replication to the methodological changes that were made [e.g., @pashler2012replicability]
+
+Conceptual replications are often upheld as being more valuable than direct replication because they are assumed to simultaneously address concerns about reliability of an original claim and they are able to extend the original findings. 
+Thus, conceptual replications are often considered sufficient for a field to move forward under the stipulation that repeated successful conceptual replications will occur only then when the prior research identified a true effect. 
+However, there is increasing evidence that this stong assumption is empirically not supported. 
+Issues related to questionable research practices [@john2012measuring], small sample sizes [@button2013power] and publication bias [@fanelli2012negative] can lead to a group of seemingly solid set of studies that appear to support an underlying theory, even though no single study from that set could survive a direct replication attempt. 
+There are now a number of widely studied theories and effects that have been supported by dozens, if not hundreds of conceptual replications, but appear to crumble in light of meta-analyses or systematic replication attempts [e.g., @shanks2015romance; @wagenmakers2016registered]. 
+
+In sum, direct replications are an under-appreciated tool to evaluate and cement the empirical and theoretical foundation of a field.
+<!--TR: End of new section -->
+
+The lack of replication studies threatens the very fabric of cumulative progress in experimental science because experimental results are often taken for granted without them ever being replicated. And this leads to a related problem: If we don't try, we won't fail to replicate our studies. And the recent past has shown that if we try, we fail more often than we would like to: Coordinated efforts to replicate published findings have uncovered alarmingly low rates of successful replications in fields such as psychology [@open_science_collaboration_estimating_2015], economics [@camerer_evaluating_2016], and social sciences [@camerer_evaluating_2018], a state of affairs that has been referred to as the “replication crisis” [@fidler_reproducibility_2018].
 
 The replication crisis is not rooted in a singular cause, but pertains to a network of different practices and incentive structures, all of which conjointly lead to an increase in results that are not replicable. Researchers have identified practices that might have contributed to the wide-spread lack of replicability, including but not limited to too small sample sizes [e.g., @button2013power; @vasishth_statistical_2018], lack of data and materials sharing [e.g., @nosek2015promoting], use of anti-conservative statistical methods [e.g., @yarkoni2019generalizability], large analytical flexibility [e.g., @simmons2011false], and lack of generalizability across diverse contexts and populations [@henrich2010weirdest]. 
 
