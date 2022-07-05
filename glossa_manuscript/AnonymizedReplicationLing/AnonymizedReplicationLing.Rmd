@@ -108,10 +108,11 @@ One reason for the observed lack of replication studies is the asymmetric incent
 This perceived lack of prestige additionally comes with the sentiment that direct replications are unnecessary and / or uninformative. 
 This sentiment expresses itself in two parts: Direct replications are claimed to be theoretically uninformative and conceptual replications are sufficient to assess the robustness of a field's empirical foundation [e.g., @stroebe2014alleged; @crandall2016scientific]. 
 However, both these assumptions are unfounded [e.g., @zwaan_making_2018]: 
-A repeated demonstration that an effect can not be repeated is an important contribution to the field and aids it in calibrating researchers' (un)certainty in the existence of a phenomenon. 
+A repeated demonstration that an effect can not be replicated is an important contribution to the field and aids it in calibrating researchers' (un)certainty in the existence of a phenomenon. 
 Moreover, failed direct replications might uncover important moderators and boundary conditions that explain the discrepancy between an original study and a replication. 
-Moreover, conducting a direct replication operates on the assumption that all critical elements to reproduce the original effect are understood. 
-If the replication fails, that strong assumption was apparently incorrect, thus relevant auxiliary hypotheses must be reconsidered, which might weaken the theory. 
+Conducting a direct replication operates on the assumption that all critical elements to reproduce the original effect are understood. 
+If the replication fails, that strong assumption was apparently incorrect, thus relevant auxiliary hypotheses must be reconsidered, which might weaken the theory.
+Successful direct replication add important data to the discourse, allowing for more precise estimation of theoretically relevant parameters and thus allow to strengthen the derivation chain between theory and predictions [@meehl1990summaries].
 Finally, additional evidence that a theoretically important finding can be confidently replicated is in itself theoretically relevant knowledge.
 
 Thus direct replications are theoretically informative and a worthwhile endeavor. 
@@ -139,6 +140,7 @@ In light of the large overlap in research practices between linguistics and neig
 Despite these known problems, there might be only very few published direct replications in linguistics. In their detailed assessment of replications in second language (L2) research, @marsden_replication_2018 explored 67 self-labeled L2 replication studies for a wide variety of characteristics. Their results indicate that for every 400 articles, only one replication study is published which translates into a replication rate of 0.25\%. Moreover, their sample did not include a single direct replication study, i.e. a replication that strictly followed the design of the initial study. This is a state of affairs that is worrisome and warrants further investigation. To our knowledge, there is no systematic assessment of replication rates across experimental linguistics beyond @marsden_replication_2018. The present paper aims at filling this gap. To gauge the past and current replication landscape in experimental linguistics, track progress over time, and calibrate future policy and training initiatives, it will be useful to assess the prevalence of replications across experimental linguistics and explore their contributing factors.
 
 The present study assesses the frequency and typology of replication studies that have been published in a representative sample of experimental linguistic journals from 1945 to 2020. 
+Given the arguments presented above, we are primarily interested in the prevalence of direct replications in the field. 
 Our study aimed at answering two main questions: "How many direct replications are published in experimental linguistics?" and "Are there factors that affect the replication rates and are they either found at the journal level (e.g. journal policies, open access, journal impact factor, etc.) or at the study level (e.g. composition of authors, investigated language, etc.)?"
 The study consisted of two analyses: 
 First, we assessed the frequency of articles mentioning the term replication (search string: replicat\*) across 100 linguistic journals. 
