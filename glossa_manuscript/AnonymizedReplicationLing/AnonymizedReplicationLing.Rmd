@@ -106,13 +106,13 @@ One reason for the observed lack of replication studies is the asymmetric incent
 
 <!--TR: Beginning of new section -->
 This perceived lack of prestige additionally comes with the sentiment that direct replications are unnecessary and / or uninformative. 
-This sentiment expresses itself in two parts: Direct replications are claimed to be theoretically uninformative and conceptual replications are sufficient to assess the robustness of a field's empirical foundation [e.g., @stroebe2014alleged; @crandall2016scientific]. 
-However, both these assumptions are unfounded [e.g., @zwaan_making_2018]: 
+This sentiment expresses itself in two parts: Direct replications are claimed to be theoretically uninformative and conceptual replications are claimed to be sufficient to assess the robustness of a field's empirical foundation [e.g., @stroebe2014alleged; @crandall2016scientific]. 
+However, both of these assumptions are unfounded [e.g., @zwaan_making_2018]: 
 A repeated demonstration that an effect can not be replicated is an important contribution to the field and aids it in calibrating researchers' (un)certainty in the existence of a phenomenon. 
 Moreover, failed direct replications might uncover important moderators and boundary conditions that explain the discrepancy between an original study and a replication. 
 Conducting a direct replication operates on the assumption that all critical elements to reproduce the original effect are understood. 
 If the replication fails, that strong assumption was apparently incorrect, thus relevant auxiliary hypotheses must be reconsidered, which might weaken the theory.
-Successful direct replication add important data to the discourse, allowing for more precise estimation of theoretically relevant parameters and thus allow to strengthen the derivation chain between theory and predictions [@meehl1990summaries].
+Successful direct replications add important data to the discourse, allowing for more precise estimation of theoretically relevant parameters, and thus help to strengthen the derivation chain between theory and predictions [@meehl1990summaries].
 Finally, additional evidence that a theoretically important finding can be confidently replicated is in itself theoretically relevant knowledge.
 
 Thus direct replications are theoretically informative and a worthwhile endeavor. 
@@ -120,11 +120,11 @@ Conceptual replications on the other hand, i.e. replication attempts that have c
 A failed conceptual replication can never be considered evidence against the original claim. 
 It is always possible to attribute a failed conceptual replication to the methodological changes that were made [e.g., @pashler2012replicability]
 
-Conceptual replications are often upheld as being more valuable than direct replication because they are assumed to simultaneously address concerns about reliability of an original claim and they are able to extend the original findings. 
+Conceptual replications are often upheld as being more valuable than direct replications because they are assumed to simultaneously address concerns about reliability of an original claim and they are able to extend the original findings. 
 Thus, conceptual replications are often considered sufficient for a field to move forward under the stipulation that repeated successful conceptual replications will occur only then when the prior research identified a true effect. 
 However, there is increasing evidence that this stong assumption is empirically not supported. 
-Issues related to questionable research practices [@john2012measuring], small sample sizes [@button2013power] and publication bias [@fanelli2012negative] can lead to a group of seemingly solid set of studies that appear to support an underlying theory, even though no single study from that set could survive a direct replication attempt. 
-There are now a number of widely studied theories and effects that have been supported by dozens, if not hundreds of conceptual replications, but appear to crumble in light of meta-analyses or systematic replication attempts [e.g., @shanks2015romance; @wagenmakers2016registered]. 
+Issues related to questionable research practices [@john2012measuring], small sample sizes [@button2013power] and publication bias [@fanelli2012negative] can lead to the formation of a seemingly solid set of studies that appear to support an underlying theory, even though no single study from that set could survive a direct replication attempt. 
+There are now a number of widely studied theories and effects that have been supported by dozens, if not hundreds of conceptual replications, but appear to crumble in light of meta-analyses or systematic direct replication attempts [e.g., @shanks2015romance; @wagenmakers2016registered]. 
 
 In sum, direct replications are an under-appreciated tool to evaluate and cement the empirical and theoretical foundation of a field.
 <!--TR: End of new section -->
