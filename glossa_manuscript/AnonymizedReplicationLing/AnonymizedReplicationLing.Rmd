@@ -67,7 +67,7 @@ col_lightGreen = "#a6dba0"
 mention <-  read.csv("../../data/mention.csv")
 guidelines  <-  read.csv("../../data/guidelines.csv")
 coded_articles  <-  read.csv("../../data/Coding_Articles.csv", sep="|")
-sample_journals <- read.csv("../../Sample_journals.csv")
+sample_journals <- read.csv("../../data/Sample_journals.csv")
 
 # load models
 mention_model <- readRDS(file = "../../data/repl_mention2_mdl.RDS")
