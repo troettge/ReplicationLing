@@ -41,8 +41,9 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, scales,
                ggstream, tidybayes, bayesplot, rticles, knitr, flextable)
 
-current_path = rstudioapi::getActiveDocumentContext()$path 
-setwd(dirname(current_path))
+# if using Mac OS:
+#current_path = rstudioapi::getActiveDocumentContext()$path 
+#setwd(dirname(current_path))
 
 ## global color scheme / non-optimized
 ### purple
@@ -75,8 +76,17 @@ mention_model <- readRDS(file = "../../data/repl_mention2_mdl.RDS")
 # merge dfs
 df <- full_join(mention, guidelines)
 
-# delete older journals that have been renamed
-# ! KK: shouldn't be deleted but rather added to their new journal names (LANGUAGE COGNITION AND NEUROSCIENCE, DIGITAL SCHOLARSHIP IN THE HUMANITIES)
+# the numbers of older journals are added to their new names
+# adding LANGUAGE AND COGNITIVE PROCESSES to LANGUAGE COGNITION AND NEUROSCIENCE
+df[df$journals == "LANGUAGE COGNITION AND NEUROSCIENCE",2:5] <- df[df$journals == "LANGUAGE COGNITION AND NEUROSCIENCE",2:5] + df[df$journals == "LANGUAGE AND COGNITIVE PROCESSES",2:5]
+# adding LANGUAGE AND COGNITIVE PROCESSES to DIGITAL SCHOLARSHIP IN THE HUMANITIES
+df[df$journals == "DIGITAL SCHOLARSHIP IN THE HUMANITIES",2:5] <- df[df$journals == "DIGITAL SCHOLARSHIP IN THE HUMANITIES",2:5] + df[df$journals == "LITERARY AND LINGUISTIC COMPUTING",2:5]
+
+# calculating ratio of experimental linguistics articles and rate of replication mention anew
+df[,6] <- df[,5] / df[,2]
+df[,4] <- df[,2] / df[,3]
+
+# deleting old journal names
 df <- df %>% 
   filter(!(journals %in% c("LANGUAGE AND COGNITIVE PROCESSES", "LITERARY AND LINGUISTIC COMPUTING")))
 
@@ -156,13 +166,13 @@ In order to determine the rates of replication mention for individual journals, 
 First, a sample of 100 journals relevant to the field of experimental linguistics was identified by making use of the search engine ["Web of Science" (https://webofknowledge.com)](https://webofknowledge.com) (access date: 2021-03-03). We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term experiment\* in title, abstract or keywords in order to ensure that the subset contained journals that are relevant for experimental linguistics research. Among those, all articles categorized as having been published in English and between 1945-2020 were taken into account.^[The Web of Science catalog includes articles from 1945 to present. All full available years (at the date of retrieval) have been included in the analysis. The first entries for the category "Linguistics" date back to the year 1948 and the first hit for the search term "replicat*" was obtained for the year 1969.]
 
 ```{r exp_ratio}
-exp_ratio_median = round(median(df$exp_ratio),1) # 11.5
-exp_ratio_min = round(min(df$exp_ratio),1) # 6.1
-exp_ratio_max = round(max(df$exp_ratio),1) # 60.3
+exp_ratio_median = round(median(df$exp_ratio*100),1) # 11.5
+exp_ratio_min = round(min(df$exp_ratio*100),1) # 6.1
+exp_ratio_max = round(max(df$exp_ratio*100),1) # 60.3
 ```
 
 The ratio between overall number of articles and those articles mentioning the term "experiment\*" ranged between `r exp_ratio_min`\% and `r exp_ratio_max`\% (with a median of `r exp_ratio_median`\%) across journals.
-The full sample of journals can be inspected in the appendix of this article. ^[Two journals, namely "Language and Cognitive Processes" (since 2014: "Language, Cognition and Neuroscience") and "Literary and Linguistic Computing" (since 2015: "Digital Scholarship in the Humanities"), had to be excluded because it turned out during analysis that both journals have been renamed and that they have already been included in our sample under the new name. Our final sample thus included only 98 journals.]
+The full sample of journals can be inspected in the appendix of this article. ^[Two journals, namely "Language and Cognitive Processes" (since 2014: "Language, Cognition and Neuroscience") and "Literary and Linguistic Computing" (since 2015: "Digital Scholarship in the Humanities"), have been renamed. The article counts of the old and new journal names were combined under the new name. Our final sample thus included only 98 journals.]
 
 After journal selection, we obtained the total count of articles containing the search term replicat\* in title, abstract or keywords for each journal. 
 Following the method presented by Makel et al. [-@makel_replications_2012], the rates of replication mention were calculated by dividing the number of articles containing the term replicat\* by the total number of eligible articles for each journal. As we were only interested in experimental linguistic studies, we only considered articles containing the search term experiment\* as eligible.
@@ -179,10 +189,10 @@ We would like to stress that these three predictor variables do not reflect a te
 ## Results and Discussion
 
 ```{r number_articles}
-sum_articles = sum(df$no_ling) # 51272
-sum_exp = sum(df$no_exp) # 8006
-sum_repl = sum(df$no_replic) # 347
-mention_rate = round((sum_repl / sum_exp), 3)#
+sum_articles = sum(df$no_ling) # 52302
+sum_exp = sum(df$no_exp) # 8437
+sum_repl = sum(df$no_replic) # 382
+mention_rate = round((sum_repl / sum_exp), 3) # 0.045
 ```
 
 Out of the `r sum_articles` articles in our sample, `r sum_exp` mentioned the term 'experiment\*' in title, abstract, or keywords and were thus assumed to be articles presenting an experimental investigation. 
@@ -190,19 +200,19 @@ Out of these articles, `r sum_repl` contained the term replicat\* which results 
 
 ```{r mean and variance, echo=FALSE}
 mean_rate = round(mean(df$replic_rate)*100 , 1) # ~ 2.7%
-median_rate = round(median(df$replic_rate) *100, 1) # ~ 1.6%
+median_rate = round(median(df$replic_rate) *100, 1) # ~ 1.7%
 
 min_rate = round(min(df$replic_rate) *100, 1) #  0%
-max_rate = round(max(df$replic_rate) *100, 2) # ~ 12.8%
+max_rate = round(max(df$replic_rate) *100, 2) # ~ 12.82%
 std_rate = round(sd(df$replic_rate) *100, 1) # ~ 3.3%
 ```
 
 ```{r rep rates of 0, echo=FALSE}
-zero_mention = nrow(df[df$replic_rate == 0,])
-nonzero_mention = nrow(df[df$replic_rate != 0,])
-# 43 of 100 journals have rates of replication mention = 0
-encouraged = nrow(df[df$binary_policy == 1,])
-openaccess = nrow(df[df$openaccess == 1,])
+zero_mention = nrow(df[df$replic_rate == 0,]) # 42
+nonzero_mention = nrow(df[df$replic_rate != 0,]) # 56
+# 42 of 98 journals have rates of replication mention = 0
+encouraged = nrow(df[df$binary_policy == 1,]) # 2
+openaccess = nrow(df[df$openaccess_binary == 1,]) # 11
 ```
 
 The distribution of the rate of replication mention substantially varies across journals ranging from `r min_rate` to `r max_rate`\%. The median rate of replication mention is as low as `r median_rate`\% (SD = `r std_rate`), a rate that is comparable to what @makel_replications_2012 have reported in their assessment of replications in psychology.
@@ -213,8 +223,8 @@ Figure \@ref(fig:topten-plot) illustrates the variation across those journals th
 
 topten <- 
   df %>% arrange(desc(replic_rate)) %>%
-  mutate(exp_ratio = round(exp_ratio,0),
-         exp_rate = paste0(exp_ratio,"%")) %>% 
+  mutate(exp_ratio = round(exp_ratio*100,0),
+         exp_rate = paste(exp_ratio,"%")) %>% 
          #replic_rate = percent(replic_rate)) %>% # KK: could not find percent function, also seems to be not needed
   select(journals_abb, exp_rate, replic_rate) %>% 
   top_n(nonzero_mention, replic_rate) %>% 
@@ -444,20 +454,13 @@ mention_by_rate <- df %>%
 head(mention_by_rate, 1)
 ```
 
-```{r policy, echo=FALSE, eval=FALSE}
-no_encourage <- df %>% 
-  filter(binary_policy == 1) %>% 
-  count() 
-# --> only 2 out of 100 journals explicitly encourage submission of replication studies
-```
-
 # How many articles containing the term replicat* are actual replications?
 The second part of the study aimed at investigating further what types of replication studies are published and whether replications are becoming more frequent over time. Our target estimand is the proportion of experimental articles containing a replication. 
 
 Because the string replicat\* is commonly used in ambiguous ways, the articles that contained the search term required further analysis to determine whether the articles in question indeed reported a replication study or whether they used the term in a different way. 
 
 ## Material and methods
-From the superset of 98 journals obtained above, the 20 journals with the highest proportion of experimental studies were selected for a more detailed analysis while excluding journals for which less than 2 hits (TS=replicat\*) could be obtained (see at [https://osf.io/f3yp8/](https://osf.io/f3yp8/) for a list of article counts per journal).^[Component has been made private to ensure double-blind peer review. See attached file 'Sample_articles.xlsx'.] 
+From the superset of 100^[As mentioned before, the final analysis comprised 98 journals due to two journals changing their names in the respective time period. But the sample for the second part of the study was preregistered based on the previously obtained counts. Either way, the subset of journals would have been the same.] journals obtained above, the 20 journals with the highest proportion of experimental studies were selected for a more detailed analysis while excluding journals for which less than 2 hits (TS=replicat\*) could be obtained (see at [https://osf.io/f3yp8/](https://osf.io/f3yp8/) for a list of article counts per journal).^[Component has been made private to ensure double-blind peer review. See attached file 'Sample_articles.xlsx'.] 
 Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals, respectively), we randomly selected 50 out of the 114 articles for the Journal of Memory and Language (see at [https://osf.io/6vfpe/](https://osf.io/6vfpe/) for details).^[Component has been made private to ensure double-blind peer review. See attached file 'random_jml_articles.R' for anonymized version.] 
 The sampling procedure above resulted in 210 possible self-labeled replication studies with publication years ranging between 1989 and 2020. 
 
@@ -765,7 +768,7 @@ By analyzing the publication history of over 50000 articles across 98 journals t
 A more thorough analysis of `r nrow(coded_articles)` sampled experimental articles containing the term replicat\* revealed that only around half of the hits represented actual replication studies, reducing the effective replication rate to `r round(mention_rate * (nr_replications / nrow(coded_articles)),3) * 100`\%. This rate is slightly higher than reports of comparable investigations in psychology [1.6\%, @makel_replications_2012], educational science [0.1\%, @makel_facts_2014], and economics [0.1\%, @mueller2019replication]. The higher rate might be due to a methodological choice, however. Due to large plurality of methods in linguistics, we calculated the replication rate based on only those articles that contained the term experiment\* (as opposed to all articles in the sample), reducing the denominator substantially.
 
 A closer look at the nature of replication studies revealed that the majority of replication studies were studies that diverted from the initial study by at least one design choice. Only `r prop_direct`\% were direct replications, i.e. studies that directly repeated an initial study without self-reported changes to the design, and only three of these were replications conducted by an independent team of researchers.
-Taken together replicat\* mention rate and actual replication rate, `r round((mention_rate * (nr_replications / nrow(coded_articles))) * (independent_reps / nr_replications), 4) * 100`\% of experimental studies are independent direct replications in the field of linguistics. In other words, only 1 in over 1600 experimental linguistic articles is an independent direct replication. This clearly indicates that replication attempts, and especially independent direct replication attempts, are very rare in the experimental linguistics literature.
+Taking together replicat\* mention rate and actual replication rate, `r round((mention_rate * (nr_replications / nrow(coded_articles))) * (independent_reps / nr_replications), 4) * 100`\% of experimental studies are independent direct replications in the field of linguistics. In other words, only 1 in over 1600 experimental linguistic articles is an independent direct replication. This clearly indicates that replication attempts, and especially independent direct replication attempts, are very rare in the experimental linguistics literature.
 
 <!-- ## Caveats -->
 Before making our recommendations, we need to discuss important caveats to our results. If research articles were not framed as experimental, then they were not included in the analysis. If experimental articles were not framed as replications, then they were not categorized as such. While these are clear limitations to our search strategy, it might reflect a more general issue: If studies are not framed as replications by using the term replication, readers' ability to connect research to its intellectual precedents is severely limited. To circumvent this methodological problems, the entire sample would have to undergo manual coding which is not feasible for a large-scale assessment. Future research using alternative assessment methods or more in-depth investigation of subfields or specific journals might result in different replication rates. 
@@ -824,4 +827,4 @@ The authors have no competing interests to declare.
 
 Author 1: Conceptualization, Data curation, Formal analysis, Methodology, Project administration, Supervision, Writing - original draft
 Author 2: Conceptualization, Formal analysis, Methodology, Visualization, Writing review & editing
-<!--KK: CRediT roles are required according to website, but the manuscript should be anonymized.-->
+<!--CRediT roles are required according to website, but the manuscript should be anonymized.-->
