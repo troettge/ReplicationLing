@@ -26,7 +26,17 @@ replication  <-  read.csv("../data/coded.csv")
 # merge dfs
 df <- full_join(mention, guidelines)
 
-# delete older journals that have been renamed
+# the numbers of older journals are added to their new names
+# adding LANGUAGE AND COGNITIVE PROCESSES to LANGUAGE COGNITION AND NEUROSCIENCE
+df[df$journals == "LANGUAGE COGNITION AND NEUROSCIENCE",2:5] <- df[df$journals == "LANGUAGE COGNITION AND NEUROSCIENCE",2:5] + df[df$journals == "LANGUAGE AND COGNITIVE PROCESSES",2:5]
+# adding LANGUAGE AND COGNITIVE PROCESSES to DIGITAL SCHOLARSHIP IN THE HUMANITIES
+df[df$journals == "DIGITAL SCHOLARSHIP IN THE HUMANITIES",2:5] <- df[df$journals == "DIGITAL SCHOLARSHIP IN THE HUMANITIES",2:5] + df[df$journals == "LITERARY AND LINGUISTIC COMPUTING",2:5]
+
+# calculating ratio of experimental linguistics articles and rate of replication mention anew
+df[,6] <- df[,5] / df[,2]
+df[,4] <- df[,2] / df[,3]
+
+# deleting old journal names
 df <- df %>% 
   filter(!(journals %in% c("LANGUAGE AND COGNITIVE PROCESSES", "LITERARY AND LINGUISTIC COMPUTING")))
 
