@@ -99,7 +99,6 @@ emmeans(
          lower.HPD = plogis(lower.HPD),
          upper.HPD = plogis(upper.HPD)) 
 
-
 emmeans(mod,
         specs = pairwise ~ factor_of_interest | other_factor
 )
@@ -111,6 +110,19 @@ predict_diff <- predict %>%
 ## summary(xmdl_mention2)
 ## pp_check(xmdl_mention1)
 ## pp_check(xmdl_mention2)
+
+
+# concern about zero inflation
+# run a zero-one-inflated beta regression
+xmdl_mention3 = brm(no_replic | trials(no_exp)  ~ jif_s + openaccess + binary_policy_s,
+                    data = df, 
+                    prior = priors,
+                    cores = 4,
+                    iter = 4000,
+                    file  = "../data/repl_mention3_mdl.RDS",
+                    family = zero_inflated_binomial(link = "logit"))
+
+# results are virtually identical
 
 # REPLICATION: wrangle data replication----------------------------------------------------
 
