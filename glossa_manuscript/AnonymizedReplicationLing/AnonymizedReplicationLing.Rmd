@@ -68,7 +68,7 @@ col_lightGreen = "#a6dba0"
 mention <-  read.csv("../../data/mention.csv")
 guidelines  <-  read.csv("../../data/guidelines.csv")
 coded_articles  <-  read.csv("../../data/Coding_Articles.csv", sep="|")
-sample_journals <- read.csv("../../data/Sample_journals.csv")
+sample_journals <- read.csv("../../data/Sample_journals_exc.csv")
 
 # load models
 mention_model <- readRDS(file = "../../data/repl_mention2_mdl.RDS")
@@ -459,7 +459,7 @@ The second part of the study aimed at investigating further what types of replic
 Because the string replicat\* is commonly used in ambiguous ways, the articles that contained the search term required further analysis to determine whether the articles in question indeed reported a replication study or whether they used the term in a different way. 
 
 ## Material and methods
-From the superset of 100^[As mentioned before, the final analysis comprised 98 journals due to two journals changing their names in the respective time period. But the sample for the second part of the study was preregistered based on the previously obtained counts. Either way, the subset of journals would have been the same.] journals obtained above, the 20 journals with the highest proportion of experimental studies were selected for a more detailed analysis while excluding journals for which less than 2 hits (TS=replicat\*) could be obtained (see at [https://osf.io/f3yp8/](https://osf.io/f3yp8/) for a list of article counts per journal).^[Component has been made private to ensure double-blind peer review. See attached file 'Sample_articles.xlsx'.] 
+From the superset of 100 (98) journals obtained above, the 20 (19) journals^[Due to "Language and Cognitive Processes" being renamed to "Language Cognition and Neuroscience", this sample also reduced to 19 journals.] with the highest proportion of experimental studies were selected for a more detailed analysis while excluding journals for which less than 2 hits (TS=replicat\*) could be obtained (see at [https://osf.io/f3yp8/](https://osf.io/f3yp8/) for a list of article counts per journal).^[Component has been made private to ensure double-blind peer review. See attached file 'Sample_articles.xlsx'.] 
 Because of the skewed distribution of our sample (114 hits for Journal of Memory and Language, and less than 40 for all other journals, respectively), we randomly selected 50 out of the 114 articles for the Journal of Memory and Language in order to balance the sample (see at [https://osf.io/6vfpe/](https://osf.io/6vfpe/) for details).^[Component has been made private to ensure double-blind peer review. See attached file 'random_jml_articles.R' for anonymized version.] 
 The sampling procedure above resulted in 210 possible self-labeled replication studies with publication years ranging between 1989 and 2020. 
 
