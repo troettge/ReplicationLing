@@ -10,6 +10,7 @@ library(tidyverse)
 library(brms)
 library(rstudioapi)
 library(emmeans)
+library(broom)
 
 # load in data-----------------------------------------------------------------
 ## getting the path of your current open file
@@ -89,32 +90,6 @@ xmdl_mention2 = brm(no_replic | trials(no_exp) ~ jif_s + openaccess + binary_pol
                     iter = 4000,
                     file  = "../data/repl_mention2_mdl.RDS",
                     family = binomial(link = "logit"))
-
-predict <- xmdl_mention2 %>% 
-emmeans(
-        #spec = ~ jif_s,
-        specs = pairwise ~ jif_s | openaccess,
-  at = list(
-    jif_s = c(0, 1), # or whatever you want here
-    openaccess = c("no", "partial", "DOAJ gold"),     # replace with factor levels
-    binary_policy_s = 0 # replace with factor levels
-  ), 
-  re_formula = NA, # change to NA if you dont want to include grouping variable
-  #epred = TRUE,
-  allow_new_levels = TRUE
-) %>% 
-  contrast() %>% 
-  tidy() %>%
-  mutate(emmean = plogis(estimate),
-         lower.HPD = plogis(lower.HPD),
-         upper.HPD = plogis(upper.HPD)) 
-
-emmeans(mod,
-        specs = pairwise ~ factor_of_interest | other_factor
-)
-
-predict_diff <- predict %>% 
-  mutate(diff = )
 
 ## summary(xmdl_mention1)
 ## summary(xmdl_mention2)
