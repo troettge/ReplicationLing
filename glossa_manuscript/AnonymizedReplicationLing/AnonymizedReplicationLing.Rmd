@@ -20,6 +20,7 @@ keywords: replication, meta-research, journal impact factor, publishing guidelin
 wordcount: 7480
 output: 
   bookdown::pdf_book:
+      fig_crop: FALSE
       base_format: rticles::glossa_article
       citation_package: natbib
 ---
@@ -31,7 +32,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE,
                       message = FALSE)
 
-options(tinytex.verbose = TRUE)
+#options(tinytex.verbose = TRUE)
 
 #knitr::knit_opts$set(root.dir = here::here())
 
@@ -39,7 +40,7 @@ options(tinytex.verbose = TRUE)
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, scales,
-               ggstream, tidybayes, bayesplot, rticles, knitr, flextable)
+               ggstream, tidybayes, bayesplot, rticles, knitr, flextable)#, magick)
 
 # if using Mac OS:
 #current_path = rstudioapi::getActiveDocumentContext()$path 
@@ -227,7 +228,6 @@ topten <-
          #replic_rate = percent(replic_rate)) %>% # KK: could not find percent function, also seems to be not needed
   select(journals_abb, exp_rate, replic_rate) %>% 
   top_n(nonzero_mention, replic_rate) %>% 
-  #mutate(journals = fct_reorder(journals, replic_rate)) %>%
   mutate(journals_abb = fct_reorder(journals_abb, replic_rate)) %>% 
   ggplot(aes(x = replic_rate, 
              y = journals_abb,
@@ -245,11 +245,12 @@ topten <-
                      labels = c("0%","5%","10%","15%")
   ) +
   geom_text(aes(label = exp_rate),
-             x = 0.15,
-             color = "#666666",
+            x = 0.15,
+            color = "#666666",
             cex = 3,
             hjust = 1,
-            check_overlap = TRUE) +
+            check_overlap = TRUE
+            ) +
   labs(y = " ",
        x = "\nProportion of replicat* mentions in %") + #\nProportion of 'replicat*' mentions in %\n") +
   theme_minimal() +
@@ -268,7 +269,8 @@ topten <-
               axis.line = element_blank(),
               axis.title = element_text(size = 12, face = "bold"),
               plot.title = element_text(size = 14, face = "bold"),
-              plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
+              plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm")
+        )
   
 topten
 
