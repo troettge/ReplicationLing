@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = FALSE,
 # it checks if the packages specified below are installed, if not, they will be installed, if yes, they will be loaded
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(rstudioapi, truncnorm, tidyverse, brms, ggdist, distributional, scales,
-               ggstream, tidybayes, bayesplot, rticles, knitr, flextable)#, magick)
+               ggstream, tidybayes, bayesplot, rticles, knitr, flextable)
 
 # if using Mac OS:
 #current_path = rstudioapi::getActiveDocumentContext()$path 
@@ -479,7 +479,33 @@ All of the changes that have been identified by the manual coding procedure are 
 We also recorded the language under investigation.
 The information on whether the article was published open access as well as citation counts and years of publication for both studies were obtained from Web of Science.
 An author overlap was attested when at least one author was a (co-)author on both studies.
-During the coding procedure of the articles, we encountered edge cases that we did not anticipate in our preregistration: When several self-labeled replication studies were mentioned in one article, we chose the first mentioned study for our analysis. If there were one independent, but also one or more inner-paper replications, i.e. experiments that first replicated an independent initial study and then replicated results from a study in the same article, we selected the independent study for analysis. Note that since our target estimand is the rate of published articles that contain any replication, this choice does not artificially reduce the replication rate. If any, we introduce an overly optimistic bias towards independent direct replications over replications with author overlap.  
+During the coding procedure of the articles, we encountered edge cases that we did not anticipate in our preregistration: When several self-labeled replication studies were mentioned in one article, we chose the first mentioned study for our analysis. If there were one independent, but also one or more inner-paper replications, i.e. experiments that first replicated an independent initial study and then replicated results from a study in the same article, we selected the independent study for analysis. Note that since our target estimand is the rate of published articles that contain any replication, this choice does not artificially reduce the replication rate. If any, we introduce an overly optimistic bias towards independent direct replications over replications with author overlap. 
+Table \@ref(tab:coding) shows examples for the five coded changes that were used for identifying to which of the three types of replications an article belonged.
+
+```{r coding, tab.cap = "Types of changes that determined the type of replication study with examples."}
+coding_tbl <- data.frame(
+  type_of_change = c("experimental paradigm", "sample", "materials / set-up", "dependent variable", "independent variable", "control"),
+  examples = c("explicit change in experimental paradigm, 
+e.g. artificial grammar learning paradigm \u2192 oddball paradigm",
+"explicit change in population under investigation for the purpose of generalizability, 
+e.g. children \u2192 adults, \nEnglish \u2192 French, \nmonolinguals \u2192 bilinguals",
+"explicit change in material or experimental set-up,
+e.g. change in materials due to a different language, general changes to the stimulus material or presentation in order to improve the study (except for small changes like typos)",
+"explicit change in operationalization/measurement of dependent variable(s) due to theory change or a different measurement technique, 
+e.g. response times \u2192 ERP component)",
+"explicit change in operationalization/measurement of manipulated variable(s), 
+e.g. the inclusion or omission of specific manipulation conditions",
+"explicit change in control variable(s), 
+e.g. adding or excluding a specific control variable")
+) %>% 
+  rename("type of change" = type_of_change)
+
+coding <- flextable(coding_tbl)
+
+coding_fitted <- coding %>% autofit() %>% width(width = dim(coding)$widths*4.6 /(flextable_dim(coding)$widths))
+
+coding_fitted
+```
 
 ## Results and Discussion
 
@@ -803,7 +829,6 @@ sample_journals_tbl <- sample_journals %>%
          "ratio of exp. articles in %" = ratio) %>% 
   select(Journal, "no. articles", "no. exp. articles", "ratio of exp. articles in %")
 
-library(flextable)
 appendix <- flextable(sample_journals_tbl)
 
 appendix_fitted <- appendix %>% autofit() %>% width(width = dim(appendix)$widths*4.6 /(flextable_dim(appendix)$widths))
