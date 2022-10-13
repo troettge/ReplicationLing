@@ -26,11 +26,11 @@ col_lightGreen = "#a6dba0"
 # loading the data
 mention <-  read.csv("../data/mention.csv")
 guidelines  <-  read.csv("../data/guidelines.csv")
-coded_articles  <-  read.csv("../data/Coding_Articles.csv", sep="|")  
+coded_articles  <-  read.csv("../data/coded_updated.csv")  
 sample_journals <- read.csv("../Sample_journals.csv")
 
 # load models
-mention_model <- readRDS(file = "../data/repl_mention_mdl.RDS")
+mention_model <- readRDS(file = "../data/repl_mention2_mdl.RDS")
 
 # merge dfs
 df <- full_join(mention, guidelines)
@@ -49,6 +49,10 @@ df$openaccess <- ifelse(df$openaccess == "DOAJ gold", 1, 0)
 
 # list of shortened journal names
 journals_abb <- c("Humor", "Lang Learn Dev", "Morphology", "Transl Interpreting", "J Logic Lang Inf", "J Mem Lang", "J East Asian Ling", "Cogn Linguist", "Int J Speech Lang La", "J Spec Transl", "Stud Second Lang Acq", "Lang Cogn Neurosci", "Glossa", "Linguistic Res", "First Lang", "J Neurolinguistics", "Lang Learn Technol", "Biling-Lang Cogn", "J Psycholinguist Res", "3L Lang Linguist Literat", "Lab Phonol", "Lang Teach Res", "Lang Cogn", "Lang Linguist Compass", "Metaphor Symb", "Lang Learn", "J Child Lang", "J Semant", "Aphasiology", "J Lang Soc Psychol", "Int J Lang Comm Dis", "J Phon", "Appl Psycholinguist", "Lang Speech", "Acta Linguist Hung", "J Cogn Sci", "Brain Lang", "Recall", "Int J Biling", "Phonetica", "Mind Lang", "Linguist Approach Bi", "IRAL-Int Rev Appl Li", "J Speech Lang Hear R", "Interact Stud", "Arab World Eng J", "Am J Speech-Lang Pat", "Ment Lex", "Clin Linguist Phonet", "Lang Acquis", "System", "Second Lang Res", "Nat Lang Eng", "Comput Assist Lang L", "Lingua", "Lect Notes Comput Sci", "Comput Linguist", "Lect Notes Artif Int", "Phonology", "Interpreting", "Eurasian J Appl Linguist", "J Lang Educat", "Linguistics Vanguard", "Proces de Leng Nat", "Appl Linguist Res J", "Nat Lang Semant", "J Quant Linguist", "Corpus Linguist Ling", "Rev Cogn Linguist", "Interpret Transl Tra", "Poz Stud Contemp Lin", "Pragmat Cogn", "Syntax-UK", "J Res Appl Linguist", "Digit Scholarsh Hum", "Probus", "Innov Lang Learn Teach", "Int J Eng Linguist", "Across Lang Cult", "Rev Roum Linguist", "Intercult Pragmat", "Child Lang Teach The", "Lang Aware", "Gesture", "J Int Phon Assoc", "Metaphor Symb Act", "Iberica", "Annu Rev Appl Linguist", "Ling Antverp New Ser", "Terminology", "Annu Rev Linguist", "J Fr Lang Stud", "Lang Linguist", "Nord J Linguist", "Lang Lit", "Babel-Amsterdam", "Int J Corpus Linguist", "Int J Appl Linguist")
+
+# recode jif
+df$jif <- as.numeric(ifelse(df$jif == "not retrievable", NA, df$jif)) 
+df$jif_s <- df$jif - mean(df$jif, na.rm = TRUE)
 
 # include shortened journal names in dataframe
 df$journals_abb <- factor(journals_abb)
@@ -113,20 +117,24 @@ ggsave(filename = "../plots/Figure1.pdf",
 
 
 # plot Figure 2------------------------------------------------------------------
-## extract predicted values for JIF
+## extract predicted values for JIF_s from revised model 
 predicted_values <- mention_model %>%
-  spread_draws(b_Intercept, b_jif) %>%
+  spread_draws(b_Intercept, b_jif_s) %>%
   ### make a list of relevant value range of logRT
-  mutate(jif = list(seq(0, 4, 0.1))) %>% 
+  mutate(jif = list(seq(-2, 3, 0.1))) %>% 
   unnest(jif) %>%
   ### transform into proportion space using the plogis function
-  mutate(pred = plogis(b_Intercept + b_jif*jif)) %>%
+  mutate(pred = plogis(b_Intercept + b_jif_s*jif)) %>%
   pivot_longer(cols = pred,
                names_to = "factors") %>% 
   group_by(jif) %>%
   summarise(pred_m = mean(value, na.rm = TRUE),
-            pred_low = quantile(value, prob = 0.025),
-            pred_high = quantile(value, prob = 0.975)) 
+            pred_0025 = quantile(value, prob = 0.025),
+            pred_0075 = quantile(value, prob = 0.075),
+            pred_025 = quantile(value, prob = 0.25),
+            pred_075 = quantile(value, prob = 0.75),
+            pred_0925 = quantile(value, prob = 0.925),
+            pred_0975 = quantile(value, prob = 0.975)) 
 
 
 ## plot predicted values against data
@@ -134,28 +142,42 @@ Figure2 <-
   ggplot(data = predicted_values, 
          aes(x = jif, 
              y = pred_m)) +
-  geom_ribbon(aes(ymin = pred_low, 
-                  ymax = pred_high), 
-              alpha = 0.4,
+  geom_ribbon(aes(ymin = pred_0025, 
+                  ymax = pred_0975), 
+              alpha = 0.2,
               fill = "grey") +
+  geom_ribbon(aes(ymin = pred_0075, 
+                    ymax = pred_0925), 
+                alpha = 0.4,
+                fill = "grey") +
+  geom_ribbon(aes(ymin = pred_025, 
+                    ymax = pred_075), 
+                alpha = 0.6,
+                fill = "grey") +
   geom_line(color = "black", 
             size = 1.5) +
   geom_point(data = df, 
-             aes(x = jif, 
+             aes(x = jif_s, 
                  y = replic_rate,
                  size = exp_ratio,
                  fill = replic_rate),
              pch = 21,
-             alpha = 0.7, 
+             alpha = 0.8, 
              color = "white") +
   scale_fill_gradient(low = col_purple,
                       high = col_green) +
-  ylab("Predicted rate of replication mention") +
-  ylim(0, 0.20) +
-  xlim(0, 4) +
-  labs(title = " ", #Rate of mentioning the term 'replicat*'",
+  ylim(0, 0.15) +
+  #xlim(-2, 3) +
+  scale_x_continuous(limits = c(min(df$jif_s, na.rm=T) - min(df$jif, na.rm=T), 3),
+                     breaks = c(min(df$jif_s, na.rm=T) - min(df$jif, na.rm=T),
+                                min(df$jif_s, na.rm=T) - min(df$jif, na.rm=T) + 1,
+                                min(df$jif_s, na.rm=T) - min(df$jif, na.rm=T) + 2,
+                                min(df$jif_s, na.rm=T) - min(df$jif, na.rm=T) + 3,
+                                min(df$jif_s, na.rm=T) - min(df$jif, na.rm=T) + 4),
+                     labels = c(0,1,2,3,4)) +
+  labs(title = " ", 
        subtitle = "   ",
-       y = "Predicted rate of replication mention\n",
+       y = "Empirical / Predicted\n rate of replication mention\n",
        x = "\nJournal Impact Factor") +
   theme_minimal() +
   theme(legend.position = "none",
@@ -188,13 +210,13 @@ ggsave(filename = "../plots/Figure2.pdf",
 
 # subset data
 replication_sub <- coded_articles %>% 
-  filter(experimental == 1)
+  filter(experimental. == 1)
 
 ### let's plot the distribution in stream plot
 replication_sub_agg <- replication_sub %>% 
-  mutate(type2 = ifelse(is.na(type_replication), "no", 
-                        ifelse(type_replication == "", "no", as.character(type_replication)))) %>% 
-  group_by(type2, pub_year) %>% 
+  mutate(type2 = ifelse(is.na(type.of.replication), "no", 
+                        ifelse(type.of.replication == "", "no", as.character(type.of.replication)))) %>% 
+  group_by(type2, Publication.Year) %>% 
   summarise(n = n())
 
 ## change level order           
@@ -205,7 +227,7 @@ replication_sub_agg$type2 <- factor(replication_sub_agg$type2,
 
 ## original stream plot
 stream <- 
-  ggplot(replication_sub_agg, aes(x = pub_year, y = n, fill = type2)) +
+  ggplot(replication_sub_agg, aes(x = Publication.Year, y = n, fill = type2)) +
   geom_stream(bw = 0.7)  +
   scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
                     name = "") +
@@ -243,14 +265,14 @@ ggsave(filename = "../plots/stream.pdf",
 
 ## revised stream plot
 Figure3 <- 
-  ggplot(replication_sub_agg, aes(x = pub_year, y = n, fill = type2)) +
+  ggplot(replication_sub_agg, aes(x = Publication.Year, y = n, fill = type2)) +
   geom_stream(bw = 0.7, type = "ridge")  +
   scale_fill_manual(values = c("#998ec3", "#fee0b6", "#f1a340", "#b35806"),
                     name = "") +
   labs(
     #title = "Number of replication types from 1988-2020",
     subtitle = "   ",
-    x = "\nYear",
+    x = "\npublication year",
     y = "number of papers in corpus\n") +
   theme_minimal() +
   theme(legend.key.height = unit(2,"line"),

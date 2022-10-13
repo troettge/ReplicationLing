@@ -2,7 +2,7 @@
 ## Description: Bayesian Model following prereg https://osf.io/a5xd7/.
 ## Authors: Kobrock & Roettger
 ## Contact: kkobrock@uni-osnabrueck.de
-## Date: 21-03-22
+## Last Edit: 2022-10-13
 
 # preprocessing---------------
 ## load in library
@@ -19,7 +19,7 @@ setwd(dirname(current_path))
 
 mention <-  read.csv("../data/mention.csv")
 guidelines  <-  read.csv("../data/guidelines.csv")
-replication  <-  read.csv("../data/coded.csv")  
+replication  <-  read.csv("../data/coded_updated.csv")  
 
 
 # MENTIONS: wrangle data mention and guideline----------------------------------
@@ -134,7 +134,7 @@ replication_selected <- replication %>%
 
 ## how many really experimental
 round(sum(replication_selected$exp) / nrow(replication_selected), 2)
-### 0.95 (199 out of 210)
+### 0.96 (262 out of 272)
 
 ## subset only those
 replication_sub <- replication_selected %>% 
@@ -142,7 +142,7 @@ replication_sub <- replication_selected %>%
 
 ## of those how many actually replications
 round(sum(replication_sub$replication) / nrow(replication_sub), 2)
-### 0.58 (115 out of 199)
+### 0.58 (151 out of 262)
 
 ## subset only those
 replication_sub_repli <- replication_sub %>% 
@@ -157,9 +157,9 @@ round(xtabs(~type, replication_sub_repli) / nrow(replication_sub_repli), 2)
 ## of those author overlap
 round(xtabs(~type + overlap, replication_sub_repli) / nrow(replication_sub_repli), 2)
 ###            no   yes 
-### conceptual 0.26 0.30
+### conceptual 0.23 0.33
 ### direct     0.03 0.04
-### partial    0.15 0.21
+### partial    0.13 0.23
 
 ## overall direct independent replication rate 
 round(nrow(replication_sub[replication_sub$replication == 1 &
@@ -190,7 +190,7 @@ replication_sub$oa_s <- ifelse(replication_sub$oa == 0, -0.5, 0.5)
 replication_sub$direct <- ifelse(replication_sub$type == "direct", 1, 0)
 
 ## model
-xmdl_replication = brm(direct ~ year_s + oa_s + lag + citation_initial,
+xmdl_replication = brm(direct ~ year_s + oa_s + citation_initial,
            data = replication_sub, 
            prior = priors,
            cores = 4,
