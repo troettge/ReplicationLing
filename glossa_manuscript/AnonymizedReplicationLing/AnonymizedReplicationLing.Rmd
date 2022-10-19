@@ -386,9 +386,7 @@ mention_poli_prop_est <- round(predicted_values_cat[3,2,1]* 100, 1)
 mention_poli_prop_lb <- round(predicted_values_cat[3,3,1]* 100, 1)
 mention_poli_prop_hb <- round(predicted_values_cat[3,4,1]* 100, 1)
 
-
 ```
-
 The model estimates the proportion of replication mentions as `r mention_intercept_est`\% [`r mention_intercept_lb`, `r mention_intercept_hb`] for the average journal impact factor of our sample and the most common open access category "partial". The model estimates that the mention rate increases with each integer unit of jif (log odds = `r mention_jif_est` [`r mention_jif_lb`, `r mention_jif_hb`]).
 Figure \@ref(fig:plot-mention-jif) illustrates this relationship. 
 
@@ -459,7 +457,7 @@ ggplot(data = predicted_values_jif,
 mention_jif
 ```
 
-The model estimates the impact of whether the journal allows for open access publishing or not and whether replications are explicitly encouraged or not both as positive, i.e. the term replication is mentioned more often in both open access journals and in journals that explicitly encourage direct replications. Furthermore, the model estimates the relationship between open access and replication mention ordinal with higher rates in DOAJ gold open access journals than in partial open access journals. However, due to the small number of journals that explicitly encourage direct replications (`r encouraged` out of 98), and the relatively small number of open access journals (`r openaccess` out of 98), the uncertainty around all these estimates is substantial (rates increase for DOAJ gold open access: `r mention_oagold_prop_est`\% [`r mention_oagold_prop_lb`, `r mention_oagold_prop_hb`]; rates decrease for no open access: `r -mention_oano_prop_est`\% [`r mention_oano_prop_lb`, `r mention_oano_prop_hb`]; and rate increase for encouraging replication policies: `r mention_poli_prop_est`\% [`r mention_poli_prop_lb`, `r mention_poli_prop_hb`]). We thus won't discuss these results further.
+The model estimates the impact of whether the journal allows for open access publishing or not and whether replications are explicitly encouraged or not both as positive, i.e. the term replication is mentioned more often in both open access journals and in journals that explicitly encourage direct replications. Furthermore, the model estimates the relationship between open access and replication mention ordinal with higher rates in DOAJ gold open access journals than in partial open access journals. However, due to the small number of journals that explicitly encourage direct replications (`r encouraged` out of 98), and the relatively small number of open access journals (`r openaccess` out of 98), the uncertainty around all these estimates is substantial (rates increase for DOAJ gold open access: `r mention_oagold_prop_est`\% [`r mention_oagold_prop_lb`, `r mention_oagold_prop_hb`]; rates decrease for no open access: `r mention_oano_prop_est`\% [`r mention_oano_prop_lb`, `r mention_oano_prop_hb`]; and rate increase for encouraging replication policies: `r mention_poli_prop_est`\% [`r mention_poli_prop_lb`, `r mention_poli_prop_hb`]). We thus won't discuss these results further.
 
 ```{r rate of replication mention, echo=FALSE, eval=FALSE}
 
