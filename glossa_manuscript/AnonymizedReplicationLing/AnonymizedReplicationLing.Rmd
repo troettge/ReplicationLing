@@ -867,6 +867,7 @@ appendix_fitted
 [DOAJ]{.smallcaps} = Directory of Open Access Journals,
 [jif]{.smallcaps} = journal impact factor, 
 [L2]{.smallcaps} = second language
+[JML]{.smallcaps} = Journal of Memory and Language
 
 # Data availability {#data-availabilitysupplementary-files-optional .unnumbered}
 
