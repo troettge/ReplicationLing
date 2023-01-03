@@ -1,13 +1,16 @@
 ---
 title: Assessing the replication landscape in experimental linguistics
-#shorttitle:
-#shortauthors:
+shorttitle: Replication landscape in experimental linguistics
+shortauthors: Kobrock & Roettger
 author:
 - name: Kristina Kobrock
   affiliation: University of Osnabrück
-  address: University of Osnabrück, Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück, Germany
+  address: kristina.kobrock@uos.de
+  #, Institute of Cognitive Science, Wachsbleiche 27, 49090 Osnabrück, Germany
 - name: Timo B. Roettger
-  affiliation: Universitetet i Oslo, Department of Linguistics and Scandinavian Studies, Niels Henrik Abels vei 36, 0313 Oslo, Norway
+  affiliation: Universitetet i Oslo
+  #, Department of Linguistics and Scandinavian Studies, Niels Henrik Abels vei 36, 0313 Oslo, Norway
+  address: timo.b.roettger@gmail.com
 classoption: [cm, linguex]
 bibliography: r-references.bib
 abstract: |
@@ -862,11 +865,17 @@ appendix_fitted
 
 All data and analyses are available online at [https://osf.io/9ceas/](https://osf.io/9ceas/).
 
+# Acknowledgements {#acknowledgements-optional .unnumbered}
+
+We would like to thank Brian Dillon and two anonymous reviewers for their insightful comments and suggestions. All remaining errors are our own.
+
+# Funding information {#funding-information-optional .unnumbered}
+KK is supported by TODO.
+
 # Competing interests {#competing-interests-mandatory .unnumbered}
 
 The authors have no competing interests to declare.
 
 # Authors' contributions {#contrib .unnumbered}
 
-Author 1: Conceptualization, Data curation, Formal analysis, Methodology, Project administration, Supervision, Writing - original draft
-Author 2: Conceptualization, Formal analysis, Methodology, Visualization, Writing review & editing
+KK supervised the project and was responsible for its administration. KK and TR conceptualized the project, decided on the methodology and analyzed the data. KK took the lead on data curation and writing. TR provided visualizations and reviewed and edited the text.

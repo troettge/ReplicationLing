@@ -1,16 +1,16 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.19)  3 JAN 2023 15:02
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.3)  3 JAN 2023 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **ReplicationLing.tex
 (./ReplicationLing.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-09-28> (./glossa.cls
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2022-12-17> (./glossa.cls
 Document Class: glossa 2018/01/27 v.2.3 Class for Glossa
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count181
 \c@section=\count182
@@ -20,9 +20,9 @@ File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count186
 \c@figure=\count187
 \c@table=\count188
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -60,8 +60,6 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: xetex.def on input line 107.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
-\stockwidth=\dimen139
-\stockheight=\dimen140
 ))
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
@@ -74,8 +72,8 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip49
-\bibsep=\skip50
+\bibhang=\skip50
+\bibsep=\skip51
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count190
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -97,7 +95,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-09-22 v7.00t Hypertext links for LaTeX
+Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -135,7 +133,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \Hy@linkcounter=\count192
 \Hy@pagecounter=\count193
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-09-22 v7.00t Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
@@ -143,9 +141,9 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count194
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc-greekbasic.def
-File: puenc-greekbasic.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (greek block) (HO)
+File: puenc-greekbasic.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (greek block) (HO)
 ))
 Package hyperref Info: Option `colorlinks' set `true' on input line 4045.
 Package hyperref Info: Option `breaklinks' set `true' on input line 4045.
@@ -187,7 +185,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2022-09-22 v7.00t Hyperref driver for XeTeX
+File: hxetex.def 2022-11-13 v7.00u Hyperref driver for XeTeX
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
@@ -206,10 +204,10 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip51
+\Hy@SectionHShift=\skip52
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip52
+\@mathmargin=\skip53
 For additional information on amsmath, use the `?' option.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
@@ -265,57 +263,50 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \totwidth@=\dimen154
 \lineht@=\dimen155
 \@envbody=\toks23
-\multlinegap=\skip53
-\multlinetaggap=\skip54
+\multlinegap=\skip54
+\multlinetaggap=\skip55
 \mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count282
-\float@exts=\toks25
-\float@box=\box54
-\@float@everytoks=\toks26
-\@floatcapt=\box55
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip55
-\subfigcapskip=\skip56
+\subfigtopskip=\skip56
+\subfigcapskip=\skip57
 \subfigcaptopadj=\dimen156
-\subfigbottomskip=\skip57
+\subfigbottomskip=\skip58
 \subfigcapmargin=\dimen157
-\subfiglabelskip=\skip58
-\c@subfigure=\count283
-\c@lofdepth=\count284
-\c@subtable=\count285
-\c@lotdepth=\count286
+\subfiglabelskip=\skip59
+\c@subfigure=\count282
+\c@lofdepth=\count283
+\c@subtable=\count284
+\c@lotdepth=\count285
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip59
-\subfig@bottom=\skip60
+\subfig@top=\skip60
+\subfig@bottom=\skip61
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box56
-\UL@hyphenbox=\box57
-\UL@skip=\skip61
-\UL@hook=\toks27
+\UL@box=\box54
+\UL@hyphenbox=\box55
+\UL@skip=\skip62
+\UL@hook=\toks25
 \UL@height=\dimen158
-\UL@pe=\count287
+\UL@pe=\count286
 \UL@pixel=\dimen159
-\ULC@box=\box58
+\ULC@box=\box56
 Package: ulem 2019/11/18
 \ULdepth=\dimen160
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip62
+\labelindent=\skip63
 \enit@outerparindent=\dimen161
-\enit@toks=\toks28
-\enit@inbox=\box59
-\enit@count@id=\count288
-\enitdp@description=\count289
+\enit@toks=\toks26
+\enit@inbox=\box57
+\enit@count@id=\count287
+\enitdp@description=\count288
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
@@ -330,9 +321,8 @@ Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
 \caption@hangindent=\dimen169
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count290
-\c@continuedfloat=\count291
-Package caption Info: float package is loaded.
+\c@caption@flags=\count289
+\c@continuedfloat=\count290
 Package caption Info: hyperref package is loaded.
 Package caption Info: subfigure package is loaded.
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
@@ -347,63 +337,99 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen177
 \cmidrulekern=\dimen178
 \defaultaddspace=\dimen179
-\@cmidla=\count292
-\@cmidlb=\count293
+\@cmidla=\count291
+\@cmidlb=\count292
 \@aboverulesep=\dimen180
 \@belowrulesep=\dimen181
-\@thisruleclass=\count294
-\@lastruleclass=\count295
+\@thisruleclass=\count293
+\@lastruleclass=\count294
 \@thisrulewidth=\dimen182
+) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/floatrow/floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+\c@float@type=\count295
+\float@exts=\toks27
+\float@box=\box58
+\@floatcapt=\box59
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+\FR@everyfloat=\toks28
+\flrow@foot=\insert252
+\FB@wd=\dimen183
+\FBo@wd=\dimen184
+\FBc@wd=\dimen185
+\FBo@ht=\skip64
+\FBc@ht=\skip65
+\FBf@ht=\skip66
+\FBo@max=\skip67
+\FBc@max=\skip68
+\FBf@max=\skip69
+\c@FBl@b=\count296
+\floatbox@depth=\count297
+\c@FRobj=\count298
+\c@FRsobj=\count299
+\Xhsize=\skip70
+\sXhsize=\skip71
+\Zhsize=\skip72
+\sZhsize=\skip73
+\flrow@rowbox=\box60
+\FR@Zunitlength=\dimen186
+\c@FBcnt=\count300
+\FPOScnt=\count301
+\LTleft=\skip74
+\LTright=\skip75
+\LTleft=\skip76
+\LTright=\skip77
+\flrow@types=\toks29
 )
-\onelineskip=\skip63
+\onelineskip=\skip78
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/linguex/linguex.sty
 Package: linguex 2013/05/28 Example formatting for linguistics v. 4.3
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/gb4e/cgloss4e.sty
-\lineone=\box60
-\linetwo=\box61
-\linethree=\box62
-\wordone=\box63
-\wordtwo=\box64
-\wordthree=\box65
-\gline=\box66
-\glossglue=\skip64
+\lineone=\box61
+\linetwo=\box62
+\linethree=\box63
+\wordone=\box64
+\wordtwo=\box65
+\wordthree=\box66
+\gline=\box67
+\glossglue=\skip79
 )
-\c@ExNo=\count296
-\c@SubExNo=\count297
-\c@SubSubExNo=\count298
-\c@FnExNo=\count299
-\c@ABC=\count300
-\currentlabel=\skip65
-\lessthanten=\skip66
-\lessthanhundred=\skip67
-\lessthanthousand=\skip68
-\@Exleftmargin=\skip69
-\Exlabelwidth=\skip70
-\Extopsep=\skip71
-\Exindent=\skip72
-\SubExleftmargin=\skip73
-\SubSubExleftmargin=\skip74
-\Exlabelsep=\skip75
-\alignSubExnegindent=\skip76
-\Exredux=\skip77
-\digitwidth=\skip78
-\mindigitwidth=\skip79
-\c@ExDepth=\count301
-\c@TempExDepth=\count302
-\CollectTokens=\toks29
+\c@ExNo=\count302
+\c@SubExNo=\count303
+\c@SubSubExNo=\count304
+\c@FnExNo=\count305
+\c@ABC=\count306
+\currentlabel=\skip80
+\lessthanten=\skip81
+\lessthanhundred=\skip82
+\lessthanthousand=\skip83
+\@Exleftmargin=\skip84
+\Exlabelwidth=\skip85
+\Extopsep=\skip86
+\Exindent=\skip87
+\SubExleftmargin=\skip88
+\SubSubExleftmargin=\skip89
+\Exlabelsep=\skip90
+\alignSubExnegindent=\skip91
+\Exredux=\skip92
+\digitwidth=\skip93
+\mindigitwidth=\skip94
+\c@ExDepth=\count307
+\c@TempExDepth=\count308
+\CollectTokens=\toks30
 LaTeX Info: Redefining \b on input line 307.
 LaTeX Info: Redefining \c on input line 311.
 LaTeX Info: Redefining \d on input line 313.
-\c@tmpaEx=\count303
+\c@tmpaEx=\count309
 ) (./cgloss.sty
-\lineone=\box67
-\linetwo=\box68
-\linethree=\box69
-\wordone=\box70
-\wordtwo=\box71
-\wordthree=\box72
-\gline=\box73
-\glossglue=\skip80
+\lineone=\box68
+\linetwo=\box69
+\linethree=\box70
+\wordone=\box71
+\wordtwo=\box72
+\wordthree=\box73
+\gline=\box74
+\glossglue=\skip95
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xyling/xyling.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xy.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing: catcodes, docmode, (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyrecat.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyidioms.tex)
 
  Xy-pic version 3.8.9 <2013/10/06>
@@ -411,85 +437,85 @@ LaTeX Info: Redefining \d on input line 313.
  Xy-pic is free software: see the User's Guide for details.
 
 Loading kernel: messages; fonts; allocations: state,
-\X@c=\dimen183
-\Y@c=\dimen184
-\U@c=\dimen185
-\D@c=\dimen186
-\L@c=\dimen187
-\R@c=\dimen188
-\Edge@c=\toks30
-\X@p=\dimen189
-\Y@p=\dimen190
-\U@p=\dimen191
-\D@p=\dimen192
-\L@p=\dimen193
-\R@p=\dimen194
-\Edge@p=\toks31
-\X@origin=\dimen195
-\Y@origin=\dimen196
-\X@xbase=\dimen197
-\Y@xbase=\dimen198
-\X@ybase=\dimen199
-\Y@ybase=\dimen256
-\X@min=\dimen257
-\Y@min=\dimen258
-\X@max=\dimen259
-\Y@max=\dimen260
-\lastobjectbox@=\box74
-\zerodotbox@=\box75
-\almostz@=\dimen261
+\X@c=\dimen187
+\Y@c=\dimen188
+\U@c=\dimen189
+\D@c=\dimen190
+\L@c=\dimen191
+\R@c=\dimen192
+\Edge@c=\toks31
+\X@p=\dimen193
+\Y@p=\dimen194
+\U@p=\dimen195
+\D@p=\dimen196
+\L@p=\dimen197
+\R@p=\dimen198
+\Edge@p=\toks32
+\X@origin=\dimen199
+\Y@origin=\dimen256
+\X@xbase=\dimen257
+\Y@xbase=\dimen258
+\X@ybase=\dimen259
+\Y@ybase=\dimen260
+\X@min=\dimen261
+\Y@min=\dimen262
+\X@max=\dimen263
+\Y@max=\dimen264
+\lastobjectbox@=\box75
+\zerodotbox@=\box76
+\almostz@=\dimen265
 direction,
-\d@X=\dimen262
-\d@Y=\dimen263
-\K@=\count304
-\KK@=\count305
-\Direction=\count306
-\K@dXdY=\dimen264
-\K@dYdX=\dimen265
+\d@X=\dimen266
+\d@Y=\dimen267
+\K@=\count310
+\KK@=\count311
+\Direction=\count312
+\K@dXdY=\dimen268
+\K@dYdX=\dimen269
 \xyread@=\read2
 \xywrite@=\write3
-\csp@=\count307
-\quotPTK@=\dimen266
+\csp@=\count313
+\quotPTK@=\dimen270
 utility macros; pictures: \xy, positions,
-\swaptoks@@=\toks32
-\connectobjectbox@@=\box76
+\swaptoks@@=\toks33
+\connectobjectbox@@=\box77
 objects,
-\styletoks@=\toks33
+\styletoks@=\toks34
 decorations; kernel objects: directionals, circles, text; options; algorithms: directions, edges, connections;  Xy-pic loaded)
 Package: xy 2013/10/06 Xy-pic version 3.8.9
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xydvips.tex  Xy-pic option: DVIPS driver v.3.9 loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyps.tex  Xy-pic option: PostScript backend v.3.12 drivers, hooks, loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xycolor.tex  Xy-pic option: Colour extension v.3.11 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyps-c.tex (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyps-s.tex)) loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyall.tex  Xy-pic option: All features v.3.8 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xycurve.tex  Xy-pic option: Curve and Spline extension v.3.12 curve,
-\crv@cnt@=\count308
-\crvpts@=\toks34
-\splinebox@=\box77
-\splineval@=\dimen267
-\splinedepth@=\dimen268
-\splinetol@=\dimen269
-\splinelength@=\dimen270
+\crv@cnt@=\count314
+\crvpts@=\toks35
+\splinebox@=\box78
+\splineval@=\dimen271
+\splinedepth@=\dimen272
+\splinetol@=\dimen273
+\splinelength@=\dimen274
 circles,
-\L@=\dimen271
+\L@=\dimen275
 loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyframe.tex  Xy-pic option: Frame and Bracket extension v.3.14 loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xycmtip.tex  Xy-pic option: Computer Modern tip extension v.3.7 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xytips.tex  Xy-pic option: More Tips extension v.3.11 loaded) loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyline.tex  Xy-pic option: Line styles extension v.3.10
-\xylinethick@=\dimen272
+\xylinethick@=\dimen276
 loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyrotate.tex  Xy-pic option: Rotate and Scale extension v.3.8 loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xymatrix.tex  Xy-pic option: Matrix feature v.3.14
-\Row=\count309
-\Col=\count310
-\queue@=\toks35
-\queue@@=\toks36
-\qcount@=\count311
-\qcount@@=\count312
-\matrixsize@=\count313
+\Row=\count315
+\Col=\count316
+\queue@=\toks36
+\queue@@=\toks37
+\qcount@=\count317
+\qcount@@=\count318
+\matrixsize@=\count319
 loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyarrow.tex  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xygraph.tex  Xy-pic option: Graph feature v.3.11 loaded) loaded)) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xycrayon.tex  Xy-pic option: Crayola Colours v.3.7 loaded)
-\c@PXcnt=\count314
-\TXTwidth=\skip81
-\GLOSSwidth=\skip82
-\PGwidth=\skip83
+\c@PXcnt=\count320
+\TXTwidth=\skip96
+\GLOSSwidth=\skip97
+\PGwidth=\skip98
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/forest/forest.sty
 Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks37
-\pgfutil@tempdima=\dimen273
-\pgfutil@tempdimb=\dimen274
+\pgfutil@everybye=\toks38
+\pgfutil@tempdima=\dimen277
+\pgfutil@tempdimb=\dimen278
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box78
+\pgfutil@abb=\box79
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
 ))
@@ -497,31 +523,31 @@ Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks38
-\pgfkeys@temptoks=\toks39
+\pgfkeys@pathtoks=\toks39
+\pgfkeys@temptoks=\toks40
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks40
+\pgfkeys@tmptoks=\toks41
 ))
-\pgf@x=\dimen275
-\pgf@y=\dimen276
-\pgf@xa=\dimen277
-\pgf@ya=\dimen278
-\pgf@xb=\dimen279
-\pgf@yb=\dimen280
-\pgf@xc=\dimen281
-\pgf@yc=\dimen282
-\pgf@xd=\dimen283
-\pgf@yd=\dimen284
+\pgf@x=\dimen279
+\pgf@y=\dimen280
+\pgf@xa=\dimen281
+\pgf@ya=\dimen282
+\pgf@xb=\dimen283
+\pgf@yb=\dimen284
+\pgf@xc=\dimen285
+\pgf@yc=\dimen286
+\pgf@xd=\dimen287
+\pgf@yd=\dimen288
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count315
-\c@pgf@countb=\count316
-\c@pgf@countc=\count317
-\c@pgf@countd=\count318
-\t@pgf@toka=\toks41
-\t@pgf@tokb=\toks42
-\t@pgf@tokc=\toks43
-\pgf@sys@id@count=\count319
+\c@pgf@counta=\count321
+\c@pgf@countb=\count322
+\c@pgf@countc=\count323
+\c@pgf@countd=\count324
+\t@pgf@toka=\toks42
+\t@pgf@tokb=\toks43
+\t@pgf@tokc=\toks44
+\pgf@sys@id@count=\count325
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
@@ -533,62 +559,62 @@ File: pgfsys-dvipdfmx.def 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 )
-\pgfsys@objnum=\count320
+\pgfsys@objnum=\count326
 ))) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count321
-\pgfsyssoftpath@bigbuffer@items=\count322
+\pgfsyssoftpath@smallbuffer@items=\count327
+\pgfsyssoftpath@bigbuffer@items=\count328
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen285
-\pgfmath@count=\count323
-\pgfmath@box=\box79
-\pgfmath@toks=\toks44
-\pgfmath@stack@operand=\toks45
-\pgfmath@stack@operation=\toks46
+\pgfmath@dimen=\dimen289
+\pgfmath@count=\count329
+\pgfmath@box=\box80
+\pgfmath@toks=\toks45
+\pgfmath@stack@operand=\toks46
+\pgfmath@stack@operation=\toks47
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count324
+\c@pgfmathroundto@lastzeros=\count330
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen286
-\pgf@picmaxx=\dimen287
-\pgf@picminy=\dimen288
-\pgf@picmaxy=\dimen289
-\pgf@pathminx=\dimen290
-\pgf@pathmaxx=\dimen291
-\pgf@pathminy=\dimen292
-\pgf@pathmaxy=\dimen293
-\pgf@xx=\dimen294
-\pgf@xy=\dimen295
-\pgf@yx=\dimen296
-\pgf@yy=\dimen297
-\pgf@zx=\dimen298
-\pgf@zy=\dimen299
+\pgf@picminx=\dimen290
+\pgf@picmaxx=\dimen291
+\pgf@picminy=\dimen292
+\pgf@picmaxy=\dimen293
+\pgf@pathminx=\dimen294
+\pgf@pathmaxx=\dimen295
+\pgf@pathminy=\dimen296
+\pgf@pathmaxy=\dimen297
+\pgf@xx=\dimen298
+\pgf@xy=\dimen299
+\pgf@yx=\dimen300
+\pgf@yy=\dimen301
+\pgf@zx=\dimen302
+\pgf@zy=\dimen303
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen300
-\pgf@path@lasty=\dimen301
+\pgf@path@lastx=\dimen304
+\pgf@path@lasty=\dimen305
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen302
-\pgf@shorten@start@additional=\dimen303
+\pgf@shorten@end@additional=\dimen306
+\pgf@shorten@start@additional=\dimen307
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfpic=\box80
-\pgf@hbox=\box81
-\pgf@layerbox@main=\box82
-\pgf@picture@serial@count=\count325
+\pgfpic=\box81
+\pgf@hbox=\box82
+\pgf@layerbox@main=\box83
+\pgf@picture@serial@count=\count331
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen304
+\pgflinewidth=\dimen308
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen305
-\pgf@pt@y=\dimen306
-\pgf@pt@temp=\dimen307
+\pgf@pt@x=\dimen309
+\pgf@pt@y=\dimen310
+\pgf@pt@temp=\dimen311
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
@@ -597,17 +623,17 @@ File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen308
+\pgfarrowsep=\dimen312
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen309
-\pgf@sys@shading@range@num=\count326
-\pgf@shadingcount=\count327
+\pgf@max=\dimen313
+\pgf@sys@shading@range@num=\count332
+\pgf@shadingcount=\count333
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfexternal@startupbox=\box83
+\pgfexternal@startupbox=\box84
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
@@ -618,52 +644,52 @@ File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodeparttextbox=\box84
+\pgfnodeparttextbox=\box85
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen310
-\pgf@nodesepend=\dimen311
+\pgf@nodesepstart=\dimen314
+\pgf@nodesepend=\dimen315
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen312
-\pgffor@skip=\dimen313
-\pgffor@stack=\toks47
-\pgffor@toks=\toks48
+\pgffor@iter=\dimen316
+\pgffor@skip=\dimen317
+\pgffor@stack=\toks48
+\pgffor@toks=\toks49
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count328
-\pgfplotmarksize=\dimen314
+\pgf@plot@mark@count=\count334
+\pgfplotmarksize=\dimen318
 )
-\tikz@lastx=\dimen315
-\tikz@lasty=\dimen316
-\tikz@lastxsaved=\dimen317
-\tikz@lastysaved=\dimen318
-\tikz@lastmovetox=\dimen319
-\tikz@lastmovetoy=\dimen320
-\tikzleveldistance=\dimen321
-\tikzsiblingdistance=\dimen322
-\tikz@figbox=\box85
-\tikz@figbox@bg=\box86
-\tikz@tempbox=\box87
-\tikz@tempbox@bg=\box88
-\tikztreelevel=\count329
-\tikznumberofchildren=\count330
-\tikznumberofcurrentchild=\count331
-\tikz@fig@count=\count332
+\tikz@lastx=\dimen319
+\tikz@lasty=\dimen320
+\tikz@lastxsaved=\dimen321
+\tikz@lastysaved=\dimen322
+\tikz@lastmovetox=\dimen323
+\tikz@lastmovetoy=\dimen324
+\tikzleveldistance=\dimen325
+\tikzsiblingdistance=\dimen326
+\tikz@figbox=\box86
+\tikz@figbox@bg=\box87
+\tikz@tempbox=\box88
+\tikz@tempbox@bg=\box89
+\tikztreelevel=\count335
+\tikznumberofchildren=\count336
+\tikznumberofcurrentchild=\count337
+\tikz@fig@count=\count338
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count333
-\pgfmatrixcurrentcolumn=\count334
-\pgf@matrix@numberofcolumns=\count335
+\pgfmatrixcurrentrow=\count339
+\pgfmatrixcurrentcolumn=\count340
+\pgf@matrix@numberofcolumns=\count341
 )
-\tikz@expandcount=\count336
+\tikz@expandcount=\count342
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
@@ -688,39 +714,39 @@ File: pgflibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodepartlowerbox=\box89
-\pgfnodeparttwobox=\box90
-\pgfnodepartthreebox=\box91
-\pgfnodepartfourbox=\box92
-\pgfnodeparttwentybox=\box93
-\pgfnodepartnineteenbox=\box94
-\pgfnodeparteighteenbox=\box95
-\pgfnodepartseventeenbox=\box96
-\pgfnodepartsixteenbox=\box97
-\pgfnodepartfifteenbox=\box98
-\pgfnodepartfourteenbox=\box99
-\pgfnodepartthirteenbox=\box100
-\pgfnodeparttwelvebox=\box101
-\pgfnodepartelevenbox=\box102
-\pgfnodeparttenbox=\box103
-\pgfnodepartninebox=\box104
-\pgfnodeparteightbox=\box105
-\pgfnodepartsevenbox=\box106
-\pgfnodepartsixbox=\box107
-\pgfnodepartfivebox=\box108
+\pgfnodepartlowerbox=\box90
+\pgfnodeparttwobox=\box91
+\pgfnodepartthreebox=\box92
+\pgfnodepartfourbox=\box93
+\pgfnodeparttwentybox=\box94
+\pgfnodepartnineteenbox=\box95
+\pgfnodeparteighteenbox=\box96
+\pgfnodepartseventeenbox=\box97
+\pgfnodepartsixteenbox=\box98
+\pgfnodepartfifteenbox=\box99
+\pgfnodepartfourteenbox=\box100
+\pgfnodepartthirteenbox=\box101
+\pgfnodeparttwelvebox=\box102
+\pgfnodepartelevenbox=\box103
+\pgfnodeparttenbox=\box104
+\pgfnodepartninebox=\box105
+\pgfnodeparteightbox=\box106
+\pgfnodepartsevenbox=\box107
+\pgfnodepartsixbox=\box108
+\pgfnodepartfivebox=\box109
 ))) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
 File: tikzlibraryfit.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
-\pgf@intersect@solutions=\count337
+\pgf@intersect@solutions=\count343
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks49
-\pgfopts@list@add@b@toks=\toks50
+\pgfopts@list@add@a@toks=\toks50
+\pgfopts@list@add@b@toks=\toks51
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count338
+\etb@tempcnta=\count344
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/elocalloc/elocalloc.sty
 Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
@@ -728,163 +754,162 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-09-28 L3 programming layer (loader) 
+Package: expl3 2022-12-17 L3 programming layer (loader) 
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2022-09-28 L3 backend support: XeTeX
-\g__graphics_track_int=\count339
-\l__pdf_internal_box=\box109
-\g__pdf_backend_object_int=\count340
-\g__pdf_backend_annotation_int=\count341
-\g__pdf_backend_link_int=\count342
+File: l3backend-xetex.def 2022-10-26 L3 backend support: XeTeX
+\g__graphics_track_int=\count345
+\l__pdf_internal_box=\box110
+\g__pdf_backend_object_int=\count346
+\g__pdf_backend_annotation_int=\count347
+\g__pdf_backend_link_int=\count348
 ))
-Package: xparse 2022-06-22 L3 Experimental document command parser
+Package: xparse 2022-12-17 L3 Experimental document command parser
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/inlinedef/inlinedef.sty
 Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
-\ID@toks=\toks51
-\ID@count=\count343
+\ID@toks=\toks52
+\ID@count=\count349
 )
-\ID@usercommands=\toks52
-\safeloop@depth=\count344
-\safeRKloop@depth=\count345
-\forest@temp@dimen=\dimen323
-\forest@temp@count=\count346
-\forest@n=\count347
-\forest@temp@global@count=\count348
-\forest@temp@toks=\toks53
-\forest@temparray@M=\count349
-\forest@temparray@N=\count350
-\forest@global@temparray@M=\count351
-\forest@global@temparray@N=\count352
-\forest@isnum@count=\count353
-\forest@isdim@nonintpart=\count354
-\forest@isdim@dimen=\dimen324
-\forest@sort@m=\count355
-\forest@sort@k=\count356
-\forest@sort@p=\count357
-\bracket@content=\toks54
-\bracket@afterthought=\toks55
-\forest@node@maxid=\count358
-\forest@process@left@M=\count359
-\forest@process@left@N=\count360
-\forest@process@right@M=\count361
-\forest@process@right@N=\count362
-\forest@process@saved@M=\count363
-\forest@process@saved@N=\count364
-\forest@process@result@M=\count365
-\forest@process@result@N=\count366
-\forest@process@n=\count367
-\forest@nodewalk@branch@toks=\toks56
-\forest@nodewalk@shortsteps@resolution=\toks57
-\forest@do@dynamics=\toks58
-\forest@box=\box110
-\forest@xg=\dimen325
-\forest@yg=\dimen326
-\forest@xs=\dimen327
-\forest@ys=\dimen328
-\forest@pi@toks=\toks59
-\forest@segment@toks=\toks60
-\forest@PIi@toks=\toks61
-\forest@PIii@toks=\toks62
+\ID@usercommands=\toks53
+\safeloop@depth=\count350
+\safeRKloop@depth=\count351
+\forest@temp@dimen=\dimen327
+\forest@temp@count=\count352
+\forest@n=\count353
+\forest@temp@global@count=\count354
+\forest@temp@toks=\toks54
+\forest@temparray@M=\count355
+\forest@temparray@N=\count356
+\forest@global@temparray@M=\count357
+\forest@global@temparray@N=\count358
+\forest@isnum@count=\count359
+\forest@isdim@nonintpart=\count360
+\forest@isdim@dimen=\dimen328
+\forest@sort@m=\count361
+\forest@sort@k=\count362
+\forest@sort@p=\count363
+\bracket@content=\toks55
+\bracket@afterthought=\toks56
+\forest@node@maxid=\count364
+\forest@process@left@M=\count365
+\forest@process@left@N=\count366
+\forest@process@right@M=\count367
+\forest@process@right@N=\count368
+\forest@process@saved@M=\count369
+\forest@process@saved@N=\count370
+\forest@process@result@M=\count371
+\forest@process@result@N=\count372
+\forest@process@n=\count373
+\forest@nodewalk@branch@toks=\toks57
+\forest@nodewalk@shortsteps@resolution=\toks58
+\forest@do@dynamics=\toks59
+\forest@box=\box111
+\forest@xg=\dimen329
+\forest@yg=\dimen330
+\forest@xs=\dimen331
+\forest@ys=\dimen332
+\forest@pi@toks=\toks60
+\forest@segment@toks=\toks61
+\forest@PIi@toks=\toks62
+\forest@PIii@toks=\toks63
 \forest@copy@in=\read4
 \forest@copy@out=\write5
-\forest@externalize@max@outer@n=\count368
-\forest@externalize@inner@n=\count369
+\forest@externalize@max@outer@n=\count374
+\forest@externalize@inner@n=\count375
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/forest/forest-lib-linguistics.sty
 Package: forest-lib-linguistics 2017/07/14 v0.1.2
-\standardnodestrutbox=\box111
+\standardnodestrutbox=\box112
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip84
-\LTright=\skip85
-\LTpre=\skip86
-\LTpost=\skip87
-\LTchunksize=\count370
-\LTcapwidth=\dimen329
-\LT@head=\box112
-\LT@firsthead=\box113
-\LT@foot=\box114
-\LT@lastfoot=\box115
-\LT@gbox=\box116
-\LT@cols=\count371
-\LT@rows=\count372
-\c@LT@tables=\count373
-\c@LT@chunks=\count374
-\LT@p@ftn=\toks63
+\LTleft=\skip99
+\LTright=\skip100
+\LTpre=\skip101
+\LTpost=\skip102
+\LTchunksize=\count376
+\LTcapwidth=\dimen333
+\LT@head=\box113
+\LT@firsthead=\box114
+\LT@foot=\box115
+\LT@lastfoot=\box116
+\LT@gbox=\box117
+\LT@cols=\count377
+\LT@rows=\count378
+\c@LT@tables=\count379
+\c@LT@chunks=\count380
+\LT@p@ftn=\toks64
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen330
-\ar@mcellbox=\box117
-\extrarowheight=\dimen331
-\NC@list=\toks64
-\extratabsurround=\skip88
-\backup@length=\skip89
-\ar@cellbox=\box118
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen334
+\ar@mcellbox=\box118
+\extrarowheight=\dimen335
+\NC@list=\toks65
+\extratabsurround=\skip103
+\backup@length=\skip104
+\ar@cellbox=\box119
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count375
-\calc@Bcount=\count376
-\calc@Adimen=\dimen332
-\calc@Bdimen=\dimen333
-\calc@Askip=\skip90
-\calc@Bskip=\skip91
+\calc@Acount=\count381
+\calc@Bcount=\count382
+\calc@Adimen=\dimen336
+\calc@Bdimen=\dimen337
+\calc@Askip=\skip105
+\calc@Bskip=\skip106
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count377
-\calc@Cskip=\skip92
+\calc@Ccount=\count383
+\calc@Cskip=\skip107
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
-\fn@notes=\box119
-\fn@width=\dimen334
+\fn@notes=\box120
+\fn@width=\dimen338
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count378
-\l__fontspec_language_int=\count379
-\l__fontspec_strnum_int=\count380
-\l__fontspec_tmp_int=\count381
-\l__fontspec_tmpa_int=\count382
-\l__fontspec_tmpb_int=\count383
-\l__fontspec_tmpc_int=\count384
-\l__fontspec_em_int=\count385
-\l__fontspec_emdef_int=\count386
-\l__fontspec_strong_int=\count387
-\l__fontspec_strongdef_int=\count388
-\l__fontspec_tmpa_dim=\dimen335
-\l__fontspec_tmpb_dim=\dimen336
-\l__fontspec_tmpc_dim=\dimen337
+\l__fontspec_script_int=\count384
+\l__fontspec_language_int=\count385
+\l__fontspec_strnum_int=\count386
+\l__fontspec_tmp_int=\count387
+\l__fontspec_tmpa_int=\count388
+\l__fontspec_tmpb_int=\count389
+\l__fontspec_tmpc_int=\count390
+\l__fontspec_em_int=\count391
+\l__fontspec_emdef_int=\count392
+\l__fontspec_strong_int=\count393
+\l__fontspec_strongdef_int=\count394
+\l__fontspec_tmpa_dim=\dimen339
+\l__fontspec_tmpb_dim=\dimen340
+\l__fontspec_tmpc_dim=\dimen341
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip93
-\multirow@cntb=\count389
-\multirow@dima=\skip94
-\bigstrutjot=\dimen338
+\multirow@colwidth=\skip108
+\multirow@cntb=\count395
+\multirow@dima=\skip109
+\bigstrutjot=\dimen342
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
-\c@tracingmulticols=\count390
-\mult@box=\box120
-\multicol@leftmargin=\dimen339
-\c@unbalance=\count391
-\c@collectmore=\count392
-\doublecol@number=\count393
-\multicoltolerance=\count394
-\multicolpretolerance=\count395
-\full@width=\dimen340
-\page@free=\dimen341
-\premulticols=\dimen342
-\postmulticols=\dimen343
-\multicolsep=\skip95
-\multicolbaselineskip=\skip96
-\partial@page=\box121
-\last@line=\box122
-\maxbalancingoverflow=\dimen344
-\mult@rightbox=\box123
-\mult@grightbox=\box124
-\mult@firstbox=\box125
-\mult@gfirstbox=\box126
-\@tempa=\box127
+\c@tracingmulticols=\count396
+\mult@box=\box121
+\multicol@leftmargin=\dimen343
+\c@unbalance=\count397
+\c@collectmore=\count398
+\doublecol@number=\count399
+\multicoltolerance=\count400
+\multicolpretolerance=\count401
+\full@width=\dimen344
+\page@free=\dimen345
+\premulticols=\dimen346
+\postmulticols=\dimen347
+\multicolsep=\skip110
+\multicolbaselineskip=\skip111
+\partial@page=\box122
+\last@line=\box123
+\maxbalancingoverflow=\dimen348
+\mult@rightbox=\box124
+\mult@grightbox=\box125
+\mult@firstbox=\box126
+\mult@gfirstbox=\box127
 \@tempa=\box128
 \@tempa=\box129
 \@tempa=\box130
@@ -920,20 +945,21 @@ Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \@tempa=\box160
 \@tempa=\box161
 \@tempa=\box162
-\c@minrows=\count396
-\c@columnbadness=\count397
-\c@finalcolumnbadness=\count398
-\last@try=\dimen345
-\multicolovershoot=\dimen346
-\multicolundershoot=\dimen347
-\mult@nat@firstbox=\box163
-\colbreak@box=\box164
-\mc@col@check@num=\count399
+\@tempa=\box163
+\c@minrows=\count402
+\c@columnbadness=\count403
+\c@finalcolumnbadness=\count404
+\last@try=\dimen349
+\multicolovershoot=\dimen350
+\multicolundershoot=\dimen351
+\mult@nat@firstbox=\box164
+\colbreak@box=\box165
+\mc@col@check@num=\count405
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
-\everycr=\toks65
-\minrowclearance=\skip97
-\rownum=\count400
+\everycr=\toks66
+\minrowclearance=\skip112
+\rownum=\count406
 ) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
 ) (./ReplicationLing.aux)
@@ -950,7 +976,7 @@ LaTeX Font Info:    ... okay on input line 88.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 88.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 88.
 LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 88.
@@ -971,12 +997,20 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
 Package hyperref Info: Link coloring ON on input line 88.
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: floatrow package is loaded.
 Package caption Info: longtable package is loaded.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
+Package caption Info: Fixing longtable code of `floatrow' package.
 Package caption Info: End \AtBeginDocument code.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyps-ps.tex)
+(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/floatrow/fr-longtable.sty
+Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
+\flrow@LT@lasthead=\box166
+\flrow@LT@prelastfoot=\box167
+\c@FBLTpage=\count407
+) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyps-ps.tex)
 
 Xy-pic Warning: The produced DVI file is NOT PORTABLE [ReplicationLing:88]:
  It contains <driver> `dvips' \specials for the `PostScript' extension.
@@ -1040,17 +1074,16 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 88.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `TU/lmss/m/sl' tried instead on input line 92.
-(c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyps-pro.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xypspatt.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xypsdict.tex) [1
-
-] [2] [3]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 162.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 92.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 162.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 92.
 (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [4]
+) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xyps-pro.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xypspatt.tex) (c:/Users/Kristina/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xypic/xypsdict.tex) [1
+
+] [2] [3] [4]
 File: ReplicationLing_files/figure-latex/topten-plot-1.pdf Graphic file (type pdf)
 <use ReplicationLing_files/figure-latex/topten-plot-1.pdf>
 
@@ -1097,14 +1130,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 378--378
 [][][][][]$[][][][][] [] [] [] [][][] [] [][][][][][][][] [] [][][][][][][][] [] [][][] [] [][][][][][][] [][] [][] [][] [][][][][][] [][] [][][] [][] [][][][][][][][] [] [][][][] [][] [][][] [][] [][][][][][] [] [][][][][][][][][][][] [][]
  []
 
-[13] [14] [15] [16] [17] [18] [19] [20] (./ReplicationLing.bbl [21] [22] [23] [24]) [25] (./ReplicationLing.aux) ) 
-Here is how much of TeX's memory you used:
- 42899 strings out of 477743
- 921497 string characters out of 5842186
- 1416896 words of memory out of 5000000
- 63270 multiletter control sequences out of 15000+600000
- 478284 words of font info for 100 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 98i,10n,94p,1613b,574s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ReplicationLing.pdf (25 pages).
+Package natbib Warning: Citation `isager2021deciding' on page 13 undefined on input line 383.
+
+
+Package natbib Warning: Citation `hardwicke2018bayesian' on page 13 undefined on input line 383.
+
+
+Package natbib Warning: Citation `frank2012teaching' on page 13 undefined on input line 384.
+
+[13] [14] [15] [16] [17] [18] [19] [20] (./ReplicationLing.bbl [21] [22] [23] [24] [25])
+
+Package natbib Warning: There were undefined citations.
+
+[26] (./ReplicationLing.aux) ) 
+Here is how much of TeX's memory you used:
+ 43412 strings out of 478777
+ 929403 string characters out of 5849073
+ 1953973 words of memory out of 5000000
+ 62742 multiletter control sequences out of 15000+600000
+ 522382 words of font info for 111 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 98i,10n,94p,1613b,584s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on ReplicationLing.pdf (26 pages).
