@@ -1,8 +1,0 @@
----
-title: "Generating numbers and figures for Kobrock & Roettger (2022)"
-author: "Kobrock, Roettger"
-date: "2/10/2022"
-output: html_document
----
-
-

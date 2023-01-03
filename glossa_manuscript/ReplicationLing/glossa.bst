@@ -5,7 +5,6 @@
 %%% created by Patrick W Daly. There have been some hand-coded adjustments to that
 %%% style to get the style closer to the Unified Style Sheet for Linguistics Journals.
 %%%
-%%% Version 1.3 [2021/7/1] changed the internal order of names to last-first throughout, and & between all names in name lists, in accordance with Haspelmath's `The Generic Style Rules for Linguistics'.
 %%% Version 1.2 [2017/2/16] corrected minor mistake (to get a comma preceding page numbers of articles in edited volumes)
 %%% Version 1.1 [2016/12/24] rewrote the function format.number.series to improve the treatment of book series (series title in to appear in roman font between brackets followed by optional number field)
 %%% Version 1.0 [2016/04/21] last names with a prefix have the prefix first and are alphabetized accordingly
@@ -102,10 +101,7 @@ FUNCTION {output.check}
   if$
 }
 FUNCTION {fin.entry}
-{ doi empty$
-    { add.period$ }
-    { }
-  if$
+{ add.period$
   write$
   newline$
 }
@@ -430,9 +426,7 @@ FUNCTION {format.names.ed}
       nameptr #1 >
         {
           namesleft #1 >
-            { 
-            	bbl.and
-				space.word * t * }
+            { ", " * t * }
             {
               s nameptr "{ll}" format.name$ duplicate$ "others" =
                 { 't := }
