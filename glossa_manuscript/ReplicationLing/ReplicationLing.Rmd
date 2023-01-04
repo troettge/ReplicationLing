@@ -130,7 +130,7 @@ coded_articles <- coded_articles_updated %>%
 ```
 
 # Introduction
-Understanding the inner workings of human language and its cognitive underpinnings has been increasingly shaped by experimental data. With a field that builds its theories on a rapidly growing body of experimental evidence, it is of critical importance to evaluate and substantiate existing findings in the literature because evidence provided by a single study is limited  [e.g., @amrhein2019inferential]. Scientists are trained to ensure the reliability and generalizability of scientific findings by conducting direct replication studies, i.e. studies that aim to arrive at the same scientific conclusions as an initial study by collecting new data and completing new analyses but using the same methodology [see @barba_terminologies_2018 for a comprehensive overview of different terminological uses]. 
+Understanding the inner workings of human language and its cognitive underpinnings has been increasingly shaped by experimental data. With a field that builds its theories on a rapidly growing body of experimental evidence, it is of critical importance to evaluate and substantiate existing findings in the literature because evidence provided by a single study is limited  [e.g., @amrhein2019inferential]. Scientists are trained to ensure the reliability and generalizability of scientific findings by conducting direct replication studies, i.e. studies that aim to arrive at the same scientific conclusions as an initial study by collecting new data and completing new analyses but using the same methodology [for a comprehensive overview of different terminological uses see @barba_terminologies_2018]. 
 
 Replications are an integral part of cumulative experimental science [e.g., @campbell_reforms_1969; @rosenthal_replication_1990; @zwaan_making_2018]. Yet many scientific disciplines do not replicate a lot. Researchers from diverse fields such as psychology [@makel_replications_2012], educational science [@makel_facts_2014], ecology [@kelly2019rate], criminology [@mcneeley2015replication], and economics [@mueller2019replication] report on very low numbers of published replications, ranging from 0.02\% in ecology to 2\% in criminology.
 
@@ -183,7 +183,7 @@ The key dependent variable of the first part of this study was the rate of repli
 The study design has been preregistered at 2021-03-08 and can be inspected at [https://osf.io/a5xd7/](https://osf.io/a5xd7/). 
 
 In order to determine the rates of replication mention for individual journals, we drew on a method introduced by @makel_replications_2012. 
-First, a sample of 100 journals relevant to the field of experimental linguistics was identified by making use of the search engine ["Web of Science" (https://webofknowledge.com)](https://webofknowledge.com) (access date: 2021-03-03). We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term experiment\* in title, abstract or keywords in order to ensure that the subset contained journals that are relevant for experimental linguistics research. Among those, all articles categorized as having been published in English and between 1945-2020 were taken into account.^[The Web of Science catalog includes articles from 1945 to present. All full available years (at the date of retrieval) have been included in the analysis. The first entries for the category "Linguistics" date back to the year 1948 and the first hit for the search term "replicat*" was obtained for the year 1969.]
+First, a sample of 100 journals relevant to the field of experimental linguistics was identified by making use of the search engine [Web of Science (https://webofknowledge.com)](https://webofknowledge.com) (access date: 2021-03-03). We restricted the search results to journals in the web of science category "Linguistics" which had at least 100 articles published and a high ratio of articles containing the term "experiment\*" in title, abstract or keywords in order to ensure that the subset contained journals that are relevant for experimental linguistics research. Among those, all articles categorized as having been published in English and between 1945-2020 were taken into account.^[The Web of Science catalog includes articles from 1945 to present. All full available years (at the date of retrieval) have been included in the analysis. The first entries for the category Linguistics date back to the year 1948 and the first hit for the search term "replicat*" was obtained for the year 1969.]
 
 ```{r exp_ratio}
 exp_ratio_median = round(median(df$exp_ratio*100),1) # 11.5
@@ -191,10 +191,10 @@ exp_ratio_min = round(min(df$exp_ratio*100),1) # 6.1
 exp_ratio_max = round(max(df$exp_ratio*100),1) # 60.3
 ```
 
-The ratio between overall number of articles and those articles mentioning the term "experiment\*" ranged between `r exp_ratio_min`\% and `r exp_ratio_max`\% (with a median of `r exp_ratio_median`\%) across journals.
+The ratio between overall number of articles and those articles mentioning the term experiment\* ranged between `r exp_ratio_min`\% and `r exp_ratio_max`\% (with a median of `r exp_ratio_median`\%) across journals.
 The full sample of journals can be inspected in the appendix of this article.^[Two journals, namely "Language and Cognitive Processes" (since 2014: "Language, Cognition and Neuroscience") and "Literary and Linguistic Computing" (since 2015: "Digital Scholarship in the Humanities"), have been renamed. The article counts of the old and new journal names were combined under the new name. Our final sample thus included only 98 journals.]
 
-After journal selection, we obtained the total count of articles containing the search term replicat\* in title, abstract or keywords for each journal. 
+After journal selection, we obtained the total count of articles containing the search term "replicat\*" in title, abstract or keywords for each journal. 
 Following the method presented by Makel et al. [-@makel_replications_2012], the rates of replication mention were calculated by dividing the number of articles containing the term replicat\* by the total number of eligible articles for each journal. As we were only interested in experimental linguistic studies, we only considered articles containing the search term experiment\* as eligible.
 
 Rates of replication mention were then related to three journal properties: journal policies with regards to replication studies, journal impact factor and whether the journal publishes open access or not.
@@ -215,7 +215,7 @@ sum_repl = sum(df$no_replic) # 382
 mention_rate = round((sum_repl / sum_exp), 3) # 0.045
 ```
 
-Out of the `r sum_articles` articles in our sample, `r sum_exp` mentioned the term 'experiment\*' in title, abstract, or keywords and were thus assumed to be articles presenting an experimental investigation. 
+Out of the `r sum_articles` articles in our sample, `r sum_exp` mentioned the term experiment\* in title, abstract, or keywords and were thus assumed to be articles presenting an experimental investigation. 
 Out of these articles, `r sum_repl` contained the term replicat\* which results in a mention rate of `r round(mention_rate * 100, 2)`\% across experimental linguistic articles.  
 
 ```{r mean and variance, echo=FALSE}
@@ -300,7 +300,7 @@ We statistically estimated the rate of replication mention as predicted relative
 centered journal impact factors (continuous, henceforth jif), open access type (no, partial, DOAJ gold), and replication policies (binary: either explicitly encourage or not).\footnote{We diverted from the preregistered protocol after constructive exchanges with our reviewers: We originally planned to use uncentered jif and open access as a binary covariate. Using uncentered jif would have provided an intercept representing journals with a journal impact factor of 0. Centering the variable to the mean jif of our sampled journals allows for a more intuitive interpretation of the coefficients. Second, we preregistered a dichotomization of open access policy which might obscure a more nuanced relationship between open access policy and replication rate. We thus opted for including all three levels of our open access variable in the final model. Both the preregistered and revised models are available in our repository.}
 We used Bayesian parameter estimation based on generalized linear regression models with a binomial link function.\footnote{A possible concern of our modelling strategy might be an inflation of zeroes if there are too many journals without a single mention of the search term. A zero-inflated binomial regression can account for such an inflation. Thus, we additionally ran a zero-inflated binomial model. The resulting estimates for our parameters are highly compatible with those from the simpler binomial model. Both models are available in our repository.} 
 The model was fitted to the proportion of replication mentions per journal using the R package brms [@burkner_brms_2016]. 
-We used weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on zero (scale = 2.5) for all population-level regression coefficients. 
+We used weakly informative normal priors centered on 0 (sd = 2.5) for the intercept and Cauchy priors centered on 0 (scale = 2.5) for all population-level regression coefficients. 
 These priors are what is referred to as regularizing [@gelman_weakly_2008], thus making our model conservative with regards to the predictors under investigation. 
 Four sampling chains with 2000 iterations each have been run for each model, with a warm-up period of 1000 iterations.
 For relevant predictor levels and contrasts between predictor levels, we report the posterior probability for the rate of replication mention. 
@@ -857,8 +857,11 @@ appendix_fitted
 # Abbreviations {#abbrev .unnumbered}
 
 [DOAJ]{.smallcaps} = Directory of Open Access Journals,
-[jif]{.smallcaps} = journal impact factor, 
-[L2]{.smallcaps} = second language
+
+[jif]{.smallcaps} = journal impact factor,
+
+[L2]{.smallcaps} = second language,
+
 [JML]{.smallcaps} = Journal of Memory and Language
 
 # Data availability {#data-availabilitysupplementary-files-optional .unnumbered}
