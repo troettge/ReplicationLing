@@ -116,6 +116,17 @@ ggsave(filename = "../plots/Figure1.pdf",
        dpi = 300)
 
 
+ggsave(filename = "../plots/Figure1.tiff",
+       plot = Figure1,
+       device = "tiff",
+       bg = "white",
+       width = 120, 
+       height = 300,
+       units = "mm",
+       dpi = 300)
+
+
+
 # plot Figure 2------------------------------------------------------------------
 ## extract predicted values for JIF_s from revised model 
 predicted_values <- mention_model %>%
@@ -200,6 +211,15 @@ Figure2 <-
 ggsave(filename = "../plots/Figure2.pdf",
        plot = Figure2,
        device = "pdf",
+       width = 120, 
+       height = 120,
+       units = "mm",
+       dpi = 300)
+
+ggsave(filename = "../plots/Figure2.tiff",
+       plot = Figure2,
+       device = "tiff",
+       bg = "white",
        width = 120, 
        height = 120,
        units = "mm",
@@ -295,6 +315,16 @@ Figure3 <-
 ggsave(filename = "../plots/Figure3.pdf",
        plot = Figure3,
        device = "pdf",
+       width = 160, 
+       height = 120,
+       units = "mm",
+       dpi = 300)
+
+## store plot tiff 
+ggsave(filename = "../plots/Figure3.tiff",
+       plot = Figure3,
+       device = "tiff",
+       bg = "white",
        width = 160, 
        height = 120,
        units = "mm",
