@@ -873,7 +873,7 @@ All data and analyses are available online at [https://osf.io/9ceas/](https://os
 We would like to thank Brian Dillon and two anonymous reviewers for their insightful comments and suggestions. All remaining errors are our own.
 
 # Funding information {#funding-information-optional .unnumbered}
-KK is supported by TODO.
+KK is supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - GRK 2340.
 
 # Competing interests {#competing-interests-mandatory .unnumbered}
 
