@@ -110,8 +110,8 @@ Figure1 <-
 ggsave(filename = "../plots/Figure1.pdf",
        plot = Figure1,
        device = "pdf",
-       width = 120, 
-       height = 300,
+       width = 140, 
+       height = 240,
        units = "mm",
        dpi = 300)
 
@@ -120,8 +120,8 @@ ggsave(filename = "../plots/Figure1.tiff",
        plot = Figure1,
        device = "tiff",
        bg = "white",
-       width = 120, 
-       height = 300,
+       width = 140, 
+       height = 240,
        units = "mm",
        dpi = 300)
 
@@ -189,7 +189,7 @@ Figure2 <-
   labs(title = " ", 
        subtitle = "   ",
        y = "Empirical / Predicted\n rate of replication mention\n",
-       x = "\nJournal Impact Factor") +
+       x = "\nJournal impact factor") +
   theme_minimal() +
   theme(legend.position = "none",
         legend.key.height = unit(2,"line"),
@@ -211,7 +211,7 @@ Figure2 <-
 ggsave(filename = "../plots/Figure2.pdf",
        plot = Figure2,
        device = "pdf",
-       width = 120, 
+       width = 160, 
        height = 120,
        units = "mm",
        dpi = 300)
@@ -220,7 +220,7 @@ ggsave(filename = "../plots/Figure2.tiff",
        plot = Figure2,
        device = "tiff",
        bg = "white",
-       width = 120, 
+       width = 160, 
        height = 120,
        units = "mm",
        dpi = 300)
@@ -306,7 +306,7 @@ Figure3 <-
         strip.text.y = element_text(size = 12, hjust = 0),
         axis.text = element_text(size = 12),
         axis.line = element_blank(),
-        axis.title.y = element_text(size = 10),
+        axis.title.y = element_text(size = 12),
         axis.title.x = element_text(size = 12),
         plot.title = element_text(size = 14, face = "bold"),
         plot.margin = unit(c(0.6,0.6,0.6,0.6),"cm"))
